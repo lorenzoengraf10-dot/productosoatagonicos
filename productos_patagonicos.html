@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Patagónicos | Lorenzo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8e2d2; 
+            color: #333;
+        }
+        header {
+            background-color: #432820; 
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            border-bottom: 5px solid #d4a34b; 
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        header p {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #d4a34b;
+            margin-top: 10px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .hero {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .hero h2 {
+            color: #432820;
+            font-size: 2rem;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 1rem;
+        }
+        .product-card {
+            background-color: #432820; 
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: white;
+            border: 2px solid #5a382d;
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 3px solid white; 
+        }
+        .product-card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .product-card p {
+            margin: 5px 0;
+            font-size: 1.1rem;
+            color: #e8e2d2;
+        }
+        .etiqueta {
+            color: #d4a34b;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        .precio {
+            background-color: white;
+            color: #2c1a15;
+            font-size: 2rem;
+            font-weight: bold;
+            border-radius: 15px;
+            padding: 10px 20px;
+            display: inline-block;
+            margin: 15px 0;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #432820;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            border: 2px solid #d4a34b;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background-color: #d4a34b;
+            color: #432820;
+        }
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 15px;
+            display: block;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: auto;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+        }
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        .formulario-descuento {
+            max-width: 600px; 
+            margin: 50px auto; 
+            padding: 30px; 
+            background-color: #432820; 
+            color: white; 
+            border-radius: 15px; 
+            border: 2px solid #d4a34b; 
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        .formulario-descuento h2 {
+            color: #d4a34b; 
+            margin-top: 0; 
+            font-size: 2rem;
+        }
+        .formulario-descuento input {
+            padding: 12px; 
+            border-radius: 8px; 
+            border: none; 
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .btn-enviar {
+            background-color: #d4a34b; 
+            color: #432820; 
+            padding: 15px; 
+            border: none; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            margin-top: 10px; 
+            text-transform: uppercase;
+        }
+        .btn-enviar:hover {
+            background-color: #e6b322;
+        }
+        footer {
+            background-color: #432820;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 5px solid #d4a34b;
+        }
+    </style>
+</head>
+<body>
+ 
+<header>
+    <div class="container">
+        <h1>PRODUCTOS PATAGÓNICOS</h1>
+        <p>el 1er aplauso de un asado se lo lleva la picada</p>
+    </div>
+</header>
+ 
+<div class="container">
+    <section class="hero">
+        <h2>ELEGÍ TU PICADA</h2>
+        <p>Hacé clic en el producto que más te guste para encargarlo directamente.</p>
+    </section>
+ 
+    <section class="products">
+        <div class="product-card">
+            <img src="tradicional.JPEG" alt="Picada Tradicional">
+            <div>
+                <h3>PICADA "TRADICIONAL"</h3>
+                <p>PICAN 7 Y COMEN 4</p>
+                <div class="etiqueta">NUEVO ENVASE</div>
+                <div class="precio">$15.000</div>
+            </div>
+            <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional." target="_blank" class="btn-whatsapp">📲 Encargar</a>
+        </div>
+ 
+        <div class="product-card">
+            <img src="bondiola.JPEG" alt="Bondiola">
+            <div>
+                <h3>BONDIOLA</h3>
+                <p>Envasada al vacío</p>
+                <div class="precio">$3.000</div>
+            </div>
+            <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20bondiola%20E.V." target="_blank" class="btn-whatsapp">📲 Encargar</a>
+        </div>
+ 
+        <div class="product-card">
+            <img src="odisea.JPEG" alt="Picada La Odisea">
+            <div>
+                <div class="etiqueta">NUEVO PRODUCTO</div>
+                <div class="precio">$20.000</div>
+            </div>
+            <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea." target="_blank" class="btn-whatsapp">📲 Encargar</a>
+        </div>
+ 
+        <div class="product-card">
+            <img src="simple.JPEG" alt="Picada Simple">
+            <div>
+                <h3>PICADA "SIMPLE"</h3>
+                <p>PICAN 4 COMEN 2</p>
+                <div class="precio">$12.000</div>
+            </div>
+            <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple." target="_blank" class="btn-whatsapp">📲 Encargar</a>
+        </div>
+ 
+        <div class="product-card">
+            <img src="embutidos.JPEG" alt="Chorizos, Longaniza y Salame">
+            <div>
+                <h3>CHORIZOS SECO, LONGANIZA Y SALAME  CON QUESO</h3>
+                <p>envasado al vacio</p>
+                <div class="precio">$3.000</div>
+            </div>
+            <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20los%20embutidos%20envasados%20al%20vacio." target="_blank" class="btn-whatsapp">📲 Encargar</a>
+        </div>
+ 
+        <div class="product-card">
+            <img src="simple-ev.JPEG" alt="Picada Simple EV">
+            <div>
+                <h3>PICADA "SIMPLE" EV</h3>
+                <p>PICAN 4 COMEN 2</p>
+                <div class="precio">$12.000</div>
+            </div>
+            <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple%20e.v." target="_blank" class="btn-whatsapp">📲 Encargar</a>
+        </div>
+    </section>
+  
+    <section class="formulario-descuento">
+        <h2>¡OBTENÉ UN 10% DE DESCUENTO!</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 25px;">Registrate dejando tus datos y llevate un 10% off en tu próximo pedido.</p>
+ 
+        <form action="https://formsubmit.co/engraflolo10@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 15px; text-align: left;">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Nuevo registro para descuento del 5%">
+ 
+            <input type="text" name="Nombre" placeholder="Tu Nombre y Apellido" required>
+            <input type="email" name="Email" placeholder="Tu Gmail o correo electrónico" required>
+            <input type="tel" name="Telefono" placeholder="Tu número telefónico" required>
+ 
+            <button type="submit" class="btn-enviar">Registrarme y obtener descuento</button>
+        </form>
+    </section>
+ 
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Tengo%20una%20consulta%20sobre%20los%20productos." target="_blank" class="btn">Hacer una consulta directa a nuestro vendedor</a>
+    </div>
+</div>
+ 
+<footer>
+    <p>📍 Elaboración Artesanal en Carmen de Patagones | el sabor de la comarca</p>
+    <p>Contactanos por WhatsApp para hacer tu pedido.</p>
+</footer>
+ 
+</body>
+</html>
