@@ -1,11 +1,12 @@
+cat > /mnt/user-data/outputs/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="width=device-width, initial-scale=1.0">
-    <title>Productos Patagónicos | tabla de picadas | embutidos artesanales| fiambres carmen de patagones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Patagónicos</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@300;400;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
-    <style> CSS y otros metas
+    <style>
         :root {
             --brand-dark: #1a0e0a;
             --brand-brown: #432820;
@@ -803,7 +804,7 @@
         <text x="720" y="495" text-anchor="middle"
               font-family="Georgia, serif" font-style="italic"
               font-size="12" fill="#c8922a" fill-opacity="0.3" letter-spacing="6">
-           COMARCA
+            RÍO NEGRO
         </text>
     </svg>
 
@@ -888,7 +889,7 @@
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">La Odisea</h3>
-                    <p class="card-description">PICAN 10 COMEN 6</p>
+                    <p class="card-description">pican 10 comen 6</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>20.000</div>
                         <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea." target="_blank" class="btn-order">📲 Encargar</a>
@@ -983,3 +984,5 @@
 
 </body>
 </html>
+HTMLEOF
+echo "Done"
