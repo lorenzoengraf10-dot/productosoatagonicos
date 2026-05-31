@@ -11,11 +11,8 @@
         function gtag(){ dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        // Configuración base — reemplazá el ID
         gtag('config', 'G-ECT5HJY5XG', {
-            // Envía el país/ciudad del visitante automáticamente
             anonymize_ip: false,
-            // Permite ver de qué página/red social vienen
             campaign_id: true
         });
     </script>
@@ -65,7 +62,6 @@
             background: radial-gradient(ellipse at 30% 60%, #4a2010 0%, #220e06 55%, #0a0402 100%);
         }
 
-        /* Bridge SVG background */
         .bridge-bg {
             position: absolute;
             bottom: 0;
@@ -612,6 +608,273 @@
             .hero-cta { flex-direction: column; align-items: center; }
             .cta-btn { width: 100%; max-width: 300px; justify-content: center; }
         }
+
+        /* ══════════════════════════════════════════
+           MODAL DE PRODUCTO — estilos añadidos
+        ══════════════════════════════════════════ */
+        .product-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(10, 4, 2, 0.88);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-modal-overlay.is-open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .product-modal {
+            position: relative;
+            width: 100%;
+            max-width: 580px;
+            background: linear-gradient(145deg, #2e1710 0%, #1a0e0a 100%);
+            border: 1px solid rgba(200,146,42,0.45);
+            border-radius: 4px;
+            overflow: hidden;
+            transform: scale(0.88) translateY(24px);
+            transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(200,146,42,0.12);
+        }
+
+        .product-modal-overlay.is-open .product-modal {
+            transform: scale(1) translateY(0);
+        }
+
+        /* barra dorada superior */
+        .product-modal::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+        }
+
+        .modal-img-wrapper {
+            position: relative;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .modal-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.65) saturate(0.95);
+            transition: transform 0.6s ease;
+        }
+
+        .product-modal-overlay.is-open .modal-img-wrapper img {
+            transform: scale(1.04);
+        }
+
+        .modal-img-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26,14,10,1) 0%, rgba(26,14,10,0.2) 55%, transparent 100%);
+        }
+
+        .modal-badge {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: var(--brand-gold);
+            color: var(--brand-dark);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.75rem;
+            border-radius: 2px;
+        }
+
+        .modal-body {
+            padding: 1.6rem 2rem 2rem;
+        }
+
+        .modal-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--brand-cream);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-description {
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            color: var(--brand-parchment);
+            opacity: 0.65;
+            text-transform: uppercase;
+            margin-bottom: 1.4rem;
+        }
+
+        /* línea divisora fina */
+        .modal-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .modal-divider::before,
+        .modal-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(200,146,42,0.3);
+        }
+
+        .modal-divider-diamond {
+            width: 6px; height: 6px;
+            background: var(--brand-gold);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+
+        .modal-components-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.45em;
+            color: var(--brand-gold);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+        }
+
+        .modal-components-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.7rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .modal-components-list li {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(200,146,42,0.1);
+            border: 1px solid rgba(200,146,42,0.22);
+            border-radius: 2px;
+            padding: 0.4rem 0.85rem;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--brand-cream);
+            text-transform: capitalize;
+        }
+
+        .modal-components-list li::before {
+            content: '✦';
+            font-size: 0.5rem;
+            color: var(--brand-gold);
+            opacity: 0.8;
+        }
+
+        .modal-weight {
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--brand-gold);
+            opacity: 0.85;
+            margin-bottom: 1.6rem;
+        }
+
+        .modal-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .modal-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--brand-gold-light);
+            line-height: 1;
+        }
+
+        .modal-price sup {
+            font-size: 0.45em;
+            vertical-align: super;
+            color: var(--brand-gold);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 36px; height: 36px;
+            background: rgba(26,14,10,0.75);
+            border: 1px solid rgba(200,146,42,0.35);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+            z-index: 5;
+            color: var(--brand-cream);
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            background: rgba(200,146,42,0.25);
+            border-color: var(--brand-gold);
+        }
+
+        /* hint de toque en tarjeta */
+        .product-card[data-has-modal] {
+            position: relative;
+        }
+
+        .product-card[data-has-modal] .card-img-wrapper::after {
+            content: '👁 Ver detalle';
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(26,14,10,0.75);
+            border: 1px solid rgba(200,146,42,0.4);
+            color: var(--brand-gold-light);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 2px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .product-card[data-has-modal]:hover .card-img-wrapper::after {
+            opacity: 1;
+        }
+
+        @media (max-width: 640px) {
+            .modal-img-wrapper { height: 200px; }
+            .modal-body { padding: 1.3rem 1.4rem 1.6rem; }
+            .modal-name { font-size: 1.8rem; }
+            .modal-price { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
@@ -619,33 +882,25 @@
 <!-- ══════════ HERO ══════════ -->
 <header>
 
-    <!-- PUENTE FERRO-CARRETERO CARMEN DE PATAGONES / VIEDMA — SVG dibujado en dorado -->
     <svg class="bridge-bg" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
             <linearGradient id="goldFade" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%"   stop-color="#c8922a" stop-opacity="0.72"/>
                 <stop offset="100%" stop-color="#c8922a" stop-opacity="0.08"/>
             </linearGradient>
-            <!-- glow filter -->
             <filter id="glow">
                 <feGaussianBlur stdDeviation="2.5" result="blur"/>
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
         </defs>
 
-        <!-- ── AGUA / RÍO NEGRO ── thin horizontal shimmer -->
         <line x1="0" y1="470" x2="1440" y2="470" stroke="#c8922a" stroke-width="0.6" stroke-opacity="0.18"/>
         <line x1="0" y1="478" x2="1440" y2="478" stroke="#c8922a" stroke-width="0.4" stroke-opacity="0.10"/>
 
-        <!-- ── TABLERO / CALZADA PRINCIPAL ── -->
-        <!-- calzada superior (carretera) -->
         <line class="bridge-path" x1="0" y1="340" x2="1440" y2="340" stroke="url(#goldFade)" stroke-width="3" filter="url(#glow)"/>
-        <!-- calzada inferior (ferrocarril) -->
         <line class="bridge-path" x1="0" y1="370" x2="1440" y2="370" stroke="url(#goldFade)" stroke-width="2"/>
-        <!-- rieles -->
         <line class="bridge-path" x1="0" y1="362" x2="1440" y2="362" stroke="#c8922a" stroke-width="0.8" stroke-opacity="0.35"/>
         <line class="bridge-path" x1="0" y1="378" x2="1440" y2="378" stroke="#c8922a" stroke-width="0.8" stroke-opacity="0.35"/>
-        <!-- durmientes -->
         <g stroke="#c8922a" stroke-width="1.2" stroke-opacity="0.25" class="bridge-path">
             <line x1="60"  y1="360" x2="60"  y2="380"/>
             <line x1="100" y1="360" x2="100" y2="380"/>
@@ -683,48 +938,29 @@
             <line x1="1380" y1="360" x2="1380" y2="380"/>
         </g>
 
-        <!-- ── PILAS / PILARES ── (7 pilares sobre el río) -->
         <g class="bridge-path" fill="none" stroke="#c8922a" stroke-opacity="0.55">
-            <!-- pila 1 -->
             <rect x="100"  y="370" width="18" height="100" stroke-width="1.5"/>
             <line x1="109" y1="370" x2="109" y2="470" stroke-width="0.5" stroke-opacity="0.3"/>
-            <!-- pila 2 -->
             <rect x="260"  y="370" width="18" height="100" stroke-width="1.5"/>
-            <!-- pila 3 -->
             <rect x="440"  y="370" width="18" height="100" stroke-width="1.5"/>
-            <!-- pila 4 central -->
             <rect x="700"  y="370" width="22" height="100" stroke-width="2"/>
-            <!-- pila 5 -->
             <rect x="960"  y="370" width="18" height="100" stroke-width="1.5"/>
-            <!-- pila 6 -->
             <rect x="1160" y="370" width="18" height="100" stroke-width="1.5"/>
-            <!-- pila 7 -->
             <rect x="1310" y="370" width="18" height="100" stroke-width="1.5"/>
         </g>
 
-        <!-- ── ARCOS DEL PUENTE ── parabolic arches between piers -->
         <g class="bridge-path" fill="none" stroke="#c8922a" stroke-width="2.2" stroke-opacity="0.65" filter="url(#glow)">
-            <!-- arco 0→1 -->
             <path d="M 0,340 Q 55,240 118,340"/>
-            <!-- arco 1→2 -->
             <path d="M 118,340 Q 189,205 278,340"/>
-            <!-- arco 2→3 -->
             <path d="M 278,340 Q 369,190 458,340"/>
-            <!-- arco 3→4 central (más alto) -->
             <path d="M 458,340 Q 580,150 711,340"/>
-            <!-- arco 4→5 -->
             <path d="M 711,340 Q 836,190 978,340"/>
-            <!-- arco 5→6 -->
             <path d="M 978,340 Q 1069,205 1178,340"/>
-            <!-- arco 6→7 -->
             <path d="M 1178,340 Q 1244,220 1328,340"/>
-            <!-- arco 7→end -->
             <path d="M 1328,340 Q 1384,260 1440,340"/>
         </g>
 
-        <!-- ── RIOSTRAS VERTICALES (suspenders) ── -->
         <g class="bridge-path" stroke="#c8922a" stroke-opacity="0.28" stroke-width="0.9">
-            <!-- tramo arco 3-4 (el más alto, más riostras) -->
             <line x1="490" y1="316" x2="490" y2="340"/>
             <line x1="520" y1="295" x2="520" y2="340"/>
             <line x1="550" y1="278" x2="550" y2="340"/>
@@ -733,26 +969,22 @@
             <line x1="640" y1="257" x2="640" y2="340"/>
             <line x1="670" y1="259" x2="670" y2="340"/>
             <line x1="700" y1="265" x2="700" y2="340"/>
-            <!-- tramo arco 2-3 -->
             <line x1="300" y1="310" x2="300" y2="340"/>
             <line x1="330" y1="283" x2="330" y2="340"/>
             <line x1="360" y1="267" x2="360" y2="340"/>
             <line x1="390" y1="258" x2="390" y2="340"/>
             <line x1="420" y1="258" x2="420" y2="340"/>
-            <!-- tramo arco 4-5 -->
             <line x1="740" y1="267" x2="740" y2="340"/>
             <line x1="775" y1="258" x2="775" y2="340"/>
             <line x1="810" y1="258" x2="810" y2="340"/>
             <line x1="845" y1="267" x2="845" y2="340"/>
             <line x1="880" y1="285" x2="880" y2="340"/>
             <line x1="915" y1="310" x2="915" y2="340"/>
-            <!-- tramo arco 1-2 -->
             <line x1="140" y1="295" x2="140" y2="340"/>
             <line x1="165" y1="272" x2="165" y2="340"/>
             <line x1="190" y1="260" x2="190" y2="340"/>
             <line x1="215" y1="262" x2="215" y2="340"/>
             <line x1="240" y1="274" x2="240" y2="340"/>
-            <!-- tramo arco 5-6 -->
             <line x1="1010" y1="310" x2="1010" y2="340"/>
             <line x1="1040" y1="286" x2="1040" y2="340"/>
             <line x1="1070" y1="272" x2="1070" y2="340"/>
@@ -761,12 +993,9 @@
             <line x1="1155" y1="291" x2="1155" y2="340"/>
         </g>
 
-        <!-- ── BARANDAS SUPERIORES ── -->
         <g class="bridge-path" stroke="#c8922a" stroke-opacity="0.40" stroke-width="1">
-            <!-- baranda superior carretera -->
             <line x1="0" y1="330" x2="1440" y2="330"/>
             <line x1="0" y1="346" x2="1440" y2="346"/>
-            <!-- balaustres -->
             <line x1="60"  y1="330" x2="60"  y2="346"/>
             <line x1="90"  y1="330" x2="90"  y2="346"/>
             <line x1="120" y1="330" x2="120" y2="346"/>
@@ -815,7 +1044,6 @@
             <line x1="1410" y1="330" x2="1410" y2="346"/>
         </g>
 
-        <!-- ── LABEL RÍO NEGRO ── -->
         <text x="720" y="495" text-anchor="middle"
               font-family="Georgia, serif" font-style="italic"
               font-size="12" fill="#c8922a" fill-opacity="0.3" letter-spacing="6">
@@ -835,7 +1063,6 @@
         <p class="header-tagline">el 1er aplauso de un asado se lo lleva la picada</p>
     </div>
 
-    <!-- ── BOTONES DE ACCIÓN ── -->
     <div class="hero-cta">
         <a href="#picadas" class="cta-btn cta-btn-primary">
             🧀 Ver Picadas
@@ -865,7 +1092,15 @@
     <div class="products-section">
         <div class="products-grid">
 
-            <div class="product-card">
+            <div class="product-card" data-has-modal
+                 data-modal-name="Picada Tradicional"
+                 data-modal-description="Pican 7 y comen 4"
+                 data-modal-img="tradicional.jpeg"
+                 data-modal-badge="Nuevo Envase"
+                 data-modal-price="$15.000"
+                 data-modal-weight="750 g"
+                 data-modal-components="Chorizo seco,Mortadela,Bondiola,Queso criollo,Morcilla blanca,Morcilla negra"
+                 data-modal-wa="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional.">
                 <div class="card-img-wrapper">
                     <img src="tradicional.jpeg" alt="Picada Tradicional">
                     <div class="card-img-overlay"></div>
@@ -896,7 +1131,15 @@
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" data-has-modal
+                 data-modal-name="La Odisea"
+                 data-modal-description="La experiencia definitiva"
+                 data-modal-img="odisea.jpeg"
+                 data-modal-badge="Nuevo Producto"
+                 data-modal-price="$20.000"
+                 data-modal-weight="1 kg"
+                 data-modal-components="Queso criollo,Chorizo seco,Queso pategras,Longaniza española,Salame con queso,Bondiola,Mortadela"
+                 data-modal-wa="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea.">
                 <div class="card-img-wrapper">
                     <img src="odisea.jpeg" alt="Picada La Odisea">
                     <div class="card-img-overlay"></div>
@@ -912,7 +1155,14 @@
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" data-has-modal
+                 data-modal-name="Picada Simple"
+                 data-modal-description="Pican 4, comen 2"
+                 data-modal-img="simple.jpeg"
+                 data-modal-price="$12.000"
+                 data-modal-weight="500 g"
+                 data-modal-components="Chorizo seco,Mortadela,Queso criollo,Bondiola"
+                 data-modal-wa="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple.">
                 <div class="card-img-wrapper">
                     <img src="simple.jpeg" alt="Picada Simple">
                     <div class="card-img-overlay"></div>
@@ -942,7 +1192,14 @@
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" data-has-modal
+                 data-modal-name="Picada Simple EV"
+                 data-modal-description="Pican 4, comen 2 · Envasada al vacío"
+                 data-modal-img="simple-ev.jpeg"
+                 data-modal-price="$12.000"
+                 data-modal-weight="500 g"
+                 data-modal-components="Chorizo seco,Mortadela,Queso criollo,Bondiola"
+                 data-modal-wa="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple%20e.v.">
                 <div class="card-img-wrapper">
                     <img src="simple-ev.jpeg" alt="Picada Simple EV">
                     <div class="card-img-overlay"></div>
@@ -997,18 +1254,46 @@
     </div>
 </footer>
 
+<!-- ══════════════════════════════════════════════════
+     MODAL DE DETALLE DE PRODUCTO
+     Se inserta una sola vez y se rellena dinámicamente
+     con los data-* de la tarjeta clickeada.
+══════════════════════════════════════════════════ -->
+<div class="product-modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalProductName">
+
+    <div class="product-modal">
+
+        <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar">✕</button>
+
+        <div class="modal-img-wrapper">
+            <img id="modalImg" src="" alt="">
+            <div class="modal-img-gradient"></div>
+            <span class="modal-badge" id="modalBadge" style="display:none"></span>
+        </div>
+
+        <div class="modal-body">
+            <h2 class="modal-name" id="modalProductName"></h2>
+            <p class="modal-description" id="modalDescription"></p>
+
+            <div class="modal-divider"><div class="modal-divider-diamond"></div></div>
+
+            <p class="modal-components-label">Componentes</p>
+            <ul class="modal-components-list" id="modalComponentsList"></ul>
+
+            <span class="modal-weight" id="modalWeight"></span>
+
+            <div class="modal-footer">
+                <div class="modal-price" id="modalPrice"></div>
+                <a href="#" id="modalWaBtn" target="_blank" class="btn-order">📲 Encargar</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 <!-- ══════════════════════════════════════════════════════════════
      MARKETING ANALYTICS — EVENTOS PERSONALIZADOS
-     Qué mide cada bloque:
-     1. scroll_profundidad   → hasta dónde llega el visitante
-     2. clic_producto        → qué picada le llama la atención
-     3. clic_whatsapp        → cuántos van a encargar (y desde qué producto)
-     4. clic_cta_hero        → qué botón del inicio usan más
-     5. registro_descuento   → conversiones reales del formulario
-     6. tiempo_en_pagina     → cuántos segundos pasa antes de irse
-     7. UTM automático       → de dónde vienen (Instagram, WhatsApp, etc.)
-     8. seccion_vista        → qué secciones realmente ven
 ══════════════════════════════════════════════════════════════ -->
 <script>
 (function () {
@@ -1089,10 +1374,7 @@
         gaSend('tiempo_en_pagina', { segundos: seg, event_category: 'Engagement' });
     });
 
-    /* 7. CAPTURA DE PARÁMETROS UTM
-       Ejemplo de link para Instagram:
-       tusitio.com?utm_source=instagram&utm_medium=story&utm_campaign=picada_mayo
-       GA4 los lee automáticamente; acá además los guardamos en sessión para debug. */
+    /* 7. CAPTURA DE PARÁMETROS UTM */
     (function () {
         var params = new URLSearchParams(window.location.search);
         var keys   = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
@@ -1105,9 +1387,7 @@
         }
     })();
 
-    /* 8. SECCIÓN REALMENTE VISTA (IntersectionObserver)
-       No basta con hacer scroll; esto confirma que la sección
-       ocupó al menos el 40 % de la pantalla visible. */
+    /* 8. SECCIÓN REALMENTE VISTA (IntersectionObserver) */
     var vistas = {};
     if ('IntersectionObserver' in window) {
         var obs = new IntersectionObserver(function (entries) {
@@ -1124,6 +1404,107 @@
         document.querySelectorAll('header, #picadas, #descuento, footer')
             .forEach(function (s) { obs.observe(s); });
     }
+
+})();
+</script>
+
+<!-- ══════════════════════════════════════════════════════════════
+     MODAL DE PRODUCTO — lógica
+     Abre el modal al tocar tarjetas con data-has-modal.
+     El botón "Encargar" del modal va directo a WhatsApp.
+     Cierra con la X, con Escape o tocando fuera del panel.
+══════════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+    'use strict';
+
+    var overlay  = document.getElementById('productModal');
+    var closeBtn = document.getElementById('modalCloseBtn');
+
+    function openModal(card) {
+        var name        = card.dataset.modalName        || '';
+        var desc        = card.dataset.modalDescription || '';
+        var img         = card.dataset.modalImg         || '';
+        var badge       = card.dataset.modalBadge       || '';
+        var price       = card.dataset.modalPrice       || '';
+        var weight      = card.dataset.modalWeight      || '';
+        var components  = card.dataset.modalComponents  || '';
+        var wa          = card.dataset.modalWa          || '#';
+
+        document.getElementById('modalProductName').textContent = name;
+        document.getElementById('modalDescription').textContent = desc;
+        document.getElementById('modalPrice').innerHTML = price.replace('$', '<sup>$</sup>').replace('$</sup>', '</sup>');
+
+        var imgEl = document.getElementById('modalImg');
+        imgEl.src = img;
+        imgEl.alt = name;
+
+        var badgeEl = document.getElementById('modalBadge');
+        if (badge) {
+            badgeEl.textContent = badge;
+            badgeEl.style.display = '';
+        } else {
+            badgeEl.style.display = 'none';
+        }
+
+        var weightEl = document.getElementById('modalWeight');
+        weightEl.textContent = weight ? weight : '';
+
+        var list = document.getElementById('modalComponentsList');
+        list.innerHTML = '';
+        if (components) {
+            components.split(',').forEach(function (item) {
+                var li = document.createElement('li');
+                li.textContent = item.trim();
+                list.appendChild(li);
+            });
+        }
+
+        document.getElementById('modalWaBtn').href = wa;
+
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+
+    /* Abrir al tocar la tarjeta (pero no si clickean el botón de WhatsApp) */
+    document.querySelectorAll('.product-card[data-has-modal]').forEach(function (card) {
+        card.addEventListener('click', function (e) {
+            /* Si el click fue en el botón de encargar, dejarlo pasar normalmente */
+            if (e.target.closest('.btn-order')) return;
+            e.preventDefault();
+            openModal(card);
+        });
+    });
+
+    /* Cerrar con botón X */
+    closeBtn.addEventListener('click', closeModal);
+
+    /* Cerrar tocando el overlay fuera del panel */
+    overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+    });
+
+    /* Cerrar con Escape */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    /* Encargar desde el modal también dispara analytics */
+    document.getElementById('modalWaBtn').addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+            gtag('event', 'clic_whatsapp', {
+                producto: document.getElementById('modalProductName').textContent,
+                destino: document.getElementById('modalWaBtn').href,
+                event_category: 'Conversion',
+                event_label: 'Desde Modal'
+            });
+        }
+    });
 
 })();
 </script>
