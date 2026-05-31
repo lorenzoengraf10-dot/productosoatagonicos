@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos Patagónicos</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECT5HJY5XG></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        // Configuración base — reemplazá el ID
+        gtag('config', 'G-ECT5HJY5XG', {
+            // Envía el país/ciudad del visitante automáticamente
+            anonymize_ip: false,
+            // Permite ver de qué página/red social vienen
+            campaign_id: true
+        });
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@300;400;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -888,7 +904,7 @@
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">La Odisea</h3>
-                    <p class="card-description">pican 10 comen 6</p>
+                    <p class="card-description">La experiencia definitiva</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>20.000</div>
                         <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea." target="_blank" class="btn-order">📲 Encargar</a>
@@ -980,6 +996,137 @@
         Contactanos por WhatsApp para hacer tu pedido
     </div>
 </footer>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     MARKETING ANALYTICS — EVENTOS PERSONALIZADOS
+     Qué mide cada bloque:
+     1. scroll_profundidad   → hasta dónde llega el visitante
+     2. clic_producto        → qué picada le llama la atención
+     3. clic_whatsapp        → cuántos van a encargar (y desde qué producto)
+     4. clic_cta_hero        → qué botón del inicio usan más
+     5. registro_descuento   → conversiones reales del formulario
+     6. tiempo_en_pagina     → cuántos segundos pasa antes de irse
+     7. UTM automático       → de dónde vienen (Instagram, WhatsApp, etc.)
+     8. seccion_vista        → qué secciones realmente ven
+══════════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+    'use strict';
+
+    function gaSend(eventName, params) {
+        if (typeof gtag === 'function') gtag('event', eventName, params);
+    }
+
+    /* 1. PROFUNDIDAD DE SCROLL */
+    var scrollMarcas = { 25: false, 50: false, 75: false, 100: false };
+    window.addEventListener('scroll', function () {
+        var pct = Math.round(
+            (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+        );
+        [25, 50, 75, 100].forEach(function (m) {
+            if (pct >= m && !scrollMarcas[m]) {
+                scrollMarcas[m] = true;
+                gaSend('scroll_profundidad', { porcentaje: m, pagina: window.location.pathname });
+            }
+        });
+    }, { passive: true });
+
+    /* 2. CLIC EN TARJETAS DE PRODUCTO */
+    document.querySelectorAll('.product-card').forEach(function (card) {
+        card.addEventListener('click', function () {
+            var nombre = card.querySelector('.card-name')
+                ? card.querySelector('.card-name').textContent.trim() : 'Desconocido';
+            var precio = card.querySelector('.card-price')
+                ? card.querySelector('.card-price').textContent.replace(/\s/g,'').trim() : '';
+            gaSend('clic_producto', {
+                product_name: nombre, price_label: precio, event_category: 'Catalogo'
+            });
+        });
+    });
+
+    /* 3. CLIC EN BOTONES WHATSAPP */
+    document.querySelectorAll('.btn-order, .cta-btn-whatsapp').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var card = btn.closest('.product-card');
+            var producto = card && card.querySelector('.card-name')
+                ? card.querySelector('.card-name').textContent.trim() : 'Hero CTA';
+            gaSend('clic_whatsapp', {
+                producto: producto, destino: btn.href || '', event_category: 'Conversion'
+            });
+        });
+    });
+
+    /* 4. BOTONES CTA HERO */
+    document.querySelectorAll('.cta-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            gaSend('clic_cta_hero', {
+                label: btn.textContent.trim(),
+                href: btn.getAttribute('href') || '',
+                event_category: 'Hero'
+            });
+        });
+    });
+
+    /* 5. ENVÍO DEL FORMULARIO DE DESCUENTO (conversión principal) */
+    var form = document.querySelector('#descuento form');
+    if (form) {
+        form.addEventListener('submit', function () {
+            var nombre = (form.querySelector('[name="nombre"]') || {}).value || '';
+            gaSend('registro_descuento', {
+                event_category: 'Lead',
+                event_label: 'Formulario 10%',
+                nombre_inicial: nombre.split(' ')[0] || ''
+            });
+            gaSend('generate_lead', { value: 1, currency: 'ARS' });
+        });
+    }
+
+    /* 6. TIEMPO EN PÁGINA */
+    var startTime = Date.now();
+    window.addEventListener('beforeunload', function () {
+        var seg = Math.round((Date.now() - startTime) / 1000);
+        gaSend('tiempo_en_pagina', { segundos: seg, event_category: 'Engagement' });
+    });
+
+    /* 7. CAPTURA DE PARÁMETROS UTM
+       Ejemplo de link para Instagram:
+       tusitio.com?utm_source=instagram&utm_medium=story&utm_campaign=picada_mayo
+       GA4 los lee automáticamente; acá además los guardamos en sessión para debug. */
+    (function () {
+        var params = new URLSearchParams(window.location.search);
+        var keys   = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+        var data   = {}; var hay = false;
+        keys.forEach(function (k) { var v = params.get(k); if (v) { data[k] = v; hay = true; } });
+        if (hay) {
+            sessionStorage.setItem('utm_data', JSON.stringify(data));
+            gaSend('utm_capturado', Object.assign({ event_category: 'Trafico' }, data));
+            console.info('[Analytics] UTM capturado:', data);
+        }
+    })();
+
+    /* 8. SECCIÓN REALMENTE VISTA (IntersectionObserver)
+       No basta con hacer scroll; esto confirma que la sección
+       ocupó al menos el 40 % de la pantalla visible. */
+    var vistas = {};
+    if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    var id = e.target.id || e.target.tagName.toLowerCase();
+                    if (!vistas[id]) {
+                        vistas[id] = true;
+                        gaSend('seccion_vista', { seccion: id, event_category: 'Engagement' });
+                    }
+                }
+            });
+        }, { threshold: 0.4 });
+        document.querySelectorAll('header, #picadas, #descuento, footer')
+            .forEach(function (s) { obs.observe(s); });
+    }
+
+})();
+</script>
 
 </body>
 </html>
