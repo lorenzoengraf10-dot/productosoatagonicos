@@ -11,9 +11,9 @@
         function gtag(){ dataLayer.push(arguments); }
         gtag('js', new Date());
 
+        // CORRECCIÓN: eliminado campaign_id (parámetro inválido)
         gtag('config', 'G-ECT5HJY5XG', {
-            anonymize_ip: false,
-            campaign_id: true
+            anonymize_ip: false
         });
     </script>
 
@@ -563,6 +563,32 @@
             transform: translateY(-2px);
         }
 
+        /* ── FORM SUCCESS MESSAGE ── */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem 0 1rem;
+        }
+
+        .form-success .success-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-success h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--brand-gold-light);
+            margin-bottom: 0.6rem;
+        }
+
+        .form-success p {
+            color: var(--brand-parchment);
+            opacity: 0.75;
+            font-size: 1rem;
+            letter-spacing: 0.04em;
+        }
+
         /* ── FOOTER ── */
         footer {
             border-top: 1px solid rgba(200,146,42,0.2);
@@ -607,273 +633,6 @@
             .card-img-wrapper { height: 220px; }
             .hero-cta { flex-direction: column; align-items: center; }
             .cta-btn { width: 100%; max-width: 300px; justify-content: center; }
-        }
-
-        /* ══════════════════════════════════════════
-           MODAL DE PRODUCTO — estilos añadidos
-        ══════════════════════════════════════════ */
-        .product-modal-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 10000;
-            background: rgba(10, 4, 2, 0.88);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .product-modal-overlay.is-open {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .product-modal {
-            position: relative;
-            width: 100%;
-            max-width: 580px;
-            background: linear-gradient(145deg, #2e1710 0%, #1a0e0a 100%);
-            border: 1px solid rgba(200,146,42,0.45);
-            border-radius: 4px;
-            overflow: hidden;
-            transform: scale(0.88) translateY(24px);
-            transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(200,146,42,0.12);
-        }
-
-        .product-modal-overlay.is-open .product-modal {
-            transform: scale(1) translateY(0);
-        }
-
-        /* barra dorada superior */
-        .product-modal::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
-        }
-
-        .modal-img-wrapper {
-            position: relative;
-            height: 260px;
-            overflow: hidden;
-        }
-
-        .modal-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.65) saturate(0.95);
-            transition: transform 0.6s ease;
-        }
-
-        .product-modal-overlay.is-open .modal-img-wrapper img {
-            transform: scale(1.04);
-        }
-
-        .modal-img-gradient {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(26,14,10,1) 0%, rgba(26,14,10,0.2) 55%, transparent 100%);
-        }
-
-        .modal-badge {
-            position: absolute;
-            top: 1.2rem;
-            right: 1.2rem;
-            background: var(--brand-gold);
-            color: var(--brand-dark);
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            padding: 0.35rem 0.75rem;
-            border-radius: 2px;
-        }
-
-        .modal-body {
-            padding: 1.6rem 2rem 2rem;
-        }
-
-        .modal-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--brand-cream);
-            line-height: 1;
-            margin-bottom: 0.3rem;
-        }
-
-        .modal-description {
-            font-size: 0.9rem;
-            font-weight: 300;
-            letter-spacing: 0.08em;
-            color: var(--brand-parchment);
-            opacity: 0.65;
-            text-transform: uppercase;
-            margin-bottom: 1.4rem;
-        }
-
-        /* línea divisora fina */
-        .modal-divider {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .modal-divider::before,
-        .modal-divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(200,146,42,0.3);
-        }
-
-        .modal-divider-diamond {
-            width: 6px; height: 6px;
-            background: var(--brand-gold);
-            transform: rotate(45deg);
-            flex-shrink: 0;
-        }
-
-        .modal-components-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.45em;
-            color: var(--brand-gold);
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 0.9rem;
-        }
-
-        .modal-components-list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem 0.7rem;
-            margin-bottom: 1.8rem;
-        }
-
-        .modal-components-list li {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: rgba(200,146,42,0.1);
-            border: 1px solid rgba(200,146,42,0.22);
-            border-radius: 2px;
-            padding: 0.4rem 0.85rem;
-            font-size: 0.95rem;
-            font-weight: 400;
-            letter-spacing: 0.05em;
-            color: var(--brand-cream);
-            text-transform: capitalize;
-        }
-
-        .modal-components-list li::before {
-            content: '✦';
-            font-size: 0.5rem;
-            color: var(--brand-gold);
-            opacity: 0.8;
-        }
-
-        .modal-weight {
-            display: inline-block;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--brand-gold);
-            opacity: 0.85;
-            margin-bottom: 1.6rem;
-        }
-
-        .modal-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .modal-price {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
-            font-weight: 900;
-            color: var(--brand-gold-light);
-            line-height: 1;
-        }
-
-        .modal-price sup {
-            font-size: 0.45em;
-            vertical-align: super;
-            color: var(--brand-gold);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            width: 36px; height: 36px;
-            background: rgba(26,14,10,0.75);
-            border: 1px solid rgba(200,146,42,0.35);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background 0.2s, border-color 0.2s;
-            z-index: 5;
-            color: var(--brand-cream);
-            font-size: 1rem;
-            line-height: 1;
-        }
-
-        .modal-close:hover {
-            background: rgba(200,146,42,0.25);
-            border-color: var(--brand-gold);
-        }
-
-        /* hint de toque en tarjeta */
-        .product-card[data-has-modal] {
-            position: relative;
-        }
-
-        .product-card[data-has-modal] .card-img-wrapper::after {
-            content: '👁 Ver detalle';
-            position: absolute;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(26,14,10,0.75);
-            border: 1px solid rgba(200,146,42,0.4);
-            color: var(--brand-gold-light);
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            padding: 0.35rem 1rem;
-            border-radius: 2px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        .product-card[data-has-modal]:hover .card-img-wrapper::after {
-            opacity: 1;
-        }
-
-        @media (max-width: 640px) {
-            .modal-img-wrapper { height: 200px; }
-            .modal-body { padding: 1.3rem 1.4rem 1.6rem; }
-            .modal-name { font-size: 1.8rem; }
-            .modal-price { font-size: 2rem; }
         }
     </style>
 </head>
@@ -1063,11 +822,13 @@
         <p class="header-tagline">el 1er aplauso de un asado se lo lleva la picada</p>
     </div>
 
+    <!-- ── BOTONES DE ACCIÓN ── -->
+    <!-- CORRECCIÓN: cta-btn-whatsapp ahora usa número real con código de Argentina -->
     <div class="hero-cta">
         <a href="#picadas" class="cta-btn cta-btn-primary">
             🧀 Ver Picadas
         </a>
-        <a href="https://wa.me/message/X7PFP36AKQQ6E1" target="_blank" class="cta-btn cta-btn-whatsapp">
+        <a href="https://wa.me/542920347453" target="_blank" class="cta-btn cta-btn-whatsapp">
             📲 Consulta Directa
         </a>
         <a href="#descuento" class="cta-btn cta-btn-ghost">
@@ -1086,21 +847,14 @@
     <div class="section-header">
         <p class="eyebrow">Selección</p>
         <h2>Elegí tu Picada</h2>
-        <p class="subtitle">Tocá el producto que mas te guste y mira su informacion o presiona encargar para ir directo al whatsapp.</p>
+        <p class="subtitle">Tocá el producto para encargarlo directo por WhatsApp</p>
     </div>
 
     <div class="products-section">
         <div class="products-grid">
 
-            <div class="product-card" data-has-modal
-                 data-modal-name="Picada Tradicional"
-                 data-modal-description="Pican 7 y comen 4"
-                 data-modal-img="tradicional.jpeg"
-                 data-modal-badge="nuevo envase"
-                 data-modal-price="$15.000"
-                 data-modal-weight="750 g"
-                 data-modal-components="Chorizo seco,Mortadela,Bondiola,Queso criollo,Morcilla blanca,Morcilla negra"
-                 data-modal-wa="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional.">
+            <!-- CORRECCIÓN: todos los href de btn-order usan wa.me/54... con número real -->
+            <div class="product-card">
                 <div class="card-img-wrapper">
                     <img src="tradicional.jpeg" alt="Picada Tradicional">
                     <div class="card-img-overlay"></div>
@@ -1108,10 +862,10 @@
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">Picada Tradicional</h3>
-                    <p class="card-description">nuestra clasica picada maragata</p>
+                    <p class="card-description">Pican 7 y comen 4</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>15.000</div>
-                        <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional." target="_blank" class="btn-order">📲 Encargar</a>
+                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional." target="_blank" class="btn-order">📲 Encargar</a>
                     </div>
                 </div>
             </div>
@@ -1126,20 +880,12 @@
                     <p class="card-description">Envasada al vacío</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>3.000</div>
-                        <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20bondiola%20E.V." target="_blank" class="btn-order">📲 Encargar</a>
+                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20bondiola%20E.V." target="_blank" class="btn-order">📲 Encargar</a>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card" data-has-modal
-                 data-modal-name="La Odisea"
-                 data-modal-description="pican 10 comen 6"
-                 data-modal-img="odisea.jpeg"
-                 data-modal-badge="Nuevo Producto"
-                 data-modal-price="$20.000"
-                 data-modal-weight="1 kg"
-                 data-modal-components="Queso criollo,Chorizo seco,Queso pategras,Longaniza española,Salame con queso,Bondiola,Mortadela"
-                 data-modal-wa="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea.">
+            <div class="product-card">
                 <div class="card-img-wrapper">
                     <img src="odisea.jpeg" alt="Picada La Odisea">
                     <div class="card-img-overlay"></div>
@@ -1147,32 +893,25 @@
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">La Odisea</h3>
-                    <p class="card-description">vivi la experiencia de un dios</p>
+                    <p class="card-description">La experiencia definitiva</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>20.000</div>
-                        <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea." target="_blank" class="btn-order">📲 Encargar</a>
+                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea." target="_blank" class="btn-order">📲 Encargar</a>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card" data-has-modal
-                 data-modal-name="Picada Simple"
-                 data-modal-description="Pican 4, comen 2"
-                 data-modal-img="simple.jpeg"
-                 data-modal-price="$12.000"
-                 data-modal-weight="500 g"
-                 data-modal-components="Chorizo seco,Mortadela,Queso criollo,Bondiola"
-                 data-modal-wa="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple.">
+            <div class="product-card">
                 <div class="card-img-wrapper">
                     <img src="simple.jpeg" alt="Picada Simple">
                     <div class="card-img-overlay"></div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">Picada Simple</h3>
-                    <p class="card-description">mas pequeña igual sabor</p>
+                    <p class="card-description">Pican 4, comen 2</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>12.000</div>
-                        <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple." target="_blank" class="btn-order">📲 Encargar</a>
+                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple." target="_blank" class="btn-order">📲 Encargar</a>
                     </div>
                 </div>
             </div>
@@ -1187,29 +926,22 @@
                     <p class="card-description">Chorizo seco · Longaniza · Salame con queso — E.V.</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>3.000</div>
-                        <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20los%20embutidos%20envasados%20al%20vacio." target="_blank" class="btn-order">📲 Encargar</a>
+                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20los%20embutidos%20envasados%20al%20vacio." target="_blank" class="btn-order">📲 Encargar</a>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card" data-has-modal
-                 data-modal-name="Picada Simple EV"
-                 data-modal-description="Pican 4, comen 2 · Envasada al vacío"
-                 data-modal-img="simple-ev.jpeg"
-                 data-modal-price="$12.000"
-                 data-modal-weight="500 g"
-                 data-modal-components="Chorizo seco,Mortadela,Queso criollo,Bondiola"
-                 data-modal-wa="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple%20e.v.">
+            <div class="product-card">
                 <div class="card-img-wrapper">
                     <img src="simple-ev.jpeg" alt="Picada Simple EV">
                     <div class="card-img-overlay"></div>
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">Picada Simple EV</h3>
-                    <p class="card-description">distinto envase, mismo sabor · Envasada al vacío</p>
+                    <p class="card-description">Pican 4, comen 2 · Envasada al vacío</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>12.000</div>
-                        <a href="https://wa.me/message/X7PFP36AKQQ6E1?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple%20e.v." target="_blank" class="btn-order">📲 Encargar</a>
+                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple%20e.v." target="_blank" class="btn-order">📲 Encargar</a>
                     </div>
                 </div>
             </div>
@@ -1224,25 +956,31 @@
 </div>
 
 <!-- ══════════ DISCOUNT FORM ══════════ -->
+<!-- CORRECCIÓN: submit manejado con fetch para no redirigir y mantener conversión en GA4 -->
 <div class="form-section" id="descuento">
     <div class="form-card">
         <p class="form-eyebrow">Beneficio exclusivo</p>
         <h2 class="form-title">Registrate y<br>llevate un <em>10% off</em></h2>
         <p class="form-subtitle">En tu próximo pedido. Dejanos tus datos y te mandamos el descuento.</p>
 
-        <form action="https://formspree.io/f/xaqkqpve" method="POST">
-            <input type="hidden" name="_subject" value="Nuevo registro para descuento del 10% - Productos Patagónicos">
+        <div id="form-wrapper">
             <div class="form-group">
-                <input type="text" name="nombre" placeholder="Nombre y Apellido" required>
+                <input type="text" id="f-nombre" placeholder="Nombre y Apellido" required>
             </div>
             <div class="form-group">
-                <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                <input type="email" id="f-email" placeholder="Tu correo electrónico" required>
             </div>
             <div class="form-group">
-                <input type="tel" name="telefono" placeholder="Número de teléfono" required>
+                <input type="tel" id="f-telefono" placeholder="Número de teléfono" required>
             </div>
-            <button type="submit" class="btn-submit">Registrarme y obtener descuento</button>
-        </form>
+            <button type="button" id="btn-submit" class="btn-submit">Registrarme y obtener descuento</button>
+        </div>
+
+        <div class="form-success" id="form-success">
+            <div class="success-icon">🎉</div>
+            <h3>¡Listo! Ya sos parte</h3>
+            <p>Te mandamos el código de descuento a tu correo a la brevedad.</p>
+        </div>
     </div>
 </div>
 
@@ -1254,47 +992,7 @@
     </div>
 </footer>
 
-<!-- ══════════════════════════════════════════════════
-     MODAL DE DETALLE DE PRODUCTO
-     Se inserta una sola vez y se rellena dinámicamente
-     con los data-* de la tarjeta clickeada.
-══════════════════════════════════════════════════ -->
-<div class="product-modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalProductName">
 
-    <div class="product-modal">
-
-        <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar">✕</button>
-
-        <div class="modal-img-wrapper">
-            <img id="modalImg" src="" alt="">
-            <div class="modal-img-gradient"></div>
-            <span class="modal-badge" id="modalBadge" style="display:none"></span>
-        </div>
-
-        <div class="modal-body">
-            <h2 class="modal-name" id="modalProductName"></h2>
-            <p class="modal-description" id="modalDescription"></p>
-
-            <div class="modal-divider"><div class="modal-divider-diamond"></div></div>
-
-            <p class="modal-components-label">Componentes</p>
-            <ul class="modal-components-list" id="modalComponentsList"></ul>
-
-            <span class="modal-weight" id="modalWeight"></span>
-
-            <div class="modal-footer">
-                <div class="modal-price" id="modalPrice"></div>
-                <a href="#" id="modalWaBtn" target="_blank" class="btn-order">📲 Encargar</a>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-<!-- ══════════════════════════════════════════════════════════════
-     MARKETING ANALYTICS — EVENTOS PERSONALIZADOS
-══════════════════════════════════════════════════════════════ -->
 <script>
 (function () {
     'use strict';
@@ -1353,17 +1051,57 @@
         });
     });
 
-    /* 5. ENVÍO DEL FORMULARIO DE DESCUENTO (conversión principal) */
-    var form = document.querySelector('#descuento form');
-    if (form) {
-        form.addEventListener('submit', function () {
-            var nombre = (form.querySelector('[name="nombre"]') || {}).value || '';
-            gaSend('registro_descuento', {
-                event_category: 'Lead',
-                event_label: 'Formulario 10%',
-                nombre_inicial: nombre.split(' ')[0] || ''
+    /* 5. ENVÍO DEL FORMULARIO — fetch para quedarse en la página y disparar GA4 correctamente */
+    var btnSubmit = document.getElementById('btn-submit');
+    if (btnSubmit) {
+        btnSubmit.addEventListener('click', function () {
+            var nombre   = document.getElementById('f-nombre').value.trim();
+            var email    = document.getElementById('f-email').value.trim();
+            var telefono = document.getElementById('f-telefono').value.trim();
+
+            if (!nombre || !email || !telefono) {
+                alert('Por favor completá todos los campos.');
+                return;
+            }
+
+            btnSubmit.disabled = true;
+            btnSubmit.textContent = 'Enviando...';
+
+            var formData = new FormData();
+            formData.append('nombre',   nombre);
+            formData.append('email',    email);
+            formData.append('telefono', telefono);
+            formData.append('_subject', 'Nuevo registro para descuento del 10% - Productos Patagónicos');
+
+            fetch('https://formspree.io/f/xaqkqpve', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(function (res) {
+                if (res.ok) {
+                    // Mostrar mensaje de éxito en la misma página
+                    document.getElementById('form-wrapper').style.display = 'none';
+                    document.getElementById('form-success').style.display = 'block';
+
+                    // Disparar eventos de conversión en GA4
+                    gaSend('registro_descuento', {
+                        event_category: 'Lead',
+                        event_label: 'Formulario 10%',
+                        nombre_inicial: nombre.split(' ')[0] || ''
+                    });
+                    gaSend('generate_lead', { value: 1, currency: 'ARS' });
+                } else {
+                    alert('Hubo un error al enviar. Intentá de nuevo.');
+                    btnSubmit.disabled = false;
+                    btnSubmit.textContent = 'Registrarme y obtener descuento';
+                }
+            })
+            .catch(function () {
+                alert('Sin conexión. Revisá tu internet e intentá de nuevo.');
+                btnSubmit.disabled = false;
+                btnSubmit.textContent = 'Registrarme y obtener descuento';
             });
-            gaSend('generate_lead', { value: 1, currency: 'ARS' });
         });
     }
 
@@ -1387,7 +1125,7 @@
         }
     })();
 
-    /* 8. SECCIÓN REALMENTE VISTA (IntersectionObserver) */
+    /* 8. SECCIÓN REALMENTE VISTA */
     var vistas = {};
     if ('IntersectionObserver' in window) {
         var obs = new IntersectionObserver(function (entries) {
@@ -1404,107 +1142,6 @@
         document.querySelectorAll('header, #picadas, #descuento, footer')
             .forEach(function (s) { obs.observe(s); });
     }
-
-})();
-</script>
-
-<!-- ══════════════════════════════════════════════════════════════
-     MODAL DE PRODUCTO — lógica
-     Abre el modal al tocar tarjetas con data-has-modal.
-     El botón "Encargar" del modal va directo a WhatsApp.
-     Cierra con la X, con Escape o tocando fuera del panel.
-══════════════════════════════════════════════════════════════ -->
-<script>
-(function () {
-    'use strict';
-
-    var overlay  = document.getElementById('productModal');
-    var closeBtn = document.getElementById('modalCloseBtn');
-
-    function openModal(card) {
-        var name        = card.dataset.modalName        || '';
-        var desc        = card.dataset.modalDescription || '';
-        var img         = card.dataset.modalImg         || '';
-        var badge       = card.dataset.modalBadge       || '';
-        var price       = card.dataset.modalPrice       || '';
-        var weight      = card.dataset.modalWeight      || '';
-        var components  = card.dataset.modalComponents  || '';
-        var wa          = card.dataset.modalWa          || '#';
-
-        document.getElementById('modalProductName').textContent = name;
-        document.getElementById('modalDescription').textContent = desc;
-        document.getElementById('modalPrice').innerHTML = price.replace('$', '<sup>$</sup>').replace('$</sup>', '</sup>');
-
-        var imgEl = document.getElementById('modalImg');
-        imgEl.src = img;
-        imgEl.alt = name;
-
-        var badgeEl = document.getElementById('modalBadge');
-        if (badge) {
-            badgeEl.textContent = badge;
-            badgeEl.style.display = '';
-        } else {
-            badgeEl.style.display = 'none';
-        }
-
-        var weightEl = document.getElementById('modalWeight');
-        weightEl.textContent = weight ? weight : '';
-
-        var list = document.getElementById('modalComponentsList');
-        list.innerHTML = '';
-        if (components) {
-            components.split(',').forEach(function (item) {
-                var li = document.createElement('li');
-                li.textContent = item.trim();
-                list.appendChild(li);
-            });
-        }
-
-        document.getElementById('modalWaBtn').href = wa;
-
-        overlay.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        overlay.classList.remove('is-open');
-        document.body.style.overflow = '';
-    }
-
-    /* Abrir al tocar la tarjeta (pero no si clickean el botón de WhatsApp) */
-    document.querySelectorAll('.product-card[data-has-modal]').forEach(function (card) {
-        card.addEventListener('click', function (e) {
-            /* Si el click fue en el botón de encargar, dejarlo pasar normalmente */
-            if (e.target.closest('.btn-order')) return;
-            e.preventDefault();
-            openModal(card);
-        });
-    });
-
-    /* Cerrar con botón X */
-    closeBtn.addEventListener('click', closeModal);
-
-    /* Cerrar tocando el overlay fuera del panel */
-    overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) closeModal();
-    });
-
-    /* Cerrar con Escape */
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeModal();
-    });
-
-    /* Encargar desde el modal también dispara analytics */
-    document.getElementById('modalWaBtn').addEventListener('click', function () {
-        if (typeof gtag === 'function') {
-            gtag('event', 'clic_whatsapp', {
-                producto: document.getElementById('modalProductName').textContent,
-                destino: document.getElementById('modalWaBtn').href,
-                event_category: 'Conversion',
-                event_label: 'Desde Modal'
-            });
-        }
-    });
 
 })();
 </script>
