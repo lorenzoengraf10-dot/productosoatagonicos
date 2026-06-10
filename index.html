@@ -11,10 +11,16 @@
         function gtag(){ dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        /* CORRECCIÓN: eliminado campaign_id (parámetro inválido) */
         gtag('config', 'G-ECT5HJY5XG', {
-            anonymize_ip: false
+            anonymize_ip: false,
+            /* Google Signals: habilita datos de edad, sexo e intereses
+               (solo para usuarios logueados en Google que aceptaron personalización) */
+            allow_google_signals: true,
+            allow_ad_personalization_signals: true
         });
+
+        /* Marca "clic_whatsapp" como conversión en esta sesión */
+        gtag('event', 'conversion', { send_to: 'G-ECT5HJY5XG' });
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@300;400;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
@@ -1350,11 +1356,26 @@
     /* 3. CLIC EN BOTONES WHATSAPP */
     document.querySelectorAll('.btn-order, .cta-btn-whatsapp').forEach(function (btn) {
         btn.addEventListener('click', function () {
-            var card = btn.closest('.product-card');
+            var card    = btn.closest('.product-card');
             var producto = card && card.querySelector('.card-name')
                 ? card.querySelector('.card-name').textContent.trim() : 'Hero CTA';
+            var fuente  = btn.classList.contains('cta-btn-whatsapp') ? 'hero' : 'tarjeta';
+
+            /* Evento principal de conversión WhatsApp */
             gaSend('clic_whatsapp', {
-                producto: producto, destino: btn.href || '', event_category: 'Conversion'
+                event_category : 'Conversion',
+                event_label     : producto,
+                producto        : producto,
+                fuente          : fuente,
+                destino         : btn.getAttribute('href') || ''
+            });
+
+            /* Evento estándar GA4 para conversiones (aparece en embudos) */
+            gaSend('generate_lead', {
+                currency        : 'ARS',
+                value           : 1,
+                event_category  : 'WhatsApp',
+                event_label     : producto
             });
         });
     });
@@ -1545,12 +1566,20 @@
 
     /* Analytics desde el modal */
     document.getElementById('modalWaBtn').addEventListener('click', function () {
+        var producto = document.getElementById('modalProductName').textContent.trim();
         if (typeof gtag === 'function') {
             gtag('event', 'clic_whatsapp', {
-                producto: document.getElementById('modalProductName').textContent,
-                destino: document.getElementById('modalWaBtn').href,
-                event_category: 'Conversion',
-                event_label: 'Desde Modal'
+                event_category : 'Conversion',
+                event_label     : producto,
+                producto        : producto,
+                fuente          : 'modal',
+                destino         : document.getElementById('modalWaBtn').href
+            });
+            gtag('event', 'generate_lead', {
+                currency        : 'ARS',
+                value           : 1,
+                event_category  : 'WhatsApp',
+                event_label     : producto
             });
         }
     });
