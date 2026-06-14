@@ -11,10 +11,16 @@
         function gtag(){ dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        /* CORRECCIÓN: eliminado campaign_id (parámetro inválido) */
         gtag('config', 'G-ECT5HJY5XG', {
-            anonymize_ip: false
+            anonymize_ip: false,
+            /* Google Signals: habilita datos de edad, sexo e intereses
+               (solo para usuarios logueados en Google que aceptaron personalización) */
+            allow_google_signals: true,
+            allow_ad_personalization_signals: true
         });
+
+        /* Marca "clic_whatsapp" como conversión en esta sesión */
+        gtag('event', 'conversion', { send_to: 'G-ECT5HJY5XG' });
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@300;400;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
@@ -345,16 +351,23 @@
 
         .card-badge {
             position: absolute;
-            top: 1.2rem;
-            right: 1.2rem;
+            top: 0;
+            left: 0;
+            right: 0;
             background: #ff1e42;
             color: #ffffff;
-            font-size: 0.65rem;
+            font-size: 0.72rem;
             font-weight: 700;
-            letter-spacing: 0.18em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            padding: 0.35rem 0.75rem;
-            border-radius: 2px;
+            padding: 0.5rem 0.5rem;
+            text-align: center;
+            z-index: 2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+        }
+
+        .card-badge::before {
+            content: '👆 ';
         }
 
         .card-body {
@@ -629,10 +642,47 @@
         }
 
         @media (max-width: 640px) {
-            .form-card { padding: 2.5rem 1.8rem; }
-            .card-img-wrapper { height: 220px; }
-            .hero-cta { flex-direction: column; align-items: center; }
-            .cta-btn { width: 100%; max-width: 300px; justify-content: center; }
+            .form-card { padding: 2.5rem 1.5rem; }
+            .card-img-wrapper { height: 240px; }
+
+            /* Hero más compacto y sin saltos por las barras del navegador móvil */
+            header { min-height: 100svh; padding: 1.5rem 0; }
+            .header-emblem { padding: 2rem 1.2rem 1rem; }
+            .header-pre { letter-spacing: 0.3em; font-size: 0.72rem; }
+            .header-tagline { font-size: 1rem; margin-bottom: 2rem; }
+
+            /* Botones del hero a lo ancho y con buen tamaño para el dedo */
+            .hero-cta { flex-direction: column; align-items: center; gap: 0.8rem; }
+            .cta-btn {
+                width: 100%;
+                max-width: 340px;
+                justify-content: center;
+                padding: 1.1rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            /* Una sola columna de productos, separadas para que se distingan */
+            .products-section { padding: 0 1rem 3rem; }
+            .products-grid { gap: 1rem; }
+            .product-card { border-radius: 10px; overflow: hidden; }
+
+            /* Pie de tarjeta: precio arriba, botón grande abajo a lo ancho */
+            .card-footer { flex-direction: column; align-items: stretch; gap: 0.8rem; }
+            .btn-order {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem 1.4rem;
+                font-size: 1rem;
+            }
+
+            /* Oculta el "Explorar" para no tapar los botones en pantallas chicas */
+            .header-scroll { display: none; }
+        }
+
+        /* En pantallas muy chicas, el cartel del descuento gigante molesta */
+        @media (max-width: 480px) {
+            .form-card::after { display: none; }
+            .section-header { padding: 3rem 1rem 2rem; }
         }
 
         /* ══════════════════════════════════════════
@@ -1128,7 +1178,7 @@
                 <div class="card-img-wrapper">
                     <img src="tradicional.jpeg" alt="Picada Tradicional">
                     <div class="card-img-overlay"></div>
-                    <span class="card-badge">mismo precio!</span>
+                    <span class="card-badge">TOCA ACA PARA INFO DEL PRODUCTO</span>
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">Picada Tradicional</h3>
@@ -1166,7 +1216,7 @@
                 <div class="card-img-wrapper">
                     <img src="odisea.jpeg" alt="Picada La Odisea">
                     <div class="card-img-overlay"></div>
-                    <span class="card-badge">Nuevo Precio!</span>
+                    <span class="card-badge">TOCA ACA PARA INFO DEL PRODUCTO</span>
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">La Odisea</h3>
@@ -1189,7 +1239,7 @@
                 <div class="card-img-wrapper">
                     <img src="simple.jpeg" alt="Picada Simple">
                     <div class="card-img-overlay"></div>
-                    <span class="card-badge">Nuevo precio!</span>
+                    <span class="card-badge">TOCA ACA PARA INFO DEL PRODUCTO</span>
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">Picada Simple</h3>
@@ -1227,7 +1277,7 @@
                 <div class="card-img-wrapper">
                     <img src="simple-ev.jpeg" alt="Picada Simple EV">
                     <div class="card-img-overlay"></div>
-                    <span class="card-badge">Nuevo Precio!</span>
+                    <span class="card-badge">TOCA ACA PARA INFO DEL PRODUCTO</span>
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">Picada Simple EV</h3>
@@ -1350,11 +1400,26 @@
     /* 3. CLIC EN BOTONES WHATSAPP */
     document.querySelectorAll('.btn-order, .cta-btn-whatsapp').forEach(function (btn) {
         btn.addEventListener('click', function () {
-            var card = btn.closest('.product-card');
+            var card    = btn.closest('.product-card');
             var producto = card && card.querySelector('.card-name')
                 ? card.querySelector('.card-name').textContent.trim() : 'Hero CTA';
+            var fuente  = btn.classList.contains('cta-btn-whatsapp') ? 'hero' : 'tarjeta';
+
+            /* Evento principal de conversión WhatsApp */
             gaSend('clic_whatsapp', {
-                producto: producto, destino: btn.href || '', event_category: 'Conversion'
+                event_category : 'Conversion',
+                event_label     : producto,
+                producto        : producto,
+                fuente          : fuente,
+                destino         : btn.getAttribute('href') || ''
+            });
+
+            /* Evento estándar GA4 para conversiones (aparece en embudos) */
+            gaSend('generate_lead', {
+                currency        : 'ARS',
+                value           : 1,
+                event_category  : 'WhatsApp',
+                event_label     : producto
             });
         });
     });
@@ -1545,12 +1610,20 @@
 
     /* Analytics desde el modal */
     document.getElementById('modalWaBtn').addEventListener('click', function () {
+        var producto = document.getElementById('modalProductName').textContent.trim();
         if (typeof gtag === 'function') {
             gtag('event', 'clic_whatsapp', {
-                producto: document.getElementById('modalProductName').textContent,
-                destino: document.getElementById('modalWaBtn').href,
-                event_category: 'Conversion',
-                event_label: 'Desde Modal'
+                event_category : 'Conversion',
+                event_label     : producto,
+                producto        : producto,
+                fuente          : 'modal',
+                destino         : document.getElementById('modalWaBtn').href
+            });
+            gtag('event', 'generate_lead', {
+                currency        : 'ARS',
+                value           : 1,
+                event_category  : 'WhatsApp',
+                event_label     : producto
             });
         }
     });
