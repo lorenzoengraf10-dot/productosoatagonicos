@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Gestión interna · Productos Patagónicos</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>Productos Patagónicos <span>· Panel de gestión (uso interno)</span></h1>
+  <nav class="tabs" id="tabs">
+    <button data-tab="dashboard" class="tab-btn activo">Dashboard</button>
+    <button data-tab="productos" class="tab-btn">Productos</button>
+    <button data-tab="ventas" class="tab-btn">Ventas</button>
+    <button data-tab="clientes" class="tab-btn">Clientes</button>
+    <button data-tab="backup" class="tab-btn">Copia de seguridad</button>
+  </nav>
+</header>
+
+<main id="app">
+
+  <section id="vista-dashboard" class="vista activa">
+    <h2>Panel general</h2>
+    <div class="tarjetas" id="tarjetas-metricas"></div>
+
+    <div class="paneles-doble">
+      <div class="panel">
+        <h3>Producto más vendido</h3>
+        <div id="producto-top">-</div>
+      </div>
+      <div class="panel">
+        <h3>Stock bajo (menos de 5 unidades)</h3>
+        <ul id="lista-stock-bajo"><li>Sin datos</li></ul>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Últimas ventas</h3>
+      <table class="tabla">
+        <thead><tr><th>Fecha</th><th>Producto</th><th>Cantidad</th><th>Total</th><th>Cliente</th></tr></thead>
+        <tbody id="tabla-ultimas-ventas"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="vista-productos" class="vista">
+    <h2>Catálogo de productos</h2>
+
+    <form id="form-producto" class="formulario">
+      <input type="hidden" id="producto-id">
+      <div class="campo">
+        <label for="producto-nombre">Nombre</label>
+        <input type="text" id="producto-nombre" required>
+      </div>
+      <div class="campo">
+        <label for="producto-categoria">Categoría</label>
+        <input type="text" id="producto-categoria" placeholder="Embutido, ahumado, conserva...">
+      </div>
+      <div class="campo">
+        <label for="producto-precio">Precio ($)</label>
+        <input type="number" id="producto-precio" min="0" step="0.01" required>
+      </div>
+      <div class="campo">
+        <label for="producto-stock">Stock (unidades)</label>
+        <input type="number" id="producto-stock" min="0" step="1" required>
+      </div>
+      <div class="campo campo-ancho">
+        <label for="producto-notas">Notas</label>
+        <input type="text" id="producto-notas" placeholder="Opcional">
+      </div>
+      <div class="acciones-formulario">
+        <button type="submit" class="btn btn-primario">Guardar producto</button>
+        <button type="button" class="btn btn-secundario" id="btn-cancelar-producto">Cancelar</button>
+      </div>
+    </form>
+
+    <table class="tabla">
+      <thead>
+        <tr><th>Nombre</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Notas</th><th>Acciones</th></tr>
+      </thead>
+      <tbody id="tabla-productos"></tbody>
+    </table>
+  </section>
+
+  <section id="vista-ventas" class="vista">
+    <h2>Registro de ventas</h2>
+
+    <form id="form-venta" class="formulario">
+      <div class="campo">
+        <label for="venta-producto">Producto</label>
+        <select id="venta-producto" required></select>
+      </div>
+      <div class="campo">
+        <label for="venta-cantidad">Cantidad</label>
+        <input type="number" id="venta-cantidad" min="1" step="1" value="1" required>
+      </div>
+      <div class="campo">
+        <label for="venta-cliente">Cliente</label>
+        <input type="text" id="venta-cliente" placeholder="Nombre (opcional)">
+      </div>
+      <div class="campo">
+        <label for="venta-fecha">Fecha</label>
+        <input type="date" id="venta-fecha" required>
+      </div>
+      <div class="acciones-formulario">
+        <button type="submit" class="btn btn-primario">Registrar venta</button>
+      </div>
+    </form>
+
+    <table class="tabla">
+      <thead>
+        <tr><th>Fecha</th><th>Producto</th><th>Cantidad</th><th>Precio unit.</th><th>Total</th><th>Cliente</th><th>Acciones</th></tr>
+      </thead>
+      <tbody id="tabla-ventas"></tbody>
+    </table>
+  </section>
+
+  <section id="vista-clientes" class="vista">
+    <h2>Clientes</h2>
+    <p class="ayuda">Se completa automáticamente a partir del nombre cargado en cada venta. También podés agregar clientes manualmente para llevar datos de contacto.</p>
+
+    <form id="form-cliente" class="formulario">
+      <div class="campo">
+        <label for="cliente-nombre">Nombre</label>
+        <input type="text" id="cliente-nombre" required>
+      </div>
+      <div class="campo">
+        <label for="cliente-contacto">Contacto (tel./mail)</label>
+        <input type="text" id="cliente-contacto">
+      </div>
+      <div class="acciones-formulario">
+        <button type="submit" class="btn btn-primario">Guardar cliente</button>
+      </div>
+    </form>
+
+    <table class="tabla">
+      <thead><tr><th>Nombre</th><th>Contacto</th><th>Compras</th><th>Total gastado</th></tr></thead>
+      <tbody id="tabla-clientes"></tbody>
+    </table>
+  </section>
+
+  <section id="vista-backup" class="vista">
+    <h2>Copia de seguridad</h2>
+    <p class="ayuda">
+      Los datos de este panel se guardan solo en este navegador (localStorage). No hay servidor ni base de datos
+      todavía: es la Fase 1 del proyecto (ver <code>docs/ROADMAP-APRENDIZAJE.md</code>). Exportá seguido para no perder
+      información si cambiás de computadora o se borra el caché del navegador.
+    </p>
+    <div class="acciones-formulario">
+      <button class="btn btn-primario" id="btn-exportar">Exportar datos (.json)</button>
+      <label class="btn btn-secundario" for="input-importar">Importar datos (.json)</label>
+      <input type="file" id="input-importar" accept="application/json" hidden>
+    </div>
+    <div class="acciones-formulario">
+      <button class="btn btn-peligro" id="btn-borrar-todo">Borrar todos los datos</button>
+    </div>
+    <p id="mensaje-backup" class="mensaje"></p>
+  </section>
+
+</main>
+
+<footer class="pie">
+  Panel de uso interno · No compartir este enlace públicamente · Productos Patagónicos
+</footer>
+
+<script src="js/db.js"></script>
+<script src="js/productos.js"></script>
+<script src="js/ventas.js"></script>
+<script src="js/clientes.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/backup.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
