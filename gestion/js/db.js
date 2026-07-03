@@ -7,6 +7,22 @@
  * el resto del código (productos.js, ventas.js, etc.) no debería cambiar.
  */
 
+/* Escapa texto antes de insertarlo como HTML. Hace falta en cualquier lugar
+ * donde se arma una tabla con innerHTML a partir de datos que el propio
+ * usuario escribió (nombre de producto, notas, cliente, etc.): sin esto, un
+ * texto tan común como "Bondiola <3 kg" o notas con comillas puede romper la
+ * tabla, y un texto con una etiqueta <img onerror=...> llega a ejecutar
+ * JavaScript dentro de la propia app. */
+function escaparHtml(texto) {
+  if (texto === null || texto === undefined) return '';
+  return String(texto)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 const DB = (() => {
   const CLAVES = {
     productos: 'pp_productos',

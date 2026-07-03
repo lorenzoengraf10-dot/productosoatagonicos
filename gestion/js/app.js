@@ -67,11 +67,11 @@ function renderTablaProductos() {
 
   cuerpo.innerHTML = productos.map((p) => `
     <tr>
-      <td>${p.nombre}</td>
-      <td>${p.categoria || '-'}</td>
+      <td>${escaparHtml(p.nombre)}</td>
+      <td>${escaparHtml(p.categoria) || '-'}</td>
       <td>${Dashboard.formatearMoneda(p.precio)}</td>
       <td class="${p.stock < 5 ? 'stock-critico' : ''}">${p.stock}</td>
-      <td>${p.notas || '-'}</td>
+      <td>${escaparHtml(p.notas) || '-'}</td>
       <td>
         <button class="btn-mini" onclick="editarProducto('${p.id}')">Editar</button>
         <button class="btn-mini" onclick="eliminarProducto('${p.id}')">Eliminar</button>
@@ -109,9 +109,20 @@ function configurarFormularioVenta() {
       alert('Cargá al menos un producto antes de registrar una venta.');
       return;
     }
+
+    const cantidad = Number(document.getElementById('venta-cantidad').value);
+    const producto = Productos.buscarPorId(productoId);
+    if (producto && cantidad > producto.stock) {
+      const seguir = confirm(
+        `Estás por vender ${cantidad} unidades de "${producto.nombre}", pero el stock cargado es de ${producto.stock}. ` +
+        'El stock va a quedar en 0 y esta diferencia no va a quedar registrada en ningún lado. ¿Registrar la venta igual?'
+      );
+      if (!seguir) return;
+    }
+
     Ventas.registrar({
       productoId,
-      cantidad: Number(document.getElementById('venta-cantidad').value),
+      cantidad,
       cliente: document.getElementById('venta-cliente').value.trim(),
       fecha: document.getElementById('venta-fecha').value
     });
@@ -126,7 +137,7 @@ function renderSelectProductos() {
   const select = document.getElementById('venta-producto');
   const seleccionActual = select.value;
   select.innerHTML = Productos.listar().map((p) =>
-    `<option value="${p.id}">${p.nombre} (stock: ${p.stock})</option>`
+    `<option value="${p.id}">${escaparHtml(p.nombre)} (stock: ${p.stock})</option>`
   ).join('') || '<option value="">Sin productos cargados</option>';
   select.value = seleccionActual;
 }
@@ -138,11 +149,11 @@ function renderTablaVentas() {
   cuerpo.innerHTML = ventas.map((v) => `
     <tr>
       <td>${v.fecha}</td>
-      <td>${v.productoNombre}</td>
+      <td>${escaparHtml(v.productoNombre)}</td>
       <td>${v.cantidad}</td>
       <td>${Dashboard.formatearMoneda(v.precioUnitario)}</td>
       <td>${Dashboard.formatearMoneda(v.total)}</td>
-      <td>${v.cliente}</td>
+      <td>${escaparHtml(v.cliente)}</td>
       <td><button class="btn-mini" onclick="eliminarVenta('${v.id}')">Eliminar</button></td>
     </tr>
   `).join('') || '<tr><td colspan="7">Todavía no hay ventas registradas</td></tr>';
@@ -175,8 +186,8 @@ function renderTablaClientes() {
 
   cuerpo.innerHTML = clientes.map((c) => `
     <tr>
-      <td>${c.nombre}</td>
-      <td>${c.contacto || '-'}</td>
+      <td>${escaparHtml(c.nombre)}</td>
+      <td>${escaparHtml(c.contacto) || '-'}</td>
       <td>${c.compras}</td>
       <td>${Dashboard.formatearMoneda(c.totalGastado)}</td>
     </tr>

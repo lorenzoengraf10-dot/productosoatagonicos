@@ -37,17 +37,17 @@ const Dashboard = (() => {
     const stockBajo = Productos.conStockBajo(5);
     const listaStock = document.getElementById('lista-stock-bajo');
     listaStock.innerHTML = stockBajo.length
-      ? stockBajo.map((p) => `<li class="stock-critico">${p.nombre}: ${p.stock} unidades</li>`).join('')
+      ? stockBajo.map((p) => `<li class="stock-critico">${escaparHtml(p.nombre)}: ${p.stock} unidades</li>`).join('')
       : '<li>Todo el stock está en niveles normales</li>';
 
     const cuerpoUltimasVentas = document.getElementById('tabla-ultimas-ventas');
     cuerpoUltimasVentas.innerHTML = ventas.slice(0, 5).map((v) => `
       <tr>
         <td>${v.fecha}</td>
-        <td>${v.productoNombre}</td>
+        <td>${escaparHtml(v.productoNombre)}</td>
         <td>${v.cantidad}</td>
         <td>${formatearMoneda(v.total)}</td>
-        <td>${v.cliente}</td>
+        <td>${escaparHtml(v.cliente)}</td>
       </tr>
     `).join('') || '<tr><td colspan="5">Sin ventas todavía</td></tr>';
   }
