@@ -2,8 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos Patagónicos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Productos Patagónicos · Picadas y embutidos artesanales</title>
+    <meta name="description" content="Picadas y embutidos artesanales de Carmen de Patagones. Encargá directo por WhatsApp: Tradicional, La Odisea, Simple, Mundialista y más.">
+
+    <!-- Integración con celulares iOS y Android -->
+    <meta name="theme-color" content="#1a0e0a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Patagónicos">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Acelera la carga de fuentes en móvil -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECT5HJY5XG"></script>
     <script>
@@ -35,13 +48,25 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;   /* evita que iOS agrande el texto al rotar */
+            text-size-adjust: 100%;
+        }
 
         body {
             font-family: 'Barlow Condensed', sans-serif;
             background-color: var(--brand-dark);
             color: var(--text-light);
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;   /* sin flash gris al tocar en móvil */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Objetivos táctiles cómodos para el dedo (mín. ~44px de Apple/Google) */
+        .cta-btn, .btn-order, .btn-submit, .modal-close, .header-scroll {
+            min-height: 44px;
+            touch-action: manipulation;   /* elimina el retardo de 300ms al tocar */
         }
 
         body::before {
@@ -604,6 +629,7 @@
         footer {
             border-top: 1px solid rgba(200,146,42,0.2);
             padding: 3rem 2rem;
+            padding-bottom: calc(3rem + env(safe-area-inset-bottom));  /* respeta el borde inferior del iPhone */
             text-align: center;
             background: #0f0704;
         }
@@ -1174,7 +1200,7 @@
                  data-modal-components="Chorizo seco,Mortadela,Bondiola,Queso criollo,Morcilla blanca,Morcilla negra"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional.">
                 <div class="card-img-wrapper">
-                    <img src="tradicional.jpeg" alt="Picada Tradicional">
+                    <img src="tradicional.jpeg" alt="Picada Tradicional" loading="lazy" decoding="async">
                     <div class="card-img-overlay"></div>
                     <span class="card-badge">TOCA ACA PARA INFO DEL PRODUCTO</span>
                 </div>
@@ -1190,7 +1216,7 @@
 
             <div class="product-card">
                 <div class="card-img-wrapper">
-                    <img src="bondiola.jpeg" alt="Bondiola">
+                    <img src="bondiola.jpeg" alt="Bondiola" loading="lazy" decoding="async">
                     <div class="card-img-overlay"></div>
                 </div>
                 <div class="card-body">
@@ -1212,7 +1238,7 @@
                  data-modal-components="Queso criollo,Chorizo seco,Queso pategras,Longaniza española,Salame con queso,Bondiola,Mortadela"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea.">
                 <div class="card-img-wrapper">
-                    <img src="odisea.jpeg" alt="Picada La Odisea">
+                    <img src="odisea.jpeg" alt="Picada La Odisea" loading="lazy" decoding="async">
                     <div class="card-img-overlay"></div>
                     <span class="card-badge">TOCA ACA PARA INFO DEL PRODUCTO</span>
                 </div>
@@ -1235,7 +1261,7 @@
                  data-modal-components="Chorizo seco,Mortadela,Queso criollo,Bondiola"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple.">
                 <div class="card-img-wrapper">
-                    <img src="simple.jpeg" alt="Picada Simple">
+                    <img src="simple.jpeg" alt="Picada Simple" loading="lazy" decoding="async">
                     <div class="card-img-overlay"></div>
                     <span class="card-badge">TOCA ACA PARA INFO DEL PRODUCTO</span>
                 </div>
@@ -1251,7 +1277,7 @@
 
             <div class="product-card">
                 <div class="card-img-wrapper">
-                    <img src="embutidos.jpeg" alt="Embutidos">
+                    <img src="embutidos.jpeg" alt="Embutidos" loading="lazy" decoding="async">
                     <div class="card-img-overlay"></div>
                 </div>
                 <div class="card-body">
@@ -1273,7 +1299,7 @@
                  data-modal-components="Chorizo seco,Mortadela,Queso criollo,Bondiola"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple%20e.v.">
                 <div class="card-img-wrapper">
-                    <img src="simple-ev.jpeg" alt="Picada Simple EV">
+                    <img src="simple-ev.jpeg" alt="Picada Simple EV" loading="lazy" decoding="async">
                     <div class="card-img-overlay"></div>
                     <span class="card-badge">TOCA ACA PARA INFO DEL PRODUCTO</span>
                 </div>
@@ -1297,7 +1323,7 @@
                  data-modal-components="Chorizo seco,Longaniza,Queso criollo,Bondiola"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista.">
                 <div class="card-img-wrapper">
-                    <img src="mundialista.jpeg" alt="Picada Mundialista">
+                    <img src="mundialista.jpeg" alt="Picada Mundialista" loading="lazy" decoding="async">
                     <div class="card-img-overlay"></div>
                     <span class="card-badge">NUEVO!!!</span>
                 </div>
