@@ -665,6 +665,17 @@
             animation: bridgeDraw 4s cubic-bezier(0.4,0,0.2,1) 0.5s forwards;
         }
 
+        /* Respeta a quien activó "reducir movimiento" en su celular (batería/accesibilidad) */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .bridge-path { stroke-dashoffset: 0; opacity: 1; }
+        }
+
         @media (max-width: 640px) {
             .form-card { padding: 2.5rem 1.5rem; }
             .card-img-wrapper { height: 240px; }
@@ -1329,7 +1340,7 @@
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">Picada Mundialista ⚽</h3>
-                    <p class="card-description">Ideal para el partido o</p>
+                    <p class="card-description">Ideal para el partido</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>11.000</div>
                         <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista." target="_blank" class="btn-order">📲 Encargar</a>
