@@ -500,7 +500,7 @@
             </div>
             <div class="card-footer">
                 <div>
-                    <div class="card-price"><small>$</small>15.000</div>
+                    <div class="card-price"><small>$</small>16.000</div>
                 </div>
                 <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional."
                    target="_blank" class="btn-order"
@@ -520,7 +520,7 @@
         <div class="card-body">
             <div>
                 <div class="card-name">La Odisea</div>
-                <div class="card-desc">La experiencia definitiva — Pican 8 y comen 5</div>
+                <div class="card-desc">La experiencia definitiva — Pican 7 y comen 5</div>
                 <div class="card-items">
                     <span class="card-item">Queso criollo</span>
                     <span class="card-item">Chorizo seco</span>
@@ -564,7 +564,7 @@
             </div>
             <div class="card-footer">
                 <div>
-                    <div class="card-price"><small>$</small>12.500</div>
+                    <div class="card-price"><small>$</small>13.000</div>
                 </div>
                 <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple."
                    target="_blank" class="btn-order"
@@ -645,15 +645,15 @@
 
 <!-- DESCUENTO -->
 <section class="discount" id="descuento">
-    <div class="discount-badge">10% OFF</div>
-    <h2>Registrate y ahorrá en tu próximo pedido</h2>
+    <div class="discount-badge">$2000</div>
+    <h2>Registrate y llevate un reintegro de $2000</h2>
     <p>Dejanos tu nombre, mail y teléfono y te mandamos el descuento.</p>
 
     <div class="form-simple" id="form-wrapper">
         <input type="text"  id="f-nombre"   placeholder="Tu nombre y apellido" required>
         <input type="email" id="f-email"    placeholder="Tu correo electrónico" required>
         <input type="tel"   id="f-telefono" placeholder="Tu número de teléfono" required>
-        <button class="btn-register" id="btn-submit">Quiero mi 10% de descuento</button>
+        <button class="btn-register" id="btn-submit">Quiero mi reintegro de $2000</button>
     </div>
 
     <div class="form-success-msg" id="form-success">
@@ -716,7 +716,7 @@
             fd.append('nombre',   nombre);
             fd.append('email',    email);
             fd.append('telefono', telefono);
-            fd.append('_subject', 'Nuevo registro 10% — Versión Simple');
+            fd.append('_subject', 'Nuevo registro reintegro $2000 — Versión Simple');
 
             fetch('https://formspree.io/f/xaqkqpve', {
                 method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
@@ -731,13 +731,13 @@
                 } else {
                     alert('Hubo un error. Intentá de nuevo.');
                     btn.disabled = false;
-                    btn.textContent = 'Quiero mi 10% de descuento';
+                    btn.textContent = 'Quiero mi reintegro de $2000';
                 }
             })
             .catch(function () {
                 alert('Sin conexión. Revisá tu internet.');
                 btn.disabled = false;
-                btn.textContent = 'Quiero mi 10% de descuento';
+                btn.textContent = 'Quiero mi reintegro de $2000';
             });
         });
     }

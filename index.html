@@ -511,7 +511,7 @@
         }
 
         .form-card::after {
-            content: '"10%"';
+            content: '"$2000"';
             position: absolute;
             top: -0.5rem;
             right: 2rem;
@@ -1180,7 +1180,7 @@
             📲 Consulta Directa
         </a>
         <a href="#descuento" class="cta-btn cta-btn-ghost">
-            🏷️ 10% de Descuento
+            🏷️ $2000 de Reintegro
         </a>
     </div>
 
@@ -1244,7 +1244,7 @@
                  data-modal-name="La Odisea"
                  data-modal-description="pican 7 comen 5"
                  data-modal-img="odisea.jpeg"
-                 data-modal-price="$22.000"
+                 data-modal-price="22.000"
                  data-modal-weight="900 g"
                  data-modal-components="Queso criollo,Chorizo seco,Queso pategras,Longaniza española,Salame con queso,Bondiola,Mortadela"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea.">
@@ -1305,7 +1305,7 @@
                  data-modal-name="Picada Simple EV"
                  data-modal-description="pican 4 y comen 2· Envasada al vacío"
                  data-modal-img="simple-ev.jpeg"
-                 data-modal-price="13000"
+                 data-modal-price="13.000"
                  data-modal-weight="500 g"
                  data-modal-components="Chorizo seco,Mortadela,Queso criollo,Bondiola"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple%20e.v.">
@@ -1329,7 +1329,7 @@
                  data-modal-name="Picada Mundialista ⚽"
                  data-modal-description="pican 4 comen 2"
                  data-modal-img="mundialista.jpeg"
-                 data-modal-price="$11.000"
+                 data-modal-price="11.000"
                  data-modal-weight="400 g"
                  data-modal-components="Chorizo seco,Longaniza,Queso criollo,Bondiola"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista.">
@@ -1514,7 +1514,7 @@
             formData.append('nombre',   nombre);
             formData.append('email',    email);
             formData.append('telefono', telefono);
-            formData.append('_subject', 'Nuevo registro para descuento del 10% - Productos Patagónicos');
+            formData.append('_subject', 'Nuevo registro para reintegro de $2000 - Productos Patagónicos');
 
             fetch('https://formspree.io/f/xaqkqpve', {
                 method: 'POST',
@@ -1528,7 +1528,7 @@
 
                     gaSend('registro_descuento', {
                         event_category: 'Lead',
-                        event_label: 'Formulario 10%',
+                        event_label: 'Formulario $2000',
                         nombre_inicial: nombre.split(' ')[0] || ''
                     });
                     gaSend('generate_lead', { value: 1, currency: 'ARS' });
@@ -1607,7 +1607,7 @@
 
         document.getElementById('modalProductName').textContent = name;
         document.getElementById('modalDescription').textContent = desc;
-        document.getElementById('modalPrice').innerHTML = price.replace('$', '<sup>$</sup>').replace('$</sup>', '</sup>');
+        document.getElementById('modalPrice').innerHTML = '<sup>$</sup>' + price.replace(/\$/g, '').trim();
 
         var imgEl = document.getElementById('modalImg');
         imgEl.src = img;
