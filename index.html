@@ -977,6 +977,133 @@
             opacity: 1;
         }
 
+        /* ══════════════════════════════════════════
+           TEMA MUNDIAL 2026 — Picada Mundialista
+           Propuesta aprobada por el dueno 10/07/2026.
+           Mantenimiento: actualizar rival/fecha ronda a ronda;
+           revertir a estilo original si Argentina queda eliminada
+           o al finalizar el Mundial (despues del 19/07/2026).
+        ══════════════════════════════════════════ */
+        .flag {
+            display: inline-block;
+            width: 30px;
+            height: 21px;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .flag-arg {
+            background: linear-gradient(to bottom, #6cace4 0 33%, #ffffff 33% 66%, #6cace4 66% 100%);
+        }
+        .flag-sui {
+            background: #d52b1e;
+        }
+        .flag-sui::before,
+        .flag-sui::after {
+            content: '';
+            position: absolute;
+            background: #ffffff;
+        }
+        .flag-sui::before { top: 42%; left: 22%; right: 22%; height: 16%; }
+        .flag-sui::after { left: 42%; top: 22%; bottom: 22%; width: 16%; }
+
+        .matchup-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.9rem;
+            background: #0f2a44;
+            border-radius: 3px;
+            padding: 0.7rem 0.8rem;
+            margin-bottom: 0.6rem;
+        }
+        .matchup-team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .matchup-team-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #f0e8d5;
+            text-transform: uppercase;
+        }
+        .matchup-vs {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--brand-gold-light);
+        }
+        .matchup-date {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: #3d7ab5;
+            margin-bottom: 1rem;
+        }
+
+        .product-card--mundial .card-body {
+            background: linear-gradient(to bottom, #eaf3fb, #ffffff);
+            border-top: 3px solid #6cace4;
+        }
+        .product-card--mundial .card-name,
+        .product-card--mundial .card-price {
+            color: #0f2a44;
+        }
+        .product-card--mundial .card-price sup {
+            color: #1c5f8a;
+        }
+        .product-card--mundial .card-description {
+            color: #3d6f92;
+            opacity: 1;
+        }
+
+        .product-modal--mundial.product-modal {
+            background: linear-gradient(160deg, #eaf3fb 0%, #ffffff 100%);
+            border-color: #6cace4;
+        }
+        .product-modal--mundial .modal-name,
+        .product-modal--mundial .modal-price {
+            color: #0f2a44;
+        }
+        .product-modal--mundial .modal-price sup { color: #1c5f8a; }
+        .product-modal--mundial .modal-description { color: #3d6f92; opacity: 1; }
+        .product-modal--mundial .modal-components-label { color: #1c5f8a; }
+        .product-modal--mundial .modal-components-list li {
+            background: rgba(108,172,228,0.12);
+            border-color: rgba(108,172,228,0.4);
+            color: #0f2a44;
+        }
+        .product-modal--mundial .modal-weight { color: #1c5f8a; }
+        .product-modal--mundial .modal-divider::before,
+        .product-modal--mundial .modal-divider::after { background: rgba(108,172,228,0.4); }
+        .product-modal--mundial .modal-divider-diamond { background: #6cace4; }
+        .product-modal--mundial .modal-matchup { display: flex !important; }
+
+        .modal-matchup {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: #0f2a44;
+            border-radius: 3px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .modal-matchup-date {
+            display: none;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1c5f8a;
+            margin-bottom: 1.2rem;
+        }
+        .product-modal--mundial .modal-matchup-date { display: block; }
+
         @media (max-width: 640px) {
             .modal-img-wrapper { height: 200px; }
             .modal-body { padding: 1.3rem 1.4rem 1.6rem; }
@@ -984,6 +1111,41 @@
             .modal-price { font-size: 2rem; }
         }
     </style>
+
+    <!-- SEO: canonical, Open Graph, Twitter Card -->
+    <link rel="canonical" href="https://lorenzoengraf10-dot.github.io/productosoatagonicos/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lorenzoengraf10-dot.github.io/productosoatagonicos/">
+    <meta property="og:title" content="Productos Patagónicos · Picadas y embutidos artesanales">
+    <meta property="og:description" content="Picadas y embutidos artesanales de Carmen de Patagones. Encargá directo por WhatsApp: Tradicional, La Odisea, Simple, Mundialista y más.">
+    <meta property="og:image" content="https://lorenzoengraf10-dot.github.io/productosoatagonicos/tradicional.jpeg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1350">
+    <meta property="og:locale" content="es_AR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Productos Patagónicos · Picadas y embutidos artesanales">
+    <meta name="twitter:description" content="Picadas y embutidos artesanales de Carmen de Patagones. Encargá directo por WhatsApp: Tradicional, La Odisea, Simple, Mundialista y más.">
+    <meta name="twitter:image" content="https://lorenzoengraf10-dot.github.io/productosoatagonicos/tradicional.jpeg">
+
+    <!-- SEO: datos estructurados schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FoodEstablishment",
+      "name": "Productos Patagónicos",
+      "image": "https://lorenzoengraf10-dot.github.io/productosoatagonicos/tradicional.jpeg",
+      "url": "https://lorenzoengraf10-dot.github.io/productosoatagonicos/",
+      "telephone": "+542920347453",
+      "priceRange": "$3.000-$22.000",
+      "servesCuisine": "Picadas y embutidos artesanales",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Carmen de Patagones",
+        "addressRegion": "Buenos Aires",
+        "addressCountry": "AR"
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -1201,12 +1363,51 @@
     <div class="products-section">
         <div class="products-grid">
 
+            <!-- PICADA MUNDIALISTA — temporal, tema Mundial 2026 (Argentina). Actualizar rival/fecha ronda a ronda; revertir si Argentina queda eliminada. -->
+            <div class="product-card product-card--mundial" data-has-modal
+                 data-modal-theme="mundial"
+                 data-modal-name="Picada Mundialista"
+                 data-modal-description="pican 4 comen 2"
+                 data-modal-img="mundialista.jpeg"
+                 data-modal-price="$11.000"
+                 data-modal-weight="400 g"
+                 data-modal-components="Chorizo seco,Longaniza,Queso criollo,Bondiola"
+                 data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista."
+                 data-modal-rival="Suiza"
+                 data-modal-fecha="Cuartos de final &middot; Sabado 11/7 &middot; 22:00 hs">
+                <div class="card-img-wrapper">
+                    <img src="mundialista.jpeg" alt="Picada Mundialista" loading="lazy" decoding="async">
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge">NUEVO!!!</span>
+                </div>
+                <div class="card-body">
+                    <div class="matchup-banner">
+                        <div class="matchup-team">
+                            <span class="flag flag-arg" aria-hidden="true"></span>
+                            <span class="matchup-team-label">Argentina</span>
+                        </div>
+                        <span class="matchup-vs">vs</span>
+                        <div class="matchup-team">
+                            <span class="flag flag-sui" aria-hidden="true"></span>
+                            <span class="matchup-team-label">Suiza</span>
+                        </div>
+                    </div>
+                    <p class="matchup-date">Cuartos de final &middot; Sabado 11/7 &middot; 22:00 hs</p>
+                    <h3 class="card-name">Picada Mundialista</h3>
+                    <p class="card-description">Ideal para el partido</p>
+                    <div class="card-footer">
+                        <div class="card-price"><sup>$</sup>11.000</div>
+                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista." target="_blank" class="btn-order">📲 Encargar</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- CORRECCIÓN: todos los data-modal-wa y btn-order usan wa.me/542920347453 -->
             <div class="product-card" data-has-modal
                  data-modal-name="Picada Tradicional"
                  data-modal-description="pican 6 y comen 4"
                  data-modal-img="tradicional.jpeg"
-                 data-modal-price="16.000"
+                 data-modal-price="$16.000"
                  data-modal-weight="700 g"
                  data-modal-components="Chorizo seco,Mortadela,Bondiola,Queso criollo,Morcilla blanca,Morcilla negra"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional.">
@@ -1219,7 +1420,7 @@
                     <h3 class="card-name">Picada Tradicional</h3>
                     <p class="card-description">nuestra 1er picada y mas popular</p>
                     <div class="card-footer">
-                        <div class="card-price"><sup>$</sup>16000</div>
+                        <div class="card-price"><sup>$</sup>16.000</div>
                         <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional." target="_blank" class="btn-order">📲 Encargar</a>
                     </div>
                 </div>
@@ -1267,7 +1468,7 @@
                  data-modal-name="Picada Simple"
                  data-modal-description="pican 4 comen 2"
                  data-modal-img="simple.jpeg"
-                 data-modal-price="13.000"
+                 data-modal-price="$13.000"
                  data-modal-weight="500 g"
                  data-modal-components="Chorizo seco,Mortadela,Queso criollo,Bondiola"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple.">
@@ -1305,7 +1506,7 @@
                  data-modal-name="Picada Simple EV"
                  data-modal-description="pican 4 y comen 2· Envasada al vacío"
                  data-modal-img="simple-ev.jpeg"
-                 data-modal-price="13000"
+                 data-modal-price="$13.000"
                  data-modal-weight="500 g"
                  data-modal-components="Chorizo seco,Mortadela,Queso criollo,Bondiola"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple%20e.v.">
@@ -1324,29 +1525,7 @@
                 </div>
             </div>
 
-            <!-- PICADA MUNDIALISTA — temporal -->
-            <div class="product-card" data-has-modal
-                 data-modal-name="Picada Mundialista ⚽"
-                 data-modal-description="pican 4 comen 2"
-                 data-modal-img="mundialista.jpeg"
-                 data-modal-price="$11.000"
-                 data-modal-weight="400 g"
-                 data-modal-components="Chorizo seco,Longaniza,Queso criollo,Bondiola"
-                 data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista.">
-                <div class="card-img-wrapper">
-                    <img src="mundialista.jpeg" alt="Picada Mundialista" loading="lazy" decoding="async">
-                    <div class="card-img-overlay"></div>
-                    <span class="card-badge">NUEVO!!!</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-name">Picada Mundialista ⚽</h3>
-                    <p class="card-description">Ideal para el partido</p>
-                    <div class="card-footer">
-                        <div class="card-price"><sup>$</sup>11.000</div>
-                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista." target="_blank" class="btn-order">📲 Encargar</a>
-                    </div>
-                </div>
-            </div>
+
 
         </div>
     </div>
@@ -1406,6 +1585,18 @@
             <span class="modal-badge" id="modalBadge" style="display:none"></span>
         </div>
         <div class="modal-body">
+            <div class="modal-matchup" id="modalMatchup">
+                <div class="matchup-team">
+                    <span class="flag flag-arg" aria-hidden="true"></span>
+                    <span class="matchup-team-label">Argentina</span>
+                </div>
+                <span class="matchup-vs">vs</span>
+                <div class="matchup-team">
+                    <span class="flag flag-sui" aria-hidden="true"></span>
+                    <span class="matchup-team-label" id="modalMatchupRival"></span>
+                </div>
+            </div>
+            <p class="modal-matchup-date" id="modalMatchupDate"></p>
             <h2 class="modal-name" id="modalProductName"></h2>
             <p class="modal-description" id="modalDescription"></p>
             <div class="modal-divider"><div class="modal-divider-diamond"></div></div>
@@ -1604,10 +1795,20 @@
         var weight      = card.dataset.modalWeight      || '';
         var components  = card.dataset.modalComponents  || '';
         var wa          = card.dataset.modalWa          || '#';
+        var theme       = card.dataset.modalTheme       || '';
+        var rival       = card.dataset.modalRival       || '';
+        var fecha       = card.dataset.modalFecha       || '';
 
         document.getElementById('modalProductName').textContent = name;
         document.getElementById('modalDescription').textContent = desc;
         document.getElementById('modalPrice').innerHTML = price.replace('$', '<sup>$</sup>').replace('$</sup>', '</sup>');
+
+        var modalEl = document.querySelector('.product-modal');
+        modalEl.classList.toggle('product-modal--mundial', theme === 'mundial');
+        if (theme === 'mundial') {
+            document.getElementById('modalMatchupRival').textContent = rival;
+            document.getElementById('modalMatchupDate').textContent = fecha;
+        }
 
         var imgEl = document.getElementById('modalImg');
         imgEl.src = img;
