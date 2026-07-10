@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lorenzoengraf10-dot.github.io/productosoatagonicos/sitemap.xml
+Sitemap: https://productosoatagonicos.vercel.app/sitemap.xml
