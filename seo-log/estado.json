@@ -28,7 +28,7 @@
   "pendientes_tecnicos": [
     {
       "id": "mailerlite-wiring",
-      "descripcion": "Grupo MailerLite 'Web · Descuento 10%' creado (id 192732970825548890). Falta: (1) cablear el formulario del sitio (hoy Formspree) para dar de alta al suscriptor en MailerLite; (2) crear y ACTIVAR la automatización de bienvenida con el cupón del 10%. Requiere remitente/dominio verificado y decisión sobre endpoint (evitar exponer API key en el cliente). No se activó automáticamente para no tocar a ciegas el formulario de conversión en vivo ni enviar emails no testeados."
+      "descripcion": "Automatización de bienvenida CREADA e INACTIVA en MailerLite (id 192733352710636650, 'Bienvenida Web · Reintegro $2.000'). Disparador: alta en el grupo 'Suscriptores Productos Patagónicos' (id 191653302006449649). Oferta decidida por el dueño: $2.000 de reintegro (coincide con el formulario). Email step id 192733353393259890, asunto listo. PENDIENTE (requiere al dueño en el editor visual de MailerLite, la API no puede escribir el HTML): (1) pegar el copy de bienvenida provisto; (2) enviar prueba; (3) activar. Además sigue pendiente cablear el formulario del sitio (hoy Formspree) para dar de alta al suscriptor en el grupo."
     },
     {
       "id": "render-dinamico-productos",
@@ -51,7 +51,22 @@
   ],
   "tracking": {
     "ga4": "G-42YBW61Q1Q",
-    "eventos": ["clic_whatsapp","generate_lead","registro_descuento","scroll_profundidad","clic_producto","tiempo_en_pagina","utm_capture"],
+    "eventos": [
+      "clic_whatsapp",
+      "generate_lead",
+      "registro_descuento",
+      "scroll_profundidad",
+      "clic_producto",
+      "tiempo_en_pagina",
+      "utm_capture"
+    ],
     "verificado": "presente en index.html en vivo (2026-07-11)"
+  },
+  "mailerlite": {
+    "automation_id": "192733352710636650",
+    "automation_estado": "inactiva - email pendiente de diseño",
+    "grupo_disparador": "191653302006449649 (Suscriptores Productos Patagónicos)",
+    "oferta": "$2.000 de reintegro (decisión del dueño 2026-07-11)",
+    "codigo_sugerido": "GRACIAS2000"
   }
 }
