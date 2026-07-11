@@ -1,0 +1,93 @@
+{
+  "negocio": {
+    "nombre": "Productos Patagónicos",
+    "descripcion": "Picadas y embutidos artesanales de Carmen de Patagones.",
+    "localidad": "Carmen de Patagones",
+    "region": "Buenos Aires",
+    "pais": "AR",
+    "telefono": "+542920347453",
+    "whatsapp": "542920347453",
+    "url": "https://productosoatagonicos.vercel.app/"
+  },
+  "moneda": "ARS",
+  "productos": [
+    {
+      "id": "mundialista",
+      "nombre": "Picada Mundialista",
+      "precio": 11000,
+      "porcion": "400 g",
+      "porciones_texto": "pican 4 comen 2",
+      "componentes": ["Chorizo seco", "Longaniza", "Queso criollo", "Bondiola"],
+      "imagen": "mundialista.jpeg",
+      "disponibilidad": "InStock",
+      "temporada": true,
+      "nota": "Edición temporada Mundial 2026"
+    },
+    {
+      "id": "tradicional",
+      "nombre": "Picada Tradicional",
+      "precio": 16000,
+      "porcion": "700 g",
+      "porciones_texto": "pican 6 y comen 4",
+      "componentes": ["Chorizo seco", "Mortadela", "Bondiola", "Queso criollo", "Morcilla blanca", "Morcilla negra"],
+      "imagen": "tradicional.jpeg",
+      "disponibilidad": "InStock",
+      "temporada": false
+    },
+    {
+      "id": "odisea",
+      "nombre": "La Odisea",
+      "precio": 22000,
+      "porcion": "900 g",
+      "porciones_texto": "pican 7 comen 5",
+      "componentes": ["Queso criollo", "Chorizo seco", "Queso pategras", "Longaniza española", "Salame con queso", "Bondiola", "Mortadela"],
+      "imagen": "odisea.jpeg",
+      "disponibilidad": "InStock",
+      "temporada": false
+    },
+    {
+      "id": "simple",
+      "nombre": "Picada Simple",
+      "precio": 13000,
+      "porcion": "500 g",
+      "porciones_texto": "pican 4 comen 2",
+      "componentes": ["Chorizo seco", "Mortadela", "Queso criollo", "Bondiola"],
+      "imagen": "simple.jpeg",
+      "disponibilidad": "InStock",
+      "temporada": false
+    },
+    {
+      "id": "simple-ev",
+      "nombre": "Picada Simple EV",
+      "precio": 13000,
+      "porcion": "500 g",
+      "porciones_texto": "pican 4 y comen 2 · Envasada al vacío",
+      "componentes": ["Chorizo seco", "Mortadela", "Queso criollo", "Bondiola"],
+      "imagen": "simple-ev.jpeg",
+      "disponibilidad": "InStock",
+      "temporada": false
+    },
+    {
+      "id": "bondiola",
+      "nombre": "Bondiola EV",
+      "precio": 3000,
+      "porcion": "Envasada al vacío",
+      "porciones_texto": "Envasada al vacío",
+      "componentes": ["Bondiola"],
+      "imagen": "bondiola.jpeg",
+      "disponibilidad": "InStock",
+      "temporada": false
+    },
+    {
+      "id": "embutidos",
+      "nombre": "Embutidos EV",
+      "precio": 3000,
+      "porcion": "Envasados al vacío",
+      "porciones_texto": "Chorizo seco · Longaniza · Salame con queso",
+      "componentes": ["Chorizo seco", "Longaniza", "Salame con queso"],
+      "imagen": "embutidos.jpeg",
+      "disponibilidad": "InStock",
+      "temporada": false
+    }
+  ]
+}

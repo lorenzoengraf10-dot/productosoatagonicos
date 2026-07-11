@@ -1,0 +1,57 @@
+{
+  "ultima_corrida": "2026-07-11",
+  "ultima_revision_total_codigo": "2026-07-11",
+  "resumen_revision_codigo": "index.html (1884 líneas) revisado de punta a punta. Catálogo coincide con precios autoritativos. Eventos GA4 completos. HTML válido. Sin bugs. Hallazgo menor: inconsistencia de copy 10% vs $2000 (propuesta).",
+  "hallazgos_confirmados": [
+    "productos.json creado como fuente autoritativa del catálogo (2026-07-11)",
+    "JSON-LD Product/Offer agregado para 7 picadas (2026-07-11)",
+    "Imágenes en WebP + <picture> fallback JPEG, ahorro ~25% (2026-07-11)",
+    "Mundialista con loading=eager + fetchpriority=high (2026-07-11)",
+    "SEO local: geo tags + keywords + title/description enriquecidos (2026-07-11)",
+    "aria-label agregado al input de email del form (2026-07-11)",
+    "sitemap lastmod = 2026-07-11"
+  ],
+  "propuestas_pendientes_aprobacion": [
+    {
+      "id": "copy-oferta-10-vs-2000",
+      "tipo": "conversión",
+      "descripcion": "El formulario dice 'reintegro $2000' pero el CTA y el asunto del email dicen 'descuento del 10%'. $2000 = 10% sólo en pedidos de $20.000. Proponer unificar el mensaje (elegir 10% o monto fijo) para reducir fricción.",
+      "estado": "esperando decisión del dueño"
+    },
+    {
+      "id": "seccion-prueba-social",
+      "tipo": "diseño",
+      "descripcion": "Sección de testimonios de WhatsApp + galería de picadas entregadas. Cambio de diseño: requiere vista previa y aprobación.",
+      "estado": "no iniciada"
+    }
+  ],
+  "pendientes_tecnicos": [
+    {
+      "id": "mailerlite-wiring",
+      "descripcion": "Grupo MailerLite 'Web · Descuento 10%' creado (id 192732970825548890). Falta: (1) cablear el formulario del sitio (hoy Formspree) para dar de alta al suscriptor en MailerLite; (2) crear y ACTIVAR la automatización de bienvenida con el cupón del 10%. Requiere remitente/dominio verificado y decisión sobre endpoint (evitar exponer API key en el cliente). No se activó automáticamente para no tocar a ciegas el formulario de conversión en vivo ni enviar emails no testeados."
+    },
+    {
+      "id": "render-dinamico-productos",
+      "descripcion": "Opcional: hacer que el HTML renderice las tarjetas desde productos.json. Se pospuso para no arriesgar la conversión (si falla el JS no se ven productos). El JSON-LD ya se genera desde productos.json; el HTML sigue estático como fallback confiable."
+    }
+  ],
+  "mundial_2026": {
+    "estado": "en_curso",
+    "ultimo_verificado": "2026-07-11",
+    "detalle": "Argentina 3-2 Egipto (07/07, octavos). Cuartos vs Suiza el sábado 11/07 22:00 hs (Kansas City). Tarjeta Mundialista correcta. Revisar resultado en próxima corrida.",
+    "proximo_chequeo": "resultado Argentina-Suiza",
+    "revertir_despues_de": "2026-07-19"
+  },
+  "bloqueos_avisados": [
+    {
+      "id": "supermetrics-auth",
+      "descripcion": "Conector Supermetrics (GA4/Facebook/Instagram) requiere autenticación. Métricas reales no disponibles hasta que el dueño autorice la conexión. Avisado 2026-07-11.",
+      "fecha_aviso": "2026-07-11"
+    }
+  ],
+  "tracking": {
+    "ga4": "G-42YBW61Q1Q",
+    "eventos": ["clic_whatsapp","generate_lead","registro_descuento","scroll_profundidad","clic_producto","tiempo_en_pagina","utm_capture"],
+    "verificado": "presente en index.html en vivo (2026-07-11)"
+  }
+}
