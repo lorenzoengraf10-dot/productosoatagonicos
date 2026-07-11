@@ -1546,13 +1546,7 @@
 
         <div id="form-wrapper">
             <div class="form-group">
-                <input type="text" id="f-nombre" placeholder="Nombre y Apellido" required>
-            </div>
-            <div class="form-group">
                 <input type="email" id="f-email" placeholder="Tu correo electrónico" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" id="f-telefono" placeholder="Número de teléfono" required>
             </div>
             <button type="button" id="btn-submit" class="btn-submit">Registrarme y obtener descuento</button>
         </div>
@@ -1689,12 +1683,10 @@
     var btnSubmit = document.getElementById('btn-submit');
     if (btnSubmit) {
         btnSubmit.addEventListener('click', function () {
-            var nombre   = document.getElementById('f-nombre').value.trim();
-            var email    = document.getElementById('f-email').value.trim();
-            var telefono = document.getElementById('f-telefono').value.trim();
+            var email = document.getElementById('f-email').value.trim();
 
-            if (!nombre || !email || !telefono) {
-                alert('Por favor completá todos los campos.');
+            if (!email) {
+                alert('Por favor completá tu email.');
                 return;
             }
 
@@ -1702,9 +1694,7 @@
             btnSubmit.textContent = 'Enviando...';
 
             var formData = new FormData();
-            formData.append('nombre',   nombre);
-            formData.append('email',    email);
-            formData.append('telefono', telefono);
+            formData.append('email', email);
             formData.append('_subject', 'Nuevo registro para descuento del 10% - Productos Patagónicos');
 
             fetch('https://formspree.io/f/xaqkqpve', {
@@ -1719,8 +1709,7 @@
 
                     gaSend('registro_descuento', {
                         event_category: 'Lead',
-                        event_label: 'Formulario 10%',
-                        nombre_inicial: nombre.split(' ')[0] || ''
+                        event_label: 'Formulario 10%'
                     });
                     gaSend('generate_lead', { value: 1, currency: 'ARS' });
                 } else {
