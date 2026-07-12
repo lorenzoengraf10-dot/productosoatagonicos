@@ -2065,6 +2065,23 @@
             formData.append('email', email);
             formData.append('_subject', 'Nuevo registro para reintegro de $2000 - Productos Patagónicos');
 
+            /* 5b. Alta en MailerLite (grupo Suscriptores) para disparar la automatizacion
+               de bienvenida (reintegro $2000). Fire-and-forget: no bloquea ni afecta la UI de
+               exito, que sigue controlada por Formspree. Endpoint publico del form embebido
+               (sin API key). Si falla, el formulario sigue funcionando igual. */
+            try {
+                var mlData = new URLSearchParams();
+                mlData.append('fields[email]', email);
+                mlData.append('ml-submit', '1');
+                mlData.append('anticsrf', 'true');
+                fetch('https://assets.mailerlite.com/jsonp/2414901/forms/192832966699779088/subscribe', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: mlData.toString()
+                }).catch(function () {});
+            } catch (e) {}
+
             fetch('https://formspree.io/f/xaqkqpve', {
                 method: 'POST',
                 body: formData,

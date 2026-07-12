@@ -1,7 +1,7 @@
 {
   "ultima_corrida": "2026-07-12",
   "ultima_revision_total_codigo": "2026-07-11",
-  "resumen_revision_codigo": "Revisión total completa hecha el 2026-07-11 (index.html sin bugs). 2026-07-12: sólo auditoría puntual (sin cambios sustanciales que obliguen re-revisión total): GA4 y eventos OK, 13/13 img con alt, JSON-LD válido (2 bloques). Hallazgo: simple.html sin canonical/robots (corregido).",
+  "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-12 (corrida MailerLite): auditoría puntual OK — GA4/eventos presentes, 10/10 img con alt, JSON-LD 2 bloques válido, productos.json 100% consistente con el override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple OutOfStock; Embutidos EV InStock). Sin bugs nuevos.",
   "hallazgos_confirmados": [
     "productos.json creado como fuente autoritativa del catálogo (2026-07-11)",
     "JSON-LD Product/Offer agregado para 7 picadas (2026-07-11)",
@@ -34,7 +34,9 @@
     "Fix SEO/compartidos (2026-07-12): og:image/twitter:image/FoodEstablishment.image apuntaban a tradicional.jpeg (agotada); actualizados a mundialista.jpeg. Title y meta description actualizados para no promocionar productos agotados",
     "Foto de Picada Mundialista actualizada a formato horizontal (2026-07-12, provista por el dueño, 1142x804), se ve mejor en tarjeta y modal",
     "Hallazgo sin corregir (2026-07-12): simple.html tiene precios desactualizados (Tradicional $15.000 vs $16.000, Simple $12.500 vs $13.000) y ofrece '10% OFF' en vez de '$2.000 de reintegro'; requiere decisión del dueño",
-    "Picada Mundialista: peso actualizado a 800 g por pedido del dueño (2026-07-12), antes 750 g. Actualizado en productos.json, tarjeta, modal, JSON-LD, meta description, og/twitter y ranking Prueba social"
+    "Picada Mundialista: peso actualizado a 800 g por pedido del dueño (2026-07-12), antes 750 g. Actualizado en productos.json, tarjeta, modal, JSON-LD, meta description, og/twitter y ranking Prueba social",
+    "Formulario del sitio CABLEADO a MailerLite (2026-07-12, aprobado): form embebido id 192832966699779088 (cuenta 2414901) atado al grupo 191653302006449649; fetch fire-and-forget (no-cors, try/catch) al endpoint público JSONP en el submit del form, sin API key expuesta. Formspree sigue controlando la pantalla de éxito y el aviso al dueño. NOTA: el form MailerLite tiene double opt-in activado (el suscriptor confirma por email antes de entrar al grupo).",
+    "Hallazgo (2026-07-12): el espejo GitHub Pages servía contenido viejo (Mundialista 750g, title/og/meta antiguos apuntando a tradicional.jpeg) mientras Vercel estaba al día. El canonical del espejo apunta correctamente a Vercel (SEO protegido). El push de hoy debería regenerar Pages; re-verificar en la próxima corrida."
   ],
   "propuestas_pendientes_aprobacion": [
     "simple.html desactualizada respecto a index.html/productos.json: precios distintos (Tradicional $15.000 vs $16.000, Simple $12.500 vs $13.000) y oferta '10% OFF' en vez de '$2.000 de reintegro'. Requiere decisión del dueño: ¿unificar precios/oferta, o despriorizar simple.html mientras dure la Mundialista?"
@@ -42,8 +44,8 @@
   "pendientes_tecnicos": [
     {
       "id": "mailerlite-wiring",
-      "descripcion": "Automatización de bienvenida CREADA e INACTIVA en MailerLite (id 192733352710636650, 'Bienvenida Web · Reintegro $2.000'). Disparador: alta en el grupo 'Suscriptores Productos Patagónicos' (id 191653302006449649). Oferta decidida por el dueño: $2.000 de reintegro (coincide con el formulario). Email step id 192733353393259890, asunto listo. PENDIENTE (requiere al dueño en el editor visual de MailerLite, la API no puede escribir el HTML): (1) pegar el copy de bienvenida provisto; (2) enviar prueba; (3) activar. Además sigue pendiente cablear el formulario del sitio (hoy Formspree) para dar de alta al suscriptor en el grupo. [APROBADO POR EL DUEÑO 2026-07-12: cablear el formulario del sitio (Formspree) al grupo de MailerLite en la próxima corrida (13/07). El paso del editor visual sigue siendo manual del dueño.]",
-      "accion_proxima_corrida": "Cablear el formulario del sitio al grupo de MailerLite (id 191653302006449649) para que cada registro dé de alta al suscriptor y dispare la automatización."
+      "descripcion": "Formulario del sitio YA cableado a MailerLite (2026-07-12) vía form embebido id 192832966699779088 (endpoint JSONP público, sin secreto). Cada registro web da de alta en el grupo 191653302006449649. PENDIENTE (manual del dueño, la API no puede): abrir el email de la automatización 'Bienvenida Web · Reintegro $2.000' (id 192733352710636650) en el editor visual de MailerLite, Guardar, enviar prueba y Activar. Verificar además que el double opt-in del form no agregue demasiada fricción (el suscriptor confirma por email antes de recibir el cupón).",
+      "accion_proxima_corrida": "Confirmar (vía métricas MailerLite) que lleguen altas desde el sitio; recordar al dueño el paso manual de activar la automatización de bienvenida en el editor visual."
     },
     {
       "id": "render-dinamico-productos",
@@ -53,7 +55,7 @@
   "mundial_2026": {
     "estado": "en_curso",
     "ultimo_verificado": "2026-07-12",
-    "detalle": "Argentina 3-1 Suiza (11/07, cuartos, Kansas City). Avanza a SEMIFINAL vs Inglaterra el miercoles 15/07 16:00 hs (hora ARG), Mercedes-Benz Stadium, Atlanta. Tarjeta Mundialista ya actualizada (rival Inglaterra, fecha semifinal). Final del Mundial: domingo 19/07.",
+    "detalle": "Semifinal Argentina–Inglaterra: miércoles 15/07 16:00 (hora ARG), Mercedes-Benz Stadium, Atlanta. AÚN NO SE JUGÓ (hoy 12/07). Tarjeta Mundialista ya con rival y fecha correctos. Final del Mundial: domingo 19/07.",
     "proximo_chequeo": "resultado Argentina-Inglaterra (semifinal 15/07)",
     "revertir_despues_de": "2026-07-19"
   },
@@ -78,8 +80,16 @@
     "grupo_disparador": "191653302006449649 (Suscriptores Productos Patagónicos)",
     "oferta": "$2.000 de reintegro · código GRACIAS2000",
     "paso_manual_restante": "Abrir el email en el editor visual de MailerLite y Guardar (activa el flag 'diseñado'); luego Send test y Activar. La API no puede activar ese flag.",
-    "pendiente_form": "Cablear el formulario del sitio (hoy Formspree) al grupo para que la automatización se dispare con cada registro web.",
-    "ultima_campana": "Gran Promoción Mundialista 750g/$12.000 enviada 2026-07-12 a 29 suscriptores (grupo Suscriptores Productos Patagónicos)"
+    "pendiente_form": "RESUELTO 2026-07-12: el formulario del sitio ya da de alta en el grupo vía el form embebido (endpoint JSONP público). Pendiente sólo el paso manual del dueño: abrir el email de la automatización en el editor visual y Guardar/Activar (la API no puede setear ese flag).",
+    "ultima_campana": "Gran Promoción Mundialista 750g/$12.000 enviada 2026-07-12 a 29 suscriptores (grupo Suscriptores Productos Patagónicos)",
+    "form_embebido": {
+      "id": "192832966699779088",
+      "account_id": "2414901",
+      "slug": "ePBvQg",
+      "grupo": "191653302006449649",
+      "double_optin": true,
+      "cableado_al_sitio": "2026-07-12"
+    }
   },
   "decisiones_dueno": [
     "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07.",
@@ -99,6 +109,14 @@
       "generate_lead": 13,
       "clic_whatsapp": 11,
       "registro_descuento": 2
+    },
+    "ga4_7d_2026-07-12_reverif": {
+      "rango": "2026-07-05 a 2026-07-11",
+      "clic_producto": 43,
+      "generate_lead": 13,
+      "clic_whatsapp": 11,
+      "registro_descuento": 2,
+      "nota": "Idéntico al snapshot previo; sin caída anómala. Cuello de botella: completar el registro del cupón."
     }
   },
   "catalogo_override_dueno": {
