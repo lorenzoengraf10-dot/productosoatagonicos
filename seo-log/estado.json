@@ -9,7 +9,8 @@
     "Mundialista con loading=eager + fetchpriority=high (2026-07-11)",
     "SEO local: geo tags + keywords + title/description enriquecidos (2026-07-11)",
     "aria-label agregado al input de email del form (2026-07-11)",
-    "sitemap lastmod = 2026-07-11"
+    "sitemap lastmod = 2026-07-11",
+    "Sección 'Prueba social' (Top picadas + franja de confianza + comunidad WhatsApp) integrada al index.html entre catálogo y formulario, aprobada por el dueño (2026-07-11)"
   ],
   "propuestas_pendientes_aprobacion": [
     {
@@ -17,12 +18,6 @@
       "tipo": "conversión",
       "descripcion": "El formulario dice 'reintegro $2000' pero el CTA y el asunto del email dicen 'descuento del 10%'. $2000 = 10% sólo en pedidos de $20.000. Proponer unificar el mensaje (elegir 10% o monto fijo) para reducir fricción.",
       "estado": "esperando decisión del dueño"
-    },
-    {
-      "id": "seccion-prueba-social",
-      "tipo": "diseño",
-      "descripcion": "Sección de testimonios de WhatsApp + galería de picadas entregadas. Cambio de diseño: requiere vista previa y aprobación.",
-      "estado": "no iniciada"
     }
   ],
   "pendientes_tecnicos": [
@@ -33,6 +28,10 @@
     {
       "id": "render-dinamico-productos",
       "descripcion": "Opcional: hacer que el HTML renderice las tarjetas desde productos.json. Se pospuso para no arriesgar la conversión (si falla el JS no se ven productos). El JSON-LD ya se genera desde productos.json; el HTML sigue estático como fallback confiable."
+    },
+    {
+      "id": "redes-sociales-links",
+      "descripcion": "Agregar botones de Instagram y Facebook en la sección Prueba social. Pendiente: URLs/handles de IG y FB (el dueño los va a pasar). Link de comunidad WhatsApp ya integrado."
     }
   ],
   "mundial_2026": {
