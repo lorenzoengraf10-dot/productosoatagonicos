@@ -64,9 +64,11 @@
   },
   "mailerlite": {
     "automation_id": "192733352710636650",
-    "automation_estado": "inactiva - email pendiente de diseño",
+    "email_id": "192733353647015130",
+    "automation_estado": "inactiva - asunto y cuerpo (copy $2000 reintegro) YA CARGADOS via API; eligible_for_sending=true, needs_domain_auth=false",
     "grupo_disparador": "191653302006449649 (Suscriptores Productos Patagónicos)",
-    "oferta": "$2.000 de reintegro (decisión del dueño 2026-07-11)",
-    "codigo_sugerido": "GRACIAS2000"
+    "oferta": "$2.000 de reintegro · código GRACIAS2000",
+    "paso_manual_restante": "Abrir el email en el editor visual de MailerLite y Guardar (activa el flag 'diseñado'); luego Send test y Activar. La API no puede activar ese flag.",
+    "pendiente_form": "Cablear el formulario del sitio (hoy Formspree) al grupo para que la automatización se dispare con cada registro web."
   }
 }
