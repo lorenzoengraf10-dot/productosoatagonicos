@@ -14,7 +14,11 @@
     "simple.html marcado noindex,follow + canonical a la home para evitar canibalización SEO (2026-07-12)",
     "Tarjeta Mundialista actualizada a Semifinal vs Inglaterra 15/07 + estilo bandera flag-eng (2026-07-12)",
     "Copy de la oferta unificado a '$2000 de reintegro' en todo el funnel (asunto Formspree + label GA), aprobado por el dueño (2026-07-12)",
-    "Supermetrics autorizado (GA4/FB/IG) 2026-07-12; GA4 7 días: 54 sesiones, 38 usuarios, 84 vistas; clic_whatsapp 11, generate_lead 13, registro_descuento 2"
+    "Supermetrics autorizado (GA4/FB/IG) 2026-07-12; GA4 7 días: 54 sesiones, 38 usuarios, 84 vistas; clic_whatsapp 11, generate_lead 13, registro_descuento 2",
+    "Picada Mundialista reemplazada por pedido del dueño (2026-07-12): $12.000, 750 g, pican 7 personas comen 4, componentes Chorizo seco/Mortadela/Morcilla blanca/Morcilla negra/Queso criollo/Queso de cerdo; badge 'Gran Promoción Mundialista'",
+    "Picada Tradicional, La Odisea, Picada Simple y Picada Simple EV marcadas Agotado (tarjeta, modal, ranking Prueba social, productos.json y JSON-LD OutOfStock) por pedido del dueño (2026-07-12)",
+    "Aura Mundial/Argentina aplicada a todo el sitio (2026-07-12): franja superior celeste-blanco-celeste, acentos celestes en header/CTA/fondo, eyebrow y footer con bandera argentina",
+    "Bug corregido (2026-07-12): el signo '$' desaparecía del precio en el modal de detalle de producto (doble .replace erróneo)"
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -59,7 +63,8 @@
     "pendiente_form": "Cablear el formulario del sitio (hoy Formspree) al grupo para que la automatización se dispare con cada registro web."
   },
   "decisiones_dueno": [
-    "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07."
+    "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07.",
+    "2026-07-12: Reemplazar la Picada Mundialista por la nueva composición ($12.000, 750 g) y lanzarla como 'Gran Promoción Mundialista'; marcar el resto de las picadas (Tradicional, Odisea, Simple, Simple EV) como agotadas; darle al sitio un aura Mundial/Argentina."
   ],
   "metricas_ultima": {
     "ga4_7d_2026-07-12": {

@@ -14,14 +14,14 @@
     {
       "id": "mundialista",
       "nombre": "Picada Mundialista",
-      "precio": 11000,
-      "porcion": "400 g",
-      "porciones_texto": "pican 4 comen 2",
-      "componentes": ["Chorizo seco", "Longaniza", "Queso criollo", "Bondiola"],
+      "precio": 12000,
+      "porcion": "750 g",
+      "porciones_texto": "pican 7 personas, comen 4",
+      "componentes": ["Chorizo seco", "Mortadela", "Morcilla blanca", "Morcilla negra", "Queso criollo", "Queso de cerdo"],
       "imagen": "mundialista.jpeg",
       "disponibilidad": "InStock",
       "temporada": true,
-      "nota": "Edición temporada Mundial 2026"
+      "nota": "Gran Promoción Mundialista — edición temporada Mundial 2026"
     },
     {
       "id": "tradicional",
@@ -31,7 +31,7 @@
       "porciones_texto": "pican 6 y comen 4",
       "componentes": ["Chorizo seco", "Mortadela", "Bondiola", "Queso criollo", "Morcilla blanca", "Morcilla negra"],
       "imagen": "tradicional.jpeg",
-      "disponibilidad": "InStock",
+      "disponibilidad": "OutOfStock",
       "temporada": false
     },
     {
@@ -42,7 +42,7 @@
       "porciones_texto": "pican 7 comen 5",
       "componentes": ["Queso criollo", "Chorizo seco", "Queso pategras", "Longaniza española", "Salame con queso", "Bondiola", "Mortadela"],
       "imagen": "odisea.jpeg",
-      "disponibilidad": "InStock",
+      "disponibilidad": "OutOfStock",
       "temporada": false
     },
     {
@@ -53,7 +53,7 @@
       "porciones_texto": "pican 4 comen 2",
       "componentes": ["Chorizo seco", "Mortadela", "Queso criollo", "Bondiola"],
       "imagen": "simple.jpeg",
-      "disponibilidad": "InStock",
+      "disponibilidad": "OutOfStock",
       "temporada": false
     },
     {
@@ -64,7 +64,7 @@
       "porciones_texto": "pican 4 y comen 2 · Envasada al vacío",
       "componentes": ["Chorizo seco", "Mortadela", "Queso criollo", "Bondiola"],
       "imagen": "simple-ev.jpeg",
-      "disponibilidad": "InStock",
+      "disponibilidad": "OutOfStock",
       "temporada": false
     },
     {
