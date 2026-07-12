@@ -2022,7 +2022,7 @@
 
             var formData = new FormData();
             formData.append('email', email);
-            formData.append('_subject', 'Nuevo registro para descuento del 10% - Productos Patagónicos');
+            formData.append('_subject', 'Nuevo registro para reintegro de $2000 - Productos Patagónicos');
 
             fetch('https://formspree.io/f/xaqkqpve', {
                 method: 'POST',
@@ -2036,7 +2036,7 @@
 
                     gaSend('registro_descuento', {
                         event_category: 'Lead',
-                        event_label: 'Formulario 10%'
+                        event_label: 'Formulario reintegro $2000'
                     });
                     gaSend('generate_lead', { value: 1, currency: 'ARS' });
                 } else {
