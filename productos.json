@@ -57,17 +57,6 @@
       "temporada": false
     },
     {
-      "id": "bondiola",
-      "nombre": "Bondiola EV",
-      "precio": 3000,
-      "porcion": "Envasada al vacío",
-      "porciones_texto": "Envasada al vacío",
-      "componentes": ["Bondiola"],
-      "imagen": "bondiola.jpeg",
-      "disponibilidad": "InStock",
-      "temporada": false
-    },
-    {
       "id": "embutidos",
       "nombre": "Embutidos EV",
       "precio": 3000,

@@ -21,7 +21,10 @@
     "Bug corregido (2026-07-12): el signo '$' desaparecía del precio en el modal de detalle de producto (doble .replace erróneo)",
     "Deploy corregido (2026-07-12): push a main no disparó build de producción en Vercel (dedup por SHA con preview de rama); commit vacío forzó el build y la promoción a producción",
     "Foto de Picada Mundialista reemplazada por la real (provista por el dueño) en mundialista.jpeg/webp (2026-07-12)",
-    "Picada Simple EV eliminada del catálogo por pedido del dueño (2026-07-12): sacada de productos.json, tarjeta, JSON-LD y ranking Prueba social; simple-ev.jpeg/webp se conservan porque simple.html las sigue usando"
+    "Picada Simple EV eliminada del catálogo por pedido del dueño (2026-07-12): sacada de productos.json, tarjeta, JSON-LD y ranking Prueba social; simple-ev.jpeg/webp se conservan porque simple.html las sigue usando",
+    "Bondiola EV eliminada del catálogo por pedido del dueño (2026-07-12): sacada de productos.json, tarjeta y JSON-LD; bondiola.jpeg/webp se conservan porque simple.html las sigue usando",
+    "Embutidos EV ahora tiene modal + badge 'TOCÁ ACÁ PARA LA INFO' (2026-07-12), era la única tarjeta sin modal tras sacar Bondiola",
+    "Fix (2026-07-12): la foto se veía recortada en el modal de detalle de producto (object-fit: cover); cambiado a contain + más brillo + alto 340px/280px mobile en las 5 picadas con modal"
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -68,7 +71,8 @@
   "decisiones_dueno": [
     "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07.",
     "2026-07-12: Reemplazar la Picada Mundialista por la nueva composición ($12.000, 750 g) y lanzarla como 'Gran Promoción Mundialista'; marcar el resto de las picadas (Tradicional, Odisea, Simple, Simple EV) como agotadas; darle al sitio un aura Mundial/Argentina.",
-    "2026-07-12: Corregir la foto de la Picada Mundialista (la anterior no correspondía a la composición real) y sacar la Picada Simple EV del catálogo por innecesaria y ocupar espacio."
+    "2026-07-12: Corregir la foto de la Picada Mundialista (la anterior no correspondía a la composición real) y sacar la Picada Simple EV del catálogo por innecesaria y ocupar espacio.",
+    "2026-07-12: Sacar la Bondiola EV del catálogo, agregar cartelito 'tocá acá para la info' en Embutidos y corregir el recorte de foto en los modales."
   ],
   "metricas_ultima": {
     "ga4_7d_2026-07-12": {

@@ -780,15 +780,15 @@
 
         .modal-img-wrapper {
             position: relative;
-            height: 260px;
+            height: 340px;
             overflow: hidden;
         }
 
         .modal-img-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            filter: brightness(0.65) saturate(0.95);
+            object-fit: contain;
+            filter: brightness(0.95) saturate(1);
             transition: transform 0.6s ease;
         }
 
@@ -1206,7 +1206,7 @@
         }
 
         @media (max-width: 640px) {
-            .modal-img-wrapper { height: 200px; }
+            .modal-img-wrapper { height: 280px; }
             .modal-body { padding: 1.3rem 1.4rem 1.6rem; }
             .modal-name { font-size: 1.8rem; }
             .modal-price { font-size: 2rem; }
@@ -1407,31 +1407,6 @@
     {
       "@type": "ListItem",
       "position": 5,
-      "item": {
-        "@type": "Product",
-        "name": "Bondiola EV",
-        "image": "https://productosoatagonicos.vercel.app/bondiola.jpeg",
-        "description": "Picada artesanal (Envasada al vacío): Bondiola.",
-        "brand": {
-          "@type": "Brand",
-          "name": "Productos Patagónicos"
-        },
-        "offers": {
-          "@type": "Offer",
-          "price": "3000",
-          "priceCurrency": "ARS",
-          "availability": "https://schema.org/InStock",
-          "url": "https://productosoatagonicos.vercel.app/#picadas",
-          "seller": {
-            "@type": "Organization",
-            "name": "Productos Patagónicos"
-          }
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 6,
       "item": {
         "@type": "Product",
         "name": "Embutidos EV",
@@ -1742,21 +1717,6 @@
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="card-img-wrapper">
-                    <picture><source srcset="bondiola.webp" type="image/webp"><img src="bondiola.jpeg" alt="Bondiola" loading="lazy" decoding="async"></picture>
-                    <div class="card-img-overlay"></div>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-name">Bondiola</h3>
-                    <p class="card-description">Envasada al vacío</p>
-                    <div class="card-footer">
-                        <div class="card-price"><sup>$</sup>3.000</div>
-                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20bondiola%20E.V." target="_blank" class="btn-order">📲 Encargar</a>
-                    </div>
-                </div>
-            </div>
-
             <div class="product-card product-card--soldout" data-has-modal
                  data-modal-name="La Odisea"
                  data-modal-description="pican 7 comen 5"
@@ -1805,10 +1765,18 @@
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" data-has-modal
+                 data-modal-name="Embutidos"
+                 data-modal-description="Envasados al vacío"
+                 data-modal-img="embutidos.jpeg"
+                 data-modal-price="$3.000"
+                 data-modal-weight="Envasados al vacío"
+                 data-modal-components="Chorizo seco,Longaniza,Salame con queso"
+                 data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20los%20embutidos%20envasados%20al%20vacio.">
                 <div class="card-img-wrapper">
                     <picture><source srcset="embutidos.webp" type="image/webp"><img src="embutidos.jpeg" alt="Embutidos" loading="lazy" decoding="async"></picture>
                     <div class="card-img-overlay"></div>
+                    <span class="card-badge">TOCÁ ACÁ PARA LA INFO</span>
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">Embutidos</h3>
