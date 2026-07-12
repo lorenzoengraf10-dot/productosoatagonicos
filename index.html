@@ -1013,6 +1013,17 @@
         }
         .flag-sui::before { top: 42%; left: 22%; right: 22%; height: 16%; }
         .flag-sui::after { left: 42%; top: 22%; bottom: 22%; width: 16%; }
+        .flag-eng {
+            background: #ffffff;
+        }
+        .flag-eng::before,
+        .flag-eng::after {
+            content: '';
+            position: absolute;
+            background: #cf142b;
+        }
+        .flag-eng::before { top: 42%; left: 0; right: 0; height: 16%; }
+        .flag-eng::after { left: 42%; top: 0; bottom: 0; width: 16%; }
 
         .matchup-banner {
             display: flex;
@@ -1611,8 +1622,8 @@
                  data-modal-weight="400 g"
                  data-modal-components="Chorizo seco,Longaniza,Queso criollo,Bondiola"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista."
-                 data-modal-rival="Suiza"
-                 data-modal-fecha="Cuartos de final &middot; Sabado 11/7 &middot; 22:00 hs">
+                 data-modal-rival="Inglaterra"
+                 data-modal-fecha="Semifinal &middot; Miercoles 15/7 &middot; 16:00 hs">
                 <div class="card-img-wrapper">
                     <picture><source srcset="mundialista.webp" type="image/webp"><img src="mundialista.jpeg" alt="Picada Mundialista" loading="eager" fetchpriority="high" decoding="async"></picture>
                     <div class="card-img-overlay"></div>
@@ -1626,11 +1637,11 @@
                         </div>
                         <span class="matchup-vs">vs</span>
                         <div class="matchup-team">
-                            <span class="flag flag-sui" aria-hidden="true"></span>
-                            <span class="matchup-team-label">Suiza</span>
+                            <span class="flag flag-eng" aria-hidden="true"></span>
+                            <span class="matchup-team-label">Inglaterra</span>
                         </div>
                     </div>
-                    <p class="matchup-date">Cuartos de final &middot; Sabado 11/7 &middot; 22:00 hs</p>
+                    <p class="matchup-date">Semifinal &middot; Miercoles 15/7 &middot; 16:00 hs</p>
                     <h3 class="card-name">Picada Mundialista</h3>
                     <p class="card-description">Ideal para el partido</p>
                     <div class="card-footer">
@@ -1902,7 +1913,7 @@
                 </div>
                 <span class="matchup-vs">vs</span>
                 <div class="matchup-team">
-                    <span class="flag flag-sui" aria-hidden="true"></span>
+                    <span class="flag flag-eng" aria-hidden="true"></span>
                     <span class="matchup-team-label" id="modalMatchupRival"></span>
                 </div>
             </div>

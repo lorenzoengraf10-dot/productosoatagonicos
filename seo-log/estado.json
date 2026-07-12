@@ -1,7 +1,7 @@
 {
-  "ultima_corrida": "2026-07-11",
+  "ultima_corrida": "2026-07-12",
   "ultima_revision_total_codigo": "2026-07-11",
-  "resumen_revision_codigo": "index.html (1884 líneas) revisado de punta a punta. Catálogo coincide con precios autoritativos. Eventos GA4 completos. HTML válido. Sin bugs. Hallazgo menor: inconsistencia de copy 10% vs $2000 (propuesta).",
+  "resumen_revision_codigo": "Revisión total completa hecha el 2026-07-11 (index.html sin bugs). 2026-07-12: sólo auditoría puntual (sin cambios sustanciales que obliguen re-revisión total): GA4 y eventos OK, 13/13 img con alt, JSON-LD válido (2 bloques). Hallazgo: simple.html sin canonical/robots (corregido).",
   "hallazgos_confirmados": [
     "productos.json creado como fuente autoritativa del catálogo (2026-07-11)",
     "JSON-LD Product/Offer agregado para 7 picadas (2026-07-11)",
@@ -10,7 +10,9 @@
     "SEO local: geo tags + keywords + title/description enriquecidos (2026-07-11)",
     "aria-label agregado al input de email del form (2026-07-11)",
     "sitemap lastmod = 2026-07-11",
-    "Sección 'Prueba social' (Top picadas + franja de confianza + comunidad WhatsApp) integrada al index.html entre catálogo y formulario, aprobada por el dueño (2026-07-11)"
+    "Sección 'Prueba social' (Top picadas + franja de confianza + comunidad WhatsApp) integrada al index.html entre catálogo y formulario, aprobada por el dueño (2026-07-11)",
+    "simple.html marcado noindex,follow + canonical a la home para evitar canibalización SEO (2026-07-12)",
+    "Tarjeta Mundialista actualizada a Semifinal vs Inglaterra 15/07 + estilo bandera flag-eng (2026-07-12)"
   ],
   "propuestas_pendientes_aprobacion": [
     {
@@ -32,9 +34,9 @@
   ],
   "mundial_2026": {
     "estado": "en_curso",
-    "ultimo_verificado": "2026-07-11",
-    "detalle": "Argentina 3-2 Egipto (07/07, octavos). Cuartos vs Suiza el sábado 11/07 22:00 hs (Kansas City). Tarjeta Mundialista correcta. Revisar resultado en próxima corrida.",
-    "proximo_chequeo": "resultado Argentina-Suiza",
+    "ultimo_verificado": "2026-07-12",
+    "detalle": "Argentina 3-1 Suiza (11/07, cuartos, Kansas City). Avanza a SEMIFINAL vs Inglaterra el miercoles 15/07 16:00 hs (hora ARG), Mercedes-Benz Stadium, Atlanta. Tarjeta Mundialista ya actualizada (rival Inglaterra, fecha semifinal). Final del Mundial: domingo 19/07.",
+    "proximo_chequeo": "resultado Argentina-Inglaterra (semifinal 15/07)",
     "revertir_despues_de": "2026-07-19"
   },
   "bloqueos_avisados": [
@@ -55,7 +57,7 @@
       "tiempo_en_pagina",
       "utm_capture"
     ],
-    "verificado": "presente en index.html en vivo (2026-07-11)"
+    "verificado": "presente en index.html en vivo (Vercel), verificado 2026-07-12"
   },
   "mailerlite": {
     "automation_id": "192733352710636650",
