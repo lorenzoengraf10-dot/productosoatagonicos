@@ -13,7 +13,8 @@
     "Sección 'Prueba social' (Top picadas + franja de confianza + comunidad WhatsApp) integrada al index.html entre catálogo y formulario, aprobada por el dueño (2026-07-11)",
     "simple.html marcado noindex,follow + canonical a la home para evitar canibalización SEO (2026-07-12)",
     "Tarjeta Mundialista actualizada a Semifinal vs Inglaterra 15/07 + estilo bandera flag-eng (2026-07-12)",
-    "Copy de la oferta unificado a '$2000 de reintegro' en todo el funnel (asunto Formspree + label GA), aprobado por el dueño (2026-07-12)"
+    "Copy de la oferta unificado a '$2000 de reintegro' en todo el funnel (asunto Formspree + label GA), aprobado por el dueño (2026-07-12)",
+    "Supermetrics autorizado (GA4/FB/IG) 2026-07-12; GA4 7 días: 54 sesiones, 38 usuarios, 84 vistas; clic_whatsapp 11, generate_lead 13, registro_descuento 2"
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -34,13 +35,7 @@
     "proximo_chequeo": "resultado Argentina-Inglaterra (semifinal 15/07)",
     "revertir_despues_de": "2026-07-19"
   },
-  "bloqueos_avisados": [
-    {
-      "id": "supermetrics-auth",
-      "descripcion": "Conector Supermetrics (GA4/Facebook/Instagram) requiere autenticación. Métricas reales no disponibles hasta que el dueño autorice la conexión. Avisado 2026-07-11.",
-      "fecha_aviso": "2026-07-11"
-    }
-  ],
+  "bloqueos_avisados": [],
   "tracking": {
     "ga4": "G-42YBW61Q1Q",
     "eventos": [
@@ -65,5 +60,18 @@
   },
   "decisiones_dueno": [
     "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07."
-  ]
+  ],
+  "metricas_ultima": {
+    "ga4_7d_2026-07-12": {
+      "sesiones": 54,
+      "usuarios": 38,
+      "nuevos": 38,
+      "vistas": 84,
+      "scroll_profundidad": 163,
+      "clic_producto": 43,
+      "generate_lead": 13,
+      "clic_whatsapp": 11,
+      "registro_descuento": 2
+    }
+  }
 }
