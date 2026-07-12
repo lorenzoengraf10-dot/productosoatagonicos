@@ -15,7 +15,7 @@
       "id": "mundialista",
       "nombre": "Picada Mundialista",
       "precio": 12000,
-      "porcion": "750 g",
+      "porcion": "800 g",
       "porciones_texto": "pican 7 personas, comen 4",
       "componentes": ["Chorizo seco", "Mortadela", "Morcilla blanca", "Morcilla negra", "Queso criollo", "Queso de cerdo"],
       "imagen": "mundialista.jpeg",
