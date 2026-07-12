@@ -25,6 +25,8 @@
     "Bondiola EV eliminada del catálogo por pedido del dueño (2026-07-12): sacada de productos.json, tarjeta y JSON-LD; bondiola.jpeg/webp se conservan porque simple.html las sigue usando",
     "Embutidos EV ahora tiene modal + badge 'TOCÁ ACÁ PARA LA INFO' (2026-07-12), era la única tarjeta sin modal tras sacar Bondiola",
     "Fix (2026-07-12): la foto se veía recortada en el modal de detalle de producto (object-fit: cover); cambiado a contain + más brillo + alto 340px/280px mobile en las 5 picadas con modal",
+    "Vercel (canónico) y GitHub Pages sirviendo la versión actual (Mundialista $12.000/750g, resto agotado, Inglaterra-Semifinal). Deploy prod READY commit 236a81d, verificado 2026-07-12",
+    "Campaña MailerLite 'Gran Promoción Mundialista' (id 192816257600325030) ENVIADA a 29 suscriptores activos el 2026-07-12, desde lorenzoengraf10@gmail.com",
     "Revisión completa mobile (2026-07-12): bug CRÍTICO corregido — el modal no tenía max-height ni scroll interno, el botón Encargar quedaba inalcanzable en pantallas chicas (confirmado con captura real de un iPhone); ahora .product-modal es flex-column con max-height y .modal-body scrollea internamente, con la foto achicándose más en @media(max-height:700px/560px)",
     "Fix (2026-07-12): la franja fija Mundial/Argentina tapaba el inicio de #picadas y #descuento al saltar por ancla; scroll-padding-top dinámico vía JS (alto real de la franja + 12px)",
     "Fix (2026-07-12): la fila de 'Top de picadas' se amontonaba en pantallas angostas (nombre/precio superpuestos); el precio pasa a su propia línea en max-width:480px",
@@ -75,7 +77,8 @@
     "grupo_disparador": "191653302006449649 (Suscriptores Productos Patagónicos)",
     "oferta": "$2.000 de reintegro · código GRACIAS2000",
     "paso_manual_restante": "Abrir el email en el editor visual de MailerLite y Guardar (activa el flag 'diseñado'); luego Send test y Activar. La API no puede activar ese flag.",
-    "pendiente_form": "Cablear el formulario del sitio (hoy Formspree) al grupo para que la automatización se dispare con cada registro web."
+    "pendiente_form": "Cablear el formulario del sitio (hoy Formspree) al grupo para que la automatización se dispare con cada registro web.",
+    "ultima_campana": "Gran Promoción Mundialista 750g/$12.000 enviada 2026-07-12 a 29 suscriptores (grupo Suscriptores Productos Patagónicos)"
   },
   "decisiones_dueno": [
     "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07.",
@@ -95,5 +98,35 @@
       "clic_whatsapp": 11,
       "registro_descuento": 2
     }
+  },
+  "catalogo_override_dueno": {
+    "actualizado": "2026-07-12",
+    "nota": "El dueño actualizó el catálogo en vivo. ESTO PISA el catálogo del prompt. No revertir precios/gramajes.",
+    "picada_mundialista": {
+      "precio": "$12.000",
+      "porcion": "750 g",
+      "rinde": "pican 7 comen 4",
+      "promo": "Gran Promoción Mundialista",
+      "componentes": [
+        "Chorizo seco",
+        "Mortadela",
+        "Morcilla blanca",
+        "Morcilla negra",
+        "Queso criollo",
+        "Queso de cerdo"
+      ]
+    },
+    "agotadas": [
+      "Picada Tradicional",
+      "La Odisea",
+      "Picada Simple"
+    ],
+    "eliminadas_del_catalogo": [
+      "Picada Simple EV",
+      "Bondiola EV"
+    ],
+    "sin_cambios": [
+      "Embutidos EV $3.000 (ahora con modal)"
+    ]
   }
 }
