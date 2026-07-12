@@ -33,7 +33,8 @@
     "Mejoras mobile (2026-07-12): botón de cerrar modal de 36px a 44px (tap target), autocomplete=email + inputmode=email en el form de descuento",
     "Fix SEO/compartidos (2026-07-12): og:image/twitter:image/FoodEstablishment.image apuntaban a tradicional.jpeg (agotada); actualizados a mundialista.jpeg. Title y meta description actualizados para no promocionar productos agotados",
     "Foto de Picada Mundialista actualizada a formato horizontal (2026-07-12, provista por el dueño, 1142x804), se ve mejor en tarjeta y modal",
-    "Hallazgo sin corregir (2026-07-12): simple.html tiene precios desactualizados (Tradicional $15.000 vs $16.000, Simple $12.500 vs $13.000) y ofrece '10% OFF' en vez de '$2.000 de reintegro'; requiere decisión del dueño"
+    "Hallazgo sin corregir (2026-07-12): simple.html tiene precios desactualizados (Tradicional $15.000 vs $16.000, Simple $12.500 vs $13.000) y ofrece '10% OFF' en vez de '$2.000 de reintegro'; requiere decisión del dueño",
+    "Picada Mundialista: peso actualizado a 800 g por pedido del dueño (2026-07-12), antes 750 g. Actualizado en productos.json, tarjeta, modal, JSON-LD, meta description, og/twitter y ranking Prueba social"
   ],
   "propuestas_pendientes_aprobacion": [
     "simple.html desactualizada respecto a index.html/productos.json: precios distintos (Tradicional $15.000 vs $16.000, Simple $12.500 vs $13.000) y oferta '10% OFF' en vez de '$2.000 de reintegro'. Requiere decisión del dueño: ¿unificar precios/oferta, o despriorizar simple.html mientras dure la Mundialista?"
@@ -84,7 +85,8 @@
     "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07.",
     "2026-07-12: Reemplazar la Picada Mundialista por la nueva composición ($12.000, 750 g) y lanzarla como 'Gran Promoción Mundialista'; marcar el resto de las picadas (Tradicional, Odisea, Simple, Simple EV) como agotadas; darle al sitio un aura Mundial/Argentina.",
     "2026-07-12: Corregir la foto de la Picada Mundialista (la anterior no correspondía a la composición real) y sacar la Picada Simple EV del catálogo por innecesaria y ocupar espacio.",
-    "2026-07-12: Sacar la Bondiola EV del catálogo, agregar cartelito 'tocá acá para la info' en Embutidos y corregir el recorte de foto en los modales."
+    "2026-07-12: Sacar la Bondiola EV del catálogo, agregar cartelito 'tocá acá para la info' en Embutidos y corregir el recorte de foto en los modales.",
+    "2026-07-12: Actualizar el peso de la Picada Mundialista de 750 g a 800 g."
   ],
   "metricas_ultima": {
     "ga4_7d_2026-07-12": {
@@ -104,7 +106,7 @@
     "nota": "El dueño actualizó el catálogo en vivo. ESTO PISA el catálogo del prompt. No revertir precios/gramajes.",
     "picada_mundialista": {
       "precio": "$12.000",
-      "porcion": "750 g",
+      "porcion": "800 g",
       "rinde": "pican 7 comen 4",
       "promo": "Gran Promoción Mundialista",
       "componentes": [
