@@ -19,7 +19,8 @@
   "pendientes_tecnicos": [
     {
       "id": "mailerlite-wiring",
-      "descripcion": "Automatización de bienvenida CREADA e INACTIVA en MailerLite (id 192733352710636650, 'Bienvenida Web · Reintegro $2.000'). Disparador: alta en el grupo 'Suscriptores Productos Patagónicos' (id 191653302006449649). Oferta decidida por el dueño: $2.000 de reintegro (coincide con el formulario). Email step id 192733353393259890, asunto listo. PENDIENTE (requiere al dueño en el editor visual de MailerLite, la API no puede escribir el HTML): (1) pegar el copy de bienvenida provisto; (2) enviar prueba; (3) activar. Además sigue pendiente cablear el formulario del sitio (hoy Formspree) para dar de alta al suscriptor en el grupo."
+      "descripcion": "Automatización de bienvenida CREADA e INACTIVA en MailerLite (id 192733352710636650, 'Bienvenida Web · Reintegro $2.000'). Disparador: alta en el grupo 'Suscriptores Productos Patagónicos' (id 191653302006449649). Oferta decidida por el dueño: $2.000 de reintegro (coincide con el formulario). Email step id 192733353393259890, asunto listo. PENDIENTE (requiere al dueño en el editor visual de MailerLite, la API no puede escribir el HTML): (1) pegar el copy de bienvenida provisto; (2) enviar prueba; (3) activar. Además sigue pendiente cablear el formulario del sitio (hoy Formspree) para dar de alta al suscriptor en el grupo. [APROBADO POR EL DUEÑO 2026-07-12: cablear el formulario del sitio (Formspree) al grupo de MailerLite en la próxima corrida (13/07). El paso del editor visual sigue siendo manual del dueño.]",
+      "accion_proxima_corrida": "Cablear el formulario del sitio al grupo de MailerLite (id 191653302006449649) para que cada registro dé de alta al suscriptor y dispare la automatización."
     },
     {
       "id": "render-dinamico-productos",
@@ -61,5 +62,8 @@
     "oferta": "$2.000 de reintegro · código GRACIAS2000",
     "paso_manual_restante": "Abrir el email en el editor visual de MailerLite y Guardar (activa el flag 'diseñado'); luego Send test y Activar. La API no puede activar ese flag.",
     "pendiente_form": "Cablear el formulario del sitio (hoy Formspree) al grupo para que la automatización se dispare con cada registro web."
-  }
+  },
+  "decisiones_dueno": [
+    "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07."
+  ]
 }
