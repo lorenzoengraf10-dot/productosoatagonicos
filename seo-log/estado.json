@@ -12,16 +12,10 @@
     "sitemap lastmod = 2026-07-11",
     "Sección 'Prueba social' (Top picadas + franja de confianza + comunidad WhatsApp) integrada al index.html entre catálogo y formulario, aprobada por el dueño (2026-07-11)",
     "simple.html marcado noindex,follow + canonical a la home para evitar canibalización SEO (2026-07-12)",
-    "Tarjeta Mundialista actualizada a Semifinal vs Inglaterra 15/07 + estilo bandera flag-eng (2026-07-12)"
+    "Tarjeta Mundialista actualizada a Semifinal vs Inglaterra 15/07 + estilo bandera flag-eng (2026-07-12)",
+    "Copy de la oferta unificado a '$2000 de reintegro' en todo el funnel (asunto Formspree + label GA), aprobado por el dueño (2026-07-12)"
   ],
-  "propuestas_pendientes_aprobacion": [
-    {
-      "id": "copy-oferta-10-vs-2000",
-      "tipo": "conversión",
-      "descripcion": "El formulario dice 'reintegro $2000' pero el CTA y el asunto del email dicen 'descuento del 10%'. $2000 = 10% sólo en pedidos de $20.000. Proponer unificar el mensaje (elegir 10% o monto fijo) para reducir fricción.",
-      "estado": "esperando decisión del dueño"
-    }
-  ],
+  "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
     {
       "id": "mailerlite-wiring",
