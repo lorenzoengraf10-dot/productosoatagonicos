@@ -18,7 +18,10 @@
     "Picada Mundialista reemplazada por pedido del dueño (2026-07-12): $12.000, 750 g, pican 7 personas comen 4, componentes Chorizo seco/Mortadela/Morcilla blanca/Morcilla negra/Queso criollo/Queso de cerdo; badge 'Gran Promoción Mundialista'",
     "Picada Tradicional, La Odisea, Picada Simple y Picada Simple EV marcadas Agotado (tarjeta, modal, ranking Prueba social, productos.json y JSON-LD OutOfStock) por pedido del dueño (2026-07-12)",
     "Aura Mundial/Argentina aplicada a todo el sitio (2026-07-12): franja superior celeste-blanco-celeste, acentos celestes en header/CTA/fondo, eyebrow y footer con bandera argentina",
-    "Bug corregido (2026-07-12): el signo '$' desaparecía del precio en el modal de detalle de producto (doble .replace erróneo)"
+    "Bug corregido (2026-07-12): el signo '$' desaparecía del precio en el modal de detalle de producto (doble .replace erróneo)",
+    "Deploy corregido (2026-07-12): push a main no disparó build de producción en Vercel (dedup por SHA con preview de rama); commit vacío forzó el build y la promoción a producción",
+    "Foto de Picada Mundialista reemplazada por la real (provista por el dueño) en mundialista.jpeg/webp (2026-07-12)",
+    "Picada Simple EV eliminada del catálogo por pedido del dueño (2026-07-12): sacada de productos.json, tarjeta, JSON-LD y ranking Prueba social; simple-ev.jpeg/webp se conservan porque simple.html las sigue usando"
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -64,7 +67,8 @@
   },
   "decisiones_dueno": [
     "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07.",
-    "2026-07-12: Reemplazar la Picada Mundialista por la nueva composición ($12.000, 750 g) y lanzarla como 'Gran Promoción Mundialista'; marcar el resto de las picadas (Tradicional, Odisea, Simple, Simple EV) como agotadas; darle al sitio un aura Mundial/Argentina."
+    "2026-07-12: Reemplazar la Picada Mundialista por la nueva composición ($12.000, 750 g) y lanzarla como 'Gran Promoción Mundialista'; marcar el resto de las picadas (Tradicional, Odisea, Simple, Simple EV) como agotadas; darle al sitio un aura Mundial/Argentina.",
+    "2026-07-12: Corregir la foto de la Picada Mundialista (la anterior no correspondía a la composición real) y sacar la Picada Simple EV del catálogo por innecesaria y ocupar espacio."
   ],
   "metricas_ultima": {
     "ga4_7d_2026-07-12": {

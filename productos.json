@@ -57,17 +57,6 @@
       "temporada": false
     },
     {
-      "id": "simple-ev",
-      "nombre": "Picada Simple EV",
-      "precio": 13000,
-      "porcion": "500 g",
-      "porciones_texto": "pican 4 y comen 2 · Envasada al vacío",
-      "componentes": ["Chorizo seco", "Mortadela", "Queso criollo", "Bondiola"],
-      "imagen": "simple-ev.jpeg",
-      "disponibilidad": "OutOfStock",
-      "temporada": false
-    },
-    {
       "id": "bondiola",
       "nombre": "Bondiola EV",
       "precio": 3000,
