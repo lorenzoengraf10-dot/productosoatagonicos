@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Productos Patagónicos · Picadas y embutidos artesanales en Carmen de Patagones</title>
-    <meta name="description" content="Picadas y embutidos artesanales en Carmen de Patagones y Viedma. Encargá directo por WhatsApp: Picada Tradicional, La Odisea, Simple y Mundialista. Elaboración artesanal de la comarca.">
+    <title>Productos Patagónicos · Gran Promoción Mundialista en Carmen de Patagones</title>
+    <meta name="description" content="🇦🇷 Gran Promoción Mundialista: Picada Mundialista a $12.000 (750 g), elaboración artesanal en Carmen de Patagones y Viedma. Encargá directo por WhatsApp.">
     <meta name="keywords" content="picadas Carmen de Patagones, embutidos artesanales Viedma, picadas Patagones, charcutería artesanal, picada para asado, delivery picadas comarca">
     <meta name="geo.region" content="AR-B">
     <meta name="geo.placename" content="Carmen de Patagones, Viedma">
@@ -757,6 +757,10 @@
             position: relative;
             width: 100%;
             max-width: 580px;
+            max-height: calc(100vh - 3rem);
+            max-height: calc(100dvh - 3rem);
+            display: flex;
+            flex-direction: column;
             background: linear-gradient(145deg, #2e1710 0%, #1a0e0a 100%);
             border: 1px solid rgba(200,146,42,0.45);
             border-radius: 4px;
@@ -781,6 +785,7 @@
         .modal-img-wrapper {
             position: relative;
             height: 340px;
+            flex-shrink: 0;
             overflow: hidden;
         }
 
@@ -818,6 +823,10 @@
 
         .modal-body {
             padding: 1.6rem 2rem 2rem;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+            min-height: 0;
         }
 
         .modal-name {
@@ -936,7 +945,7 @@
             position: absolute;
             top: 1rem;
             left: 1rem;
-            width: 36px; height: 36px;
+            width: 44px; height: 44px;
             background: rgba(26,14,10,0.75);
             border: 1px solid rgba(200,146,42,0.35);
             border-radius: 50%;
@@ -1211,7 +1220,17 @@
             .modal-name { font-size: 1.8rem; }
             .modal-price { font-size: 2rem; }
         }
-    
+
+        /* Pantallas bajas (celulares chicos o con teclado/barras del navegador
+           ocupando espacio): achicamos la foto para que se vea más contenido
+           de arranque, sin depender sólo del scroll interno del modal. */
+        @media (max-height: 700px) {
+            .modal-img-wrapper { height: 180px; }
+        }
+        @media (max-height: 560px) {
+            .modal-img-wrapper { height: 130px; }
+        }
+
         /* ── PRUEBA SOCIAL (Top picadas + comunidad) ── */
         #prueba-social{padding:72px 20px 40px;max-width:1100px;margin:0 auto}
         #prueba-social .ps-header{text-align:center;margin-bottom:36px}
@@ -1260,6 +1279,10 @@
         #prueba-social .ps-socials{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:18px}
         #prueba-social .ps-social-btn{display:inline-flex;align-items:center;gap:9px;background:#20120b;border:1px solid rgba(200,146,42,.4);color:var(--brand-cream);font-weight:600;font-size:17px;text-decoration:none;padding:12px 24px;border-radius:40px}
         @media(max-width:520px){#prueba-social .ps-price small{display:none}#prueba-social .ps-thumb{width:52px;height:52px}}
+        @media(max-width:480px){
+            #prueba-social .ps-row{flex-wrap:wrap;row-gap:10px}
+            #prueba-social .ps-price{flex-basis:100%;text-align:right}
+        }
 
     </style>
 
@@ -1267,16 +1290,16 @@
     <link rel="canonical" href="https://productosoatagonicos.vercel.app/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://productosoatagonicos.vercel.app/">
-    <meta property="og:title" content="Productos Patagónicos · Picadas y embutidos artesanales">
-    <meta property="og:description" content="Picadas y embutidos artesanales de Carmen de Patagones. Encargá directo por WhatsApp: Tradicional, La Odisea, Simple, Mundialista y más.">
-    <meta property="og:image" content="https://productosoatagonicos.vercel.app/tradicional.jpeg">
-    <meta property="og:image:width" content="1080">
-    <meta property="og:image:height" content="1350">
+    <meta property="og:title" content="Productos Patagónicos · Gran Promoción Mundialista">
+    <meta property="og:description" content="🇦🇷 Gran Promoción Mundialista: Picada Mundialista $12.000 (750 g). Encargá directo por WhatsApp, elaboración artesanal de Carmen de Patagones.">
+    <meta property="og:image" content="https://productosoatagonicos.vercel.app/mundialista.jpeg">
+    <meta property="og:image:width" content="1142">
+    <meta property="og:image:height" content="804">
     <meta property="og:locale" content="es_AR">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Productos Patagónicos · Picadas y embutidos artesanales">
-    <meta name="twitter:description" content="Picadas y embutidos artesanales de Carmen de Patagones. Encargá directo por WhatsApp: Tradicional, La Odisea, Simple, Mundialista y más.">
-    <meta name="twitter:image" content="https://productosoatagonicos.vercel.app/tradicional.jpeg">
+    <meta name="twitter:title" content="Productos Patagónicos · Gran Promoción Mundialista">
+    <meta name="twitter:description" content="🇦🇷 Gran Promoción Mundialista: Picada Mundialista $12.000 (750 g). Encargá directo por WhatsApp, elaboración artesanal de Carmen de Patagones.">
+    <meta name="twitter:image" content="https://productosoatagonicos.vercel.app/mundialista.jpeg">
 
     <!-- SEO: datos estructurados schema.org -->
     <script type="application/ld+json">
@@ -1284,7 +1307,7 @@
       "@context": "https://schema.org",
       "@type": "FoodEstablishment",
       "name": "Productos Patagónicos",
-      "image": "https://productosoatagonicos.vercel.app/tradicional.jpeg",
+      "image": "https://productosoatagonicos.vercel.app/mundialista.jpeg",
       "url": "https://productosoatagonicos.vercel.app/",
       "telephone": "+542920347453",
       "priceRange": "$3.000-$22.000",
@@ -1879,7 +1902,7 @@
 
         <div id="form-wrapper">
             <div class="form-group">
-                <input type="email" id="f-email" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico" required>
+                <input type="email" id="f-email" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico" autocomplete="email" inputmode="email" required>
             </div>
             <button type="button" id="btn-submit" class="btn-submit">Registrarme y obtener descuento</button>
         </div>
@@ -1946,6 +1969,17 @@
 
     function gaSend(eventName, params) {
         if (typeof gtag === 'function') gtag('event', eventName, params);
+    }
+
+    /* 0. COMPENSAR LA FRANJA FIJA AL SALTAR POR ANCLA (#picadas, #descuento) */
+    var topbar = document.querySelector('.mundial-topbar');
+    if (topbar) {
+        var ajustarScrollPadding = function () {
+            document.documentElement.style.scrollPaddingTop = (topbar.offsetHeight + 12) + 'px';
+        };
+        ajustarScrollPadding();
+        window.addEventListener('resize', ajustarScrollPadding);
+        window.addEventListener('orientationchange', ajustarScrollPadding);
     }
 
     /* 1. PROFUNDIDAD DE SCROLL */
