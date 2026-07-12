@@ -28,10 +28,6 @@
     {
       "id": "render-dinamico-productos",
       "descripcion": "Opcional: hacer que el HTML renderice las tarjetas desde productos.json. Se pospuso para no arriesgar la conversión (si falla el JS no se ven productos). El JSON-LD ya se genera desde productos.json; el HTML sigue estático como fallback confiable."
-    },
-    {
-      "id": "redes-sociales-links",
-      "descripcion": "Agregar botones de Instagram y Facebook en la sección Prueba social. Pendiente: URLs/handles de IG y FB (el dueño los va a pasar). Link de comunidad WhatsApp ya integrado."
     }
   ],
   "mundial_2026": {
