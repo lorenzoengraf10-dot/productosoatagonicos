@@ -1,7 +1,7 @@
 {
-  "ultima_corrida": "2026-07-12",
+  "ultima_corrida": "2026-07-13",
   "ultima_revision_total_codigo": "2026-07-11",
-  "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-12 (corrida MailerLite): auditoría puntual OK — GA4/eventos presentes, 10/10 img con alt, JSON-LD 2 bloques válido, productos.json 100% consistente con el override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple OutOfStock; Embutidos EV InStock). Sin bugs nuevos.",
+  "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-13 (corrida diaria): auditoría puntual OK — GA4/eventos presentes, 9/9 img de producto con alt, JSON-LD válido, catálogo consistente con override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple Agotado; Embutidos EV InStock). Se detectó y corrigió la falta de width/height en las <img> (mejora del día, CLS/Lighthouse). Sin bugs nuevos.",
   "hallazgos_confirmados": [
     "productos.json creado como fuente autoritativa del catálogo (2026-07-11)",
     "JSON-LD Product/Offer agregado para 7 picadas (2026-07-11)",
@@ -36,7 +36,11 @@
     "Hallazgo sin corregir (2026-07-12): simple.html tiene precios desactualizados (Tradicional $15.000 vs $16.000, Simple $12.500 vs $13.000) y ofrece '10% OFF' en vez de '$2.000 de reintegro'; requiere decisión del dueño",
     "Picada Mundialista: peso actualizado a 800 g por pedido del dueño (2026-07-12), antes 750 g. Actualizado en productos.json, tarjeta, modal, JSON-LD, meta description, og/twitter y ranking Prueba social",
     "Formulario del sitio CABLEADO a MailerLite (2026-07-12, aprobado): form embebido id 192832966699779088 (cuenta 2414901) atado al grupo 191653302006449649; fetch fire-and-forget (no-cors, try/catch) al endpoint público JSONP en el submit del form, sin API key expuesta. Formspree sigue controlando la pantalla de éxito y el aviso al dueño. NOTA: el form MailerLite tiene double opt-in activado (el suscriptor confirma por email antes de entrar al grupo).",
-    "Hallazgo (2026-07-12): el espejo GitHub Pages servía contenido viejo (Mundialista 750g, title/og/meta antiguos apuntando a tradicional.jpeg) mientras Vercel estaba al día. El canonical del espejo apunta correctamente a Vercel (SEO protegido). El push de hoy debería regenerar Pages; re-verificar en la próxima corrida."
+    "Hallazgo (2026-07-12): el espejo GitHub Pages servía contenido viejo (Mundialista 750g, title/og/meta antiguos apuntando a tradicional.jpeg) mientras Vercel estaba al día. El canonical del espejo apunta correctamente a Vercel (SEO protegido). El push de hoy debería regenerar Pages; re-verificar en la próxima corrida.",
+    "Mejora del día (2026-07-13): se agregaron width/height reales a las 9 <img> de producto/ranking en index.html (mundialista 1142x804, tradicional/simple/embutidos 1080x1350, odisea 1024x1280) para cerrar el aviso 'unsized-images' de Lighthouse y reducir CLS; el CSS object-fit:cover mantiene la maqueta intacta.",
+    "GA4 7 días 2026-07-13 (06-12/07): 68 sesiones (+26%), 43 usuarios, 39 nuevos, 101 vistas. Eventos: scroll_profundidad 180, clic_producto 52, generate_lead 17, clic_whatsapp 15, registro_descuento 2. IG 806 seguidores. Facebook no legible con campos estándar esta corrida.",
+    "sitemap lastmod = 2026-07-13.",
+    "GitHub Pages seguía stale al 2026-07-13 (Mundialista 750g, og viejo) pese a que el repo ya tiene 800g; canonical del espejo -> Vercel protege el SEO. Re-verificar propagación en próxima corrida."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -52,8 +56,8 @@
   ],
   "mundial_2026": {
     "estado": "en_curso",
-    "ultimo_verificado": "2026-07-12",
-    "detalle": "Semifinal Argentina–Inglaterra: miércoles 15/07 16:00 (hora ARG), Mercedes-Benz Stadium, Atlanta. AÚN NO SE JUGÓ (hoy 12/07). Tarjeta Mundialista ya con rival y fecha correctos. Final del Mundial: domingo 19/07.",
+    "ultimo_verificado": "2026-07-13",
+    "detalle": "Semifinal Argentina-Inglaterra: miercoles 15/07 16:00 (hora ARG), Mercedes-Benz Stadium, Atlanta. AUN NO SE JUGO (hoy 13/07). Argentina llego venciendo 3-1 a Suiza; Inglaterra 2-1 a Noruega. Tarjeta Mundialista con rival y fecha correctos. Final del Mundial: domingo 19/07.",
     "proximo_chequeo": "resultado Argentina-Inglaterra (semifinal 15/07)",
     "revertir_despues_de": "2026-07-19"
   },
@@ -116,6 +120,20 @@
       "clic_whatsapp": 11,
       "registro_descuento": 2,
       "nota": "Idéntico al snapshot previo; sin caída anómala. Cuello de botella: completar el registro del cupón."
+    },
+    "ga4_7d_2026-07-13": {
+      "rango": "2026-07-06 a 2026-07-12",
+      "sesiones": 68,
+      "usuarios": 43,
+      "nuevos": 39,
+      "vistas": 101,
+      "scroll_profundidad": 180,
+      "clic_producto": 52,
+      "generate_lead": 17,
+      "clic_whatsapp": 15,
+      "registro_descuento": 2,
+      "instagram_seguidores": 806,
+      "nota": "Crecimiento WoW (sesiones +26%, clic_whatsapp 11->15, generate_lead 13->17). Cuello de botella sigue en registro de cupon (2)."
     }
   },
   "catalogo_override_dueno": {
@@ -172,7 +190,7 @@
       "area": "Performance / CLS",
       "idea": "Agregar width/height explícitos a las <img> y considerar AVIF además de WebP; auditar LCP del hero en móvil (<2,5s).",
       "impacto": "Medio: mejora Core Web Vitals y ranking móvil.",
-      "estado": "pendiente"
+      "estado": "parcial: width/height agregados 2026-07-13; pendiente evaluar AVIF y auditar LCP hero movil"
     },
     {
       "area": "Conversión / urgencia",
