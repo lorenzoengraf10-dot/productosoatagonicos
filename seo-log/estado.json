@@ -38,9 +38,7 @@
     "Formulario del sitio CABLEADO a MailerLite (2026-07-12, aprobado): form embebido id 192832966699779088 (cuenta 2414901) atado al grupo 191653302006449649; fetch fire-and-forget (no-cors, try/catch) al endpoint público JSONP en el submit del form, sin API key expuesta. Formspree sigue controlando la pantalla de éxito y el aviso al dueño. NOTA: el form MailerLite tiene double opt-in activado (el suscriptor confirma por email antes de entrar al grupo).",
     "Hallazgo (2026-07-12): el espejo GitHub Pages servía contenido viejo (Mundialista 750g, title/og/meta antiguos apuntando a tradicional.jpeg) mientras Vercel estaba al día. El canonical del espejo apunta correctamente a Vercel (SEO protegido). El push de hoy debería regenerar Pages; re-verificar en la próxima corrida."
   ],
-  "propuestas_pendientes_aprobacion": [
-    "simple.html desactualizada respecto a index.html/productos.json: precios distintos (Tradicional $15.000 vs $16.000, Simple $12.500 vs $13.000) y oferta '10% OFF' en vez de '$2.000 de reintegro'. Requiere decisión del dueño: ¿unificar precios/oferta, o despriorizar simple.html mientras dure la Mundialista?"
-  ],
+  "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
     {
       "id": "mailerlite-wiring",
@@ -96,7 +94,8 @@
     "2026-07-12: Reemplazar la Picada Mundialista por la nueva composición ($12.000, 750 g) y lanzarla como 'Gran Promoción Mundialista'; marcar el resto de las picadas (Tradicional, Odisea, Simple, Simple EV) como agotadas; darle al sitio un aura Mundial/Argentina.",
     "2026-07-12: Corregir la foto de la Picada Mundialista (la anterior no correspondía a la composición real) y sacar la Picada Simple EV del catálogo por innecesaria y ocupar espacio.",
     "2026-07-12: Sacar la Bondiola EV del catálogo, agregar cartelito 'tocá acá para la info' en Embutidos y corregir el recorte de foto en los modales.",
-    "2026-07-12: Actualizar el peso de la Picada Mundialista de 750 g a 800 g."
+    "2026-07-12: Actualizar el peso de la Picada Mundialista de 750 g a 800 g.",
+    "2026-07-12: IGNORAR simple.html de forma PERMANENTE. No auditarla, no proponer cambios sobre ella ni volver a mencionarla en reportes. Ya está noindex+canonical a la home; queda congelada."
   ],
   "metricas_ultima": {
     "ga4_7d_2026-07-12": {
@@ -148,5 +147,62 @@
     "sin_cambios": [
       "Embutidos EV $3.000 (ahora con modal)"
     ]
-  }
+  },
+  "directiva_mejora_continua": "El dueño pidió (2026-07-12) que CADA corrida busque activamente cosas para mejorar y ejecute/proponga al menos una. Mantener y priorizar el backlog 'ideas_mejora'. NUNCA tocar ni mencionar simple.html.",
+  "ideas_mejora": [
+    {
+      "area": "SEO local",
+      "idea": "Preparar y publicar el perfil de Google Business Profile (nombre, categoría 'Charcutería', zona Carmen de Patagones/Viedma, fotos de picadas, link al sitio, WhatsApp).",
+      "impacto": "Alto: aparecer en Google Maps y en el pack local es la mayor fuente de clientes cercanos.",
+      "estado": "pendiente"
+    },
+    {
+      "area": "Conversión / prueba social",
+      "idea": "Sección de testimonios reales (capturas de WhatsApp anonimizadas) + galería de picadas entregadas. Es cambio de diseño → proponer con vista previa.",
+      "impacto": "Alto: la confianza es el principal freno para el primer pedido.",
+      "estado": "pendiente"
+    },
+    {
+      "area": "Analítica",
+      "idea": "Marcar generate_lead, registro_descuento y clic_whatsapp como 'key events' (conversiones) en GA4 para poder medir el embudo y la tasa de cierre real.",
+      "impacto": "Medio-alto: hoy no se puede ver el % de conversión de forma nativa.",
+      "estado": "pendiente"
+    },
+    {
+      "area": "Performance / CLS",
+      "idea": "Agregar width/height explícitos a las <img> y considerar AVIF además de WebP; auditar LCP del hero en móvil (<2,5s).",
+      "impacto": "Medio: mejora Core Web Vitals y ranking móvil.",
+      "estado": "pendiente"
+    },
+    {
+      "area": "Conversión / urgencia",
+      "idea": "En la Picada Mundialista, reforzar escasez/temporada (contador hacia la semifinal 15/07, 'edición limitada Mundial'). Proponer con vista previa.",
+      "impacto": "Medio-alto: urgencia sobre el producto que hoy concentra la demanda.",
+      "estado": "pendiente"
+    },
+    {
+      "area": "Email / MailerLite",
+      "idea": "Una vez activa la bienvenida, montar una campaña recurrente con la picada que más convierte (según clics de WhatsApp por producto).",
+      "impacto": "Medio: reactiva base de 29+ suscriptores.",
+      "estado": "pendiente"
+    },
+    {
+      "area": "Estacional / post-Mundial",
+      "idea": "Plan de reversión post-19/07: volver a paleta marrón/crema, reactivar picadas hoy agotadas y detectar la próxima fecha relevante (Día del Amigo 20/07, invierno).",
+      "impacto": "Medio: mantener el sitio vigente cuando termine el Mundial.",
+      "estado": "pendiente"
+    },
+    {
+      "area": "Conversión / formulario",
+      "idea": "Evaluar pedir nombre + WhatsApp (opcional) en el registro del cupón para poder recontactar, cuidando no sumar fricción. Requiere aprobación (cambio de conversión).",
+      "impacto": "Medio: hoy sólo se captura email; con WhatsApp se puede cerrar la venta.",
+      "estado": "pendiente"
+    },
+    {
+      "area": "Schema / SEO",
+      "idea": "Cuando haya reseñas, agregar aggregateRating al FoodEstablishment; sumar priceRange y openingHours si el dueño los confirma.",
+      "impacto": "Medio: rich snippets y mejor CTR en buscadores.",
+      "estado": "pendiente"
+    }
+  ]
 }
