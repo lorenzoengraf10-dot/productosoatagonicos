@@ -42,7 +42,8 @@
     "sitemap lastmod = 2026-07-13.",
     "GitHub Pages seguía stale al 2026-07-13 (Mundialista 750g, og viejo) pese a que el repo ya tiene 800g; canonical del espejo -> Vercel protege el SEO. Re-verificar propagación en próxima corrida.",
     "Mejora del día (2026-07-13, 2ª corrida): fuentes de Google (Playfair/Barlow/Lora) cargadas de forma NO bloqueante — <link rel=preload as=style> + <link media=print onload=this.media='all'> + <noscript> de respaldo. El LCP móvil es el H1 en Playfair; con display=swap el texto pinta al instante en fuente de sistema y cambia al llegar Playfair. Reduce render-blocking del <head>, sin CLS (tamaños ya fijados).",
-    "Re-verificado 2026-07-13 (2ª corrida): GitHub Pages SIGUE stale (Mundialista 750 g, og:image tradicional.jpeg, title/desc viejos) pese a que el repo tiene 800 g/mundialista.jpeg; es caché/propagación de Pages, NO del repo. Canonical del espejo -> Vercel protege el SEO. Persiste 2 días: posible causa la config de source/branch de Pages en Settings del repo (no accesible por git)."
+    "Re-verificado 2026-07-13 (2ª corrida): GitHub Pages SIGUE stale (Mundialista 750 g, og:image tradicional.jpeg, title/desc viejos) pese a que el repo tiene 800 g/mundialista.jpeg; es caché/propagación de Pages, NO del repo. Canonical del espejo -> Vercel protege el SEO. Persiste 2 días: posible causa la config de source/branch de Pages en Settings del repo (no accesible por git).",
+    "Límite de pedidos agregado a la Picada Mundialista (2026-07-13, pedido del dueño): '⏰ Pedidos hasta el martes 14/7, 16:00 hs' en tarjeta y modal (nuevo data-modal-deadline, sólo en ese producto) y en el campo nota de productos.json."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -104,7 +105,8 @@
     "2026-07-12: Corregir la foto de la Picada Mundialista (la anterior no correspondía a la composición real) y sacar la Picada Simple EV del catálogo por innecesaria y ocupar espacio.",
     "2026-07-12: Sacar la Bondiola EV del catálogo, agregar cartelito 'tocá acá para la info' en Embutidos y corregir el recorte de foto en los modales.",
     "2026-07-12: Actualizar el peso de la Picada Mundialista de 750 g a 800 g.",
-    "2026-07-12: IGNORAR simple.html de forma PERMANENTE. No auditarla, no proponer cambios sobre ella ni volver a mencionarla en reportes. Ya está noindex+canonical a la home; queda congelada."
+    "2026-07-12: IGNORAR simple.html de forma PERMANENTE. No auditarla, no proponer cambios sobre ella ni volver a mencionarla en reportes. Ya está noindex+canonical a la home; queda congelada.",
+    "2026-07-13: Agregar límite de pedidos para la Picada Mundialista: hasta el martes 14/7, 16:00 hs (antes de la semifinal del miércoles)."
   ],
   "metricas_ultima": {
     "ga4_7d_2026-07-12": {
@@ -149,6 +151,7 @@
       "porcion": "800 g",
       "rinde": "pican 7 comen 4",
       "promo": "Gran Promoción Mundialista",
+      "pedidos_hasta": "martes 14/7, 16:00 hs",
       "componentes": [
         "Chorizo seco",
         "Mortadela",

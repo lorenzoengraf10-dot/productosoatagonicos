@@ -1078,6 +1078,20 @@
             margin-bottom: 1rem;
         }
 
+        .order-deadline {
+            display: inline-block;
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #a83b1e;
+            background: rgba(216,90,44,0.1);
+            border: 1px solid rgba(216,90,44,0.3);
+            border-radius: 20px;
+            padding: 0.3rem 0.9rem;
+            margin-bottom: 1rem;
+        }
+
         .product-card--mundial .card-body {
             background: linear-gradient(to bottom, #eaf3fb, #ffffff);
             border-top: 3px solid #6cace4;
@@ -1690,7 +1704,8 @@
                  data-modal-components="Chorizo seco,Mortadela,Morcilla blanca,Morcilla negra,Queso criollo,Queso de cerdo"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista."
                  data-modal-rival="Inglaterra"
-                 data-modal-fecha="Semifinal &middot; Miercoles 15/7 &middot; 16:00 hs">
+                 data-modal-fecha="Semifinal &middot; Miercoles 15/7 &middot; 16:00 hs"
+                 data-modal-deadline="⏰ Pedidos hasta el martes 14/7, 16:00 hs">
                 <div class="card-img-wrapper">
                     <picture><source srcset="mundialista.webp" type="image/webp"><img src="mundialista.jpeg" width="1142" height="804" alt="Picada Mundialista" loading="eager" fetchpriority="high" decoding="async"></picture>
                     <div class="card-img-overlay"></div>
@@ -1711,6 +1726,7 @@
                     <p class="matchup-date">Semifinal &middot; Miercoles 15/7 &middot; 16:00 hs</p>
                     <h3 class="card-name">Picada Mundialista</h3>
                     <p class="card-description">Pican 7 personas, comen 4 · 800 g</p>
+                    <p class="order-deadline">⏰ Pedidos hasta el martes 14/7, 16:00 hs</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>12.000</div>
                         <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista." target="_blank" class="btn-order">📲 Encargar</a>
@@ -1957,6 +1973,7 @@
             <p class="modal-components-label">Componentes</p>
             <ul class="modal-components-list" id="modalComponentsList"></ul>
             <span class="modal-weight" id="modalWeight"></span>
+            <p class="order-deadline" id="modalDeadline" style="display:none"></p>
             <div class="modal-footer">
                 <div class="modal-price" id="modalPrice"></div>
                 <a href="#" id="modalWaBtn" target="_blank" class="btn-order">📲 Encargar</a>
@@ -2175,6 +2192,7 @@
         var theme       = card.dataset.modalTheme       || '';
         var rival       = card.dataset.modalRival       || '';
         var fecha       = card.dataset.modalFecha       || '';
+        var deadline    = card.dataset.modalDeadline    || '';
 
         document.getElementById('modalProductName').textContent = name;
         document.getElementById('modalDescription').textContent = desc;
@@ -2201,6 +2219,14 @@
 
         var weightEl = document.getElementById('modalWeight');
         weightEl.textContent = weight ? weight : '';
+
+        var deadlineEl = document.getElementById('modalDeadline');
+        if (deadline) {
+            deadlineEl.textContent = deadline;
+            deadlineEl.style.display = '';
+        } else {
+            deadlineEl.style.display = 'none';
+        }
 
         var list = document.getElementById('modalComponentsList');
         list.innerHTML = '';
