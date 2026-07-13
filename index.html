@@ -40,7 +40,10 @@
 
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@300;400;600;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+    <!-- Fuentes no bloqueantes: async para no frenar el primer render / LCP del titular en mobile; display=swap muestra texto en fuente de sistema y cambia a Playfair al llegar -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@300;400;600;700&family=Lora:ital@1&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@300;400;600;700&family=Lora:ital@1&display=swap" rel="stylesheet" media="print" onload="this.media=&#39;all&#39;">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@300;400;600;700&family=Lora:ital@1&display=swap" rel="stylesheet"></noscript>
     <style>
         :root {
             --brand-dark: #1a0e0a;

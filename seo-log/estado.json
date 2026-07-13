@@ -1,7 +1,7 @@
 {
   "ultima_corrida": "2026-07-13",
   "ultima_revision_total_codigo": "2026-07-11",
-  "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-13 (corrida diaria): auditoría puntual OK — GA4/eventos presentes, 9/9 img de producto con alt, JSON-LD válido, catálogo consistente con override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple Agotado; Embutidos EV InStock). Se detectó y corrigió la falta de width/height en las <img> (mejora del día, CLS/Lighthouse). Sin bugs nuevos.",
+  "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-13 (corrida diaria): auditoría puntual OK — GA4/eventos presentes, 9/9 img de producto con alt, JSON-LD válido, catálogo consistente con override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple Agotado; Embutidos EV InStock). Se detectó y corrigió la falta de width/height en las <img> (mejora del día, CLS/Lighthouse). Sin bugs nuevos. 2026-07-13 (2ª corrida): auditoría en vivo OK, catálogo/JSON-LD/og consistentes (800 g, mundialista.jpeg). Mejora del día: carga de Google Fonts pasada a NO bloqueante (preload as=style + media=print/onload + noscript) para mejorar FCP/LCP del titular H1 en móvil. Sin bugs nuevos.",
   "hallazgos_confirmados": [
     "productos.json creado como fuente autoritativa del catálogo (2026-07-11)",
     "JSON-LD Product/Offer agregado para 7 picadas (2026-07-11)",
@@ -40,7 +40,9 @@
     "Mejora del día (2026-07-13): se agregaron width/height reales a las 9 <img> de producto/ranking en index.html (mundialista 1142x804, tradicional/simple/embutidos 1080x1350, odisea 1024x1280) para cerrar el aviso 'unsized-images' de Lighthouse y reducir CLS; el CSS object-fit:cover mantiene la maqueta intacta.",
     "GA4 7 días 2026-07-13 (06-12/07): 68 sesiones (+26%), 43 usuarios, 39 nuevos, 101 vistas. Eventos: scroll_profundidad 180, clic_producto 52, generate_lead 17, clic_whatsapp 15, registro_descuento 2. IG 806 seguidores. Facebook no legible con campos estándar esta corrida.",
     "sitemap lastmod = 2026-07-13.",
-    "GitHub Pages seguía stale al 2026-07-13 (Mundialista 750g, og viejo) pese a que el repo ya tiene 800g; canonical del espejo -> Vercel protege el SEO. Re-verificar propagación en próxima corrida."
+    "GitHub Pages seguía stale al 2026-07-13 (Mundialista 750g, og viejo) pese a que el repo ya tiene 800g; canonical del espejo -> Vercel protege el SEO. Re-verificar propagación en próxima corrida.",
+    "Mejora del día (2026-07-13, 2ª corrida): fuentes de Google (Playfair/Barlow/Lora) cargadas de forma NO bloqueante — <link rel=preload as=style> + <link media=print onload=this.media='all'> + <noscript> de respaldo. El LCP móvil es el H1 en Playfair; con display=swap el texto pinta al instante en fuente de sistema y cambia al llegar Playfair. Reduce render-blocking del <head>, sin CLS (tamaños ya fijados).",
+    "Re-verificado 2026-07-13 (2ª corrida): GitHub Pages SIGUE stale (Mundialista 750 g, og:image tradicional.jpeg, title/desc viejos) pese a que el repo tiene 800 g/mundialista.jpeg; es caché/propagación de Pages, NO del repo. Canonical del espejo -> Vercel protege el SEO. Persiste 2 días: posible causa la config de source/branch de Pages en Settings del repo (no accesible por git)."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -61,7 +63,10 @@
     "proximo_chequeo": "resultado Argentina-Inglaterra (semifinal 15/07)",
     "revertir_despues_de": "2026-07-19"
   },
-  "bloqueos_avisados": [],
+  "bloqueos_avisados": [
+    "Supermetrics (GA4/FB/IG) requirió re-autorización en la 2ª corrida del 2026-07-13; métricas del día ya capturadas en la corrida de las 06:11. Re-autorizar el conector si se necesitan lecturas nuevas.",
+    "GitHub Pages (espejo) sirve contenido stale desde hace 2 días pese a los push; el canonical->Vercel protege el SEO. Si molesta al dueño, revisar en GitHub la config de Pages (Settings > Pages: source/branch) — no accesible vía git desde la tarea."
+  ],
   "tracking": {
     "ga4": "G-42YBW61Q1Q",
     "eventos": [
@@ -190,7 +195,7 @@
       "area": "Performance / CLS",
       "idea": "Agregar width/height explícitos a las <img> y considerar AVIF además de WebP; auditar LCP del hero en móvil (<2,5s).",
       "impacto": "Medio: mejora Core Web Vitals y ranking móvil.",
-      "estado": "parcial: width/height agregados 2026-07-13; pendiente evaluar AVIF y auditar LCP hero movil"
+      "estado": "parcial: width/height agregados 2026-07-13; LCP hero móvil atacado 2026-07-13 pasando Google Fonts a no bloqueante; pendiente evaluar AVIF y medir LCP real en móvil"
     },
     {
       "area": "Conversión / urgencia",
