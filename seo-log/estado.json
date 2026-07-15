@@ -1,5 +1,5 @@
 {
-  "ultima_corrida": "2026-07-14",
+  "ultima_corrida": "2026-07-15",
   "ultima_revision_total_codigo": "2026-07-11",
   "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-13 (corrida diaria): auditoría puntual OK — GA4/eventos presentes, 9/9 img de producto con alt, JSON-LD válido, catálogo consistente con override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple Agotado; Embutidos EV InStock). Se detectó y corrigió la falta de width/height en las <img> (mejora del día, CLS/Lighthouse). Sin bugs nuevos. 2026-07-13 (2ª corrida): auditoría en vivo OK, catálogo/JSON-LD/og consistentes (800 g, mundialista.jpeg). Mejora del día: carga de Google Fonts pasada a NO bloqueante (preload as=style + media=print/onload + noscript) para mejorar FCP/LCP del titular H1 en móvil. Sin bugs nuevos. 2026-07-14 (corrida diaria): revisión puntual OK — 9/9 <picture> bien anidados tras sumar AVIF, catálogo/JSON-LD consistentes con el override del dueño, sin listeners rotos ni datos sensibles. Mejora del día: se agregó AVIF (5 imágenes del catálogo) como primer <source> de cada <picture> con fallback WebP/JPEG; peso de imágenes 540KB→336KB (−38%), Mundialista 66→34KB (−50%). Próxima revisión total ≈2026-07-18.",
   "hallazgos_confirmados": [
@@ -47,7 +47,12 @@
     "Mejora del día (2026-07-14): AVIF agregado para las 5 imágenes del catálogo (mundialista/tradicional/odisea/simple/embutidos) como primer <source> de cada <picture> (9), con fallback WebP y luego JPEG. Ahorro navegadores modernos: 540KB→336KB (−38%); Mundialista eager/fetchpriority 66→34KB (−50%). Sin cambios visuales.",
     "RESUELTO 2026-07-14: GitHub Pages (espejo) ya sirve la versión actual, idéntica a Vercel (Mundialista $12.000/800g, og:image mundialista.jpeg, Inglaterra-Semifinal, deadline martes 14/7). El bloqueo de 'Pages stale' avisado 12 y 13/07 quedó cerrado.",
     "sitemap lastmod = 2026-07-14.",
-    "GA4 7 días 2026-07-14 (07-13/07): 78 sesiones, 47 usuarios, 45 nuevos, 111 vistas. Eventos: scroll_profundidad 188, clic_producto 52, generate_lead 16, clic_whatsapp 14, registro_descuento 2. WoW: sesiones 68->78 (+15%), vistas 101->111 (+10%); clic_whatsapp/generate_lead estables; registro_descuento sigue en 2 (cuello de botella). FB/IG no consultados (conectores no autorizados esta corrida)."
+    "GA4 7 días 2026-07-14 (07-13/07): 78 sesiones, 47 usuarios, 45 nuevos, 111 vistas. Eventos: scroll_profundidad 188, clic_producto 52, generate_lead 16, clic_whatsapp 14, registro_descuento 2. WoW: sesiones 68->78 (+15%), vistas 101->111 (+10%); clic_whatsapp/generate_lead estables; registro_descuento sigue en 2 (cuello de botella). FB/IG no consultados (conectores no autorizados esta corrida).",
+    "Deadline vencido retirado (2026-07-15): el aviso 'Pedidos hasta el martes 14/7, 16:00 hs' de la Picada Mundialista quedó vencido; se retiró de la tarjeta, del data-modal-deadline del modal y del campo nota de productos.json. La promo Mundialista sigue vigente durante el Mundial (final 19/07). Fijar un nuevo corte queda como decisión del dueño.",
+    "Mejora del día (2026-07-15): preload de la imagen LCP del hero. Se agregó <link rel=preload as=image href=mundialista.avif type=image/avif fetchpriority=high> tras los preconnect del <head>; el type hace el preload condicional (navegadores sin AVIF lo ignoran y siguen con <picture>). Adelanta la descarga de la imagen LCP en movil sin doble fetch. Cumple la tarea #2 (preload a la imagen del hero).",
+    "sitemap lastmod = 2026-07-15.",
+    "GA4 7 dias 2026-07-15 (08-14/07): 79 sesiones, 47 usuarios, 46 nuevos, 113 vistas. Eventos: scroll_profundidad 187, clic_producto 47, generate_lead 18, clic_whatsapp 15, registro_descuento 3, clic_cta_hero 24. WoW vs 07-13/07: sesiones 78->79, vistas 111->113 (estable-al-alza); clic_whatsapp 14->15, generate_lead 16->18, registro_descuento 2->3 (primer movimiento del cuello de botella). IG 805 seguidores (vs 806 el 13/07). FB 11.003 seguidores de pagina (legible esta corrida; FB re-autenticado). Sin caidas en el funnel (regla -30% no se dispara).",
+    "Auditoria en vivo 2026-07-15: Vercel y GitHub Pages coherentes y al dia (Mundialista $12.000/800g, semifinal Inglaterra 15/7, og mundialista.jpeg). GitHub Pages sigue sincronizado (bloqueo stale cerrado). JSON-LD (2 bloques) valido, 5 Product/Offer coherentes con el override del dueño. Sin errores tecnicos nuevos."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -63,14 +68,15 @@
   ],
   "mundial_2026": {
     "estado": "en_curso",
-    "ultimo_verificado": "2026-07-14",
-    "detalle": "Semifinal Argentina-Inglaterra: MAÑANA miercoles 15/07 16:00 (hora ARG), Mercedes-Benz Stadium, Atlanta. AUN NO SE JUGO (hoy 14/07); no hubo partido de Argentina desde la ultima corrida. Tarjeta Mundialista con rival y fecha correctos. Final del Mundial: domingo 19/07. NOTA: el aviso 'Pedidos hasta el martes 14/7 16:00' vence hoy; la corrida del 15/07 debe actualizar/retirar ese texto y chequear el resultado de la semifinal.",
-    "proximo_chequeo": "resultado Argentina-Inglaterra (semifinal 15/07) + actualizar/retirar el deadline de pedidos vencido el 14/07",
+    "ultimo_verificado": "2026-07-15",
+    "detalle": "Semifinal Argentina-Inglaterra: HOY miercoles 15/07 16:00 (hora ARG), Mercedes-Benz Stadium, Atlanta. A las 06:00 AUN NO SE JUGO; sin resultado. El aviso 'Pedidos hasta el martes 14/7 16:00' quedo vencido y se RETIRO esta corrida. Final del Mundial: domingo 19/07.",
+    "proximo_chequeo": "resultado Argentina-Inglaterra (semifinal 15/07): si avanza -> actualizar rival/fecha de la final; si queda eliminada -> revertir paleta marron/crema y reactivar picadas agotadas",
     "revertir_despues_de": "2026-07-19"
   },
   "bloqueos_avisados": [
-    "GitHub Pages (espejo): RESUELTO 2026-07-14, ya sirve la version actual identica a Vercel. Bloqueo cerrado.",
-    "Supermetrics: sólo GA4 (GAWA) quedó autenticado esta corrida; Facebook (FB) e Instagram (IGI) figuran no autorizados. Re-autorizar el conector si se necesitan métricas de FB/IG (últimas conocidas: IG 806 seguidores al 13/07)."
+    "GitHub Pages (espejo): RESUELTO 2026-07-14, sigue sirviendo la version actual identica a Vercel (re-verificado 2026-07-15). Bloqueo cerrado.",
+    "Supermetrics: GA4, Facebook (FB) e Instagram (IGI) los tres AUTENTICADOS y consultados el 2026-07-15 (IG 805 seguidores, FB 11.003 seguidores de pagina). El estado de auth de FB/IG viene variando entre corridas; re-autorizar si una corrida futura los muestra no autorizados.",
+    "MailerLite: sigue pendiente el paso MANUAL del dueño (la API no puede): abrir el email de la automatizacion de bienvenida 'Reintegro $2.000' (id 192733352710636650) en el editor visual, Guardar, enviar prueba y Activar."
   ],
   "tracking": {
     "ga4": "G-42YBW61Q1Q",
@@ -158,6 +164,22 @@
       "clic_whatsapp": 14,
       "registro_descuento": 2,
       "nota": "WoW vs 06-12/07: sesiones +15%, vistas +10%; clic_whatsapp 15->14 y generate_lead 17->16 estables; registro_descuento 2->2 (cuello de botella). FB/IG no consultados (no autorizados esta corrida)."
+    },
+    "ga4_7d_2026-07-15": {
+      "rango": "2026-07-08 a 2026-07-14",
+      "sesiones": 79,
+      "usuarios": 47,
+      "nuevos": 46,
+      "vistas": 113,
+      "scroll_profundidad": 187,
+      "clic_producto": 47,
+      "generate_lead": 18,
+      "clic_whatsapp": 15,
+      "registro_descuento": 3,
+      "clic_cta_hero": 24,
+      "instagram_seguidores": 805,
+      "facebook_seguidores": 11003,
+      "nota": "WoW vs 07-13/07: sesiones 78->79, vistas 111->113 (estable-al-alza); clic_whatsapp 14->15, generate_lead 16->18, registro_descuento 2->3 (primer movimiento del cuello de botella). IG 805 (vs 806). FB 11.003 legible esta corrida. Sin caidas en el funnel."
     }
   },
   "catalogo_override_dueno": {
@@ -215,7 +237,7 @@
       "area": "Performance / CLS",
       "idea": "Agregar width/height explícitos a las <img> y considerar AVIF además de WebP; auditar LCP del hero en móvil (<2,5s).",
       "impacto": "Medio: mejora Core Web Vitals y ranking móvil.",
-      "estado": "parcial: width/height (2026-07-13), Google Fonts no bloqueante (2026-07-13) y AVIF en las 5 imágenes del catálogo (2026-07-14) hechos. Pendiente: medir LCP real en móvil (<2,5s) con datos de campo."
+      "estado": "parcial: width/height (07-13), Google Fonts no bloqueante (07-13), AVIF en 5 imagenes (07-14) y preload de imagen LCP del hero (07-15) hechos. Pendiente: medir LCP real en movil (<2,5s) con datos de campo."
     },
     {
       "area": "Conversión / urgencia",
