@@ -1,5 +1,5 @@
 {
-  "ultima_corrida": "2026-07-15",
+  "ultima_corrida": "2026-07-15 (2ª corrida)",
   "ultima_revision_total_codigo": "2026-07-11",
   "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-13 (corrida diaria): auditoría puntual OK — GA4/eventos presentes, 9/9 img de producto con alt, JSON-LD válido, catálogo consistente con override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple Agotado; Embutidos EV InStock). Se detectó y corrigió la falta de width/height en las <img> (mejora del día, CLS/Lighthouse). Sin bugs nuevos. 2026-07-13 (2ª corrida): auditoría en vivo OK, catálogo/JSON-LD/og consistentes (800 g, mundialista.jpeg). Mejora del día: carga de Google Fonts pasada a NO bloqueante (preload as=style + media=print/onload + noscript) para mejorar FCP/LCP del titular H1 en móvil. Sin bugs nuevos. 2026-07-14 (corrida diaria): revisión puntual OK — 9/9 <picture> bien anidados tras sumar AVIF, catálogo/JSON-LD consistentes con el override del dueño, sin listeners rotos ni datos sensibles. Mejora del día: se agregó AVIF (5 imágenes del catálogo) como primer <source> de cada <picture> con fallback WebP/JPEG; peso de imágenes 540KB→336KB (−38%), Mundialista 66→34KB (−50%). Próxima revisión total ≈2026-07-18.",
   "hallazgos_confirmados": [
@@ -52,31 +52,32 @@
     "Mejora del día (2026-07-15): preload de la imagen LCP del hero. Se agregó <link rel=preload as=image href=mundialista.avif type=image/avif fetchpriority=high> tras los preconnect del <head>; el type hace el preload condicional (navegadores sin AVIF lo ignoran y siguen con <picture>). Adelanta la descarga de la imagen LCP en movil sin doble fetch. Cumple la tarea #2 (preload a la imagen del hero).",
     "sitemap lastmod = 2026-07-15.",
     "GA4 7 dias 2026-07-15 (08-14/07): 79 sesiones, 47 usuarios, 46 nuevos, 113 vistas. Eventos: scroll_profundidad 187, clic_producto 47, generate_lead 18, clic_whatsapp 15, registro_descuento 3, clic_cta_hero 24. WoW vs 07-13/07: sesiones 78->79, vistas 111->113 (estable-al-alza); clic_whatsapp 14->15, generate_lead 16->18, registro_descuento 2->3 (primer movimiento del cuello de botella). IG 805 seguidores (vs 806 el 13/07). FB 11.003 seguidores de pagina (legible esta corrida; FB re-autenticado). Sin caidas en el funnel (regla -30% no se dispara).",
-    "Auditoria en vivo 2026-07-15: Vercel y GitHub Pages coherentes y al dia (Mundialista $12.000/800g, semifinal Inglaterra 15/7, og mundialista.jpeg). GitHub Pages sigue sincronizado (bloqueo stale cerrado). JSON-LD (2 bloques) valido, 5 Product/Offer coherentes con el override del dueño. Sin errores tecnicos nuevos."
+    "Auditoria en vivo 2026-07-15: Vercel y GitHub Pages coherentes y al dia (Mundialista $12.000/800g, semifinal Inglaterra 15/7, og mundialista.jpeg). GitHub Pages sigue sincronizado (bloqueo stale cerrado). JSON-LD (2 bloques) valido, 5 Product/Offer coherentes con el override del dueño. Sin errores tecnicos nuevos.",
+    "Resultado semifinal Mundial 2026 (2026-07-15): Argentina 2-1 Inglaterra (Enzo Fernandez y Lautaro Martinez); AVANZA A LA FINAL. Final: Argentina vs Espana, domingo 19/07 16:00 ARG, MetLife Stadium. Tarjeta Mundialista actualizada de 'Semifinal Inglaterra' a 'Final Domingo 19/7' con nueva clase CSS .flag-esp (bandera de Espana), rival Espana en tarjeta y modal.",
+    "Reactivacion total del catalogo (2026-07-15, pedido del dueno): Picada Tradicional, La Odisea y Picada Simple vueltas a InStock (se quito product-card--soldout, badge AGOTADO y boton deshabilitado; restaurado boton Encargar/WhatsApp; ranking sin badge Agotado; productos.json y JSON-LD en InStock). Ahora 5/5 productos InStock.",
+    "Aviso de pausa de produccion (2026-07-15, pedido del dueno): banner '.aviso-pausa' al inicio de #picadas — 'por un compromiso personal, no se elaboran picadas a partir del jueves 16/07. Encargá antes para asegurar la tuya'.",
+    "Mejora del dia (2026-07-15, 2ª corrida): se agregaron og:image:alt y twitter:image:alt (texto alternativo de la imagen social) — antes ausentes. Mejora accesibilidad y render de la tarjeta al compartir.",
+    "Auditoria en vivo 2026-07-15 (2ª corrida, con cache-buster): Vercel y GitHub Pages coherentes y al dia con la nueva version (pausa 16/07, Final vs Espana, 4 picadas con Encargar, ranking sin agotados, og/twitter image alt). Primera lectura de Vercel fue cache de CDN vieja; con ?v= forzado sirve la version nueva. GA4/metadatos intactos.",
+    "GA4 parcial hoy 15/07 (dia de la semifinal, ~22:00, aun procesandose): page_view 4, session_start 4, clic_producto 3, clic_cta_hero 2, clic_whatsapp 1, generate_lead 1, scroll_profundidad 5, registro_descuento 0. Total 7d (08-14/07) identico al de la mañana (79 sesiones/113 vistas). Tracking OK; sin alarma de -30% (dato parcial de dia en curso).",
+    "MailerLite: DADO POR CERRADO por el dueño (2026-07-15) — 'el mailer esta hecho, no me digas mas'. No volver a reportar ni recordar pasos de MailerLite."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
-    {
-      "id": "mailerlite-wiring",
-      "descripcion": "Formulario del sitio YA cableado a MailerLite (2026-07-12) vía form embebido id 192832966699779088 (endpoint JSONP público, sin secreto). Cada registro web da de alta en el grupo 191653302006449649. PENDIENTE (manual del dueño, la API no puede): abrir el email de la automatización 'Bienvenida Web · Reintegro $2.000' (id 192733352710636650) en el editor visual de MailerLite, Guardar, enviar prueba y Activar. Verificar además que el double opt-in del form no agregue demasiada fricción (el suscriptor confirma por email antes de recibir el cupón).",
-      "accion_proxima_corrida": "Confirmar (vía métricas MailerLite) que lleguen altas desde el sitio; recordar al dueño el paso manual de activar la automatización de bienvenida en el editor visual."
-    },
     {
       "id": "render-dinamico-productos",
       "descripcion": "Opcional: hacer que el HTML renderice las tarjetas desde productos.json. Se pospuso para no arriesgar la conversión (si falla el JS no se ven productos). El JSON-LD ya se genera desde productos.json; el HTML sigue estático como fallback confiable."
     }
   ],
   "mundial_2026": {
-    "estado": "en_curso",
+    "estado": "en_curso_final",
     "ultimo_verificado": "2026-07-15",
-    "detalle": "Semifinal Argentina-Inglaterra: HOY miercoles 15/07 16:00 (hora ARG), Mercedes-Benz Stadium, Atlanta. A las 06:00 AUN NO SE JUGO; sin resultado. El aviso 'Pedidos hasta el martes 14/7 16:00' quedo vencido y se RETIRO esta corrida. Final del Mundial: domingo 19/07.",
-    "proximo_chequeo": "resultado Argentina-Inglaterra (semifinal 15/07): si avanza -> actualizar rival/fecha de la final; si queda eliminada -> revertir paleta marron/crema y reactivar picadas agotadas",
+    "detalle": "Semifinal jugada 15/07: Argentina 2-1 Inglaterra (Enzo Fernandez, Lautaro Martinez). Argentina AVANZA A LA FINAL. Final: Argentina vs Espana, domingo 19/07 16:00 ARG, MetLife Stadium (Nueva Jersey). Tarjeta actualizada a 'Final Domingo 19/7' con flag-esp.",
+    "proximo_chequeo": "resultado de la FINAL (domingo 19/07): si Argentina gana -> festejar campeon; en cualquier caso, tras el 19/07 revertir la paleta Mundial (marron/crema/dorado) y el tema Argentina a normal.",
     "revertir_despues_de": "2026-07-19"
   },
   "bloqueos_avisados": [
-    "GitHub Pages (espejo): RESUELTO 2026-07-14, sigue sirviendo la version actual identica a Vercel (re-verificado 2026-07-15). Bloqueo cerrado.",
-    "Supermetrics: GA4, Facebook (FB) e Instagram (IGI) los tres AUTENTICADOS y consultados el 2026-07-15 (IG 805 seguidores, FB 11.003 seguidores de pagina). El estado de auth de FB/IG viene variando entre corridas; re-autorizar si una corrida futura los muestra no autorizados.",
-    "MailerLite: sigue pendiente el paso MANUAL del dueño (la API no puede): abrir el email de la automatizacion de bienvenida 'Reintegro $2.000' (id 192733352710636650) en el editor visual, Guardar, enviar prueba y Activar."
+    "GitHub Pages (espejo): sigue sirviendo la version actual identica a Vercel (re-verificado 2026-07-15, 2ª corrida). Bloqueo cerrado.",
+    "Supermetrics: GA4 AUTENTICADO y consultado el 2026-07-15 (2ª corrida). El estado de auth de FB/IG viene variando entre corridas; re-autorizar si una corrida futura los muestra no autorizados."
   ],
   "tracking": {
     "ga4": "G-42YBW61Q1Q",
@@ -92,22 +93,7 @@
     "verificado": "presente en index.html en vivo (Vercel), verificado 2026-07-12"
   },
   "mailerlite": {
-    "automation_id": "192733352710636650",
-    "email_id": "192733353647015130",
-    "automation_estado": "inactiva - asunto y cuerpo (copy $2000 reintegro) YA CARGADOS via API; eligible_for_sending=true, needs_domain_auth=false",
-    "grupo_disparador": "191653302006449649 (Suscriptores Productos Patagónicos)",
-    "oferta": "$2.000 de reintegro · código GRACIAS2000",
-    "paso_manual_restante": "Abrir el email en el editor visual de MailerLite y Guardar (activa el flag 'diseñado'); luego Send test y Activar. La API no puede activar ese flag.",
-    "pendiente_form": "RESUELTO 2026-07-12: el formulario del sitio ya da de alta en el grupo vía el form embebido (endpoint JSONP público). Pendiente sólo el paso manual del dueño: abrir el email de la automatización en el editor visual y Guardar/Activar (la API no puede setear ese flag).",
-    "ultima_campana": "Gran Promoción Mundialista 750g/$12.000 enviada 2026-07-12 a 29 suscriptores (grupo Suscriptores Productos Patagónicos)",
-    "form_embebido": {
-      "id": "192832966699779088",
-      "account_id": "2414901",
-      "slug": "ePBvQg",
-      "grupo": "191653302006449649",
-      "double_optin": true,
-      "cableado_al_sitio": "2026-07-12"
-    }
+    "estado": "CERRADO por el dueño (2026-07-15): 'el mailer esta hecho, no me digas mas'. No reportar ni recordar mas sobre MailerLite."
   },
   "decisiones_dueno": [
     "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07.",
@@ -116,7 +102,10 @@
     "2026-07-12: Sacar la Bondiola EV del catálogo, agregar cartelito 'tocá acá para la info' en Embutidos y corregir el recorte de foto en los modales.",
     "2026-07-12: Actualizar el peso de la Picada Mundialista de 750 g a 800 g.",
     "2026-07-12: IGNORAR simple.html de forma PERMANENTE. No auditarla, no proponer cambios sobre ella ni volver a mencionarla en reportes. Ya está noindex+canonical a la home; queda congelada.",
-    "2026-07-13: Agregar límite de pedidos para la Picada Mundialista: hasta el martes 14/7, 16:00 hs (antes de la semifinal del miércoles)."
+    "2026-07-13: Agregar límite de pedidos para la Picada Mundialista: hasta el martes 14/7, 16:00 hs (antes de la semifinal del miércoles).",
+    "2026-07-15: Volver TODAS las picadas a su funcionamiento normal (reactivar Tradicional, La Odisea y Picada Simple a InStock).",
+    "2026-07-15: Avisar en el sitio que no se elaboran picadas a partir del jueves 16/07 por un compromiso personal.",
+    "2026-07-15: MailerLite ya esta hecho — no volver a mencionarlo ni recordar pasos pendientes."
   ],
   "metricas_ultima": {
     "ga4_7d_2026-07-12": {
@@ -180,17 +169,28 @@
       "instagram_seguidores": 805,
       "facebook_seguidores": 11003,
       "nota": "WoW vs 07-13/07: sesiones 78->79, vistas 111->113 (estable-al-alza); clic_whatsapp 14->15, generate_lead 16->18, registro_descuento 2->3 (primer movimiento del cuello de botella). IG 805 (vs 806). FB 11.003 legible esta corrida. Sin caidas en el funnel."
+    },
+    "ga4_parcial_2026-07-15": {
+      "rango": "2026-07-15 (parcial, dia en curso ~22:00)",
+      "page_view": 4,
+      "session_start": 4,
+      "clic_producto": 3,
+      "clic_cta_hero": 2,
+      "clic_whatsapp": 1,
+      "generate_lead": 1,
+      "scroll_profundidad": 5,
+      "registro_descuento": 0,
+      "nota": "Dia de la semifinal; datos aun procesandose. Total 7d 08-14/07 identico al de la mañana (79 sesiones/113 vistas). Sin alarma de funnel."
     }
   },
   "catalogo_override_dueno": {
-    "actualizado": "2026-07-12",
-    "nota": "El dueño actualizó el catálogo en vivo. ESTO PISA el catálogo del prompt. No revertir precios/gramajes.",
+    "actualizado": "2026-07-15",
+    "nota": "El dueño reactivo TODAS las picadas a InStock (2026-07-15) — ya no hay agotadas. Ademas pidio avisar que no se elaboran picadas a partir del jueves 16/07 por compromiso personal (banner .aviso-pausa). El resto de precios/gramajes del override sigue vigente.",
     "picada_mundialista": {
       "precio": "$12.000",
       "porcion": "800 g",
       "rinde": "pican 7 comen 4",
       "promo": "Gran Promoción Mundialista",
-      "pedidos_hasta": "martes 14/7, 16:00 hs",
       "componentes": [
         "Chorizo seco",
         "Mortadela",
@@ -200,18 +200,20 @@
         "Queso de cerdo"
       ]
     },
-    "agotadas": [
-      "Picada Tradicional",
-      "La Odisea",
-      "Picada Simple"
-    ],
+    "agotadas": [],
     "eliminadas_del_catalogo": [
       "Picada Simple EV",
       "Bondiola EV"
     ],
     "sin_cambios": [
       "Embutidos EV $3.000 (ahora con modal)"
-    ]
+    ],
+    "reactivadas_2026-07-15": [
+      "Picada Tradicional",
+      "La Odisea",
+      "Picada Simple"
+    ],
+    "pausa_produccion": "No se elaboran picadas a partir del jueves 16/07 (compromiso personal del dueño)."
   },
   "directiva_mejora_continua": "El dueño pidió (2026-07-12) que CADA corrida busque activamente cosas para mejorar y ejecute/proponga al menos una. Mantener y priorizar el backlog 'ideas_mejora'. NUNCA tocar ni mencionar simple.html.",
   "ideas_mejora": [
@@ -237,7 +239,7 @@
       "area": "Performance / CLS",
       "idea": "Agregar width/height explícitos a las <img> y considerar AVIF además de WebP; auditar LCP del hero en móvil (<2,5s).",
       "impacto": "Medio: mejora Core Web Vitals y ranking móvil.",
-      "estado": "parcial: width/height (07-13), Google Fonts no bloqueante (07-13), AVIF en 5 imagenes (07-14) y preload de imagen LCP del hero (07-15) hechos. Pendiente: medir LCP real en movil (<2,5s) con datos de campo."
+      "estado": "parcial: width/height (07-13), Google Fonts no bloqueante (07-13), AVIF (07-14), preload imagen LCP hero (07-15) y og/twitter image alt (07-15) hechos. Pendiente: medir LCP real en movil (<2,5s) con datos de campo."
     },
     {
       "area": "Conversión / urgencia",
@@ -253,7 +255,7 @@
     },
     {
       "area": "Estacional / post-Mundial",
-      "idea": "Plan de reversión post-19/07: volver a paleta marrón/crema, reactivar picadas hoy agotadas y detectar la próxima fecha relevante (Día del Amigo 20/07, invierno).",
+      "idea": "Plan de reversion post-19/07 (final Argentina vs Espana el 19/07): volver a paleta marron/crema, quitar tema Argentina y detectar la proxima fecha relevante (Dia del Amigo 20/07, invierno). NOTA: las picadas ya fueron reactivadas por el dueño el 15/07 (no hay que reactivarlas en la reversion).",
       "impacto": "Medio: mantener el sitio vigente cuando termine el Mundial.",
       "estado": "pendiente"
     },
