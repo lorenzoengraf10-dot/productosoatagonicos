@@ -31,7 +31,7 @@
       "porciones_texto": "pican 6 y comen 4",
       "componentes": ["Chorizo seco", "Mortadela", "Bondiola", "Queso criollo", "Morcilla blanca", "Morcilla negra"],
       "imagen": "tradicional.jpeg",
-      "disponibilidad": "OutOfStock",
+      "disponibilidad": "InStock",
       "temporada": false
     },
     {
@@ -42,7 +42,7 @@
       "porciones_texto": "pican 7 comen 5",
       "componentes": ["Queso criollo", "Chorizo seco", "Queso pategras", "Longaniza española", "Salame con queso", "Bondiola", "Mortadela"],
       "imagen": "odisea.jpeg",
-      "disponibilidad": "OutOfStock",
+      "disponibilidad": "InStock",
       "temporada": false
     },
     {
@@ -53,7 +53,7 @@
       "porciones_texto": "pican 4 comen 2",
       "componentes": ["Chorizo seco", "Mortadela", "Queso criollo", "Bondiola"],
       "imagen": "simple.jpeg",
-      "disponibilidad": "OutOfStock",
+      "disponibilidad": "InStock",
       "temporada": false
     },
     {

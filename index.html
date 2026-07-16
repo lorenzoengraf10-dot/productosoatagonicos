@@ -1041,6 +1041,9 @@
         }
         .flag-eng::before { top: 42%; left: 0; right: 0; height: 16%; }
         .flag-eng::after { left: 42%; top: 0; bottom: 0; width: 16%; }
+        .flag-esp {
+            background: linear-gradient(to bottom, #aa151b 0 25%, #f1bf00 25% 75%, #aa151b 75% 100%);
+        }
 
         .matchup-banner {
             display: flex;
@@ -1303,6 +1306,21 @@
             #prueba-social .ps-price{flex-basis:100%;text-align:right}
         }
 
+        /* Aviso de pausa de producción (compromiso personal del dueño) */
+        .aviso-pausa {
+            max-width: 760px;
+            margin: 0 auto 1.6rem;
+            padding: 0.95rem 1.2rem;
+            background: linear-gradient(135deg, rgba(200,146,42,0.16), rgba(232,184,75,0.10));
+            border: 1px solid rgba(232,184,75,0.55);
+            border-radius: 14px;
+            color: var(--brand-cream);
+            font-size: 1.02rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .aviso-pausa strong { color: var(--brand-gold-light); }
+        @media (max-width: 480px) { .aviso-pausa { font-size: 0.95rem; margin-left: 12px; margin-right: 12px; } }
     </style>
 
     <!-- SEO: canonical, Open Graph, Twitter Card -->
@@ -1314,11 +1332,13 @@
     <meta property="og:image" content="https://productosoatagonicos.vercel.app/mundialista.jpeg">
     <meta property="og:image:width" content="1142">
     <meta property="og:image:height" content="804">
+    <meta property="og:image:alt" content="Picada Mundialista de Productos Patagónicos — charcutería artesanal de Carmen de Patagones">
     <meta property="og:locale" content="es_AR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Productos Patagónicos · Gran Promoción Mundialista">
     <meta name="twitter:description" content="🇦🇷 Gran Promoción Mundialista: Picada Mundialista $12.000 (800 g). Encargá directo por WhatsApp, elaboración artesanal de Carmen de Patagones.">
     <meta name="twitter:image" content="https://productosoatagonicos.vercel.app/mundialista.jpeg">
+    <meta name="twitter:image:alt" content="Picada Mundialista de Productos Patagónicos — charcutería artesanal de Carmen de Patagones">
 
     <!-- SEO: datos estructurados schema.org -->
     <script type="application/ld+json">
@@ -1387,7 +1407,7 @@
           "@type": "Offer",
           "price": "16000",
           "priceCurrency": "ARS",
-          "availability": "https://schema.org/OutOfStock",
+          "availability": "https://schema.org/InStock",
           "url": "https://productosoatagonicos.vercel.app/#picadas",
           "seller": {
             "@type": "Organization",
@@ -1412,7 +1432,7 @@
           "@type": "Offer",
           "price": "22000",
           "priceCurrency": "ARS",
-          "availability": "https://schema.org/OutOfStock",
+          "availability": "https://schema.org/InStock",
           "url": "https://productosoatagonicos.vercel.app/#picadas",
           "seller": {
             "@type": "Organization",
@@ -1437,7 +1457,7 @@
           "@type": "Offer",
           "price": "13000",
           "priceCurrency": "ARS",
-          "availability": "https://schema.org/OutOfStock",
+          "availability": "https://schema.org/InStock",
           "url": "https://productosoatagonicos.vercel.app/#picadas",
           "seller": {
             "@type": "Organization",
@@ -1691,6 +1711,10 @@
         <p class="subtitle">Tocá el producto para encargarlo directo por WhatsApp</p>
     </div>
 
+    <div class="aviso-pausa" role="status">
+        ⚠️ <strong>Importante:</strong> por un compromiso personal, <strong>no se elaboran picadas a partir del jueves 16/07</strong>. Encargá antes para asegurar la tuya. ¡Gracias por tu comprensión! 🙌
+    </div>
+
     <div class="products-section">
         <div class="products-grid">
 
@@ -1705,8 +1729,8 @@
                  data-modal-weight="800 g"
                  data-modal-components="Chorizo seco,Mortadela,Morcilla blanca,Morcilla negra,Queso criollo,Queso de cerdo"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista."
-                 data-modal-rival="Inglaterra"
-                 data-modal-fecha="Semifinal &middot; Miercoles 15/7 &middot; 16:00 hs"
+                 data-modal-rival="España"
+                 data-modal-fecha="Final &middot; Domingo 19/7 &middot; 16:00 hs"
                  data-modal-deadline="">
                 <div class="card-img-wrapper">
                     <picture><source srcset="mundialista.avif" type="image/avif"><source srcset="mundialista.webp" type="image/webp"><img src="mundialista.jpeg" width="1142" height="804" alt="Picada Mundialista" loading="eager" fetchpriority="high" decoding="async"></picture>
@@ -1721,11 +1745,11 @@
                         </div>
                         <span class="matchup-vs">vs</span>
                         <div class="matchup-team">
-                            <span class="flag flag-eng" aria-hidden="true"></span>
-                            <span class="matchup-team-label">Inglaterra</span>
+                            <span class="flag flag-esp" aria-hidden="true"></span>
+                            <span class="matchup-team-label">España</span>
                         </div>
                     </div>
-                    <p class="matchup-date">Semifinal &middot; Miercoles 15/7 &middot; 16:00 hs</p>
+                    <p class="matchup-date">Final &middot; Domingo 19/7 &middot; 16:00 hs</p>
                     <h3 class="card-name">Picada Mundialista</h3>
                     <p class="card-description">Pican 7 personas, comen 4 · 800 g</p>
                     <div class="card-footer">
@@ -1736,11 +1760,11 @@
             </div>
 
             <!-- CORRECCIÓN: todos los data-modal-wa y btn-order usan wa.me/542920347453 -->
-            <div class="product-card product-card--soldout" data-has-modal
+            <div class="product-card" data-has-modal
                  data-modal-name="Picada Tradicional"
                  data-modal-description="pican 6 y comen 4"
                  data-modal-img="tradicional.jpeg"
-                 data-modal-badge="Agotado"
+                 data-modal-badge=""
                  data-modal-price="$16.000"
                  data-modal-weight="700 g"
                  data-modal-components="Chorizo seco,Mortadela,Bondiola,Queso criollo,Morcilla blanca,Morcilla negra"
@@ -1748,23 +1772,22 @@
                 <div class="card-img-wrapper">
                     <picture><source srcset="tradicional.avif" type="image/avif"><source srcset="tradicional.webp" type="image/webp"><img src="tradicional.jpeg" width="1080" height="1350" alt="Picada Tradicional" loading="lazy" decoding="async"></picture>
                     <div class="card-img-overlay"></div>
-                    <span class="card-badge">AGOTADO</span>
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">Picada Tradicional</h3>
                     <p class="card-description">nuestra 1er picada y mas popular</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>16.000</div>
-                        <span class="btn-order-soldout">Agotado</span>
+                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional." target="_blank" class="btn-order">📲 Encargar</a>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card product-card--soldout" data-has-modal
+            <div class="product-card" data-has-modal
                  data-modal-name="La Odisea"
                  data-modal-description="pican 7 comen 5"
                  data-modal-img="odisea.jpeg"
-                 data-modal-badge="Agotado"
+                 data-modal-badge=""
                  data-modal-price="$22.000"
                  data-modal-weight="900 g"
                  data-modal-components="Queso criollo,Chorizo seco,Queso pategras,Longaniza española,Salame con queso,Bondiola,Mortadela"
@@ -1772,23 +1795,22 @@
                 <div class="card-img-wrapper">
                     <picture><source srcset="odisea.avif" type="image/avif"><source srcset="odisea.webp" type="image/webp"><img src="odisea.jpeg" width="1024" height="1280" alt="Picada La Odisea" loading="lazy" decoding="async"></picture>
                     <div class="card-img-overlay"></div>
-                    <span class="card-badge">AGOTADO</span>
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">La Odisea</h3>
                     <p class="card-description"> La experiencia digna de dioses</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>22.000</div>
-                        <span class="btn-order-soldout">Agotado</span>
+                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea." target="_blank" class="btn-order">📲 Encargar</a>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card product-card--soldout" data-has-modal
+            <div class="product-card" data-has-modal
                  data-modal-name="Picada Simple"
                  data-modal-description="pican 4 comen 2"
                  data-modal-img="simple.jpeg"
-                 data-modal-badge="Agotado"
+                 data-modal-badge=""
                  data-modal-price="$13.000"
                  data-modal-weight="500 g"
                  data-modal-components="Chorizo seco,Mortadela,Queso criollo,Bondiola"
@@ -1796,14 +1818,13 @@
                 <div class="card-img-wrapper">
                     <picture><source srcset="simple.avif" type="image/avif"><source srcset="simple.webp" type="image/webp"><img src="simple.jpeg" width="1080" height="1350" alt="Picada Simple" loading="lazy" decoding="async"></picture>
                     <div class="card-img-overlay"></div>
-                    <span class="card-badge">AGOTADO</span>
                 </div>
                 <div class="card-body">
                     <h3 class="card-name">Picada Simple</h3>
                     <p class="card-description">mas pequeña el mismo sabor</p>
                     <div class="card-footer">
                         <div class="card-price"><sup>$</sup>13.000</div>
-                        <span class="btn-order-soldout">Agotado</span>
+                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple." target="_blank" class="btn-order">📲 Encargar</a>
                     </div>
                 </div>
             </div>
@@ -1879,22 +1900,22 @@
             <div class="ps-info"><div class="ps-name">Picada Mundialista</div><div class="ps-metatxt">800 g · pican 7 personas, comen 4</div><span class="ps-badge">🏆 Gran Promoción Mundialista</span></div>
             <div class="ps-price"><sup>$</sup>12.000<small>800 g</small></div>
         </div>
-        <div class="ps-row ps-row--soldout">
+        <div class="ps-row">
             <div class="ps-rank">2</div>
             <div class="ps-thumb"><picture><source srcset="odisea.avif" type="image/avif"><source srcset="odisea.webp" type="image/webp"><img src="odisea.jpeg" width="1024" height="1280" alt="La Odisea" loading="lazy" decoding="async"></picture></div>
-            <div class="ps-info"><div class="ps-name">La Odisea</div><div class="ps-metatxt">900 g · pican 7, comen 5</div><span class="ps-badge ps-badge--soldout">Agotado</span></div>
+            <div class="ps-info"><div class="ps-name">La Odisea</div><div class="ps-metatxt">900 g · pican 7, comen 5</div></div>
             <div class="ps-price"><sup>$</sup>22.000<small>900 g</small></div>
         </div>
-        <div class="ps-row ps-row--soldout">
+        <div class="ps-row">
             <div class="ps-rank">3</div>
             <div class="ps-thumb"><picture><source srcset="simple.avif" type="image/avif"><source srcset="simple.webp" type="image/webp"><img src="simple.jpeg" width="1080" height="1350" alt="Picada Simple" loading="lazy" decoding="async"></picture></div>
-            <div class="ps-info"><div class="ps-name">Picada Simple</div><div class="ps-metatxt">500 g · pican 4, comen 2</div><span class="ps-badge ps-badge--soldout">Agotado</span></div>
+            <div class="ps-info"><div class="ps-name">Picada Simple</div><div class="ps-metatxt">500 g · pican 4, comen 2</div></div>
             <div class="ps-price"><sup>$</sup>13.000<small>500 g</small></div>
         </div>
-        <div class="ps-row ps-row--soldout">
+        <div class="ps-row">
             <div class="ps-rank">4</div>
             <div class="ps-thumb"><picture><source srcset="tradicional.avif" type="image/avif"><source srcset="tradicional.webp" type="image/webp"><img src="tradicional.jpeg" width="1080" height="1350" alt="Picada Tradicional" loading="lazy" decoding="async"></picture></div>
-            <div class="ps-info"><div class="ps-name">Picada Tradicional</div><div class="ps-metatxt">700 g · pican 6, comen 4</div><span class="ps-badge ps-badge--soldout">Agotado</span></div>
+            <div class="ps-info"><div class="ps-name">Picada Tradicional</div><div class="ps-metatxt">700 g · pican 6, comen 4</div></div>
             <div class="ps-price"><sup>$</sup>16.000<small>700 g</small></div>
         </div>
     </div>
@@ -1963,7 +1984,7 @@
                 </div>
                 <span class="matchup-vs">vs</span>
                 <div class="matchup-team">
-                    <span class="flag flag-eng" aria-hidden="true"></span>
+                    <span class="flag flag-esp" aria-hidden="true"></span>
                     <span class="matchup-team-label" id="modalMatchupRival"></span>
                 </div>
             </div>
