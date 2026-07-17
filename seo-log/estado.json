@@ -1,7 +1,7 @@
 {
-  "ultima_corrida": "2026-07-16",
+  "ultima_corrida": "2026-07-17",
   "ultima_revision_total_codigo": "2026-07-11",
-  "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-13 (corrida diaria): auditoría puntual OK — GA4/eventos presentes, 9/9 img de producto con alt, JSON-LD válido, catálogo consistente con override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple Agotado; Embutidos EV InStock). Se detectó y corrigió la falta de width/height en las <img> (mejora del día, CLS/Lighthouse). Sin bugs nuevos. 2026-07-13 (2ª corrida): auditoría en vivo OK, catálogo/JSON-LD/og consistentes (800 g, mundialista.jpeg). Mejora del día: carga de Google Fonts pasada a NO bloqueante (preload as=style + media=print/onload + noscript) para mejorar FCP/LCP del titular H1 en móvil. Sin bugs nuevos. 2026-07-14 (corrida diaria): revisión puntual OK — 9/9 <picture> bien anidados tras sumar AVIF, catálogo/JSON-LD consistentes con el override del dueño, sin listeners rotos ni datos sensibles. Mejora del día: se agregó AVIF (5 imágenes del catálogo) como primer <source> de cada <picture> con fallback WebP/JPEG; peso de imágenes 540KB→336KB (−38%), Mundialista 66→34KB (−50%). Próxima revisión total ≈2026-07-18. 2026-07-16 (corrida diaria): revisión puntual OK — index.html/productos.json coherentes con el override del dueño (5 picadas InStock), tarjeta Mundialista = Final vs España, aviso-pausa 16/07 presente, sin listeners rotos ni datos sensibles; ambos JSON-LD válidos tras enriquecer el FoodEstablishment. Sin bugs nuevos. Revisión TOTAL pendiente ≈2026-07-18.",
+  "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-13 (corrida diaria): auditoría puntual OK — GA4/eventos presentes, 9/9 img de producto con alt, JSON-LD válido, catálogo consistente con override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple Agotado; Embutidos EV InStock). Se detectó y corrigió la falta de width/height en las <img> (mejora del día, CLS/Lighthouse). Sin bugs nuevos. 2026-07-13 (2ª corrida): auditoría en vivo OK, catálogo/JSON-LD/og consistentes (800 g, mundialista.jpeg). Mejora del día: carga de Google Fonts pasada a NO bloqueante (preload as=style + media=print/onload + noscript) para mejorar FCP/LCP del titular H1 en móvil. Sin bugs nuevos. 2026-07-14 (corrida diaria): revisión puntual OK — 9/9 <picture> bien anidados tras sumar AVIF, catálogo/JSON-LD consistentes con el override del dueño, sin listeners rotos ni datos sensibles. Mejora del día: se agregó AVIF (5 imágenes del catálogo) como primer <source> de cada <picture> con fallback WebP/JPEG; peso de imágenes 540KB→336KB (−38%), Mundialista 66→34KB (−50%). Próxima revisión total ≈2026-07-18. 2026-07-16 (corrida diaria): revisión puntual OK — index.html/productos.json coherentes con el override del dueño (5 picadas InStock), tarjeta Mundialista = Final vs España, aviso-pausa 16/07 presente, sin listeners rotos ni datos sensibles; ambos JSON-LD válidos tras enriquecer el FoodEstablishment. Sin bugs nuevos. Revisión TOTAL pendiente ≈2026-07-18. 2026-07-17 (corrida diaria): revisión puntual OK — index.html/productos.json coherentes con el override del dueño (5 picadas InStock), tarjeta Mundialista = Final vs España, aviso-pausa 16/07 presente, <head> intacto tras sumar favicon/manifest, sin listeners rotos ni datos sensibles; ambos JSON-LD válidos. Sin bugs nuevos. Mejora del día: favicon + web app manifest + apple-touch-icon (branding/PWA, antes inexistentes). Revisión TOTAL pendiente ≈2026-07-18.",
   "hallazgos_confirmados": [
     "productos.json creado como fuente autoritativa del catálogo (2026-07-11)",
     "JSON-LD Product/Offer agregado para 7 picadas (2026-07-11)",
@@ -64,7 +64,12 @@
     "sitemap lastmod = 2026-07-16.",
     "Auditoria en vivo 2026-07-16: Vercel y GitHub Pages coherentes; GA4/eventos OK; 10/10 img con alt; 5 Product/Offer InStock coherentes con productos.json; aviso-pausa (jueves 16/07) vigente hoy. Sin errores tecnicos nuevos.",
     "Mundial 2026 (2026-07-16): sin partido nuevo desde el 15/07. Final domingo 19/07 16:00 ARG vs España (MetLife). Tarjeta ya en 'Final Domingo 19/7 vs España' (flag-esp). Sin cambios. Revertir paleta Mundial tras el 19/07.",
-    "GA4 7d 2026-07-16 (09-15/07): 80 sesiones, 46 usuarios, 44 nuevos, 118 vistas. Eventos: scroll_profundidad 179, clic_producto 45, clic_cta_hero 21, generate_lead 12, clic_whatsapp 10, registro_descuento 2. IG 807 seguidores (snapshot 17/07). FB page_followers 1.595 (única métrica Insights disponible; NO coincide con 11.003 del 15/07 -> probablemente otra métrica ese día, no se compara WoW). A vigilar: clic_whatsapp 15->10 y generate_lead 18->12 en ventanas solapadas (incluye 15/07, día de semifinal); volúmenes chicos, sin alarma dura. Cuello de botella registro_descuento sigue en 2."
+    "GA4 7d 2026-07-16 (09-15/07): 80 sesiones, 46 usuarios, 44 nuevos, 118 vistas. Eventos: scroll_profundidad 179, clic_producto 45, clic_cta_hero 21, generate_lead 12, clic_whatsapp 10, registro_descuento 2. IG 807 seguidores (snapshot 17/07). FB page_followers 1.595 (única métrica Insights disponible; NO coincide con 11.003 del 15/07 -> probablemente otra métrica ese día, no se compara WoW). A vigilar: clic_whatsapp 15->10 y generate_lead 18->12 en ventanas solapadas (incluye 15/07, día de semifinal); volúmenes chicos, sin alarma dura. Cuello de botella registro_descuento sigue en 2.",
+    "Mejora del día (2026-07-17): se agregó favicon + iconos de app + web app manifest (antes INEXISTENTES pese a las metaetiquetas PWA). Ícono de marca original: monograma 'PP' dorado sobre fondo marrón degradé con borde dorado. Archivos: favicon.svg (vectorial), favicon.ico (16/32), apple-touch-icon.png (180), icon-192.png, icon-512.png y manifest.webmanifest. Enlazados en el <head> (rel=icon svg+ico, apple-touch-icon, manifest). Completa branding en pestañas/marcadores/resultados Google móvil y el setup 'agregar a inicio'. Sin cambio de diseño visible.",
+    "sitemap lastmod = 2026-07-17.",
+    "Auditoria en vivo 2026-07-17: Vercel y GitHub Pages coherentes y al dia; GA4/6 eventos presentes; 10/10 img con alt; 5 Product/Offer InStock coherentes con productos.json; aviso-pausa (jueves 16/07) vigente; tarjeta Mundialista = Final 19/7 vs España. Sin errores tecnicos nuevos.",
+    "Mundial 2026 (2026-07-17): sin partido nuevo desde el 15/07. Final domingo 19/07 16:00 ARG vs España (MetLife). Tarjeta ya en 'Final Domingo 19/7 vs España' (flag-esp). Sin cambios. Revertir paleta Mundial tras el 19/07.",
+    "GA4 7d 2026-07-17 (10-16/07): 73 sesiones, 39 usuarios, 37 nuevos, 110 vistas. Eventos: scroll_profundidad 156, clic_producto 36, clic_cta_hero 14, generate_lead 10, clic_whatsapp 9, registro_descuento 1. IG 807 seguidores (snapshot 17/07, estable vs 807 del 16/07). FB page_followers 1.600 (+5 vs 1.595 del 16/07). Enfriamiento post-semifinal: baja leve WoW (sesiones 80->73 -9%, vistas 118->110 -7%, clic_whatsapp 10->9 -10%) al soltar el pico del 15/07 de la ventana; sin alarma dura -30% en la metrica nucleo. registro_descuento cuello de botella en 1."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -75,8 +80,8 @@
   ],
   "mundial_2026": {
     "estado": "en_curso_final",
-    "ultimo_verificado": "2026-07-16",
-    "detalle": "Sin partido de Argentina desde el 15/07. Final: Argentina vs España, domingo 19/07 16:00 ARG, MetLife Stadium. Tarjeta en 'Final Domingo 19/7' con flag-esp. Semifinal 15/07: Argentina 2-1 Inglaterra (Enzo Fernandez, Lautaro Martinez).",
+    "ultimo_verificado": "2026-07-17",
+    "detalle": "Sin partido de Argentina desde el 15/07. Final: Argentina vs España, domingo 19/07 16:00 ARG, MetLife Stadium. Tarjeta en 'Final Domingo 19/7' con flag-esp. Semifinal 15/07: Argentina 2-1 Inglaterra (Enzo Fernandez, Lautaro Martinez). Verificado 2026-07-17: sin novedades.",
     "proximo_chequeo": "resultado de la FINAL (domingo 19/07): si Argentina gana -> festejar campeon; en cualquier caso, tras el 19/07 revertir la paleta Mundial (marron/crema/dorado) y el tema Argentina a normal.",
     "revertir_despues_de": "2026-07-19"
   },
@@ -202,6 +207,22 @@
       "instagram_seguidores": 807,
       "facebook_page_followers": 1595,
       "nota": "Trafico estable (sesiones 79->80, vistas 113->118 vs 08-14/07). A vigilar: clic_whatsapp 15->10 y generate_lead 18->12 en ventanas solapadas (incluye 15/07, dia de la semifinal); volumenes chicos. registro_descuento cuello de botella en 2. FB 1.595 (page_followers) no coincide con 11.003 del 15/07 -> otra metrica ese dia; no se compara WoW."
+    },
+    "ga4_7d_2026-07-17": {
+      "rango": "2026-07-10 a 2026-07-16",
+      "sesiones": 73,
+      "usuarios": 39,
+      "nuevos": 37,
+      "vistas": 110,
+      "scroll_profundidad": 156,
+      "clic_producto": 36,
+      "clic_cta_hero": 14,
+      "generate_lead": 10,
+      "clic_whatsapp": 9,
+      "registro_descuento": 1,
+      "instagram_seguidores": 807,
+      "facebook_page_followers": 1600,
+      "nota": "Enfriamiento post-semifinal: la ventana solto el pico del 15/07 -> baja leve WoW vs 09-15/07 (sesiones 80->73 -9%, vistas 118->110 -7%, clic_whatsapp 10->9 -10%, generate_lead 12->10, clic_cta_hero 21->14, clic_producto 45->36). Sin alarma dura -30% en clic_whatsapp. registro_descuento cuello de botella en 1. IG 807 estable, FB 1.600 (+5)."
     }
   },
   "catalogo_override_dueno": {
