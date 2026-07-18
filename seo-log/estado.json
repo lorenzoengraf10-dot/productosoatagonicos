@@ -358,5 +358,12 @@
     ],
     "relacion_con_margen_viaje": "Amplía el margen anterior ('técnico + ajustes menores de copy'): ahora también se pueden hacer implementaciones o fixes mayores SIEMPRE que pasen los 3 campos. Lo que no pase los 3 (ej: rediseños que dependen de assets del dueño, o cambios opinables) sigue como propuesta para el regreso.",
     "registro": "Toda auto-aprobación se documenta en bitacora.md dejando claro que pasó los 3 campos y por qué."
+  },
+  "artefacto_panel": {
+    "id": "panel-productos-patagonicos",
+    "creado": "2026-07-18",
+    "que_es": "Dashboard en Cowork (artefacto HTML) para que el dueño vea de un vistazo: estado del sitio (vacaciones/Mundial), métricas GA4/IG/FB 7 días, calendario de hitos, actividad reciente (bitácora) y pendientes.",
+    "regla": "En cada corrida, ADEMÁS de bitacora.md, actualizar este artefacto con update_artifact (id 'panel-productos-patagonicos'): refrescar la constante DATA del HTML (metricas, sesiones_trend, timeline, actividad [últimas ~12], pendiente y campo 'actualizado'). El artefacto NO tiene red salvo los CDN permitidos (Chart.js/Grid.js/Mermaid), así que los datos van EMBEBIDOS en el HTML; no intentar fetch a GitHub ni a otras URLs.",
+    "nota": "Diseñado para light mode (fondo claro). Datos reales, nunca inventar."
   }
 }
