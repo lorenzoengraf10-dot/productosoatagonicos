@@ -337,17 +337,8 @@
     "flags_index": "window.MODO_CAMPEON (default false) + window.CAMPEON_HASTA='19/8'. Barra pre-construida y probada (jsdom): off→sin barra, on→barra con celebración, sin errores JS."
   },
   "bitacora_excel": {
-    "archivo": "seo-log/vitacora de SEO PP.xlsx",
-    "canal_critico": "Es la ÚNICA ventana del dueño mientras viaja (solo tiene el celular, sin compu, del 17/07 al 2/8). Mantenerlo SIEMPRE al día y legible en el teléfono.",
-    "regla": "Cada corrida: (1) actualizar la FRANJA RESUMEN de la fila 2 (celda A2) con 'ÚLTIMA CORRIDA <fecha> · estado (vacaciones/campeón) · ¿NECESITO ALGO DE VOS?: <sí/no + qué> · PRÓXIMO HITO'; (2) agregar una fila nueva del día con Fecha, Día, Logros del día, Mejora del día, Pendiente/A futuro, Estado Mundial/Vacaciones. Si algo NECESITA al dueño (ej: reconectar un conector, aprobar un diseño), decirlo EXPLÍCITO en la franja resumen porque es su único medio de enterarse.",
-    "columnas": [
-      "Fecha",
-      "Día",
-      "Logros del día",
-      "Mejora del día",
-      "Pendiente / A futuro",
-      "Estado Mundial / Vacaciones"
-    ]
+    "estado": "ABANDONADO por el dueño (2026-07-18). Dejar de actualizar 'vitacora de SEO PP.xlsx' (queda congelado como histórico). NO volver a tocarlo ni reportarlo.",
+    "reemplazo": "La bitácora diaria es únicamente seo-log/bitacora.md. Es también la ventana del dueño desde el celular vía GitHub (github.com/lorenzoengraf10-dot/productosoatagonicos/blob/main/seo-log/bitacora.md). Mantenerla siempre al día y clara, con lo logrado y lo pendiente/a futuro de cada corrida."
   },
   "margen_viaje_dueno": {
     "definido": "2026-07-17",
