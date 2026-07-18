@@ -69,7 +69,11 @@
     "sitemap lastmod = 2026-07-17.",
     "Auditoria en vivo 2026-07-17: Vercel y GitHub Pages coherentes y al dia; GA4/6 eventos presentes; 10/10 img con alt; 5 Product/Offer InStock coherentes con productos.json; aviso-pausa (jueves 16/07) vigente; tarjeta Mundialista = Final 19/7 vs España. Sin errores tecnicos nuevos.",
     "Mundial 2026 (2026-07-17): sin partido nuevo desde el 15/07. Final domingo 19/07 16:00 ARG vs España (MetLife). Tarjeta ya en 'Final Domingo 19/7 vs España' (flag-esp). Sin cambios. Revertir paleta Mundial tras el 19/07.",
-    "GA4 7d 2026-07-17 (10-16/07): 73 sesiones, 39 usuarios, 37 nuevos, 110 vistas. Eventos: scroll_profundidad 156, clic_producto 36, clic_cta_hero 14, generate_lead 10, clic_whatsapp 9, registro_descuento 1. IG 807 seguidores (snapshot 17/07, estable vs 807 del 16/07). FB page_followers 1.600 (+5 vs 1.595 del 16/07). Enfriamiento post-semifinal: baja leve WoW (sesiones 80->73 -9%, vistas 118->110 -7%, clic_whatsapp 10->9 -10%) al soltar el pico del 15/07 de la ventana; sin alarma dura -30% en la metrica nucleo. registro_descuento cuello de botella en 1."
+    "GA4 7d 2026-07-17 (10-16/07): 73 sesiones, 39 usuarios, 37 nuevos, 110 vistas. Eventos: scroll_profundidad 156, clic_producto 36, clic_cta_hero 14, generate_lead 10, clic_whatsapp 9, registro_descuento 1. IG 807 seguidores (snapshot 17/07, estable vs 807 del 16/07). FB page_followers 1.600 (+5 vs 1.595 del 16/07). Enfriamiento post-semifinal: baja leve WoW (sesiones 80->73 -9%, vistas 118->110 -7%, clic_whatsapp 10->9 -10%) al soltar el pico del 15/07 de la ventana; sin alarma dura -30% en la metrica nucleo. registro_descuento cuello de botella en 1.",
+    "Modo vacaciones activado (2026-07-17, pedido del dueño): está de viaje y no toma pedidos hasta el 2/8. index.html con flag window.MODO_VACACIONES=true — banner 'Estamos de vacaciones hasta el 2/8', botones de pedido (5 tarjetas + hero Consulta Directa + 'a medida' + botón del modal) repuntados al formulario de mail (#descuento); cupón $2000 sigue activo para juntar mails; grupo de comunidad WhatsApp intacto. Verificado con jsdom: 0 errores JS, botones OK, modal OK.",
+    "Plan post-Mundial condicional PRE-APROBADO (2026-07-17): si Argentina gana la final del 19/07 → activar MODO CAMPEÓN (barra celebración celeste/blanca, simbología argentina) por ~1 mes; si pierde → revertir todo a la normalidad (marrón/crema/dorado). Barra campeón pre-construida tras flag window.MODO_CAMPEON=false y probada (jsdom off/on sin errores). La corrida del 20/07 lo ejecuta según el resultado real.",
+    "Documento entregado (2026-07-17): 'Alta Google Business Profile - Productos Patagonicos.docx' con campos listos para copiar/pegar, descripción optimizada (597 car.), fotos, paso a paso y verificación. GBP queda EN PAUSA hasta que el dueño vuelva del viaje (2/8) — no avanzar hasta entonces.",
+    "Pedido del dueño (2026-07-17): mantener también una bitácora diaria en EXCEL (seo-log/vitacora de SEO PP.xlsx) con lo logrado cada día y lo pendiente a futuro, además de bitacora.md."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -263,7 +267,7 @@
       "area": "SEO local",
       "idea": "Preparar y publicar el perfil de Google Business Profile (nombre, categoría 'Charcutería', zona Carmen de Patagones/Viedma, fotos de picadas, link al sitio, WhatsApp).",
       "impacto": "Alto: aparecer en Google Maps y en el pack local es la mayor fuente de clientes cercanos.",
-      "estado": "pendiente"
+      "estado": "EN PAUSA hasta el regreso del dueño (2/8): paquete de alta ya entregado como docx el 2026-07-17; falta que el dueño cree/verifique la ficha (paso personal)."
     },
     {
       "area": "Conversión / prueba social",
@@ -313,5 +317,35 @@
       "impacto": "Medio: rich snippets y mejor CTR en buscadores.",
       "estado": "parcial: geo (GeoCoordinates), areaServed y sameAs (IG+FB) agregados al FoodEstablishment el 2026-07-16. Pendiente: aggregateRating cuando haya reseñas, y priceRange ya presente; openingHours si el dueño los confirma."
     }
-  ]
+  ],
+  "modo_vacaciones": {
+    "activo": true,
+    "desde": "2026-07-17",
+    "regreso_dueno": "2026-08-02",
+    "regla": "El dueño está de viaje y NO puede tomar decisiones ni pedidos hasta el 2/8. Implementado en index.html: flag window.MODO_VACACIONES=true. Banner de vacaciones con fecha de regreso (2/8); los botones de pedido (btn-order, hero 'Consulta Directa', 'a medida' y el botón del modal) repuntan al formulario de mail (#descuento) en vez de abrir WhatsApp de pedido; el formulario del cupón ($2000) sigue ACTIVO para juntar mails. El grupo de comunidad de WhatsApp queda intacto.",
+    "reapertura": "Cuando el dueño vuelva (2/8) y avise, poner window.MODO_VACACIONES=false (revierte banner y botones a normal) y revisar el mail acumulado de suscriptores.",
+    "no_tomar_pedidos": true,
+    "capturar_mails": true
+  },
+  "plan_post_mundial_condicional": {
+    "decidido": "2026-07-17 (pedido explícito del dueño, PRE-APROBADO para ejecutar sin esperar aprobación)",
+    "final": "Argentina vs España, domingo 19/07/2026 16:00 ARG, MetLife Stadium.",
+    "ejecutar_en": "corrida del 20/07 (o la primera tras conocerse el resultado real; verificar por búsqueda web, nunca inventar).",
+    "si_argentina_gana": "Activar MODO CAMPEÓN: poner window.MODO_CAMPEON=true en index.html (ya está pre-construido: inyecta una barra de celebración celeste/blanca '¡ARGENTINA CAMPEÓN DEL MUNDO!' al tope del contenido, con CSS .campeon-bar ya presente). Mantener la simbología/colores argentinos festivos durante ~1 MES (hasta ~19/08). Registrar fecha de activación y fecha de apagado (~19/08). Pasado el mes, poner MODO_CAMPEON=false y revertir la paleta a la normal (marrón/crema/dorado).",
+    "si_argentina_pierde": "NO activar MODO_CAMPEON. Revertir directo a la normalidad: paleta original marrón/crema/dorado, quitar el tema/aura Argentina y el estilo Mundial de la tarjeta Mundialista (quitar flag-esp/matchup, dejar la tarjeta normal). La Picada Mundialista queda como una picada más del catálogo salvo que el dueño decida otra cosa.",
+    "nota_hero": "El destacado actual es la Picada Mundialista ('Gran Promoción Mundialista'). Al terminar el Mundial pierde temporada; si no hay MODO_CAMPEON, evaluar volver el hero a la Tradicional (más popular). Como el dueño no está, mantener el catálogo estable y NO tomar decisiones de rediseño mayores fuera de este plan; sólo ejecutar la reversión/celebración descrita.",
+    "flags_index": "window.MODO_CAMPEON (default false) + window.CAMPEON_HASTA='19/8'. Barra pre-construida y probada (jsdom): off→sin barra, on→barra con celebración, sin errores JS."
+  },
+  "bitacora_excel": {
+    "archivo": "seo-log/vitacora de SEO PP.xlsx",
+    "regla": "El dueño pidió (2026-07-17) mantener TAMBIÉN una bitácora diaria en Excel: una fila por día con lo logrado ese día y lo que queda a futuro/pendiente. Actualizar el xlsx en cada corrida además de bitacora.md. (Antes el xlsx estaba congelado como histórico; ahora vuelve a estar vivo.)",
+    "columnas": [
+      "Fecha",
+      "Día",
+      "Logros del día",
+      "Mejora del día",
+      "Pendiente / A futuro",
+      "Estado Mundial/Vacaciones"
+    ]
+  }
 }

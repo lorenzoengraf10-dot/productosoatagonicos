@@ -18,6 +18,12 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="manifest.webmanifest">
 
+    <!-- MODO VACACIONES: no se toman pedidos, se sigue capturando mail. Para REABRIR poner en false. -->
+    <script>window.MODO_VACACIONES = true; window.VAC_REGRESO = "2/8";</script>
+
+    <!-- MODO CAMPEON (condicional): lo activa la corrida diaria SOLO si Argentina gana la final del 19/07. Celebracion por ~1 mes, luego false. -->
+    <script>window.MODO_CAMPEON = false; window.CAMPEON_HASTA = "19/8";</script>
+
     <!-- Integración con celulares iOS y Android -->
     <meta name="theme-color" content="#1a0e0a">
     <meta name="mobile-web-app-capable" content="yes">
@@ -1327,6 +1333,33 @@
         }
         .aviso-pausa strong { color: var(--brand-gold-light); }
         @media (max-width: 480px) { .aviso-pausa { font-size: 0.95rem; margin-left: 12px; margin-right: 12px; } }
+
+        /* Celebracion Argentina Campeon (se inyecta por JS solo si MODO_CAMPEON) */
+        .campeon-bar {
+            margin: 0 auto 1.4rem;
+            max-width: 820px;
+            padding: 1rem 1.2rem;
+            background: linear-gradient(135deg, #75AADB 0%, #ffffff 50%, #75AADB 100%);
+            border: 2px solid #75AADB;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 26px rgba(117,170,219,0.35);
+        }
+        .campeon-bar .campeon-titulo {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 900;
+            font-size: 1.35rem;
+            color: #0b3d69;
+            letter-spacing: 0.5px;
+        }
+        .campeon-bar .campeon-sub {
+            display: block;
+            margin-top: 0.25rem;
+            font-size: 0.98rem;
+            color: #14416b;
+        }
+        @media (max-width: 480px) { .campeon-bar .campeon-titulo { font-size: 1.12rem; } .campeon-bar { margin-left: 12px; margin-right: 12px; } }
     </style>
 
     <!-- SEO: canonical, Open Graph, Twitter Card -->
@@ -1729,7 +1762,7 @@
     </div>
 
     <div class="aviso-pausa" role="status">
-        ⚠️ <strong>Importante:</strong> por un compromiso personal, <strong>no se elaboran picadas a partir del jueves 16/07</strong>. Encargá antes para asegurar la tuya. ¡Gracias por tu comprensión! 🙌
+        🌴 <strong>Estamos de vacaciones hasta el 2/8.</strong> Por ahora no tomamos pedidos, pero dejanos tu mail acá abajo y te avisamos apenas volvemos con todo. ¡Gracias! 🙌
     </div>
 
     <div class="products-section">
@@ -2284,6 +2317,12 @@
             waBtn.classList.add('btn-order-soldout');
             waBtn.classList.remove('btn-order');
             waBtn.textContent = 'Agotado';
+        } else if (window.MODO_VACACIONES) {
+            waBtn.href = '#descuento';
+            waBtn.classList.add('btn-order');
+            waBtn.classList.remove('btn-order-soldout');
+            waBtn.textContent = '🔔 Avisame cuando volvamos';
+            waBtn.addEventListener('click', closeModal, { once: true });
         } else {
             waBtn.href = wa;
             waBtn.classList.add('btn-order');
@@ -2345,5 +2384,32 @@
 })();
 </script>
 
+    <!-- MODO VACACIONES: repunta los botones de pedido al formulario de mail (sin tomar pedidos) -->
+    <script>
+    (function () {
+        if (!window.MODO_VACACIONES) return;
+        document.querySelectorAll('a[href^="https://wa.me/542920347453"]').forEach(function (a) {
+            if (a.closest('.product-modal')) return;               /* el modal se maneja en openModal */
+            a.setAttribute('href', '#descuento');
+            if (a.classList.contains('btn-order'))          a.textContent = '🔔 Avisame cuando volvamos';
+            else if (a.classList.contains('cta-btn-whatsapp')) a.textContent = '🔔 Avisame al volver';
+            else                                             a.textContent = '🔔 Avisame cuando volvamos';
+        });
+    })();
+    </script>
+
+    <!-- MODO CAMPEON: inyecta la barra de celebracion al tope del contenido (solo si MODO_CAMPEON) -->
+    <script>
+    (function () {
+        if (!window.MODO_CAMPEON) return;
+        var bar = document.createElement('div');
+        bar.className = 'campeon-bar';
+        bar.setAttribute('role', 'status');
+        bar.innerHTML = '<span class="campeon-titulo">\uD83C\uDFC6 \u00A1ARGENTINA CAMPE\u00D3N DEL MUNDO! \uD83C\uDDE6\uD83C\uDDF7</span>' +
+                        '<span class="campeon-sub">Lo festejamos con toda la comarca. \u00A1Vamos Argentina! \u2B50\u2B50\u2B50</span>';
+        var main = document.querySelector('.container') || document.body;
+        (main === document.body ? document.body : main).insertBefore(bar, (main === document.body ? document.body.firstChild : main.firstChild));
+    })();
+    </script>
 </body>
 </html>
