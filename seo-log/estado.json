@@ -1,7 +1,7 @@
 {
-  "ultima_corrida": "2026-07-17",
-  "ultima_revision_total_codigo": "2026-07-11",
-  "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-13 (corrida diaria): auditoría puntual OK — GA4/eventos presentes, 9/9 img de producto con alt, JSON-LD válido, catálogo consistente con override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple Agotado; Embutidos EV InStock). Se detectó y corrigió la falta de width/height en las <img> (mejora del día, CLS/Lighthouse). Sin bugs nuevos. 2026-07-13 (2ª corrida): auditoría en vivo OK, catálogo/JSON-LD/og consistentes (800 g, mundialista.jpeg). Mejora del día: carga de Google Fonts pasada a NO bloqueante (preload as=style + media=print/onload + noscript) para mejorar FCP/LCP del titular H1 en móvil. Sin bugs nuevos. 2026-07-14 (corrida diaria): revisión puntual OK — 9/9 <picture> bien anidados tras sumar AVIF, catálogo/JSON-LD consistentes con el override del dueño, sin listeners rotos ni datos sensibles. Mejora del día: se agregó AVIF (5 imágenes del catálogo) como primer <source> de cada <picture> con fallback WebP/JPEG; peso de imágenes 540KB→336KB (−38%), Mundialista 66→34KB (−50%). Próxima revisión total ≈2026-07-18. 2026-07-16 (corrida diaria): revisión puntual OK — index.html/productos.json coherentes con el override del dueño (5 picadas InStock), tarjeta Mundialista = Final vs España, aviso-pausa 16/07 presente, sin listeners rotos ni datos sensibles; ambos JSON-LD válidos tras enriquecer el FoodEstablishment. Sin bugs nuevos. Revisión TOTAL pendiente ≈2026-07-18. 2026-07-17 (corrida diaria): revisión puntual OK — index.html/productos.json coherentes con el override del dueño (5 picadas InStock), tarjeta Mundialista = Final vs España, aviso-pausa 16/07 presente, <head> intacto tras sumar favicon/manifest, sin listeners rotos ni datos sensibles; ambos JSON-LD válidos. Sin bugs nuevos. Mejora del día: favicon + web app manifest + apple-touch-icon (branding/PWA, antes inexistentes). Revisión TOTAL pendiente ≈2026-07-18.",
+  "ultima_corrida": "2026-07-18",
+  "ultima_revision_total_codigo": "2026-07-18",
+  "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-13 (corrida diaria): auditoría puntual OK — GA4/eventos presentes, 9/9 img de producto con alt, JSON-LD válido, catálogo consistente con override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple Agotado; Embutidos EV InStock). Se detectó y corrigió la falta de width/height en las <img> (mejora del día, CLS/Lighthouse). Sin bugs nuevos. 2026-07-13 (2ª corrida): auditoría en vivo OK, catálogo/JSON-LD/og consistentes (800 g, mundialista.jpeg). Mejora del día: carga de Google Fonts pasada a NO bloqueante (preload as=style + media=print/onload + noscript) para mejorar FCP/LCP del titular H1 en móvil. Sin bugs nuevos. 2026-07-14 (corrida diaria): revisión puntual OK — 9/9 <picture> bien anidados tras sumar AVIF, catálogo/JSON-LD consistentes con el override del dueño, sin listeners rotos ni datos sensibles. Mejora del día: se agregó AVIF (5 imágenes del catálogo) como primer <source> de cada <picture> con fallback WebP/JPEG; peso de imágenes 540KB→336KB (−38%), Mundialista 66→34KB (−50%). Próxima revisión total ≈2026-07-18. 2026-07-16 (corrida diaria): revisión puntual OK — index.html/productos.json coherentes con el override del dueño (5 picadas InStock), tarjeta Mundialista = Final vs España, aviso-pausa 16/07 presente, sin listeners rotos ni datos sensibles; ambos JSON-LD válidos tras enriquecer el FoodEstablishment. Sin bugs nuevos. Revisión TOTAL pendiente ≈2026-07-18. 2026-07-17 (corrida diaria): revisión puntual OK — index.html/productos.json coherentes con el override del dueño (5 picadas InStock), tarjeta Mundialista = Final vs España, aviso-pausa 16/07 presente, <head> intacto tras sumar favicon/manifest, sin listeners rotos ni datos sensibles; ambos JSON-LD válidos. Sin bugs nuevos. Mejora del día: favicon + web app manifest + apple-touch-icon (branding/PWA, antes inexistentes). Revisión TOTAL pendiente ≈2026-07-18. 2026-07-18 (2ª, corrida programada 8am): REVISIÓN TOTAL hecha (vencía ≈18/07). Relectura completa index.html (2.420 líneas) + productos.json + 2 JSON-LD + 4 <script>: HTML balanceado (9/9 <picture>), 10/10 img con alt, ambos JSON-LD válidos, catálogo JSON=HTML=JSON-LD coherente con override del dueño (5 InStock), flags MODO_VACACIONES=true/MODO_CAMPEON=false OK, listeners sanos, sin CSS/JS muerto ni datos sensibles (endpoint MailerLite público sin API key; token GitHub NO en repo). Sin bugs. Observación menor (no bug): en vacaciones los botones repuntados a #descuento siguen emitiendo clic_whatsapp (ruido de métrica). Mejora del día: rel=\"noopener\" agregado a los 7 enlaces target=_blank que faltaban (hero + 5 Encargar + modal) -> 11/11 con rel; cierra reverse-tabnabbing y sube Best Practices, sin cambio visual. Próxima revisión total ≈2026-07-25.",
   "hallazgos_confirmados": [
     "productos.json creado como fuente autoritativa del catálogo (2026-07-11)",
     "JSON-LD Product/Offer agregado para 7 picadas (2026-07-11)",
@@ -74,7 +74,12 @@
     "Plan post-Mundial condicional PRE-APROBADO (2026-07-17): si Argentina gana la final del 19/07 → activar MODO CAMPEÓN (barra celebración celeste/blanca, simbología argentina) por ~1 mes; si pierde → revertir todo a la normalidad (marrón/crema/dorado). Barra campeón pre-construida tras flag window.MODO_CAMPEON=false y probada (jsdom off/on sin errores). La corrida del 20/07 lo ejecuta según el resultado real.",
     "Documento entregado (2026-07-17): 'Alta Google Business Profile - Productos Patagonicos.docx' con campos listos para copiar/pegar, descripción optimizada (597 car.), fotos, paso a paso y verificación. GBP queda EN PAUSA hasta que el dueño vuelva del viaje (2/8) — no avanzar hasta entonces.",
     "Pedido del dueño (2026-07-17): mantener también una bitácora diaria en EXCEL (seo-log/vitacora de SEO PP.xlsx) con lo logrado cada día y lo pendiente a futuro, además de bitacora.md.",
-    "Campo WhatsApp OPCIONAL agregado al formulario del cupón (2026-07-18, aprobado por el dueño): input tel opcional; si se completa, el número viaja en la notificación de Formspree (donde el dueño ve cada registro), para poder cerrar la venta por WhatsApp al volver del viaje. La integración de mail existente quedó intacta (email). Verificado con jsdom: campo opcional, envío OK con email+whatsapp, sin errores."
+    "Campo WhatsApp OPCIONAL agregado al formulario del cupón (2026-07-18, aprobado por el dueño): input tel opcional; si se completa, el número viaja en la notificación de Formspree (donde el dueño ve cada registro), para poder cerrar la venta por WhatsApp al volver del viaje. La integración de mail existente quedó intacta (email). Verificado con jsdom: campo opcional, envío OK con email+whatsapp, sin errores.",
+    "Mejora del día (2026-07-18, 2ª corrida): se agregó rel=\"noopener\" a los 7 enlaces target=_blank que no lo tenían (CTA WhatsApp del hero, los 5 botones Encargar de las tarjetas y el botón del modal). Antes 4/11 con rel; ahora 11/11. Cierra reverse-tabnabbing (window.opener) y el aviso de Lighthouse Best Practices. Cambio de atributo puro, sin efecto visual/UX; verificado con diff quirúrgico y jsdom (0 errores, 11/11 con rel). Auto-aprobado (pasó los 3 filtros).",
+    "Revisión TOTAL de código 2026-07-18 (2ª): index.html (2.420 líneas) + productos.json + 2 JSON-LD + 4 <script> releídos de punta a punta. HTML balanceado (9/9 <picture>), 10/10 img con alt, JSON-LD válidos (FoodEstablishment + ItemList), catálogo coherente (5 InStock: Mundialista $12.000/800g, Tradicional $16.000/700g, Odisea $22.000/900g, Simple $13.000/500g, Embutidos EV $3.000), flags de vacaciones/campeón correctos, sin listeners rotos ni datos sensibles. Sin bugs nuevos.",
+    "Auditoría en vivo 2026-07-18 (2ª): Vercel canónico verificado por fetch (Mundialista $12.000/800g, Final vs España 19/7, banner vacaciones 2/8, GA4, canonical/OG/Twitter completos). GitHub Pages sin cambios respecto de lo publicado (bloqueo stale cerrado). Sin errores técnicos nuevos.",
+    "Mundial 2026 (2026-07-18): sin partido de Argentina desde el 15/07. FINAL MAÑANA domingo 19/07 16:00 ARG vs España (MetLife); España venció 2-0 a Francia en semis. Tarjeta ya en 'Final Domingo 19/7 vs España' (flag-esp). Sin cambios hoy; la corrida del 20/07 ejecuta el plan condicional (MODO_CAMPEON si gana / reversión si pierde).",
+    "GA4 7d 2026-07-18 (11-17/07): 62 sesiones, 31 usuarios, 29 nuevos, 98 vistas. Eventos: scroll_profundidad 137, clic_producto 31, clic_cta_hero 13, generate_lead 10, clic_whatsapp 9, registro_descuento 1. IG 805 (snapshot 18/07, vs 807 el 17/07). FB page_followers 1.604 (vs 1.600 el 17/07, +4). Enfriamiento sostenido (mundial + modo vacaciones, sitio sin tomar pedidos): WoW vs 10-16/07 sesiones 73->62 (-15%), vistas 110->98 (-11%), clic_whatsapp 9->9 (0%), generate_lead 10->10, registro_descuento 1->1. Sin alarma dura -30%. Días flojos: 14/07 (3 ses.), 16/07 (2 ses.)."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -85,8 +90,8 @@
   ],
   "mundial_2026": {
     "estado": "en_curso_final",
-    "ultimo_verificado": "2026-07-17",
-    "detalle": "Sin partido de Argentina desde el 15/07. Final: Argentina vs España, domingo 19/07 16:00 ARG, MetLife Stadium. Tarjeta en 'Final Domingo 19/7' con flag-esp. Semifinal 15/07: Argentina 2-1 Inglaterra (Enzo Fernandez, Lautaro Martinez). Verificado 2026-07-17: sin novedades.",
+    "ultimo_verificado": "2026-07-18",
+    "detalle": "Sin partido de Argentina desde el 15/07. FINAL: Argentina vs España, MAÑANA domingo 19/07 16:00 ARG, MetLife Stadium (España venció 2-0 a Francia en semis). Tarjeta en 'Final Domingo 19/7' con flag-esp. Semifinal 15/07: Argentina 2-1 Inglaterra. Verificado 2026-07-18: sin novedades, final es mañana.",
     "proximo_chequeo": "resultado de la FINAL (domingo 19/07): si Argentina gana -> festejar campeon; en cualquier caso, tras el 19/07 revertir la paleta Mundial (marron/crema/dorado) y el tema Argentina a normal.",
     "revertir_despues_de": "2026-07-19"
   },
@@ -228,6 +233,22 @@
       "instagram_seguidores": 807,
       "facebook_page_followers": 1600,
       "nota": "Enfriamiento post-semifinal: la ventana solto el pico del 15/07 -> baja leve WoW vs 09-15/07 (sesiones 80->73 -9%, vistas 118->110 -7%, clic_whatsapp 10->9 -10%, generate_lead 12->10, clic_cta_hero 21->14, clic_producto 45->36). Sin alarma dura -30% en clic_whatsapp. registro_descuento cuello de botella en 1. IG 807 estable, FB 1.600 (+5)."
+    },
+    "ga4_7d_2026-07-18": {
+      "rango": "2026-07-11 a 2026-07-17",
+      "sesiones": 62,
+      "usuarios": 31,
+      "nuevos": 29,
+      "vistas": 98,
+      "scroll_profundidad": 137,
+      "clic_producto": 31,
+      "clic_cta_hero": 13,
+      "generate_lead": 10,
+      "clic_whatsapp": 9,
+      "registro_descuento": 1,
+      "instagram_seguidores": 805,
+      "facebook_page_followers": 1604,
+      "nota": "Enfriamiento sostenido (mundial + modo vacaciones). WoW vs 10-16/07: sesiones 73->62 (-15%), vistas 110->98 (-11%), clic_whatsapp 9->9 (0%), generate_lead 10->10, registro_descuento 1->1. Sin alarma -30% en clic_whatsapp. Días flojos 14/07 (3) y 16/07 (2). IG 805 (-2), FB 1.604 (+4)."
     }
   },
   "catalogo_override_dueno": {
@@ -286,7 +307,7 @@
       "area": "Performance / CLS",
       "idea": "Agregar width/height explícitos a las <img> y considerar AVIF además de WebP; auditar LCP del hero en móvil (<2,5s).",
       "impacto": "Medio: mejora Core Web Vitals y ranking móvil.",
-      "estado": "parcial: width/height (07-13), Google Fonts no bloqueante (07-13), AVIF (07-14), preload imagen LCP hero (07-15) y og/twitter image alt (07-15) hechos. Pendiente: medir LCP real en movil (<2,5s) con datos de campo."
+      "estado": "parcial: width/height (07-13), Google Fonts no bloqueante (07-13), AVIF (07-14), preload imagen LCP hero (07-15) y og/twitter image alt (07-15) hechos. Pendiente: medir LCP real en movil (<2,5s) con datos de campo. 2026-07-18: rel=noopener agregado a los 7 enlaces _blank faltantes (Best Practices)."
     },
     {
       "area": "Conversión / urgencia",
