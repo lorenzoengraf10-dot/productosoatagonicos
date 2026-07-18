@@ -73,7 +73,8 @@
     "Modo vacaciones activado (2026-07-17, pedido del dueño): está de viaje y no toma pedidos hasta el 2/8. index.html con flag window.MODO_VACACIONES=true — banner 'Estamos de vacaciones hasta el 2/8', botones de pedido (5 tarjetas + hero Consulta Directa + 'a medida' + botón del modal) repuntados al formulario de mail (#descuento); cupón $2000 sigue activo para juntar mails; grupo de comunidad WhatsApp intacto. Verificado con jsdom: 0 errores JS, botones OK, modal OK.",
     "Plan post-Mundial condicional PRE-APROBADO (2026-07-17): si Argentina gana la final del 19/07 → activar MODO CAMPEÓN (barra celebración celeste/blanca, simbología argentina) por ~1 mes; si pierde → revertir todo a la normalidad (marrón/crema/dorado). Barra campeón pre-construida tras flag window.MODO_CAMPEON=false y probada (jsdom off/on sin errores). La corrida del 20/07 lo ejecuta según el resultado real.",
     "Documento entregado (2026-07-17): 'Alta Google Business Profile - Productos Patagonicos.docx' con campos listos para copiar/pegar, descripción optimizada (597 car.), fotos, paso a paso y verificación. GBP queda EN PAUSA hasta que el dueño vuelva del viaje (2/8) — no avanzar hasta entonces.",
-    "Pedido del dueño (2026-07-17): mantener también una bitácora diaria en EXCEL (seo-log/vitacora de SEO PP.xlsx) con lo logrado cada día y lo pendiente a futuro, además de bitacora.md."
+    "Pedido del dueño (2026-07-17): mantener también una bitácora diaria en EXCEL (seo-log/vitacora de SEO PP.xlsx) con lo logrado cada día y lo pendiente a futuro, además de bitacora.md.",
+    "Campo WhatsApp OPCIONAL agregado al formulario del cupón (2026-07-18, aprobado por el dueño): input tel opcional; si se completa, el número viaja en la notificación de Formspree (donde el dueño ve cada registro), para poder cerrar la venta por WhatsApp al volver del viaje. La integración de mail existente quedó intacta (email). Verificado con jsdom: campo opcional, envío OK con email+whatsapp, sin errores."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -309,7 +310,7 @@
       "area": "Conversión / formulario",
       "idea": "Evaluar pedir nombre + WhatsApp (opcional) en el registro del cupón para poder recontactar, cuidando no sumar fricción. Requiere aprobación (cambio de conversión).",
       "impacto": "Medio: hoy sólo se captura email; con WhatsApp se puede cerrar la venta.",
-      "estado": "pendiente"
+      "estado": "HECHO 2026-07-18: campo WhatsApp opcional agregado (aprobado por el dueño). El número llega por la notificación de Formspree."
     },
     {
       "area": "Schema / SEO",

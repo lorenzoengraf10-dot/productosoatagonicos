@@ -1995,6 +1995,9 @@
             <div class="form-group">
                 <input type="email" id="f-email" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico" autocomplete="email" inputmode="email" required>
             </div>
+            <div class="form-group">
+                <input type="tel" id="f-whatsapp" placeholder="Tu WhatsApp (opcional)" aria-label="Tu WhatsApp (opcional)" autocomplete="tel" inputmode="tel">
+            </div>
             <button type="button" id="btn-submit" class="btn-submit">Registrarme y obtener descuento</button>
         </div>
 
@@ -2144,6 +2147,7 @@
     if (btnSubmit) {
         btnSubmit.addEventListener('click', function () {
             var email = document.getElementById('f-email').value.trim();
+            var whatsapp = document.getElementById('f-whatsapp') ? document.getElementById('f-whatsapp').value.trim() : '';
 
             if (!email) {
                 alert('Por favor completá tu email.');
@@ -2155,6 +2159,7 @@
 
             var formData = new FormData();
             formData.append('email', email);
+            if (whatsapp) formData.append('whatsapp', whatsapp);
             formData.append('_subject', 'Nuevo registro para reintegro de $2000 - Productos Patagónicos');
 
             /* 5b. Alta en MailerLite (grupo Suscriptores) para disparar la automatizacion
