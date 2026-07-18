@@ -338,14 +338,15 @@
   },
   "bitacora_excel": {
     "archivo": "seo-log/vitacora de SEO PP.xlsx",
-    "regla": "El dueño pidió (2026-07-17) mantener TAMBIÉN una bitácora diaria en Excel: una fila por día con lo logrado ese día y lo que queda a futuro/pendiente. Actualizar el xlsx en cada corrida además de bitacora.md. (Antes el xlsx estaba congelado como histórico; ahora vuelve a estar vivo.)",
+    "canal_critico": "Es la ÚNICA ventana del dueño mientras viaja (solo tiene el celular, sin compu, del 17/07 al 2/8). Mantenerlo SIEMPRE al día y legible en el teléfono.",
+    "regla": "Cada corrida: (1) actualizar la FRANJA RESUMEN de la fila 2 (celda A2) con 'ÚLTIMA CORRIDA <fecha> · estado (vacaciones/campeón) · ¿NECESITO ALGO DE VOS?: <sí/no + qué> · PRÓXIMO HITO'; (2) agregar una fila nueva del día con Fecha, Día, Logros del día, Mejora del día, Pendiente/A futuro, Estado Mundial/Vacaciones. Si algo NECESITA al dueño (ej: reconectar un conector, aprobar un diseño), decirlo EXPLÍCITO en la franja resumen porque es su único medio de enterarse.",
     "columnas": [
       "Fecha",
       "Día",
       "Logros del día",
       "Mejora del día",
       "Pendiente / A futuro",
-      "Estado Mundial/Vacaciones"
+      "Estado Mundial / Vacaciones"
     ]
   }
 }
