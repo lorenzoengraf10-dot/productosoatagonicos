@@ -348,5 +348,12 @@
       "Pendiente / A futuro",
       "Estado Mundial / Vacaciones"
     ]
+  },
+  "margen_viaje_dueno": {
+    "definido": "2026-07-17",
+    "vigencia": "Durante el viaje del dueño (hasta el 2/8).",
+    "permitido_sin_pedir": "Mejoras técnicas/SEO/performance/accesibilidad/tracking (ya pre-aprobadas) + ajustes MENORES de copy o textos de CTA si hay una mejora clara. Más lo ya pactado: Mundial (plan condicional) y modo vacaciones.",
+    "NO_permitido": "Rediseños, cambios de layout/paleta/tipografía, nueva sección de diseño (ej: testimonios), o cambios de conversión estructurales (formulario, orden del catálogo). Esas ideas se ANOTAN en la bitácora para decidir cuando el dueño vuelva.",
+    "nota": "El dueño eligió 'Técnico + ajustes menores de copy' el 2026-07-17."
   }
 }
