@@ -347,5 +347,16 @@
     "permitido_sin_pedir": "Mejoras técnicas/SEO/performance/accesibilidad/tracking (ya pre-aprobadas) + ajustes MENORES de copy o textos de CTA si hay una mejora clara. Más lo ya pactado: Mundial (plan condicional) y modo vacaciones.",
     "NO_permitido": "Rediseños, cambios de layout/paleta/tipografía, nueva sección de diseño (ej: testimonios), o cambios de conversión estructurales (formulario, orden del catálogo). Esas ideas se ANOTAN en la bitácora para decidir cuando el dueño vuelva.",
     "nota": "El dueño eligió 'Técnico + ajustes menores de copy' el 2026-07-17."
+  },
+  "criterio_autoaprobacion": {
+    "definido": "2026-07-18 (pedido del dueño, aplica también durante el viaje hasta el 2/8 y en adelante).",
+    "regla": "Ante una posible implementación o arreglo de error, evaluar los 3 campos. Solo si los 3 dan SÍ, aprobarla y ejecutarla sin consultar. Si alguno da NO, NO ejecutarla: dejarla anotada como propuesta en la bitácora para cuando el dueño vuelva.",
+    "campos": [
+      "1) ¿Es necesaria AHORA? = algo que se puede hacer ya y que mejora un aspecto necesario del sitio, o que es el arreglo de un error real.",
+      "2) ¿La puedo hacer YO sin ningún problema? = no depende del dueño (no requiere logins/OAuth, ni fotos/textos/decisiones suyas), es de bajo riesgo y reversible.",
+      "3) ¿Su futuro es POSITIVO? = el resultado neto es una mejora clara, sin efectos negativos ni arrepentimiento probable."
+    ],
+    "relacion_con_margen_viaje": "Amplía el margen anterior ('técnico + ajustes menores de copy'): ahora también se pueden hacer implementaciones o fixes mayores SIEMPRE que pasen los 3 campos. Lo que no pase los 3 (ej: rediseños que dependen de assets del dueño, o cambios opinables) sigue como propuesta para el regreso.",
+    "registro": "Toda auto-aprobación se documenta en bitacora.md dejando claro que pasó los 3 campos y por qué."
   }
 }
