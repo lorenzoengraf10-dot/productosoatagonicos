@@ -12,18 +12,6 @@
   "moneda": "ARS",
   "productos": [
     {
-      "id": "mundialista",
-      "nombre": "Promo Picada para 6",
-      "precio": 12000,
-      "porcion": "800 g",
-      "porciones_texto": "pican 7 personas, comen 4",
-      "componentes": ["Chorizo seco", "Mortadela", "Morcilla blanca", "Morcilla negra", "Queso criollo", "Queso de cerdo"],
-      "imagen": "mundialista.jpeg",
-      "disponibilidad": "InStock",
-      "temporada": false,
-      "nota": "Promo Picada para 6"
-    },
-    {
       "id": "tradicional",
       "nombre": "Picada Tradicional",
       "precio": 16000,
