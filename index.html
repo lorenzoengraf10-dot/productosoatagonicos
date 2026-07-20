@@ -280,20 +280,32 @@
             transform: translateY(-3px);
         }
 
-        .cta-btn-game {
+        /* Banner del juego, ubicado sobre las picadas */
+        .game-cta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 720px;
+            margin: 0 auto 2.4rem;
+            padding: 1.05rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
             background: linear-gradient(135deg, var(--brand-gold-light), var(--brand-gold));
             color: var(--brand-dark);
-            box-shadow: 0 4px 20px rgba(200,146,42,0.45), 0 0 0 1px rgba(108,172,228,0.3);
-            animation: gamePulse 2.2s ease-in-out infinite;
+            box-shadow: 0 6px 26px rgba(200,146,42,0.4), 0 0 0 1px rgba(108,172,228,0.25);
+            animation: gamePulse 2.4s ease-in-out infinite;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .cta-btn-game:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(200,146,42,0.6), 0 0 24px rgba(108,172,228,0.35);
-        }
+        .game-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 34px rgba(200,146,42,0.6), 0 0 24px rgba(108,172,228,0.35); }
+        .game-cta .game-cta-emoji { font-size: 2rem; line-height: 1; }
+        .game-cta .game-cta-text { display: flex; flex-direction: column; gap: 2px; text-align: left; flex: 1; }
+        .game-cta .game-cta-text strong { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .game-cta .game-cta-text small { font-size: 0.82rem; opacity: 0.85; letter-spacing: 0.02em; }
+        .game-cta .game-cta-arrow { font-size: 1.4rem; font-weight: 700; }
 
         @keyframes gamePulse {
-            50% { box-shadow: 0 6px 30px rgba(200,146,42,0.7), 0 0 26px rgba(108,172,228,0.4); }
+            50% { box-shadow: 0 8px 30px rgba(200,146,42,0.65), 0 0 26px rgba(108,172,228,0.4); }
         }
 
         .header-scroll {
@@ -1752,9 +1764,6 @@
 
     <!-- CORRECCIÓN: número real con código Argentina +54 -->
     <div class="hero-cta">
-        <a href="/juego/" class="cta-btn cta-btn-game">
-            🎮 Jugá y Ganá $2000
-        </a>
         <a href="#picadas" class="cta-btn cta-btn-primary">
             🧀 Ver Picadas
         </a>
@@ -1769,6 +1778,16 @@
     </a>
 </header>
 
+<!-- ══════════ CTA DEL JUEGO (sobre las picadas) ══════════ -->
+<a href="/juego/" id="jugar" class="game-cta">
+    <span class="game-cta-emoji">🎮</span>
+    <span class="game-cta-text">
+        <strong>Jugá y Ganá $2000</strong>
+        <small>Atrapá la picada y llevate tu cupón de descuento</small>
+    </span>
+    <span class="game-cta-arrow">▸</span>
+</a>
+
 <!-- ══════════ PRODUCTS ══════════ -->
 <section id="picadas">
     <div class="section-header">
@@ -1778,7 +1797,7 @@
     </div>
 
     <div class="aviso-pausa" role="status">
-        🌴 <strong>Estamos de vacaciones hasta el 2/8.</strong> Por ahora no tomamos pedidos, pero dejanos tu mail acá abajo y te avisamos apenas volvemos con todo. ¡Gracias! 🙌
+        🌴 <strong>Estamos de vacaciones hasta el 2/8.</strong> Por ahora no tomamos pedidos, pero <a href="/juego/" style="color:inherit;text-decoration:underline;font-weight:700;">probá el juego 👆</a> y llevate tu cupón de $2000 para la vuelta. ¡Gracias! 🙌
     </div>
 
     <div class="products-section">
@@ -2316,10 +2335,10 @@
             waBtn.classList.remove('btn-order');
             waBtn.textContent = 'Agotado';
         } else if (window.MODO_VACACIONES) {
-            waBtn.href = '/juego/';
+            waBtn.href = '#jugar';
             waBtn.classList.add('btn-order');
             waBtn.classList.remove('btn-order-soldout');
-            waBtn.textContent = '🎮 Jugá y ganá $2000';
+            waBtn.textContent = '🔔 Volvemos el ' + (window.VAC_REGRESO || 'pronto');
             waBtn.addEventListener('click', closeModal, { once: true });
         } else {
             waBtn.href = wa;
@@ -2386,13 +2405,12 @@
     <script>
     (function () {
         if (!window.MODO_VACACIONES) return;
+        var vac = '🔔 Volvemos el ' + (window.VAC_REGRESO || 'pronto');
         document.querySelectorAll('a[href^="https://wa.me/542920347453"]').forEach(function (a) {
             if (a.closest('.product-modal')) return;               /* el modal se maneja en openModal */
-            a.setAttribute('href', '/juego/');
-            a.removeAttribute('target');                            /* abre el juego en la misma pestaña */
-            if (a.classList.contains('btn-order'))          a.textContent = '🎮 Jugá y ganá $2000';
-            else if (a.classList.contains('cta-btn-whatsapp')) a.textContent = '🎮 Jugá y ganá $2000';
-            else                                             a.textContent = '🎮 Jugá y ganá $2000';
+            a.setAttribute('href', '#jugar');                       /* lleva al banner del juego, sobre las picadas */
+            a.removeAttribute('target');
+            a.textContent = vac;
         });
     })();
     </script>
