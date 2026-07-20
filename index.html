@@ -280,6 +280,22 @@
             transform: translateY(-3px);
         }
 
+        .cta-btn-game {
+            background: linear-gradient(135deg, var(--brand-gold-light), var(--brand-gold));
+            color: var(--brand-dark);
+            box-shadow: 0 4px 20px rgba(200,146,42,0.45), 0 0 0 1px rgba(108,172,228,0.3);
+            animation: gamePulse 2.2s ease-in-out infinite;
+        }
+
+        .cta-btn-game:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(200,146,42,0.6), 0 0 24px rgba(108,172,228,0.35);
+        }
+
+        @keyframes gamePulse {
+            50% { box-shadow: 0 6px 30px rgba(200,146,42,0.7), 0 0 26px rgba(108,172,228,0.4); }
+        }
+
         .header-scroll {
             position: absolute;
             bottom: 2rem;
@@ -1736,6 +1752,9 @@
 
     <!-- CORRECCIÓN: número real con código Argentina +54 -->
     <div class="hero-cta">
+        <a href="/juego/" class="cta-btn cta-btn-game">
+            🎮 Jugá y Ganá $2000
+        </a>
         <a href="#picadas" class="cta-btn cta-btn-primary">
             🧀 Ver Picadas
         </a>

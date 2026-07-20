@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Atrapá la Picada — Productos Patagónicos</title>
+<style>
+  :root{
+    --bg:#20281f; --panel:rgba(34,44,32,.96); --wood:#8a5a2b; --wood2:#5f3c1a;
+    --gold:#f0c848; --green:#8fd3b0; --wine:#8e2b4a; --cream:#f4ead2; --dim:#9aa88f;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--cream);
+    font-family:'Courier New',ui-monospace,monospace;overflow:hidden;overscroll-behavior:none;
+    -webkit-tap-highlight-color:transparent;}
+  #game{position:fixed;inset:0;display:block;background:
+    linear-gradient(180deg,#2f3d2b 0%,#26331f 55%,#1b2416 100%);touch-action:none;}
+  .overlay{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:18px;text-align:center;padding:22px;overflow-y:auto;
+    background:radial-gradient(ellipse at center,rgba(34,44,32,.82),rgba(20,28,18,.97));}
+  .overlay.hidden{display:none;}
+  .hidden{display:none!important;}
+  .brand{color:var(--dim);letter-spacing:.32em;font-size:clamp(9px,1.6vw,12px);text-transform:uppercase;margin:0;}
+  .title{font-size:clamp(30px,7vw,64px);letter-spacing:.06em;font-weight:700;margin:0;color:var(--cream);
+    text-shadow:0 3px 0 var(--wood2),0 0 14px rgba(240,200,72,.25);line-height:1.02;}
+  .title .g{color:var(--gold);}
+  .prize{display:inline-block;background:linear-gradient(180deg,var(--gold),#d9a92f);color:#3a2a08;
+    font-weight:700;letter-spacing:.05em;padding:10px 20px;border-radius:12px;font-size:clamp(15px,3.4vw,22px);
+    box-shadow:0 6px 0 #a7801f,0 10px 22px rgba(0,0,0,.4);text-transform:uppercase;}
+  .lead{color:#d6e0cc;font-size:clamp(13px,2.4vw,16px);letter-spacing:.03em;max-width:560px;line-height:1.5;margin:0;}
+  .emojis{font-size:clamp(26px,6vw,44px);letter-spacing:.1em;filter:drop-shadow(0 4px 6px rgba(0,0,0,.4));}
+  .hero{width:clamp(150px,42vw,220px);height:auto;border-radius:50%;
+    filter:drop-shadow(0 10px 26px rgba(0,0,0,.55));animation:float 3.4s ease-in-out infinite;}
+  .hero.sm{width:clamp(120px,34vw,175px);border-radius:16px;}
+  @keyframes float{50%{transform:translateY(-9px);}}
+  .logo{width:clamp(76px,17vw,104px);height:auto;border-radius:16px;margin-bottom:-4px;
+    filter:drop-shadow(0 6px 16px rgba(0,0,0,.5));}
+  .wa-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;
+    font-family:inherit;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:14px;
+    background:linear-gradient(180deg,#39c05a,#25a244);color:#04270f;border-radius:12px;padding:14px 22px;
+    box-shadow:0 5px 0 #1c7a33,0 10px 22px rgba(37,162,68,.35);transition:.12s;}
+  .wa-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #1c7a33;}
+  .wa-btn svg{width:20px;height:20px;fill:#04270f;}
+  .btn{font-family:inherit;cursor:pointer;border:none;border-radius:12px;padding:15px 34px;font-size:16px;
+    letter-spacing:.06em;text-transform:uppercase;font-weight:700;transition:.12s;}
+  .btn.play{background:linear-gradient(180deg,var(--green),#63b78d);color:#123024;
+    box-shadow:0 5px 0 #3f7d5c,0 10px 22px rgba(143,211,176,.28);}
+  .btn.play:active{transform:translateY(3px);box-shadow:0 2px 0 #3f7d5c;}
+  .btn.ghost{background:#243019;color:#c7d3ba;border:1.5px solid #3c4a2c;box-shadow:none;}
+  .btn.ghost:active{transform:translateY(2px);}
+  .card{width:min(480px,94vw);background:var(--panel);border:1.5px solid #3a4a2e;border-radius:18px;
+    padding:22px;box-shadow:0 24px 60px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:14px;}
+  .howto{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;color:var(--dim);font-size:12px;letter-spacing:.04em;}
+  .howto b{color:var(--gold);}
+  .footer{position:fixed;bottom:8px;left:0;right:0;text-align:center;color:#4a5741;font-size:11px;letter-spacing:.08em;z-index:4;}
+
+  /* HUD */
+  #hud{position:fixed;top:0;left:0;right:0;z-index:6;display:none;justify-content:space-between;
+    align-items:center;padding:12px 16px;pointer-events:none;
+    background:linear-gradient(180deg,rgba(20,28,18,.8),rgba(20,28,18,0));}
+  #hud.show{display:flex;}
+  .hud-box{background:rgba(20,28,18,.7);border:1px solid #3a4a2e;border-radius:10px;padding:7px 14px;}
+  .hud-box .k{color:var(--dim);font-size:9px;letter-spacing:.18em;text-transform:uppercase;display:block;}
+  .hud-box .v{color:var(--cream);font-size:clamp(18px,4vw,24px);font-weight:700;letter-spacing:.04em;}
+  #timeBox .v{color:var(--gold);} #scoreBox .v{color:var(--green);}
+  #timeBox.low .v{color:#e8607a;animation:pulse .6s infinite;}
+  @keyframes pulse{50%{opacity:.4;}}
+
+  /* Endscreen result */
+  .result-score{font-size:clamp(40px,11vw,84px);font-weight:700;color:var(--gold);margin:0;line-height:1;
+    text-shadow:0 4px 0 var(--wood2);}
+  .result-label{color:var(--dim);letter-spacing:.2em;font-size:12px;text-transform:uppercase;margin:0;}
+
+  /* Email gate */
+  .gate-h{font-size:clamp(20px,4.4vw,28px);font-weight:700;margin:0;color:var(--cream);}
+  .gate-sub{color:#d6e0cc;font-size:13px;line-height:1.5;margin:0;}
+  .field{display:flex;flex-direction:column;gap:6px;text-align:left;}
+  .field label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);}
+  .field input[type=email],.field input[type=text]{font-family:inherit;font-size:16px;padding:13px 14px;border-radius:10px;
+    border:1.5px solid #3c4a2c;background:#1a2213;color:var(--cream);outline:none;transition:.12s;}
+  .field input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(143,211,176,.18);}
+  .consent{display:flex;gap:9px;align-items:flex-start;text-align:left;font-size:11px;color:var(--dim);line-height:1.45;cursor:pointer;}
+  .consent input{margin-top:2px;width:16px;height:16px;accent-color:var(--green);flex:none;}
+  .err{color:#e8607a;font-size:12px;letter-spacing:.03em;min-height:15px;text-align:left;margin:0;}
+
+  /* Coupon reveal */
+  .coupon{border:2px dashed var(--gold);border-radius:14px;padding:18px;background:rgba(240,200,72,.08);
+    display:flex;flex-direction:column;gap:8px;align-items:center;}
+  .coupon .cap{color:var(--dim);font-size:11px;letter-spacing:.2em;text-transform:uppercase;}
+  .coupon .code{font-size:clamp(26px,7vw,40px);font-weight:700;letter-spacing:.14em;color:var(--gold);
+    text-shadow:0 2px 0 var(--wood2);}
+  .coupon .cond{color:#d6e0cc;font-size:12px;}
+  .copybtn{font-family:inherit;cursor:pointer;background:#243019;color:var(--green);border:1.5px solid #3c4a2c;
+    border-radius:9px;padding:9px 18px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;}
+  .copybtn:active{transform:translateY(2px);}
+  .tiny{color:#5a6850;font-size:10px;letter-spacing:.05em;}
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<!-- HUD -->
+<div id="hud">
+  <div class="hud-box" id="scoreBox"><span class="k">Puntos</span><span class="v" id="scoreVal">0</span></div>
+  <div class="hud-box" id="timeBox"><span class="k">Tiempo</span><span class="v" id="timeVal">60</span></div>
+</div>
+
+<!-- START -->
+<div id="startScreen" class="overlay">
+  <img class="logo" src="img/logo.png" alt="Productos Patagónicos" onerror="this.remove()">
+  <p class="brand">Productos Patagónicos</p>
+  <h1 class="title">Atrapá la <span class="g">Picada</span></h1>
+  <img class="hero" src="img/picada.png" alt="Picada Productos Patagónicos"
+       onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'emojis',textContent:'🧀 🥩 🍷 🍺 🫓'}))">
+  <div class="emojis" style="font-size:clamp(20px,4.5vw,30px)">🧀 🥩 🍷 🍺 🫓</div>
+  <div class="prize">Jugá y ganá $2000 de descuento</div>
+  <p class="lead">Movés la tabla y atrapás las <b>picadas</b>, la cerveza y el vino que caen.
+     Cuidado con las <b>piedras</b>. Tenés <b>60 segundos</b> para hacer el mayor puntaje.</p>
+  <button class="btn play" id="playBtn">▶ Jugar</button>
+  <div class="howto">
+    <span>📱 <b>Celular:</b> arrastrá el dedo</span>
+    <span>💻 <b>PC:</b> mové el mouse o ← →</span>
+  </div>
+</div>
+
+<!-- END: result + email gate + coupon (steps toggled by JS) -->
+<div id="endScreen" class="overlay hidden">
+  <div class="card">
+    <!-- result -->
+    <div id="stepResult">
+      <p class="result-label">Tu puntaje</p>
+      <p class="result-score" id="finalScore">0</p>
+      <p class="lead" id="resultMsg">¡Bien ahí! Ganaste tu descuento 🎉</p>
+    </div>
+    <!-- email gate -->
+    <div id="stepGate" class="hidden" style="display:flex;flex-direction:column;gap:14px;">
+      <h2 class="gate-h">🎁 Desbloqueá tus <span style="color:var(--gold)">$2000</span></h2>
+      <p class="gate-sub">Dejanos tu Gmail y te enviamos el cupón. Lo vas a ver también acá al toque.</p>
+      <div class="field">
+        <label for="nameInput">Tu nombre (opcional)</label>
+        <input type="text" id="nameInput" autocomplete="given-name" placeholder="Nombre">
+      </div>
+      <div class="field">
+        <label for="emailInput">Tu Gmail</label>
+        <input type="email" id="emailInput" autocomplete="email" inputmode="email" placeholder="tunombre@gmail.com">
+      </div>
+      <label class="consent">
+        <input type="checkbox" id="consentInput">
+        <span>Quiero recibir el cupón y novedades de Productos Patagónicos por email.</span>
+      </label>
+      <p class="err" id="gateErr"></p>
+      <button class="btn play" id="unlockBtn">Desbloquear cupón</button>
+    </div>
+    <!-- coupon -->
+    <div id="stepCoupon" class="hidden" style="display:flex;flex-direction:column;gap:14px;align-items:center;">
+      <img class="hero sm" src="img/picada_rect.png" alt="Picada" onerror="this.remove()">
+      <h2 class="gate-h">🎉 ¡Listo! Tu cupón es:</h2>
+      <div class="coupon">
+        <span class="cap">Código de descuento</span>
+        <span class="code" id="couponCode">PATAGONIA2000</span>
+        <span class="cond">$2000 de descuento en tu compra</span>
+        <button class="copybtn" id="copyBtn">📋 Copiar código</button>
+      </div>
+      <a class="wa-btn" id="waBtn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9 3 3.4 8.6 3.4 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.6-5.6 12.6-12.6S23 3 16 3zm0 22.8c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.1 1.3 1.3-4-.2-.4c-1.1-1.7-1.6-3.6-1.6-5.6C5.4 9.7 10.1 5 16 5s10.6 4.7 10.6 10.6S21.9 25.8 16 25.8zm5.8-7.9c-.3-.2-1.9-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+        Pedir mi descuento por WhatsApp
+      </a>
+      <p class="gate-sub" id="couponMailNote">Te lo mandamos a tu Gmail. Revisá tu casilla (y el correo no deseado)
+         para confirmar la suscripción.</p>
+    </div>
+  </div>
+  <button class="btn ghost" id="replayBtn">↺ Jugar de nuevo</button>
+</div>
+
+<div class="footer" id="brandFooter">
+  <b style="color:#c7d3ba;letter-spacing:.2em;">PRODUCTOS PATAGÓNICOS</b>
+  &nbsp;·&nbsp; <a href="https://instagram.com/productos.patagonicos_" target="_blank" rel="noopener"
+      style="color:#8fd3b0;text-decoration:none;">@productos.patagonicos_</a>
+  &nbsp;·&nbsp; <a href="https://wa.me/542920347453" target="_blank" rel="noopener"
+      style="color:#8fd3b0;text-decoration:none;">WhatsApp 2920 34-7453</a>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — editá acá lo que necesites
+   ============================================================ */
+const CONFIG = {
+  couponCode: 'PATAGONIA2000',
+  couponCondition: '$2000 de descuento en tu compra',
+  whatsapp: '542920347453',   // número con código de país (54) y sin signos
+  gameSeconds: 60,
+  winScore: 0,               // 0 = todos ganan el cupón (juego = enganche, no filtro)
+  // MailerLite (formulario embebido). Suscribe el email al grupo "Jugadores Picada Patagónica".
+  mailerlite: {
+    enabled: true,
+    accountId: '2414901',
+    formId: '193521175411820208'
+  }
+};
+
+/* ============================================================
+   Productos que caen (emoji + valor). Piedra = penaliza.
+   ============================================================ */
+// Caen las TABLAS/PICADAS completas (fotos reales) + bebidas como emoji.
+const GOODS = [
+  {img:'tabla1', pts:15}, {img:'tabla2', pts:15}, {img:'tabla3', pts:15},
+  {e:'🍷', pts:10}, {e:'🍺', pts:10}
+];
+const BOMB = {e:'🪨', pts:-15};
+
+// Precarga de las tablas (si falla alguna, ese ítem cae como emoji de respaldo).
+const FALLBACK = {tabla1:'🧀', tabla2:'🥩', tabla3:'🧀'};
+const IMAGES = {};
+['tabla1','tabla2','tabla3'].forEach(n=>{
+  const im = new Image(); im.src = 'img/'+n+'.png'; IMAGES[n] = im;
+});
+function imgReady(n){ const im=IMAGES[n]; return im && im.complete && im.naturalWidth>0; }
+
+/* ============================================================
+   Canvas + estado
+   ============================================================ */
+const cv = document.getElementById('game');
+const ctx = cv.getContext('2d');
+let W=0, H=0, DPR=1;
+function resize(){
+  DPR = Math.min(window.devicePixelRatio||1, 2);
+  W = window.innerWidth; H = window.innerHeight;
+  cv.width = W*DPR; cv.height = H*DPR;
+  cv.style.width = W+'px'; cv.style.height = H+'px';
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  board.w = Math.max(84, Math.min(160, W*0.26));
+  board.y = H - Math.max(70, H*0.12);
+  board.x = Math.min(Math.max(board.x, board.w/2), W-board.w/2);
+}
+window.addEventListener('resize', resize);
+
+let state = 'start';        // start | playing | ended
+let score = 0, timeLeft = CONFIG.gameSeconds;
+let items = [];             // falling items
+let particles = [];
+let lastT = 0, spawnAcc = 0, elapsed = 0;
+const board = {x: 200, y: 400, w: 120, h: 22, targetX: 200};
+
+/* ============================================================
+   Input: mouse / touch / teclado mueven la tabla
+   ============================================================ */
+function pointerX(clientX){ board.targetX = clientX; }
+cv.addEventListener('mousemove', e=> pointerX(e.clientX));
+cv.addEventListener('touchstart', e=>{ if(e.touches[0]) pointerX(e.touches[0].clientX); }, {passive:true});
+cv.addEventListener('touchmove', e=>{ if(e.touches[0]) pointerX(e.touches[0].clientX); e.preventDefault(); }, {passive:false});
+let keyDir = 0;
+window.addEventListener('keydown', e=>{
+  if(e.key==='ArrowLeft'||e.key==='a') keyDir=-1;
+  else if(e.key==='ArrowRight'||e.key==='d') keyDir=1;
+});
+window.addEventListener('keyup', e=>{
+  if(['ArrowLeft','a','ArrowRight','d'].includes(e.key)) keyDir=0;
+});
+
+/* ============================================================
+   Loop
+   ============================================================ */
+function spawn(){
+  const bomb = Math.random() < Math.min(0.10 + elapsed*0.003, 0.22);
+  const g = bomb ? BOMB : GOODS[(Math.random()*GOODS.length)|0];
+  const size = bomb ? 36 : (g.img ? 60 + Math.random()*16 : 38 + Math.random()*8);
+  items.push({
+    x: 30 + Math.random()*(W-60), y: -40,
+    vy: (120 + Math.random()*90) * (1 + elapsed*0.012),
+    rot: (Math.random()-0.5)*0.5, vr:(Math.random()-0.5)*1.4,
+    e:g.e, img:g.img, pts:g.pts, size, bomb, dead:false
+  });
+}
+function burst(x,y,color,n){
+  for(let i=0;i<n;i++) particles.push({x,y,
+    vx:(Math.random()-0.5)*260, vy:(Math.random()-1)*220,
+    life:1, color, r:2+Math.random()*3});
+}
+function popText(x,y,txt,color){
+  particles.push({x,y,vx:0,vy:-70,life:1,color,txt,r:0});
+}
+
+function update(dt){
+  elapsed += dt;
+  timeLeft -= dt;
+  if(timeLeft <= 0){ timeLeft = 0; endGame(); return; }
+
+  // board movement
+  if(keyDir!==0) board.targetX += keyDir * 620 * dt;
+  board.targetX = Math.min(Math.max(board.targetX, board.w/2), W-board.w/2);
+  board.x += (board.targetX - board.x) * Math.min(1, dt*14);
+
+  // spawn cadence speeds up over time
+  spawnAcc += dt;
+  const interval = Math.max(0.42, 0.95 - elapsed*0.012);
+  if(spawnAcc >= interval){ spawnAcc = 0; spawn(); }
+
+  // items
+  for(const it of items){
+    it.y += it.vy*dt; it.rot += it.vr*dt;
+    if(it.dead) continue;
+    // catch: item center within board top span
+    if(it.y+it.size*0.35 >= board.y-board.h/2 && it.y <= board.y+board.h &&
+       Math.abs(it.x-board.x) < board.w/2 + it.size*0.3 && it.y < board.y+10){
+      it.dead = true;
+      if(it.bomb){
+        score = Math.max(0, score + it.pts);
+        burst(it.x, board.y, '#e8607a', 14);
+        popText(it.x, board.y-24, it.pts, '#e8607a');
+        navigator.vibrate && navigator.vibrate(120);
+      } else {
+        score += it.pts;
+        burst(it.x, board.y, '#f0c848', 12);
+        popText(it.x, board.y-24, '+'+it.pts, '#8fd3b0');
+        navigator.vibrate && navigator.vibrate(18);
+      }
+    }
+  }
+  items = items.filter(it => !it.dead && it.y < H+60);
+
+  // particles
+  for(const p of particles){
+    p.x += p.vx*dt; p.y += p.vy*dt; p.vy += 620*dt; p.life -= dt*1.6;
+  }
+  particles = particles.filter(p=>p.life>0);
+}
+
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  // ground line
+  ctx.fillStyle = 'rgba(0,0,0,.18)';
+  ctx.fillRect(0, board.y+board.h, W, H);
+
+  // items
+  for(const it of items){
+    ctx.save();
+    ctx.translate(it.x, it.y); ctx.rotate(it.rot);
+    ctx.shadowColor='rgba(0,0,0,.4)'; ctx.shadowBlur=8; ctx.shadowOffsetY=4;
+    if(it.img && imgReady(it.img)){
+      const im = IMAGES[it.img], s = it.size*1.6;
+      const ar = im.naturalWidth/im.naturalHeight;
+      let w = s, h = s;
+      if(ar >= 1) h = s/ar; else w = s*ar;   // respeta la forma (bandeja rectangular vs redonda)
+      ctx.drawImage(im, -w/2, -h/2, w, h);
+    } else {
+      const glyph = it.img ? FALLBACK[it.img] : it.e;
+      ctx.font = (it.size*1.05)+'px serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText(glyph, 0, 0);
+    }
+    ctx.restore();
+  }
+
+  // board (tabla de picada)
+  ctx.save();
+  ctx.translate(board.x, board.y);
+  ctx.shadowColor='rgba(0,0,0,.4)'; ctx.shadowBlur=10; ctx.shadowOffsetY=5;
+  const bw=board.w, bh=board.h;
+  const grad=ctx.createLinearGradient(0,-bh/2,0,bh/2);
+  grad.addColorStop(0,'#a06a34'); grad.addColorStop(1,'#5f3c1a');
+  ctx.fillStyle=grad;
+  roundRect(-bw/2, -bh/2, bw, bh, 7); ctx.fill();
+  ctx.shadowBlur=0;
+  ctx.fillStyle='rgba(255,255,255,.12)';
+  roundRect(-bw/2, -bh/2, bw, bh*0.42, 6); ctx.fill();
+  // handle
+  ctx.fillStyle='#5f3c1a';
+  roundRect(bw/2-4, -bh*0.18, 14, bh*0.36, 5); ctx.fill();
+  ctx.restore();
+
+  // particles
+  for(const p of particles){
+    ctx.globalAlpha=Math.max(0,p.life);
+    if(p.txt!==undefined){
+      ctx.fillStyle=p.color; ctx.font='700 20px "Courier New",monospace';
+      ctx.textAlign='center'; ctx.fillText(p.txt,p.x,p.y);
+    } else {
+      ctx.fillStyle=p.color; ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,7); ctx.fill();
+    }
+  }
+  ctx.globalAlpha=1;
+}
+function roundRect(x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
+}
+
+function frame(t){
+  const dt = Math.min(0.05, (t-lastT)/1000 || 0); lastT=t;
+  if(state==='playing'){
+    update(dt);
+    document.getElementById('scoreVal').textContent = score;
+    const tv=document.getElementById('timeVal'); tv.textContent = Math.ceil(timeLeft);
+    document.getElementById('timeBox').classList.toggle('low', timeLeft<=10);
+  }
+  draw();
+  requestAnimationFrame(frame);
+}
+
+/* ============================================================
+   Flujo de pantallas
+   ============================================================ */
+function show(id){ document.getElementById(id).classList.remove('hidden'); }
+function hide(id){ document.getElementById(id).classList.add('hidden'); }
+
+function startGame(){
+  score=0; timeLeft=CONFIG.gameSeconds; items=[]; particles=[];
+  elapsed=0; spawnAcc=0; state='playing';
+  board.x = W/2; board.targetX = W/2;
+  hide('startScreen'); hide('endScreen');
+  document.getElementById('hud').classList.add('show');
+  document.getElementById('brandFooter').style.display='none';
+}
+
+function endGame(){
+  state='ended';
+  document.getElementById('hud').classList.remove('show');
+  document.getElementById('brandFooter').style.display='';
+  document.getElementById('finalScore').textContent = score;
+  document.getElementById('resultMsg').textContent =
+    score>=250 ? '¡Sos un crack de la picada! 🧀🏆' :
+    score>=120 ? '¡Muy bien! Ganaste tu descuento 🎉' :
+                 '¡Listo! Igual te llevás tu descuento 🎉';
+  // ¿ya dio el email antes?
+  const saved = localStorage.getItem('pp_lead_email');
+  show('stepResult');
+  if(saved){
+    hide('stepGate'); showCoupon(true);
+  } else {
+    hide('stepCoupon'); show('stepGate');
+  }
+  show('endScreen');
+}
+
+function showCoupon(already){
+  hide('stepGate'); hide('stepResult');
+  document.getElementById('couponCode').textContent = CONFIG.couponCode;
+  document.querySelector('#stepCoupon .cond').textContent = CONFIG.couponCondition;
+  document.getElementById('couponMailNote').textContent = already
+    ? 'Ya tenés tu cupón guardado. ¡Usalo en tu próxima compra!'
+    : 'Te lo mandamos también a tu Gmail. ¡Revisá tu casilla!';
+  // Link de WhatsApp con el cupón pre-cargado en el mensaje
+  const msg = '¡Hola Productos Patagónicos! Jugué a Atrapá la Picada y gané el cupón '
+    + CONFIG.couponCode + ' (' + CONFIG.couponCondition + '). Quiero usarlo en mi pedido 🧀🍷';
+  document.getElementById('waBtn').href =
+    'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg);
+  show('stepCoupon');
+}
+
+/* ============================================================
+   Email gate → MailerLite
+   ============================================================ */
+function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+async function subscribeMailerLite(email, name){
+  const m = CONFIG.mailerlite;
+  if(!m.enabled) return;
+  const url = `https://assets.mailerlite.com/jsonp/${m.accountId}/forms/${m.formId}/subscribe`;
+  const body = new URLSearchParams();
+  body.append('fields[email]', email);
+  if(name) body.append('fields[name]', name);
+  body.append('ml-submit', '1');
+  body.append('anticsrf', 'true');
+  try{
+    await fetch(url, {method:'POST', mode:'no-cors', body});
+  }catch(err){ /* fallback: el email igual queda guardado localmente */ }
+}
+
+document.getElementById('unlockBtn').addEventListener('click', async ()=>{
+  const email = document.getElementById('emailInput').value.trim();
+  const name  = document.getElementById('nameInput').value.trim();
+  const consent = document.getElementById('consentInput').checked;
+  const err = document.getElementById('gateErr');
+  if(!validEmail(email)){ err.textContent='Poné un email válido (ej: nombre@gmail.com).'; return; }
+  if(!consent){ err.textContent='Marcá la casilla para recibir tu cupón.'; return; }
+  err.textContent='';
+  // guardado local (fuente de verdad + evita re-pedir)
+  try{
+    localStorage.setItem('pp_lead_email', email);
+    const leads = JSON.parse(localStorage.getItem('pp_leads')||'[]');
+    leads.push({email, name, score, date:new Date().toISOString()});
+    localStorage.setItem('pp_leads', JSON.stringify(leads));
+  }catch(e){}
+  // suscripción a MailerLite en segundo plano: el cupón se muestra al instante
+  subscribeMailerLite(email, name);
+  showCoupon(false);
+});
+
+document.getElementById('copyBtn').addEventListener('click', ()=>{
+  const code = CONFIG.couponCode;
+  const done = ()=>{ const b=document.getElementById('copyBtn'); b.textContent='✓ Copiado'; setTimeout(()=>b.textContent='📋 Copiar código',1600); };
+  if(navigator.clipboard) navigator.clipboard.writeText(code).then(done).catch(done);
+  else done();
+});
+
+document.getElementById('playBtn').addEventListener('click', startGame);
+document.getElementById('replayBtn').addEventListener('click', startGame);
+
+/* init */
+resize();
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
