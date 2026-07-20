@@ -13,15 +13,15 @@
   "productos": [
     {
       "id": "mundialista",
-      "nombre": "Picada Mundialista",
+      "nombre": "Promo Picada para 6",
       "precio": 12000,
       "porcion": "800 g",
       "porciones_texto": "pican 7 personas, comen 4",
       "componentes": ["Chorizo seco", "Mortadela", "Morcilla blanca", "Morcilla negra", "Queso criollo", "Queso de cerdo"],
       "imagen": "mundialista.jpeg",
       "disponibilidad": "InStock",
-      "temporada": true,
-      "nota": "Gran Promoción Mundialista — edición temporada Mundial 2026"
+      "temporada": false,
+      "nota": "Promo Picada para 6"
     },
     {
       "id": "tradicional",
