@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Productos Patagónicos · Gran Promoción Mundialista en Carmen de Patagones</title>
-    <meta name="description" content="🇦🇷 Gran Promoción Mundialista: Picada Mundialista a $12.000 (800 g), elaboración artesanal en Carmen de Patagones y Viedma. Encargá directo por WhatsApp.">
+    <title>Productos Patagónicos · Picadas y Embutidos Artesanales en Carmen de Patagones</title>
+    <meta name="description" content="Picadas y embutidos artesanales en Carmen de Patagones y Viedma. Picada Mundialista, Tradicional, La Odisea y más. Encargá directo por WhatsApp.">
     <meta name="keywords" content="picadas Carmen de Patagones, embutidos artesanales Viedma, picadas Patagones, charcutería artesanal, picada para asado, delivery picadas comarca">
     <meta name="geo.region" content="AR-B">
     <meta name="geo.placename" content="Carmen de Patagones, Viedma">
@@ -1012,89 +1012,6 @@
             opacity: 1;
         }
 
-        /* ══════════════════════════════════════════
-           TEMA MUNDIAL 2026 — Picada Mundialista
-           Propuesta aprobada por el dueno 10/07/2026.
-           Mantenimiento: actualizar rival/fecha ronda a ronda;
-           revertir a estilo original si Argentina queda eliminada
-           o al finalizar el Mundial (despues del 19/07/2026).
-        ══════════════════════════════════════════ */
-        .flag {
-            display: inline-block;
-            width: 30px;
-            height: 21px;
-            border-radius: 2px;
-            position: relative;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-        .flag-arg {
-            background: linear-gradient(to bottom, #6cace4 0 33%, #ffffff 33% 66%, #6cace4 66% 100%);
-        }
-        .flag-sui {
-            background: #d52b1e;
-        }
-        .flag-sui::before,
-        .flag-sui::after {
-            content: '';
-            position: absolute;
-            background: #ffffff;
-        }
-        .flag-sui::before { top: 42%; left: 22%; right: 22%; height: 16%; }
-        .flag-sui::after { left: 42%; top: 22%; bottom: 22%; width: 16%; }
-        .flag-eng {
-            background: #ffffff;
-        }
-        .flag-eng::before,
-        .flag-eng::after {
-            content: '';
-            position: absolute;
-            background: #cf142b;
-        }
-        .flag-eng::before { top: 42%; left: 0; right: 0; height: 16%; }
-        .flag-eng::after { left: 42%; top: 0; bottom: 0; width: 16%; }
-        .flag-esp {
-            background: linear-gradient(to bottom, #aa151b 0 25%, #f1bf00 25% 75%, #aa151b 75% 100%);
-        }
-
-        .matchup-banner {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.9rem;
-            background: #0f2a44;
-            border-radius: 3px;
-            padding: 0.7rem 0.8rem;
-            margin-bottom: 0.6rem;
-        }
-        .matchup-team {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
-        }
-        .matchup-team-label {
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            color: #f0e8d5;
-            text-transform: uppercase;
-        }
-        .matchup-vs {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--brand-gold-light);
-        }
-        .matchup-date {
-            text-align: center;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            color: #3d7ab5;
-            margin-bottom: 1rem;
-        }
-
         .order-deadline {
             display: inline-block;
             text-align: center;
@@ -1109,67 +1026,8 @@
             margin-bottom: 1rem;
         }
 
-        .product-card--mundial .card-body {
-            background: linear-gradient(to bottom, #eaf3fb, #ffffff);
-            border-top: 3px solid #6cace4;
-        }
-        .product-card--mundial .card-name,
-        .product-card--mundial .card-price {
-            color: #0f2a44;
-        }
-        .product-card--mundial .card-price sup {
-            color: #1c5f8a;
-        }
-        .product-card--mundial .card-description {
-            color: #3d6f92;
-            opacity: 1;
-        }
-
-        .product-modal--mundial.product-modal {
-            background: linear-gradient(160deg, #eaf3fb 0%, #ffffff 100%);
-            border-color: #6cace4;
-        }
-        .product-modal--mundial .modal-name,
-        .product-modal--mundial .modal-price {
-            color: #0f2a44;
-        }
-        .product-modal--mundial .modal-price sup { color: #1c5f8a; }
-        .product-modal--mundial .modal-description { color: #3d6f92; opacity: 1; }
-        .product-modal--mundial .modal-components-label { color: #1c5f8a; }
-        .product-modal--mundial .modal-components-list li {
-            background: rgba(108,172,228,0.12);
-            border-color: rgba(108,172,228,0.4);
-            color: #0f2a44;
-        }
-        .product-modal--mundial .modal-weight { color: #1c5f8a; }
-        .product-modal--mundial .modal-divider::before,
-        .product-modal--mundial .modal-divider::after { background: rgba(108,172,228,0.4); }
-        .product-modal--mundial .modal-divider-diamond { background: #6cace4; }
-        .product-modal--mundial .modal-matchup { display: flex !important; }
-
-        .modal-matchup {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            background: #0f2a44;
-            border-radius: 3px;
-            padding: 0.8rem 1rem;
-            margin-bottom: 0.5rem;
-        }
-        .modal-matchup-date {
-            display: none;
-            text-align: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #1c5f8a;
-            margin-bottom: 1.2rem;
-        }
-        .product-modal--mundial .modal-matchup-date { display: block; }
-
         /* ══════════════════════════════════════════
-           AGOTADO — picadas fuera de stock mientras
-           dura la Gran Promoción Mundialista.
+           AGOTADO — picadas fuera de stock
         ══════════════════════════════════════════ */
         .product-card--soldout .card-img-wrapper img {
             filter: grayscale(0.85) brightness(0.45) saturate(0.6);
@@ -1204,48 +1062,6 @@
         }
         .product-card--soldout[data-has-modal] .card-img-wrapper::after {
             content: '👁 Ver detalle';
-        }
-
-        /* ══════════════════════════════════════════
-           AURA MUNDIAL 2026 — Argentina 🇦🇷
-           Acento celeste y dorado en todo el sitio,
-           mientras dure la Gran Promoción Mundialista.
-        ══════════════════════════════════════════ */
-        .mundial-topbar {
-            position: sticky;
-            top: 0;
-            z-index: 200;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-            background: linear-gradient(90deg, #4c86bd 0%, #6cace4 22%, #eaf3fb 50%, #6cace4 78%, #4c86bd 100%);
-            color: #0f2a44;
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            text-align: center;
-            padding: 0.55rem 1rem;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9997;
-            background:
-                radial-gradient(circle at 12% 8%, rgba(108,172,228,0.16), transparent 42%),
-                radial-gradient(circle at 88% 92%, rgba(200,146,42,0.14), transparent 45%);
-            mix-blend-mode: screen;
-        }
-
-        @media (max-width: 640px) {
-            .mundial-topbar { font-size: 0.72rem; padding: 0.5rem 0.7rem; letter-spacing: 0.03em; }
         }
 
         @media (max-width: 640px) {
@@ -1366,16 +1182,16 @@
     <link rel="canonical" href="https://productosoatagonicos.vercel.app/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://productosoatagonicos.vercel.app/">
-    <meta property="og:title" content="Productos Patagónicos · Gran Promoción Mundialista">
-    <meta property="og:description" content="🇦🇷 Gran Promoción Mundialista: Picada Mundialista $12.000 (800 g). Encargá directo por WhatsApp, elaboración artesanal de Carmen de Patagones.">
+    <meta property="og:title" content="Productos Patagónicos · Picadas y Embutidos Artesanales">
+    <meta property="og:description" content="Picadas y embutidos artesanales en Carmen de Patagones y Viedma. Encargá directo por WhatsApp.">
     <meta property="og:image" content="https://productosoatagonicos.vercel.app/mundialista.jpeg">
     <meta property="og:image:width" content="1142">
     <meta property="og:image:height" content="804">
     <meta property="og:image:alt" content="Picada Mundialista de Productos Patagónicos — charcutería artesanal de Carmen de Patagones">
     <meta property="og:locale" content="es_AR">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Productos Patagónicos · Gran Promoción Mundialista">
-    <meta name="twitter:description" content="🇦🇷 Gran Promoción Mundialista: Picada Mundialista $12.000 (800 g). Encargá directo por WhatsApp, elaboración artesanal de Carmen de Patagones.">
+    <meta name="twitter:title" content="Productos Patagónicos · Picadas y Embutidos Artesanales">
+    <meta name="twitter:description" content="Picadas y embutidos artesanales en Carmen de Patagones y Viedma. Encargá directo por WhatsApp.">
     <meta name="twitter:image" content="https://productosoatagonicos.vercel.app/mundialista.jpeg">
     <meta name="twitter:image:alt" content="Picada Mundialista de Productos Patagónicos — charcutería artesanal de Carmen de Patagones">
 
@@ -1425,7 +1241,7 @@
         "@type": "Product",
         "name": "Picada Mundialista",
         "image": "https://productosoatagonicos.vercel.app/mundialista.jpeg",
-        "description": "Gran Promoción Mundialista (800 g): Chorizo seco, Mortadela, Morcilla blanca, Morcilla negra, Queso criollo, Queso de cerdo.",
+        "description": "Picada Mundialista (800 g): Chorizo seco, Mortadela, Morcilla blanca, Morcilla negra, Queso criollo, Queso de cerdo.",
         "brand": {
           "@type": "Brand",
           "name": "Productos Patagónicos"
@@ -1756,7 +1572,7 @@
 <!-- ══════════ PRODUCTS ══════════ -->
 <section id="picadas">
     <div class="section-header">
-        <p class="eyebrow">🇦🇷 Selección Mundial 🏆</p>
+        <p class="eyebrow">Elaboración Artesanal</p>
         <h2>Elegí tu Picada</h2>
         <p class="subtitle">Tocá el producto para encargarlo directo por WhatsApp</p>
     </div>
@@ -1768,38 +1584,20 @@
     <div class="products-section">
         <div class="products-grid">
 
-            <!-- PICADA MUNDIALISTA — temporal, tema Mundial 2026 (Argentina). Actualizar rival/fecha ronda a ronda; revertir si Argentina queda eliminada. -->
-            <div class="product-card product-card--mundial" data-has-modal
-                 data-modal-theme="mundial"
+            <div class="product-card" data-has-modal
                  data-modal-name="Picada Mundialista"
                  data-modal-description="Pican 7 personas, comen 4"
                  data-modal-img="mundialista.jpeg"
-                 data-modal-badge="Gran Promoción Mundialista"
+                 data-modal-badge=""
                  data-modal-price="$12.000"
                  data-modal-weight="800 g"
                  data-modal-components="Chorizo seco,Mortadela,Morcilla blanca,Morcilla negra,Queso criollo,Queso de cerdo"
-                 data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista."
-                 data-modal-rival="España"
-                 data-modal-fecha="Final &middot; Domingo 19/7 &middot; 16:00 hs"
-                 data-modal-deadline="">
+                 data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20Mundialista.">
                 <div class="card-img-wrapper">
                     <picture><source srcset="mundialista.avif" type="image/avif"><source srcset="mundialista.webp" type="image/webp"><img src="mundialista.jpeg" width="1142" height="804" alt="Picada Mundialista" loading="eager" fetchpriority="high" decoding="async"></picture>
                     <div class="card-img-overlay"></div>
-                    <span class="card-badge">🏆 GRAN PROMOCIÓN MUNDIALISTA</span>
                 </div>
                 <div class="card-body">
-                    <div class="matchup-banner">
-                        <div class="matchup-team">
-                            <span class="flag flag-arg" aria-hidden="true"></span>
-                            <span class="matchup-team-label">Argentina</span>
-                        </div>
-                        <span class="matchup-vs">vs</span>
-                        <div class="matchup-team">
-                            <span class="flag flag-esp" aria-hidden="true"></span>
-                            <span class="matchup-team-label">España</span>
-                        </div>
-                    </div>
-                    <p class="matchup-date">Final &middot; Domingo 19/7 &middot; 16:00 hs</p>
                     <h3 class="card-name">Picada Mundialista</h3>
                     <p class="card-description">Pican 7 personas, comen 4 · 800 g</p>
                     <div class="card-footer">
@@ -1947,7 +1745,7 @@
         <div class="ps-row ps-first">
             <div class="ps-rank">1</div>
             <div class="ps-thumb"><picture><source srcset="mundialista.avif" type="image/avif"><source srcset="mundialista.webp" type="image/webp"><img src="mundialista.jpeg" width="1142" height="804" alt="Picada Mundialista" loading="lazy" decoding="async"></picture></div>
-            <div class="ps-info"><div class="ps-name">Picada Mundialista</div><div class="ps-metatxt">800 g · pican 7 personas, comen 4</div><span class="ps-badge">🏆 Gran Promoción Mundialista</span></div>
+            <div class="ps-info"><div class="ps-name">Picada Mundialista</div><div class="ps-metatxt">800 g · pican 7 personas, comen 4</div><span class="ps-badge">⭐ La más elegida</span></div>
             <div class="ps-price"><sup>$</sup>12.000<small>800 g</small></div>
         </div>
         <div class="ps-row">
@@ -2004,7 +1802,7 @@
         <div class="form-success" id="form-success">
             <div class="success-icon">🎉</div>
             <h3>¡Listo! Ya sos parte</h3>
-            <p>estas listo para poder usar tu descuento en tu proximo pedido(unico uso).</p>
+            <p>Ya estás listo para usar tu descuento en tu próximo pedido (único uso).</p>
         </div>
     </div>
 </div>
@@ -2013,8 +1811,7 @@
 <footer>
     <div class="footer-detail">
         📍 Carmen de Patagones · El sabor de la comarca<br>
-        Contactanos por WhatsApp para hacer tu pedido<br>
-        🇦🇷 Vamos Argentina — Aguantando desde la comarca 🏆
+        Contactanos por WhatsApp para hacer tu pedido
     </div>
 </footer>
 
@@ -2030,18 +1827,6 @@
             <span class="modal-badge" id="modalBadge" style="display:none"></span>
         </div>
         <div class="modal-body">
-            <div class="modal-matchup" id="modalMatchup">
-                <div class="matchup-team">
-                    <span class="flag flag-arg" aria-hidden="true"></span>
-                    <span class="matchup-team-label">Argentina</span>
-                </div>
-                <span class="matchup-vs">vs</span>
-                <div class="matchup-team">
-                    <span class="flag flag-esp" aria-hidden="true"></span>
-                    <span class="matchup-team-label" id="modalMatchupRival"></span>
-                </div>
-            </div>
-            <p class="modal-matchup-date" id="modalMatchupDate"></p>
             <h2 class="modal-name" id="modalProductName"></h2>
             <p class="modal-description" id="modalDescription"></p>
             <div class="modal-divider"><div class="modal-divider-diamond"></div></div>
@@ -2064,17 +1849,6 @@
 
     function gaSend(eventName, params) {
         if (typeof gtag === 'function') gtag('event', eventName, params);
-    }
-
-    /* 0. COMPENSAR LA FRANJA FIJA AL SALTAR POR ANCLA (#picadas, #descuento) */
-    var topbar = document.querySelector('.mundial-topbar');
-    if (topbar) {
-        var ajustarScrollPadding = function () {
-            document.documentElement.style.scrollPaddingTop = (topbar.offsetHeight + 12) + 'px';
-        };
-        ajustarScrollPadding();
-        window.addEventListener('resize', ajustarScrollPadding);
-        window.addEventListener('orientationchange', ajustarScrollPadding);
     }
 
     /* 1. PROFUNDIDAD DE SCROLL */
@@ -2266,21 +2040,11 @@
         var weight      = card.dataset.modalWeight      || '';
         var components  = card.dataset.modalComponents  || '';
         var wa          = card.dataset.modalWa          || '#';
-        var theme       = card.dataset.modalTheme       || '';
-        var rival       = card.dataset.modalRival       || '';
-        var fecha       = card.dataset.modalFecha       || '';
         var deadline    = card.dataset.modalDeadline    || '';
 
         document.getElementById('modalProductName').textContent = name;
         document.getElementById('modalDescription').textContent = desc;
         document.getElementById('modalPrice').innerHTML = price.replace('$', '<sup>$</sup>');
-
-        var modalEl = document.querySelector('.product-modal');
-        modalEl.classList.toggle('product-modal--mundial', theme === 'mundial');
-        if (theme === 'mundial') {
-            document.getElementById('modalMatchupRival').textContent = rival;
-            document.getElementById('modalMatchupDate').textContent = fecha;
-        }
 
         var imgEl = document.getElementById('modalImg');
         imgEl.src = img;

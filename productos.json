@@ -20,8 +20,7 @@
       "componentes": ["Chorizo seco", "Mortadela", "Morcilla blanca", "Morcilla negra", "Queso criollo", "Queso de cerdo"],
       "imagen": "mundialista.jpeg",
       "disponibilidad": "InStock",
-      "temporada": true,
-      "nota": "Gran Promoción Mundialista — edición temporada Mundial 2026"
+      "temporada": false
     },
     {
       "id": "tradicional",
