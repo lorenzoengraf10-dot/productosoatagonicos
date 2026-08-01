@@ -21,8 +21,6 @@
     <!-- MODO VACACIONES: no se toman pedidos, se sigue capturando mail. Para REABRIR poner en false. -->
     <script>window.MODO_VACACIONES = true; window.VAC_REGRESO = "2/8";</script>
 
-    <!-- MODO CAMPEON (condicional): lo activa la corrida diaria SOLO si Argentina gana la final del 19/07. Celebracion por ~1 mes, luego false. -->
-    <script>window.MODO_CAMPEON = false; window.CAMPEON_HASTA = "19/8";</script>
 
     <!-- Integración con celulares iOS y Android -->
     <meta name="theme-color" content="#1a0e0a">
@@ -112,7 +110,6 @@
             justify-content: center;
             overflow: hidden;
             background:
-                radial-gradient(circle at 82% 12%, rgba(108,172,228,0.16) 0%, transparent 38%),
                 radial-gradient(ellipse at 30% 60%, #4a2010 0%, #220e06 55%, #0a0402 100%);
         }
 
@@ -247,12 +244,12 @@
         .cta-btn-primary {
             background: var(--brand-gold);
             color: var(--brand-dark);
-            box-shadow: 0 4px 20px rgba(200,146,42,0.35), 0 0 0 1px rgba(108,172,228,0.25);
+            box-shadow: 0 4px 20px rgba(200,146,42,0.35);
         }
 
         .cta-btn-primary:hover {
             background: var(--brand-gold-light);
-            box-shadow: 0 6px 28px rgba(200,146,42,0.55), 0 0 22px rgba(108,172,228,0.3);
+            box-shadow: 0 6px 28px rgba(200,146,42,0.55);
             transform: translateY(-3px);
         }
 
@@ -292,12 +289,12 @@
             text-decoration: none;
             background: linear-gradient(135deg, var(--brand-gold-light), var(--brand-gold));
             color: var(--brand-dark);
-            box-shadow: 0 6px 26px rgba(200,146,42,0.4), 0 0 0 1px rgba(108,172,228,0.25);
+            box-shadow: 0 6px 26px rgba(200,146,42,0.4);
             animation: gamePulse 2.4s ease-in-out infinite;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .game-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 34px rgba(200,146,42,0.6), 0 0 24px rgba(108,172,228,0.35); }
+        .game-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 34px rgba(200,146,42,0.6); }
         .game-cta .game-cta-emoji { font-size: 2rem; line-height: 1; }
         .game-cta .game-cta-text { display: flex; flex-direction: column; gap: 2px; text-align: left; flex: 1; }
         .game-cta .game-cta-text strong { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase; }
@@ -305,7 +302,7 @@
         .game-cta .game-cta-arrow { font-size: 1.4rem; font-weight: 700; }
 
         @keyframes gamePulse {
-            50% { box-shadow: 0 8px 30px rgba(200,146,42,0.65), 0 0 26px rgba(108,172,228,0.4); }
+            50% { box-shadow: 0 8px 30px rgba(200,146,42,0.65); }
         }
 
         .header-scroll {
@@ -1178,32 +1175,6 @@
         .aviso-pausa strong { color: var(--brand-gold-light); }
         @media (max-width: 480px) { .aviso-pausa { font-size: 0.95rem; margin-left: 12px; margin-right: 12px; } }
 
-        /* Celebracion Argentina Campeon (se inyecta por JS solo si MODO_CAMPEON) */
-        .campeon-bar {
-            margin: 0 auto 1.4rem;
-            max-width: 820px;
-            padding: 1rem 1.2rem;
-            background: linear-gradient(135deg, #75AADB 0%, #ffffff 50%, #75AADB 100%);
-            border: 2px solid #75AADB;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 8px 26px rgba(117,170,219,0.35);
-        }
-        .campeon-bar .campeon-titulo {
-            display: block;
-            font-family: 'Playfair Display', Georgia, serif;
-            font-weight: 900;
-            font-size: 1.35rem;
-            color: #0b3d69;
-            letter-spacing: 0.5px;
-        }
-        .campeon-bar .campeon-sub {
-            display: block;
-            margin-top: 0.25rem;
-            font-size: 0.98rem;
-            color: #14416b;
-        }
-        @media (max-width: 480px) { .campeon-bar .campeon-titulo { font-size: 1.12rem; } .campeon-bar { margin-left: 12px; margin-right: 12px; } }
     </style>
 
     <!-- SEO: canonical, Open Graph, Twitter Card -->
@@ -1570,7 +1541,7 @@
 </header>
 
 <!-- ══════════ CTA DEL JUEGO (sobre las picadas) ══════════ -->
-<a href="/juego/" id="jugar" class="game-cta">
+<a href="juego/" id="jugar" class="game-cta">
     <span class="game-cta-emoji">🎮</span>
     <span class="game-cta-text">
         <strong>Jugá y Ganá $2000</strong>
@@ -1588,7 +1559,7 @@
     </div>
 
     <div class="aviso-pausa" role="status">
-        🌴 <strong>Estamos de vacaciones hasta el 2/8.</strong> Por ahora no tomamos pedidos, pero <a href="/juego/" style="color:inherit;text-decoration:underline;font-weight:700;">probá el juego 👆</a> y llevate tu cupón de $2000 para la vuelta. ¡Gracias! 🙌
+        🌴 <strong>Estamos de vacaciones hasta el 2/8.</strong> Por ahora no tomamos pedidos, pero <a href="juego/" style="color:inherit;text-decoration:underline;font-weight:700;">probá el juego 👆</a> y llevate tu cupón de $2000 para la vuelta. ¡Gracias! 🙌
     </div>
 
     <div class="products-section">
@@ -2125,18 +2096,5 @@
     })();
     </script>
 
-    <!-- MODO CAMPEON: inyecta la barra de celebracion al tope del contenido (solo si MODO_CAMPEON) -->
-    <script>
-    (function () {
-        if (!window.MODO_CAMPEON) return;
-        var bar = document.createElement('div');
-        bar.className = 'campeon-bar';
-        bar.setAttribute('role', 'status');
-        bar.innerHTML = '<span class="campeon-titulo">\uD83C\uDFC6 \u00A1ARGENTINA CAMPE\u00D3N DEL MUNDO! \uD83C\uDDE6\uD83C\uDDF7</span>' +
-                        '<span class="campeon-sub">Lo festejamos con toda la comarca. \u00A1Vamos Argentina! \u2B50\u2B50\u2B50</span>';
-        var main = document.querySelector('.container') || document.body;
-        (main === document.body ? document.body : main).insertBefore(bar, (main === document.body ? document.body.firstChild : main.firstChild));
-    })();
-    </script>
 </body>
 </html>
