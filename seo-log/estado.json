@@ -92,7 +92,8 @@
     "Auditoría en vivo 2026-08-05: Vercel canónico coherente (4 picadas, juego 'Jugá y Ganá $2000', banner vacaciones, GA4 G-42YBW61Q1Q, canonical/OG/Twitter -> tradicional.jpeg). Sin commits del dueño desde 01/08 (último 6165f88). Sin errores técnicos nuevos.",
     "Regreso del dueño (2026-08-05): el regreso estaba previsto para el 2/8 y aún NO lo confirmó. Se mantiene MODO_VACACIONES=true; cuando avise que volvió -> poner MODO_VACACIONES=false (reabre pedidos) y revisar mails/WhatsApp acumulados. Hoy sólo se quitó la fecha vencida del copy.",
     "Reapertura 2026-08-05 (2ª corrida, pedido del dueño): volvió del viaje -> MODO_VACACIONES=false. Botones de pedido vuelven a WhatsApp, botón del modal a 'Encargar', banner de vacaciones oculto (display:none en HTML + gated por flag). Maquinaria de vacaciones intacta/reversible. Verificado jsdom (banner oculto, 4 botones WhatsApp, 0 'Volvemos') + Vercel deploy bf7e3aa READY en producción. Commits ae01a7e + bf7e3aa. Pendiente del dueño: revisar y contactar los leads (mail/WhatsApp) juntados con el juego durante el viaje.",
-    "2026-08-05 (3ª corrida): el dueño pidió discontinuar las métricas automáticas por Supermetrics — va a mandar capturas mensuales en su lugar. Se cerró el punto de métricas en memoria (igual que MailerLite): no se vuelve a intentar Supermetrics ni se reporta el bloqueo del trial vencido en las próximas corridas."
+    "2026-08-05 (3ª corrida): el dueño pidió discontinuar las métricas automáticas por Supermetrics — va a mandar capturas mensuales en su lugar. Se cerró el punto de métricas en memoria (igual que MailerLite): no se vuelve a intentar Supermetrics ni se reporta el bloqueo del trial vencido en las próximas corridas.",
+    "2026-08-05 (4ª corrida, pedido directo del dueño en el chat): se agregó 'Picada Criolla' (ex-Mundialista) al catálogo — $12.000/800g, pican 7 y comen 4, mismos 6 componentes e imágenes que la Mundialista. Marcada como LA MÁS VENDIDA: primera tarjeta del catálogo, #1 del ranking 'Top de picadas', badge dorado '🔥 MÁS VENDIDA' en tarjeta y modal, y pasó a ser la imagen del hero/LCP (preload+eager) y de og:image/twitter:image/FoodEstablishment.image (antes tradicional.jpeg). La Odisea subió de $22.000 a $25.000 en tarjeta, modal, ranking, meta description y ambos JSON-LD. productos.json ahora tiene 5 productos (criolla, tradicional, odisea, simple, embutidos), todos InStock. Verificado con jsdom (5/5 tarjetas, ranking 4 filas, modal Criolla con sus 6 componentes y precio correctos) y 2/2 JSON-LD válidos."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -277,8 +278,8 @@
     }
   },
   "catalogo_override_dueno": {
-    "actualizado": "2026-07-15",
-    "nota": "El dueño reactivo TODAS las picadas a InStock (2026-07-15) — ya no hay agotadas. Ademas pidio avisar que no se elaboran picadas a partir del jueves 16/07 por compromiso personal (banner .aviso-pausa). El resto de precios/gramajes del override sigue vigente.",
+    "actualizado": "2026-08-05",
+    "nota": "2026-08-05: el dueño pidió reincorporar la ex-Picada Mundialista con el nombre 'Picada Criolla', manteniendo todas sus estadísticas ($12.000, 800 g, pican 7 y comen 4, mismos 6 componentes e imágenes), y marcarla como LA MÁS VENDIDA (primera tarjeta, #1 del ranking, badge dorado, imagen del hero/LCP y de redes sociales). Además subió La Odisea de $22.000 a $25.000. Este catálogo (5 productos, todos InStock) reemplaza cualquier catálogo autoritativo anterior del prompt en lo que respecta a Picada Criolla y La Odisea — es un override explícito y directo del dueño en el chat, no de la corrida programada.",
     "picada_mundialista": {
       "precio": "$12.000",
       "porcion": "800 g",
@@ -306,7 +307,23 @@
       "La Odisea",
       "Picada Simple"
     ],
-    "pausa_produccion": "No se elaboran picadas a partir del jueves 16/07 (compromiso personal del dueño)."
+    "pausa_produccion": "No se elaboran picadas a partir del jueves 16/07 (compromiso personal del dueño).",
+    "picada_criolla": {
+      "precio": "$12.000",
+      "porcion": "800 g",
+      "rinde": "pican 7 y comen 4",
+      "estado": "LA MÁS VENDIDA (badge 🔥 en tarjeta y modal, #1 del ranking, imagen del hero/LCP y de redes)",
+      "componentes": [
+        "Chorizo seco",
+        "Mortadela",
+        "Morcilla blanca",
+        "Morcilla negra",
+        "Queso criollo",
+        "Queso de cerdo"
+      ],
+      "imagen": "mundialista.jpeg / mundialista.webp / mundialista.avif (reutilizadas)"
+    },
+    "la_odisea_precio": "$25.000 (subido desde $22.000 el 2026-08-05, pedido del dueño)"
   },
   "directiva_mejora_continua": "El dueño pidió (2026-07-12) que CADA corrida busque activamente cosas para mejorar y ejecute/proponga al menos una. Mantener y priorizar el backlog 'ideas_mejora'. NUNCA tocar ni mencionar simple.html.",
   "ideas_mejora": [

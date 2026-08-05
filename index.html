@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Productos Patagónicos · Picadas y Embutidos Artesanales en Carmen de Patagones</title>
-    <meta name="description" content="Picadas y embutidos artesanales en Carmen de Patagones y Viedma. Tradicional, La Odisea, Simple y más. Encargá directo por WhatsApp.">
+    <meta name="description" content="Picadas y embutidos artesanales en Carmen de Patagones y Viedma. Picada Criolla (la más vendida), Tradicional, La Odisea, Simple y más. Encargá directo por WhatsApp.">
     <meta name="keywords" content="picadas Carmen de Patagones, embutidos artesanales Viedma, picadas Patagones, charcutería artesanal, picada para asado, delivery picadas comarca">
     <meta name="geo.region" content="AR-B">
     <meta name="geo.placename" content="Carmen de Patagones, Viedma">
@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Preload de la imagen LCP (primera picada del catálogo) para acelerar el LCP en movil -->
-    <link rel="preload" as="image" href="tradicional.avif" type="image/avif" fetchpriority="high">
+    <link rel="preload" as="image" href="mundialista.avif" type="image/avif" fetchpriority="high">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-42YBW61Q1Q"></script>
     <script>
@@ -441,6 +441,14 @@
 
         .card-badge::before {
             content: '👆 ';
+        }
+
+        .card-badge.card-badge-best {
+            background: linear-gradient(135deg, #c8922a, #a5761c);
+        }
+
+        .card-badge.card-badge-best::before {
+            content: '🔥 ';
         }
 
         .card-body {
@@ -1183,16 +1191,16 @@
     <meta property="og:url" content="https://productosoatagonicos.vercel.app/">
     <meta property="og:title" content="Productos Patagónicos · Picadas y Embutidos Artesanales">
     <meta property="og:description" content="Picadas y embutidos artesanales en Carmen de Patagones y Viedma. Encargá directo por WhatsApp.">
-    <meta property="og:image" content="https://productosoatagonicos.vercel.app/tradicional.jpeg">
-    <meta property="og:image:width" content="1080">
-    <meta property="og:image:height" content="1350">
-    <meta property="og:image:alt" content="Picada Tradicional de Productos Patagónicos — charcutería artesanal de Carmen de Patagones">
+    <meta property="og:image" content="https://productosoatagonicos.vercel.app/mundialista.jpeg">
+    <meta property="og:image:width" content="1142">
+    <meta property="og:image:height" content="804">
+    <meta property="og:image:alt" content="Picada Criolla de Productos Patagónicos, la más vendida — charcutería artesanal de Carmen de Patagones">
     <meta property="og:locale" content="es_AR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Productos Patagónicos · Picadas y Embutidos Artesanales">
     <meta name="twitter:description" content="Picadas y embutidos artesanales en Carmen de Patagones y Viedma. Encargá directo por WhatsApp.">
-    <meta name="twitter:image" content="https://productosoatagonicos.vercel.app/tradicional.jpeg">
-    <meta name="twitter:image:alt" content="Picada Tradicional de Productos Patagónicos — charcutería artesanal de Carmen de Patagones">
+    <meta name="twitter:image" content="https://productosoatagonicos.vercel.app/mundialista.jpeg">
+    <meta name="twitter:image:alt" content="Picada Criolla de Productos Patagónicos, la más vendida — charcutería artesanal de Carmen de Patagones">
 
     <!-- SEO: datos estructurados schema.org -->
     <script type="application/ld+json">
@@ -1200,10 +1208,10 @@
       "@context": "https://schema.org",
       "@type": "FoodEstablishment",
       "name": "Productos Patagónicos",
-      "image": "https://productosoatagonicos.vercel.app/tradicional.jpeg",
+      "image": "https://productosoatagonicos.vercel.app/mundialista.jpeg",
       "url": "https://productosoatagonicos.vercel.app/",
       "telephone": "+542920347453",
-      "priceRange": "$3.000-$22.000",
+      "priceRange": "$3.000-$25.000",
       "servesCuisine": "Picadas y embutidos artesanales",
       "address": {
         "@type": "PostalAddress",
@@ -1238,6 +1246,31 @@
       "position": 1,
       "item": {
         "@type": "Product",
+        "name": "Picada Criolla",
+        "image": "https://productosoatagonicos.vercel.app/mundialista.jpeg",
+        "description": "Picada artesanal (800 g), la más vendida: Chorizo seco, Mortadela, Morcilla blanca, Morcilla negra, Queso criollo, Queso de cerdo.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Productos Patagónicos"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "12000",
+          "priceCurrency": "ARS",
+          "availability": "https://schema.org/InStock",
+          "url": "https://productosoatagonicos.vercel.app/#picadas",
+          "seller": {
+            "@type": "Organization",
+            "name": "Productos Patagónicos"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Product",
         "name": "Picada Tradicional",
         "image": "https://productosoatagonicos.vercel.app/tradicional.jpeg",
         "description": "Picada artesanal (700 g): Chorizo seco, Mortadela, Bondiola, Queso criollo, Morcilla blanca, Morcilla negra.",
@@ -1260,7 +1293,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 2,
+      "position": 3,
       "item": {
         "@type": "Product",
         "name": "La Odisea",
@@ -1272,7 +1305,7 @@
         },
         "offers": {
           "@type": "Offer",
-          "price": "22000",
+          "price": "25000",
           "priceCurrency": "ARS",
           "availability": "https://schema.org/InStock",
           "url": "https://productosoatagonicos.vercel.app/#picadas",
@@ -1285,7 +1318,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "item": {
         "@type": "Product",
         "name": "Picada Simple",
@@ -1310,7 +1343,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 5,
       "item": {
         "@type": "Product",
         "name": "Embutidos EV",
@@ -1565,6 +1598,30 @@
 
             <!-- CORRECCIÓN: todos los data-modal-wa y btn-order usan wa.me/542920347453 -->
             <div class="product-card" data-has-modal
+                 data-modal-name="Picada Criolla"
+                 data-modal-description="pican 7 y comen 4"
+                 data-modal-img="mundialista.jpeg"
+                 data-modal-badge="🔥 Más vendida"
+                 data-modal-price="$12.000"
+                 data-modal-weight="800 g"
+                 data-modal-components="Chorizo seco,Mortadela,Morcilla blanca,Morcilla negra,Queso criollo,Queso de cerdo"
+                 data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20criolla.">
+                <div class="card-img-wrapper">
+                    <picture><source srcset="mundialista.avif" type="image/avif"><source srcset="mundialista.webp" type="image/webp"><img src="mundialista.jpeg" width="1142" height="804" alt="Picada Criolla" loading="eager" fetchpriority="high" decoding="async"></picture>
+                    <div class="card-img-overlay"></div>
+                    <span class="card-badge card-badge-best">MÁS VENDIDA</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Picada Criolla</h3>
+                    <p class="card-description">nuestra picada estrella, la que más eligen</p>
+                    <div class="card-footer">
+                        <div class="card-price"><sup>$</sup>12.000</div>
+                        <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20criolla." target="_blank" rel="noopener" class="btn-order">📲 Encargar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-has-modal
                  data-modal-name="Picada Tradicional"
                  data-modal-description="pican 6 y comen 4"
                  data-modal-img="tradicional.jpeg"
@@ -1574,7 +1631,7 @@
                  data-modal-components="Chorizo seco,Mortadela,Bondiola,Queso criollo,Morcilla blanca,Morcilla negra"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional.">
                 <div class="card-img-wrapper">
-                    <picture><source srcset="tradicional.avif" type="image/avif"><source srcset="tradicional.webp" type="image/webp"><img src="tradicional.jpeg" width="1080" height="1350" alt="Picada Tradicional" loading="eager" fetchpriority="high" decoding="async"></picture>
+                    <picture><source srcset="tradicional.avif" type="image/avif"><source srcset="tradicional.webp" type="image/webp"><img src="tradicional.jpeg" width="1080" height="1350" alt="Picada Tradicional" loading="lazy" decoding="async"></picture>
                     <div class="card-img-overlay"></div>
                 </div>
                 <div class="card-body">
@@ -1592,7 +1649,7 @@
                  data-modal-description="pican 7 comen 5"
                  data-modal-img="odisea.jpeg"
                  data-modal-badge=""
-                 data-modal-price="$22.000"
+                 data-modal-price="$25.000"
                  data-modal-weight="900 g"
                  data-modal-components="Queso criollo,Chorizo seco,Queso pategras,Longaniza española,Salame con queso,Bondiola,Mortadela"
                  data-modal-wa="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea.">
@@ -1604,7 +1661,7 @@
                     <h3 class="card-name">La Odisea</h3>
                     <p class="card-description"> La experiencia digna de dioses</p>
                     <div class="card-footer">
-                        <div class="card-price"><sup>$</sup>22.000</div>
+                        <div class="card-price"><sup>$</sup>25.000</div>
                         <a href="https://wa.me/542920347453?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea." target="_blank" rel="noopener" class="btn-order">📲 Encargar</a>
                     </div>
                 </div>
@@ -1700,18 +1757,24 @@
     <div class="ps-top-list">
         <div class="ps-row ps-first">
             <div class="ps-rank">1</div>
+            <div class="ps-thumb"><picture><source srcset="mundialista.avif" type="image/avif"><source srcset="mundialista.webp" type="image/webp"><img src="mundialista.jpeg" width="1142" height="804" alt="Picada Criolla" loading="lazy" decoding="async"></picture></div>
+            <div class="ps-info"><div class="ps-name">Picada Criolla</div><div class="ps-metatxt">800 g · pican 7, comen 4</div></div>
+            <div class="ps-price"><sup>$</sup>12.000<small>800 g</small></div>
+        </div>
+        <div class="ps-row">
+            <div class="ps-rank">2</div>
             <div class="ps-thumb"><picture><source srcset="tradicional.avif" type="image/avif"><source srcset="tradicional.webp" type="image/webp"><img src="tradicional.jpeg" width="1080" height="1350" alt="Picada Tradicional" loading="lazy" decoding="async"></picture></div>
             <div class="ps-info"><div class="ps-name">Picada Tradicional</div><div class="ps-metatxt">700 g · pican 6, comen 4</div></div>
             <div class="ps-price"><sup>$</sup>16.000<small>700 g</small></div>
         </div>
         <div class="ps-row">
-            <div class="ps-rank">2</div>
+            <div class="ps-rank">3</div>
             <div class="ps-thumb"><picture><source srcset="odisea.avif" type="image/avif"><source srcset="odisea.webp" type="image/webp"><img src="odisea.jpeg" width="1024" height="1280" alt="La Odisea" loading="lazy" decoding="async"></picture></div>
             <div class="ps-info"><div class="ps-name">La Odisea</div><div class="ps-metatxt">900 g · pican 7, comen 5</div></div>
-            <div class="ps-price"><sup>$</sup>22.000<small>900 g</small></div>
+            <div class="ps-price"><sup>$</sup>25.000<small>900 g</small></div>
         </div>
         <div class="ps-row">
-            <div class="ps-rank">3</div>
+            <div class="ps-rank">4</div>
             <div class="ps-thumb"><picture><source srcset="simple.avif" type="image/avif"><source srcset="simple.webp" type="image/webp"><img src="simple.jpeg" width="1080" height="1350" alt="Picada Simple" loading="lazy" decoding="async"></picture></div>
             <div class="ps-info"><div class="ps-name">Picada Simple</div><div class="ps-metatxt">500 g · pican 4, comen 2</div></div>
             <div class="ps-price"><sup>$</sup>13.000<small>500 g</small></div>
