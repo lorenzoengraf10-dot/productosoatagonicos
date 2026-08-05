@@ -91,7 +91,8 @@
     "sitemap lastmod = 2026-08-05.",
     "Auditoría en vivo 2026-08-05: Vercel canónico coherente (4 picadas, juego 'Jugá y Ganá $2000', banner vacaciones, GA4 G-42YBW61Q1Q, canonical/OG/Twitter -> tradicional.jpeg). Sin commits del dueño desde 01/08 (último 6165f88). Sin errores técnicos nuevos.",
     "Regreso del dueño (2026-08-05): el regreso estaba previsto para el 2/8 y aún NO lo confirmó. Se mantiene MODO_VACACIONES=true; cuando avise que volvió -> poner MODO_VACACIONES=false (reabre pedidos) y revisar mails/WhatsApp acumulados. Hoy sólo se quitó la fecha vencida del copy.",
-    "Reapertura 2026-08-05 (2ª corrida, pedido del dueño): volvió del viaje -> MODO_VACACIONES=false. Botones de pedido vuelven a WhatsApp, botón del modal a 'Encargar', banner de vacaciones oculto (display:none en HTML + gated por flag). Maquinaria de vacaciones intacta/reversible. Verificado jsdom (banner oculto, 4 botones WhatsApp, 0 'Volvemos') + Vercel deploy bf7e3aa READY en producción. Commits ae01a7e + bf7e3aa. Pendiente del dueño: revisar y contactar los leads (mail/WhatsApp) juntados con el juego durante el viaje."
+    "Reapertura 2026-08-05 (2ª corrida, pedido del dueño): volvió del viaje -> MODO_VACACIONES=false. Botones de pedido vuelven a WhatsApp, botón del modal a 'Encargar', banner de vacaciones oculto (display:none en HTML + gated por flag). Maquinaria de vacaciones intacta/reversible. Verificado jsdom (banner oculto, 4 botones WhatsApp, 0 'Volvemos') + Vercel deploy bf7e3aa READY en producción. Commits ae01a7e + bf7e3aa. Pendiente del dueño: revisar y contactar los leads (mail/WhatsApp) juntados con el juego durante el viaje.",
+    "2026-08-05 (3ª corrida): el dueño pidió discontinuar las métricas automáticas por Supermetrics — va a mandar capturas mensuales en su lugar. Se cerró el punto de métricas en memoria (igual que MailerLite): no se vuelve a intentar Supermetrics ni se reporta el bloqueo del trial vencido en las próximas corridas."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -110,8 +111,7 @@
   },
   "bloqueos_avisados": [
     "GitHub Pages (espejo): sirviendo la version actual identica a Vercel. Bloqueo cerrado.",
-    "Supermetrics 2026-07-16: GA4, Facebook Insights e Instagram Insights AUTENTICADOS y consultados. Nota FB: la metrica de Insights disponible es page_followers (1.595 hoy), que no coincide con los 11.003 informados el 15/07 (otra metrica ese dia).",
-    "Supermetrics 2026-08-01: TRIAL EXPIRADO el 2026-07-25 (team lorenzoengraf10, ID 1836528). No se pueden consultar GA4/FB/IG vía Supermetrics hasta renovar/contratar (supermetrics.com/pricing). GA4 sigue recolectando datos; sólo se bloquea la consulta automática. Avisado una vez."
+    "Métricas automáticas (Supermetrics) DISCONTINUADAS por decisión del dueño (2026-08-05): manda capturas mensuales en su lugar. No volver a mencionar el bloqueo del trial."
   ],
   "tracking": {
     "ga4": "G-42YBW61Q1Q",
@@ -139,7 +139,8 @@
     "2026-07-13: Agregar límite de pedidos para la Picada Mundialista: hasta el martes 14/7, 16:00 hs (antes de la semifinal del miércoles).",
     "2026-07-15: Volver TODAS las picadas a su funcionamiento normal (reactivar Tradicional, La Odisea y Picada Simple a InStock).",
     "2026-07-15: Avisar en el sitio que no se elaboran picadas a partir del jueves 16/07 por un compromiso personal.",
-    "2026-07-15: MailerLite ya esta hecho — no volver a mencionarlo ni recordar pasos pendientes."
+    "2026-07-15: MailerLite ya esta hecho — no volver a mencionarlo ni recordar pasos pendientes.",
+    "2026-08-05: Dejar de traer métricas automáticas (GA4/FB/IG vía Supermetrics) en cada corrida. El dueño va a mandar capturas de pantalla mensualmente para analizar. No volver a intentar Supermetrics ni reportar el bloqueo del trial vencido."
   ],
   "metricas_ultima": {
     "ga4_7d_2026-07-12": {
@@ -413,5 +414,8 @@
     "que_es": "Dashboard en Cowork (artefacto HTML) para que el dueño vea de un vistazo: estado del sitio (vacaciones/Mundial), métricas GA4/IG/FB 7 días, calendario de hitos, actividad reciente (bitácora) y pendientes.",
     "regla": "En cada corrida, ADEMÁS de bitacora.md, actualizar este artefacto con update_artifact (id 'panel-productos-patagonicos'): refrescar la constante DATA del HTML (metricas, sesiones_trend, timeline, actividad [últimas ~12], pendiente y campo 'actualizado'). El artefacto NO tiene red salvo los CDN permitidos (Chart.js/Grid.js/Mermaid), así que los datos van EMBEBIDOS en el HTML; no intentar fetch a GitHub ni a otras URLs.",
     "nota": "Diseñado para light mode (fondo claro). Datos reales, nunca inventar."
+  },
+  "metricas": {
+    "estado": "CERRADO por el dueño (2026-08-05): ya no se consultan métricas automáticas (GA4/Facebook/Instagram vía Supermetrics) en cada corrida. El dueño va a mandar capturas mensualmente. NO volver a intentar Supermetrics, NO reportar el bloqueo del trial vencido, NO pedir ni recordar métricas en el reporte diario salvo que el dueño mande capturas para analizar."
   }
 }
