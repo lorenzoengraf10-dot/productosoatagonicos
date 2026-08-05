@@ -93,7 +93,10 @@
     "Regreso del dueño (2026-08-05): el regreso estaba previsto para el 2/8 y aún NO lo confirmó. Se mantiene MODO_VACACIONES=true; cuando avise que volvió -> poner MODO_VACACIONES=false (reabre pedidos) y revisar mails/WhatsApp acumulados. Hoy sólo se quitó la fecha vencida del copy.",
     "Reapertura 2026-08-05 (2ª corrida, pedido del dueño): volvió del viaje -> MODO_VACACIONES=false. Botones de pedido vuelven a WhatsApp, botón del modal a 'Encargar', banner de vacaciones oculto (display:none en HTML + gated por flag). Maquinaria de vacaciones intacta/reversible. Verificado jsdom (banner oculto, 4 botones WhatsApp, 0 'Volvemos') + Vercel deploy bf7e3aa READY en producción. Commits ae01a7e + bf7e3aa. Pendiente del dueño: revisar y contactar los leads (mail/WhatsApp) juntados con el juego durante el viaje.",
     "2026-08-05 (3ª corrida): el dueño pidió discontinuar las métricas automáticas por Supermetrics — va a mandar capturas mensuales en su lugar. Se cerró el punto de métricas en memoria (igual que MailerLite): no se vuelve a intentar Supermetrics ni se reporta el bloqueo del trial vencido en las próximas corridas.",
-    "2026-08-05 (4ª corrida, pedido directo del dueño en el chat): se agregó 'Picada Criolla' (ex-Mundialista) al catálogo — $12.000/800g, pican 7 y comen 4, mismos 6 componentes e imágenes que la Mundialista. Marcada como LA MÁS VENDIDA: primera tarjeta del catálogo, #1 del ranking 'Top de picadas', badge dorado '🔥 MÁS VENDIDA' en tarjeta y modal, y pasó a ser la imagen del hero/LCP (preload+eager) y de og:image/twitter:image/FoodEstablishment.image (antes tradicional.jpeg). La Odisea subió de $22.000 a $25.000 en tarjeta, modal, ranking, meta description y ambos JSON-LD. productos.json ahora tiene 5 productos (criolla, tradicional, odisea, simple, embutidos), todos InStock. Verificado con jsdom (5/5 tarjetas, ranking 4 filas, modal Criolla con sus 6 componentes y precio correctos) y 2/2 JSON-LD válidos."
+    "2026-08-05 (4ª corrida, pedido directo del dueño en el chat): se agregó 'Picada Criolla' (ex-Mundialista) al catálogo — $12.000/800g, pican 7 y comen 4, mismos 6 componentes e imágenes que la Mundialista. Marcada como LA MÁS VENDIDA: primera tarjeta del catálogo, #1 del ranking 'Top de picadas', badge dorado '🔥 MÁS VENDIDA' en tarjeta y modal, y pasó a ser la imagen del hero/LCP (preload+eager) y de og:image/twitter:image/FoodEstablishment.image (antes tradicional.jpeg). La Odisea subió de $22.000 a $25.000 en tarjeta, modal, ranking, meta description y ambos JSON-LD. productos.json ahora tiene 5 productos (criolla, tradicional, odisea, simple, embutidos), todos InStock. Verificado con jsdom (5/5 tarjetas, ranking 4 filas, modal Criolla con sus 6 componentes y precio correctos) y 2/2 JSON-LD válidos.",
+    "2026-08-05 (5ª corrida, pedido del dueño): badge rojo 'TOCÁ ACÁ PARA LA INFO' agregado a Tradicional, Odisea y Simple (antes solo Embutidos lo tenía). En Criolla se combinó con el badge dorado: 'MÁS VENDIDA · TOCÁ ACÁ PARA LA INFO'. Ahora las 5/5 tarjetas tienen badge visible.",
+    "Mejora del día (2026-08-05, 5ª): botón flotante de WhatsApp (verde #25D366, mismo color que .btn-order) fijo abajo a la derecha, visible en todo el sitio, para pedir/consultar sin volver a subir. Excluido del repunte de MODO_VACACIONES (queda siempre activo para consultas). Tracking propio en GA4 (clic_whatsapp/generate_lead, fuente='flotante'). Verificado con jsdom: render, click, eventos, sin errores.",
+    "Ajuste de copy (2026-08-05, 5ª): la descripción de Picada Tradicional decía 'mas popular', lo cual contradecía el nuevo badge 'MÁS VENDIDA' de Picada Criolla. Cambiada a 'nuestra picada original, la que lo empezó todo'. og:description/twitter:description ahora mencionan a la Picada Criolla como la más vendida."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -380,6 +383,18 @@
       "idea": "Cuando haya reseñas, agregar aggregateRating al FoodEstablishment; sumar priceRange y openingHours si el dueño los confirma.",
       "impacto": "Medio: rich snippets y mejor CTR en buscadores.",
       "estado": "parcial: geo (GeoCoordinates), areaServed y sameAs (IG+FB) agregados al FoodEstablishment el 2026-07-16. Pendiente: aggregateRating cuando haya reseñas, y priceRange ya presente; openingHours si el dueño los confirma."
+    },
+    {
+      "area": "Conversión / prueba social",
+      "idea": "Ver arriba: sección de testimonios/galería sigue pendiente de fotos del dueño.",
+      "impacto": "Alto",
+      "estado": "pendiente (ya registrada antes)"
+    },
+    {
+      "area": "Conversión / urgencia",
+      "idea": "Franja 'pedí con tiempo' para días de mayor demanda (si el dueño confirma cuáles), o packs/combos con descuento por cantidad.",
+      "impacto": "Medio",
+      "estado": "propuesto 2026-08-05, pendiente de aprobación del dueño"
     }
   ],
   "modo_vacaciones": {
