@@ -19,7 +19,7 @@
     <link rel="manifest" href="manifest.webmanifest">
 
     <!-- MODO VACACIONES: no se toman pedidos, se sigue capturando mail. Para REABRIR poner en false. -->
-    <script>window.MODO_VACACIONES = true; window.VAC_REGRESO = "muy pronto";</script>
+    <script>window.MODO_VACACIONES = false; window.VAC_REGRESO = "muy pronto";</script>
 
 
     <!-- Integración con celulares iOS y Android -->
@@ -2085,7 +2085,9 @@
     <!-- MODO VACACIONES: repunta los botones de pedido al formulario de mail (sin tomar pedidos) -->
     <script>
     (function () {
-        if (!window.MODO_VACACIONES) return;
+        var banner = document.querySelector('.aviso-pausa');
+        if (!window.MODO_VACACIONES) { if (banner) banner.style.display = 'none'; return; }
+        if (banner) banner.style.display = '';
         var vac = '🔔 Volvemos ' + (window.VAC_REGRESO || 'pronto');
         document.querySelectorAll('a[href^="https://wa.me/542920347453"]').forEach(function (a) {
             if (a.closest('.product-modal')) return;               /* el modal se maneja en openModal */
