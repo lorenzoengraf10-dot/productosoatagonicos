@@ -90,7 +90,8 @@
     "Mejora del día (2026-08-05): se corrigió la FECHA VENCIDA del modo vacaciones. El banner decía 'Estamos de vacaciones hasta el 2/8' y los botones 'Volvemos el 2/8' (VAC_REGRESO='2/8'), pero hoy es 05/08 -> fecha pasada visible en vivo. Se pasó a copy sin fecha: banner 'Estamos de vacaciones y volvemos muy pronto', VAC_REGRESO='muy pronto', botones 'Volvemos muy pronto' (prefijo ajustado de 'Volvemos el ' a 'Volvemos '). MODO_VACACIONES sigue true (no se reabre/toman pedidos sin aviso del dueño). Verificado: 5/5 scripts JS OK, 2/2 JSON-LD válidos, jsdom sin errores (4 botones repuntados, 0 apariciones de '2/8'). Auto-aprobado (pasó los 3 filtros).",
     "sitemap lastmod = 2026-08-05.",
     "Auditoría en vivo 2026-08-05: Vercel canónico coherente (4 picadas, juego 'Jugá y Ganá $2000', banner vacaciones, GA4 G-42YBW61Q1Q, canonical/OG/Twitter -> tradicional.jpeg). Sin commits del dueño desde 01/08 (último 6165f88). Sin errores técnicos nuevos.",
-    "Regreso del dueño (2026-08-05): el regreso estaba previsto para el 2/8 y aún NO lo confirmó. Se mantiene MODO_VACACIONES=true; cuando avise que volvió -> poner MODO_VACACIONES=false (reabre pedidos) y revisar mails/WhatsApp acumulados. Hoy sólo se quitó la fecha vencida del copy."
+    "Regreso del dueño (2026-08-05): el regreso estaba previsto para el 2/8 y aún NO lo confirmó. Se mantiene MODO_VACACIONES=true; cuando avise que volvió -> poner MODO_VACACIONES=false (reabre pedidos) y revisar mails/WhatsApp acumulados. Hoy sólo se quitó la fecha vencida del copy.",
+    "Reapertura 2026-08-05 (2ª corrida, pedido del dueño): volvió del viaje -> MODO_VACACIONES=false. Botones de pedido vuelven a WhatsApp, botón del modal a 'Encargar', banner de vacaciones oculto (display:none en HTML + gated por flag). Maquinaria de vacaciones intacta/reversible. Verificado jsdom (banner oculto, 4 botones WhatsApp, 0 'Volvemos') + Vercel deploy bf7e3aa READY en producción. Commits ae01a7e + bf7e3aa. Pendiente del dueño: revisar y contactar los leads (mail/WhatsApp) juntados con el juego durante el viaje."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -364,14 +365,15 @@
     }
   ],
   "modo_vacaciones": {
-    "activo": true,
+    "activo": false,
     "desde": "2026-07-17",
     "regreso_dueno": "2026-08-02",
     "regla": "El dueño está de viaje y NO puede tomar decisiones ni pedidos hasta el 2/8. Implementado en index.html: flag window.MODO_VACACIONES=true. Banner de vacaciones con fecha de regreso (2/8); los botones de pedido (btn-order, hero 'Consulta Directa', 'a medida' y el botón del modal) repuntan al formulario de mail (#descuento) en vez de abrir WhatsApp de pedido; el formulario del cupón ($2000) sigue ACTIVO para juntar mails. El grupo de comunidad de WhatsApp queda intacto.",
     "reapertura": "Cuando el dueño vuelva (2/8) y avise, poner window.MODO_VACACIONES=false (revierte banner y botones a normal) y revisar el mail acumulado de suscriptores.",
     "no_tomar_pedidos": true,
     "capturar_mails": true,
-    "nota_regreso": "Hoy es 05/08; el regreso estaba previsto para el 02/08 y el dueño AÚN NO confirmó que volvió. Se mantiene MODO_VACACIONES=true. Se quitó la fecha vencida del copy (banner y botones ya no dicen '2/8'; ahora 'volvemos muy pronto'). Cuando confirme el regreso: poner window.MODO_VACACIONES=false (revierte banner/botones y reabre pedidos) y revisar los mails/WhatsApp acumulados."
+    "nota_regreso": "Hoy es 05/08; el regreso estaba previsto para el 02/08 y el dueño AÚN NO confirmó que volvió. Se mantiene MODO_VACACIONES=true. Se quitó la fecha vencida del copy (banner y botones ya no dicen '2/8'; ahora 'volvemos muy pronto'). Cuando confirme el regreso: poner window.MODO_VACACIONES=false (revierte banner/botones y reabre pedidos) y revisar los mails/WhatsApp acumulados.",
+    "reabierto": "2026-08-05: el dueño confirmó el regreso y se puso MODO_VACACIONES=false (pedidos por WhatsApp reactivados; banner de vacaciones oculto). Maquinaria de vacaciones intacta y reversible para el próximo viaje (flag=true)."
   },
   "plan_post_mundial_condicional": {
     "decidido": "2026-07-17 (pedido explícito del dueño, PRE-APROBADO para ejecutar sin esperar aprobación)",
