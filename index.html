@@ -35,6 +35,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Preload de la imagen LCP (primera picada del catálogo) para acelerar el LCP en movil -->
     <link rel="preload" as="image" href="mundialista.avif" type="image/avif" fetchpriority="high">
+    <!-- Adelanta la conexión a Google Analytics/Tag Manager: la carga async de GA no paga DNS+TLS en el momento -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://region1.google-analytics.com">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-42YBW61Q1Q"></script>
     <script>
@@ -1217,6 +1221,7 @@
     <!-- SEO: canonical, Open Graph, Twitter Card -->
     <link rel="canonical" href="https://productosoatagonicos.vercel.app/">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Productos Patagónicos">
     <meta property="og:url" content="https://productosoatagonicos.vercel.app/">
     <meta property="og:title" content="Productos Patagónicos · Picadas y Embutidos Artesanales">
     <meta property="og:description" content="Picadas y embutidos artesanales en Carmen de Patagones y Viedma. Probá la Picada Criolla, nuestra más vendida. Encargá directo por WhatsApp.">
