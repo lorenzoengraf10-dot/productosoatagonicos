@@ -100,7 +100,8 @@
     "Mejora del día (2026-08-06): dos señales del <head> que faltaban. (1) preconnect a https://www.googletagmanager.com + dns-prefetch a googletagmanager.com y region1.google-analytics.com — el <script async> de GA calienta la conexión en paralelo al parseo en vez de pagar DNS+TLS al ejecutarse (no compite con el hero: la imagen LCP ya va con preload+fetchpriority=high). (2) og:site_name='Productos Patagónicos' — muestra el nombre del sitio en la previsualización al compartir el enlace (WhatsApp es el canal principal). Cambios aditivos de metadatos, sin efecto visual. Verificado: 2/2 JSON-LD válidos, HTML balanceado, jsdom sin errores. Auto-aprobado (pasó los 3 filtros).",
     "Revisión TOTAL de código 2026-08-06: index.html (2.201 líneas) + productos.json + 2 JSON-LD + 8 <script> releídos de punta a punta tras las incorporaciones del 05/08 (Criolla, badges, botón flotante, nuevo hero/imagen social). HTML balanceado (9/9 <picture>, 10/10 img con alt, 8/8 <script>), JSON-LD válidos y coherentes con el catálogo (5 InStock), FoodEstablishment enriquecido, accesibilidad del modal/botón flotante OK, ancla #jugar presente, listeners sanos, sin datos sensibles. Sin bugs nuevos.",
     "Auditoría en vivo 2026-08-06: Vercel canónico coherente (5 picadas — Criolla más vendida $12.000, Tradicional $16.000, Odisea $25.000, Simple $13.000, Embutidos $3.000; og/twitter/FoodEstablishment.image → mundialista.jpeg/Criolla; GA4 G-42YBW61Q1Q; canonical OK; MODO_VACACIONES=false con botones Encargar→WhatsApp). Sin commits del dueño desde 01/08 en el catálogo base (último a5af158 del 05/08). Sin errores técnicos nuevos.",
-    "sitemap lastmod = 2026-08-06."
+    "sitemap lastmod = 2026-08-06.",
+    "2026-08-06: video real del pedido grande agregado (provisto por el dueño). Comprimido de 964KB a 926KB (540x960, H.264 CRF28 + faststart, AAC 96k), orientación vertical horneada en los pixeles (el original traía metadato rotate=90). Poster JPG (65KB) generado de un fotograma propio. Bloque insertado debajo del ranking 'Top de picadas más elegidas' (antes de '¿Buscás algo distinto?'). Se agregó bajada dorada 'Los más elegidos de la comarca' ARRIBA del título del ranking, sin reemplazarlo (pedido explícito del dueño). Tracking GA4 nuevo: evento 'reproduce_video' al primer play. Verificado con jsdom sin errores."
   ],
   "propuestas_pendientes_aprobacion": [],
   "pendientes_tecnicos": [
@@ -399,6 +400,12 @@
       "idea": "Franja 'pedí con tiempo' para días de mayor demanda (si el dueño confirma cuáles), o packs/combos con descuento por cantidad.",
       "impacto": "Medio",
       "estado": "propuesto 2026-08-05, pendiente de aprobación del dueño"
+    },
+    {
+      "area": "Conversión / prueba social",
+      "idea": "Video del pedido grande agregado (2026-08-06) debajo del ranking de más pedidos.",
+      "impacto": "Alto",
+      "estado": "HECHO 2026-08-06 (video provisto por el dueño)"
     }
   ],
   "modo_vacaciones": {
