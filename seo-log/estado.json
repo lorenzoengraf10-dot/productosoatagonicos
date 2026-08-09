@@ -467,5 +467,16 @@
    "fecha": "2026-08-09",
    "mejora": "GA4 + 4 eventos de embudo instalados en /juego/ (antes sin tracking) + /juego/ en sitemap y con canonical/description."
   }
- ]
+ ],
+ "eficiencia_tokens": {
+  "definido": "2026-08-09 (pedido del dueño: ser más eficiente y gastar menos tokens).",
+  "reglas": [
+   "estado.json: NUNCA leerlo entero con cat. Usar un script Python que imprima solo los campos necesarios (ultima_corrida, mundial_2026, catalogo_override_dueno, pendientes/propuestas, modo_vacaciones, criterio_autoaprobacion). El archivo completo desborda el límite y desperdicia tokens.",
+   "bitacora.md: leer solo las últimas ~6 filas con tail, no el archivo completo.",
+   "Auditoría del sitio en vivo: un solo web_fetch al canónico (Vercel). Verificar el espejo de GitHub Pages solo si el canónico muestra algo raro, no de rutina.",
+   "index.html: no volcar el archivo entero al contexto; usar grep/awk/python para inspeccionar solo las secciones relevantes.",
+   "Panel/artefacto 'panel-productos-patagonicos': ACTUALIZARLO SOLO SI HUBO CAMBIOS reales en la corrida (mejora del día, catálogo, estado del sitio, Mundial). Días sin novedad: NO reescribir el HTML (es el paso que más gasta). Decisión del dueño 2026-08-09.",
+   "Métricas: siguen pausadas (capturas mensuales). No intentar Supermetrics salvo que el dueño lo reautentice."
+  ]
+ }
 }
