@@ -1,464 +1,471 @@
 {
-  "ultima_corrida": "2026-08-06",
-  "ultima_revision_total_codigo": "2026-08-06",
-  "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-13 (corrida diaria): auditoría puntual OK — GA4/eventos presentes, 9/9 img de producto con alt, JSON-LD válido, catálogo consistente con override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple Agotado; Embutidos EV InStock). Se detectó y corrigió la falta de width/height en las <img> (mejora del día, CLS/Lighthouse). Sin bugs nuevos. 2026-07-13 (2ª corrida): auditoría en vivo OK, catálogo/JSON-LD/og consistentes (800 g, mundialista.jpeg). Mejora del día: carga de Google Fonts pasada a NO bloqueante (preload as=style + media=print/onload + noscript) para mejorar FCP/LCP del titular H1 en móvil. Sin bugs nuevos. 2026-07-14 (corrida diaria): revisión puntual OK — 9/9 <picture> bien anidados tras sumar AVIF, catálogo/JSON-LD consistentes con el override del dueño, sin listeners rotos ni datos sensibles. Mejora del día: se agregó AVIF (5 imágenes del catálogo) como primer <source> de cada <picture> con fallback WebP/JPEG; peso de imágenes 540KB→336KB (−38%), Mundialista 66→34KB (−50%). Próxima revisión total ≈2026-07-18. 2026-07-16 (corrida diaria): revisión puntual OK — index.html/productos.json coherentes con el override del dueño (5 picadas InStock), tarjeta Mundialista = Final vs España, aviso-pausa 16/07 presente, sin listeners rotos ni datos sensibles; ambos JSON-LD válidos tras enriquecer el FoodEstablishment. Sin bugs nuevos. Revisión TOTAL pendiente ≈2026-07-18. 2026-07-17 (corrida diaria): revisión puntual OK — index.html/productos.json coherentes con el override del dueño (5 picadas InStock), tarjeta Mundialista = Final vs España, aviso-pausa 16/07 presente, <head> intacto tras sumar favicon/manifest, sin listeners rotos ni datos sensibles; ambos JSON-LD válidos. Sin bugs nuevos. Mejora del día: favicon + web app manifest + apple-touch-icon (branding/PWA, antes inexistentes). Revisión TOTAL pendiente ≈2026-07-18. 2026-07-18 (2ª, corrida programada 8am): REVISIÓN TOTAL hecha (vencía ≈18/07). Relectura completa index.html (2.420 líneas) + productos.json + 2 JSON-LD + 4 <script>: HTML balanceado (9/9 <picture>), 10/10 img con alt, ambos JSON-LD válidos, catálogo JSON=HTML=JSON-LD coherente con override del dueño (5 InStock), flags MODO_VACACIONES=true/MODO_CAMPEON=false OK, listeners sanos, sin CSS/JS muerto ni datos sensibles (endpoint MailerLite público sin API key; token GitHub NO en repo). Sin bugs. Observación menor (no bug): en vacaciones los botones repuntados a #descuento siguen emitiendo clic_whatsapp (ruido de métrica). Mejora del día: rel=\"noopener\" agregado a los 7 enlaces target=_blank que faltaban (hero + 5 Encargar + modal) -> 11/11 con rel; cierra reverse-tabnabbing y sube Best Practices, sin cambio visual. Próxima revisión total ≈2026-07-25. 2026-08-01 (corrida tras ~2 semanas sin corridas; entre el 18/07 y hoy el DUEÑO hizo commits directos que sacaron la Picada Mundialista y el contenido Argentina-vs-España, y agregaron el juego 'Atrapá la Picada' /juego/): REVISIÓN TOTAL hecha (vencía ≈25/07). Relectura completa index.html (2.142 líneas) + productos.json + 2 JSON-LD + scripts. Catálogo COHERENTE entre tarjetas/ranking/productos.json/JSON-LD y alineado con el catálogo AUTORITATIVO del prompt (4 productos: Tradicional $16.000/700g, Odisea $22.000/900g, Simple $13.000/500g, Embutidos EV $3.000; Mundialista removida). HTML balanceado (7/7 <picture>, 8/8 img con alt, 8/8 <script>), ambos JSON-LD válidos, MODO_VACACIONES=true correcto, listeners sanos, sin datos sensibles (token GitHub NO en repo). Mejora del día: fix del enlace roto /juego/ (root-absoluto, 404 en el espejo GitHub Pages bajo /productosoatagonicos/) -> juego/ (relativo, funciona en Vercel y Pages); afectaba todo el funnel de leads en modo vacaciones. Además se completó la reversión post-Mundial (Argentina perdió la final): quitados los acentos celestes y la maquinaria muerta MODO_CAMPEON. Deuda técnica menor anotada (no bug): el JS del viejo formulario $2000 quedó inerte pero protegido por if(btnSubmit). Próxima revisión total ≈2026-08-08. 2026-08-05 (corrida diaria): revisión PUNTUAL (la total no vence hasta ≈08-08; sin commits del dueño desde 01/08, último 6165f88). Catálogo coherente y alineado con el autoritativo (4 productos), HTML balanceado (7/7 <picture>, 8/8 img con alt), ambos JSON-LD válidos, GA4/eventos presentes, MODO_VACACIONES=true correcto, sin datos sensibles. Sin bugs nuevos. Mejora del día: se quitó la fecha VENCIDA del modo vacaciones (banner 'hasta el 2/8' y botones 'Volvemos el 2/8' con hoy=05/08) -> copy sin fecha ('volvemos muy pronto' / 'Volvemos muy pronto', VAC_REGRESO='muy pronto'); modo vacaciones sigue activo (no se reabre sin aviso del dueño). Verificado jsdom (banner + 4 botones OK, 0 '2/8'), JSON-LD x2 válidos, sintaxis JS OK. Próxima revisión total ≈2026-08-08. 2026-08-06 (corrida diaria): REVISIÓN TOTAL hecha (motivada por los cambios sustanciales del 05/08: alta de Picada Criolla, badges en las 5 tarjetas, botón flotante de WhatsApp, cambio de hero/imagen social). Relectura completa index.html (2.201 líneas) + productos.json + 2 JSON-LD + 8 <script>. HTML balanceado (9/9 <picture>, 10/10 img con alt, 8/8 <script>); ambos JSON-LD válidos; ItemList (5 Product/Offer con brand/priceCurrency ARS/availability/url/seller) coherente con productos.json y con el override del dueño (Criolla $12.000 más vendida, Tradicional $16.000, Odisea $25.000, Simple $13.000, Embutidos $3.000, todos InStock); FoodEstablishment con geo/areaServed/sameAs y priceRange $3.000-$25.000; modal con role=dialog/aria-modal/aria-labelledby, botón flotante con aria-label, ancla #jugar existe (id en el CTA del juego); listeners sanos, sin CSS/JS muerto ni datos sensibles (token GitHub NO en repo). Sin bugs. Mejora del día: preconnect+dns-prefetch a Google Analytics/Tag Manager (perf: la carga async de GA no paga DNS/TLS en el momento) + og:site_name (faltaba; mejora la previsualización al compartir por WhatsApp). Aditivos de <head>, sin efecto visual; verificado jsdom (0 errores, 5/5 tarjetas, WhatsApp activo, og:site_name presente) y 2/2 JSON-LD válidos. Auto-aprobado (3 filtros). Próxima revisión total ≈2026-08-13.",
-  "hallazgos_confirmados": [
-    "productos.json creado como fuente autoritativa del catálogo (2026-07-11)",
-    "JSON-LD Product/Offer agregado para 7 picadas (2026-07-11)",
-    "Imágenes en WebP + <picture> fallback JPEG, ahorro ~25% (2026-07-11)",
-    "Mundialista con loading=eager + fetchpriority=high (2026-07-11)",
-    "SEO local: geo tags + keywords + title/description enriquecidos (2026-07-11)",
-    "aria-label agregado al input de email del form (2026-07-11)",
-    "sitemap lastmod = 2026-07-11",
-    "Sección 'Prueba social' (Top picadas + franja de confianza + comunidad WhatsApp) integrada al index.html entre catálogo y formulario, aprobada por el dueño (2026-07-11)",
-    "simple.html marcado noindex,follow + canonical a la home para evitar canibalización SEO (2026-07-12)",
-    "Tarjeta Mundialista actualizada a Semifinal vs Inglaterra 15/07 + estilo bandera flag-eng (2026-07-12)",
-    "Copy de la oferta unificado a '$2000 de reintegro' en todo el funnel (asunto Formspree + label GA), aprobado por el dueño (2026-07-12)",
-    "Supermetrics autorizado (GA4/FB/IG) 2026-07-12; GA4 7 días: 54 sesiones, 38 usuarios, 84 vistas; clic_whatsapp 11, generate_lead 13, registro_descuento 2",
-    "Picada Mundialista reemplazada por pedido del dueño (2026-07-12): $12.000, 750 g, pican 7 personas comen 4, componentes Chorizo seco/Mortadela/Morcilla blanca/Morcilla negra/Queso criollo/Queso de cerdo; badge 'Gran Promoción Mundialista'",
-    "Picada Tradicional, La Odisea, Picada Simple y Picada Simple EV marcadas Agotado (tarjeta, modal, ranking Prueba social, productos.json y JSON-LD OutOfStock) por pedido del dueño (2026-07-12)",
-    "Aura Mundial/Argentina aplicada a todo el sitio (2026-07-12): franja superior celeste-blanco-celeste, acentos celestes en header/CTA/fondo, eyebrow y footer con bandera argentina",
-    "Bug corregido (2026-07-12): el signo '$' desaparecía del precio en el modal de detalle de producto (doble .replace erróneo)",
-    "Deploy corregido (2026-07-12): push a main no disparó build de producción en Vercel (dedup por SHA con preview de rama); commit vacío forzó el build y la promoción a producción",
-    "Foto de Picada Mundialista reemplazada por la real (provista por el dueño) en mundialista.jpeg/webp (2026-07-12)",
-    "Picada Simple EV eliminada del catálogo por pedido del dueño (2026-07-12): sacada de productos.json, tarjeta, JSON-LD y ranking Prueba social; simple-ev.jpeg/webp se conservan porque simple.html las sigue usando",
-    "Bondiola EV eliminada del catálogo por pedido del dueño (2026-07-12): sacada de productos.json, tarjeta y JSON-LD; bondiola.jpeg/webp se conservan porque simple.html las sigue usando",
-    "Embutidos EV ahora tiene modal + badge 'TOCÁ ACÁ PARA LA INFO' (2026-07-12), era la única tarjeta sin modal tras sacar Bondiola",
-    "Fix (2026-07-12): la foto se veía recortada en el modal de detalle de producto (object-fit: cover); cambiado a contain + más brillo + alto 340px/280px mobile en las 5 picadas con modal",
-    "Vercel (canónico) y GitHub Pages sirviendo la versión actual (Mundialista $12.000/750g, resto agotado, Inglaterra-Semifinal). Deploy prod READY commit 236a81d, verificado 2026-07-12",
-    "Campaña MailerLite 'Gran Promoción Mundialista' (id 192816257600325030) ENVIADA a 29 suscriptores activos el 2026-07-12, desde lorenzoengraf10@gmail.com",
-    "Revisión completa mobile (2026-07-12): bug CRÍTICO corregido — el modal no tenía max-height ni scroll interno, el botón Encargar quedaba inalcanzable en pantallas chicas (confirmado con captura real de un iPhone); ahora .product-modal es flex-column con max-height y .modal-body scrollea internamente, con la foto achicándose más en @media(max-height:700px/560px)",
-    "Fix (2026-07-12): la franja fija Mundial/Argentina tapaba el inicio de #picadas y #descuento al saltar por ancla; scroll-padding-top dinámico vía JS (alto real de la franja + 12px)",
-    "Fix (2026-07-12): la fila de 'Top de picadas' se amontonaba en pantallas angostas (nombre/precio superpuestos); el precio pasa a su propia línea en max-width:480px",
-    "Mejoras mobile (2026-07-12): botón de cerrar modal de 36px a 44px (tap target), autocomplete=email + inputmode=email en el form de descuento",
-    "Fix SEO/compartidos (2026-07-12): og:image/twitter:image/FoodEstablishment.image apuntaban a tradicional.jpeg (agotada); actualizados a mundialista.jpeg. Title y meta description actualizados para no promocionar productos agotados",
-    "Foto de Picada Mundialista actualizada a formato horizontal (2026-07-12, provista por el dueño, 1142x804), se ve mejor en tarjeta y modal",
-    "Hallazgo sin corregir (2026-07-12): simple.html tiene precios desactualizados (Tradicional $15.000 vs $16.000, Simple $12.500 vs $13.000) y ofrece '10% OFF' en vez de '$2.000 de reintegro'; requiere decisión del dueño",
-    "Picada Mundialista: peso actualizado a 800 g por pedido del dueño (2026-07-12), antes 750 g. Actualizado en productos.json, tarjeta, modal, JSON-LD, meta description, og/twitter y ranking Prueba social",
-    "Formulario del sitio CABLEADO a MailerLite (2026-07-12, aprobado): form embebido id 192832966699779088 (cuenta 2414901) atado al grupo 191653302006449649; fetch fire-and-forget (no-cors, try/catch) al endpoint público JSONP en el submit del form, sin API key expuesta. Formspree sigue controlando la pantalla de éxito y el aviso al dueño. NOTA: el form MailerLite tiene double opt-in activado (el suscriptor confirma por email antes de entrar al grupo).",
-    "Hallazgo (2026-07-12): el espejo GitHub Pages servía contenido viejo (Mundialista 750g, title/og/meta antiguos apuntando a tradicional.jpeg) mientras Vercel estaba al día. El canonical del espejo apunta correctamente a Vercel (SEO protegido). El push de hoy debería regenerar Pages; re-verificar en la próxima corrida.",
-    "Mejora del día (2026-07-13): se agregaron width/height reales a las 9 <img> de producto/ranking en index.html (mundialista 1142x804, tradicional/simple/embutidos 1080x1350, odisea 1024x1280) para cerrar el aviso 'unsized-images' de Lighthouse y reducir CLS; el CSS object-fit:cover mantiene la maqueta intacta.",
-    "GA4 7 días 2026-07-13 (06-12/07): 68 sesiones (+26%), 43 usuarios, 39 nuevos, 101 vistas. Eventos: scroll_profundidad 180, clic_producto 52, generate_lead 17, clic_whatsapp 15, registro_descuento 2. IG 806 seguidores. Facebook no legible con campos estándar esta corrida.",
-    "sitemap lastmod = 2026-07-13.",
-    "GitHub Pages seguía stale al 2026-07-13 (Mundialista 750g, og viejo) pese a que el repo ya tiene 800g; canonical del espejo -> Vercel protege el SEO. Re-verificar propagación en próxima corrida.",
-    "Mejora del día (2026-07-13, 2ª corrida): fuentes de Google (Playfair/Barlow/Lora) cargadas de forma NO bloqueante — <link rel=preload as=style> + <link media=print onload=this.media='all'> + <noscript> de respaldo. El LCP móvil es el H1 en Playfair; con display=swap el texto pinta al instante en fuente de sistema y cambia al llegar Playfair. Reduce render-blocking del <head>, sin CLS (tamaños ya fijados).",
-    "Re-verificado 2026-07-13 (2ª corrida): GitHub Pages SIGUE stale (Mundialista 750 g, og:image tradicional.jpeg, title/desc viejos) pese a que el repo tiene 800 g/mundialista.jpeg; es caché/propagación de Pages, NO del repo. Canonical del espejo -> Vercel protege el SEO. Persiste 2 días: posible causa la config de source/branch de Pages en Settings del repo (no accesible por git).",
-    "Límite de pedidos agregado a la Picada Mundialista (2026-07-13, pedido del dueño): '⏰ Pedidos hasta el martes 14/7, 16:00 hs' en tarjeta y modal (nuevo data-modal-deadline, sólo en ese producto) y en el campo nota de productos.json.",
-    "Mejora del día (2026-07-14): AVIF agregado para las 5 imágenes del catálogo (mundialista/tradicional/odisea/simple/embutidos) como primer <source> de cada <picture> (9), con fallback WebP y luego JPEG. Ahorro navegadores modernos: 540KB→336KB (−38%); Mundialista eager/fetchpriority 66→34KB (−50%). Sin cambios visuales.",
-    "RESUELTO 2026-07-14: GitHub Pages (espejo) ya sirve la versión actual, idéntica a Vercel (Mundialista $12.000/800g, og:image mundialista.jpeg, Inglaterra-Semifinal, deadline martes 14/7). El bloqueo de 'Pages stale' avisado 12 y 13/07 quedó cerrado.",
-    "sitemap lastmod = 2026-07-14.",
-    "GA4 7 días 2026-07-14 (07-13/07): 78 sesiones, 47 usuarios, 45 nuevos, 111 vistas. Eventos: scroll_profundidad 188, clic_producto 52, generate_lead 16, clic_whatsapp 14, registro_descuento 2. WoW: sesiones 68->78 (+15%), vistas 101->111 (+10%); clic_whatsapp/generate_lead estables; registro_descuento sigue en 2 (cuello de botella). FB/IG no consultados (conectores no autorizados esta corrida).",
-    "Deadline vencido retirado (2026-07-15): el aviso 'Pedidos hasta el martes 14/7, 16:00 hs' de la Picada Mundialista quedó vencido; se retiró de la tarjeta, del data-modal-deadline del modal y del campo nota de productos.json. La promo Mundialista sigue vigente durante el Mundial (final 19/07). Fijar un nuevo corte queda como decisión del dueño.",
-    "Mejora del día (2026-07-15): preload de la imagen LCP del hero. Se agregó <link rel=preload as=image href=mundialista.avif type=image/avif fetchpriority=high> tras los preconnect del <head>; el type hace el preload condicional (navegadores sin AVIF lo ignoran y siguen con <picture>). Adelanta la descarga de la imagen LCP en movil sin doble fetch. Cumple la tarea #2 (preload a la imagen del hero).",
-    "sitemap lastmod = 2026-07-15.",
-    "GA4 7 dias 2026-07-15 (08-14/07): 79 sesiones, 47 usuarios, 46 nuevos, 113 vistas. Eventos: scroll_profundidad 187, clic_producto 47, generate_lead 18, clic_whatsapp 15, registro_descuento 3, clic_cta_hero 24. WoW vs 07-13/07: sesiones 78->79, vistas 111->113 (estable-al-alza); clic_whatsapp 14->15, generate_lead 16->18, registro_descuento 2->3 (primer movimiento del cuello de botella). IG 805 seguidores (vs 806 el 13/07). FB 11.003 seguidores de pagina (legible esta corrida; FB re-autenticado). Sin caidas en el funnel (regla -30% no se dispara).",
-    "Auditoria en vivo 2026-07-15: Vercel y GitHub Pages coherentes y al dia (Mundialista $12.000/800g, semifinal Inglaterra 15/7, og mundialista.jpeg). GitHub Pages sigue sincronizado (bloqueo stale cerrado). JSON-LD (2 bloques) valido, 5 Product/Offer coherentes con el override del dueño. Sin errores tecnicos nuevos.",
-    "Resultado semifinal Mundial 2026 (2026-07-15): Argentina 2-1 Inglaterra (Enzo Fernandez y Lautaro Martinez); AVANZA A LA FINAL. Final: Argentina vs Espana, domingo 19/07 16:00 ARG, MetLife Stadium. Tarjeta Mundialista actualizada de 'Semifinal Inglaterra' a 'Final Domingo 19/7' con nueva clase CSS .flag-esp (bandera de Espana), rival Espana en tarjeta y modal.",
-    "Reactivacion total del catalogo (2026-07-15, pedido del dueno): Picada Tradicional, La Odisea y Picada Simple vueltas a InStock (se quito product-card--soldout, badge AGOTADO y boton deshabilitado; restaurado boton Encargar/WhatsApp; ranking sin badge Agotado; productos.json y JSON-LD en InStock). Ahora 5/5 productos InStock.",
-    "Aviso de pausa de produccion (2026-07-15, pedido del dueno): banner '.aviso-pausa' al inicio de #picadas — 'por un compromiso personal, no se elaboran picadas a partir del jueves 16/07. Encargá antes para asegurar la tuya'.",
-    "Mejora del dia (2026-07-15, 2ª corrida): se agregaron og:image:alt y twitter:image:alt (texto alternativo de la imagen social) — antes ausentes. Mejora accesibilidad y render de la tarjeta al compartir.",
-    "Auditoria en vivo 2026-07-15 (2ª corrida, con cache-buster): Vercel y GitHub Pages coherentes y al dia con la nueva version (pausa 16/07, Final vs Espana, 4 picadas con Encargar, ranking sin agotados, og/twitter image alt). Primera lectura de Vercel fue cache de CDN vieja; con ?v= forzado sirve la version nueva. GA4/metadatos intactos.",
-    "GA4 parcial hoy 15/07 (dia de la semifinal, ~22:00, aun procesandose): page_view 4, session_start 4, clic_producto 3, clic_cta_hero 2, clic_whatsapp 1, generate_lead 1, scroll_profundidad 5, registro_descuento 0. Total 7d (08-14/07) identico al de la mañana (79 sesiones/113 vistas). Tracking OK; sin alarma de -30% (dato parcial de dia en curso).",
-    "MailerLite: DADO POR CERRADO por el dueño (2026-07-15) — 'el mailer esta hecho, no me digas mas'. No volver a reportar ni recordar pasos de MailerLite.",
-    "Mejora del día (2026-07-16): se enriqueció el JSON-LD FoodEstablishment con geo (GeoCoordinates -40.7969/-62.9856), areaServed (Carmen de Patagones, Viedma) y sameAs (Instagram @productos.patagonicos_ + Facebook). Antes no tenía ninguna de las tres. Refuerza SEO local / entidad para el Knowledge Panel. Ambos bloques JSON-LD validados.",
-    "sitemap lastmod = 2026-07-16.",
-    "Auditoria en vivo 2026-07-16: Vercel y GitHub Pages coherentes; GA4/eventos OK; 10/10 img con alt; 5 Product/Offer InStock coherentes con productos.json; aviso-pausa (jueves 16/07) vigente hoy. Sin errores tecnicos nuevos.",
-    "Mundial 2026 (2026-07-16): sin partido nuevo desde el 15/07. Final domingo 19/07 16:00 ARG vs España (MetLife). Tarjeta ya en 'Final Domingo 19/7 vs España' (flag-esp). Sin cambios. Revertir paleta Mundial tras el 19/07.",
-    "GA4 7d 2026-07-16 (09-15/07): 80 sesiones, 46 usuarios, 44 nuevos, 118 vistas. Eventos: scroll_profundidad 179, clic_producto 45, clic_cta_hero 21, generate_lead 12, clic_whatsapp 10, registro_descuento 2. IG 807 seguidores (snapshot 17/07). FB page_followers 1.595 (única métrica Insights disponible; NO coincide con 11.003 del 15/07 -> probablemente otra métrica ese día, no se compara WoW). A vigilar: clic_whatsapp 15->10 y generate_lead 18->12 en ventanas solapadas (incluye 15/07, día de semifinal); volúmenes chicos, sin alarma dura. Cuello de botella registro_descuento sigue en 2.",
-    "Mejora del día (2026-07-17): se agregó favicon + iconos de app + web app manifest (antes INEXISTENTES pese a las metaetiquetas PWA). Ícono de marca original: monograma 'PP' dorado sobre fondo marrón degradé con borde dorado. Archivos: favicon.svg (vectorial), favicon.ico (16/32), apple-touch-icon.png (180), icon-192.png, icon-512.png y manifest.webmanifest. Enlazados en el <head> (rel=icon svg+ico, apple-touch-icon, manifest). Completa branding en pestañas/marcadores/resultados Google móvil y el setup 'agregar a inicio'. Sin cambio de diseño visible.",
-    "sitemap lastmod = 2026-07-17.",
-    "Auditoria en vivo 2026-07-17: Vercel y GitHub Pages coherentes y al dia; GA4/6 eventos presentes; 10/10 img con alt; 5 Product/Offer InStock coherentes con productos.json; aviso-pausa (jueves 16/07) vigente; tarjeta Mundialista = Final 19/7 vs España. Sin errores tecnicos nuevos.",
-    "Mundial 2026 (2026-07-17): sin partido nuevo desde el 15/07. Final domingo 19/07 16:00 ARG vs España (MetLife). Tarjeta ya en 'Final Domingo 19/7 vs España' (flag-esp). Sin cambios. Revertir paleta Mundial tras el 19/07.",
-    "GA4 7d 2026-07-17 (10-16/07): 73 sesiones, 39 usuarios, 37 nuevos, 110 vistas. Eventos: scroll_profundidad 156, clic_producto 36, clic_cta_hero 14, generate_lead 10, clic_whatsapp 9, registro_descuento 1. IG 807 seguidores (snapshot 17/07, estable vs 807 del 16/07). FB page_followers 1.600 (+5 vs 1.595 del 16/07). Enfriamiento post-semifinal: baja leve WoW (sesiones 80->73 -9%, vistas 118->110 -7%, clic_whatsapp 10->9 -10%) al soltar el pico del 15/07 de la ventana; sin alarma dura -30% en la metrica nucleo. registro_descuento cuello de botella en 1.",
-    "Modo vacaciones activado (2026-07-17, pedido del dueño): está de viaje y no toma pedidos hasta el 2/8. index.html con flag window.MODO_VACACIONES=true — banner 'Estamos de vacaciones hasta el 2/8', botones de pedido (5 tarjetas + hero Consulta Directa + 'a medida' + botón del modal) repuntados al formulario de mail (#descuento); cupón $2000 sigue activo para juntar mails; grupo de comunidad WhatsApp intacto. Verificado con jsdom: 0 errores JS, botones OK, modal OK.",
-    "Plan post-Mundial condicional PRE-APROBADO (2026-07-17): si Argentina gana la final del 19/07 → activar MODO CAMPEÓN (barra celebración celeste/blanca, simbología argentina) por ~1 mes; si pierde → revertir todo a la normalidad (marrón/crema/dorado). Barra campeón pre-construida tras flag window.MODO_CAMPEON=false y probada (jsdom off/on sin errores). La corrida del 20/07 lo ejecuta según el resultado real.",
-    "Documento entregado (2026-07-17): 'Alta Google Business Profile - Productos Patagonicos.docx' con campos listos para copiar/pegar, descripción optimizada (597 car.), fotos, paso a paso y verificación. GBP queda EN PAUSA hasta que el dueño vuelva del viaje (2/8) — no avanzar hasta entonces.",
-    "Pedido del dueño (2026-07-17): mantener también una bitácora diaria en EXCEL (seo-log/vitacora de SEO PP.xlsx) con lo logrado cada día y lo pendiente a futuro, además de bitacora.md.",
-    "Campo WhatsApp OPCIONAL agregado al formulario del cupón (2026-07-18, aprobado por el dueño): input tel opcional; si se completa, el número viaja en la notificación de Formspree (donde el dueño ve cada registro), para poder cerrar la venta por WhatsApp al volver del viaje. La integración de mail existente quedó intacta (email). Verificado con jsdom: campo opcional, envío OK con email+whatsapp, sin errores.",
-    "Mejora del día (2026-07-18, 2ª corrida): se agregó rel=\"noopener\" a los 7 enlaces target=_blank que no lo tenían (CTA WhatsApp del hero, los 5 botones Encargar de las tarjetas y el botón del modal). Antes 4/11 con rel; ahora 11/11. Cierra reverse-tabnabbing (window.opener) y el aviso de Lighthouse Best Practices. Cambio de atributo puro, sin efecto visual/UX; verificado con diff quirúrgico y jsdom (0 errores, 11/11 con rel). Auto-aprobado (pasó los 3 filtros).",
-    "Revisión TOTAL de código 2026-07-18 (2ª): index.html (2.420 líneas) + productos.json + 2 JSON-LD + 4 <script> releídos de punta a punta. HTML balanceado (9/9 <picture>), 10/10 img con alt, JSON-LD válidos (FoodEstablishment + ItemList), catálogo coherente (5 InStock: Mundialista $12.000/800g, Tradicional $16.000/700g, Odisea $22.000/900g, Simple $13.000/500g, Embutidos EV $3.000), flags de vacaciones/campeón correctos, sin listeners rotos ni datos sensibles. Sin bugs nuevos.",
-    "Auditoría en vivo 2026-07-18 (2ª): Vercel canónico verificado por fetch (Mundialista $12.000/800g, Final vs España 19/7, banner vacaciones 2/8, GA4, canonical/OG/Twitter completos). GitHub Pages sin cambios respecto de lo publicado (bloqueo stale cerrado). Sin errores técnicos nuevos.",
-    "Mundial 2026 (2026-07-18): sin partido de Argentina desde el 15/07. FINAL MAÑANA domingo 19/07 16:00 ARG vs España (MetLife); España venció 2-0 a Francia en semis. Tarjeta ya en 'Final Domingo 19/7 vs España' (flag-esp). Sin cambios hoy; la corrida del 20/07 ejecuta el plan condicional (MODO_CAMPEON si gana / reversión si pierde).",
-    "GA4 7d 2026-07-18 (11-17/07): 62 sesiones, 31 usuarios, 29 nuevos, 98 vistas. Eventos: scroll_profundidad 137, clic_producto 31, clic_cta_hero 13, generate_lead 10, clic_whatsapp 9, registro_descuento 1. IG 805 (snapshot 18/07, vs 807 el 17/07). FB page_followers 1.604 (vs 1.600 el 17/07, +4). Enfriamiento sostenido (mundial + modo vacaciones, sitio sin tomar pedidos): WoW vs 10-16/07 sesiones 73->62 (-15%), vistas 110->98 (-11%), clic_whatsapp 9->9 (0%), generate_lead 10->10, registro_descuento 1->1. Sin alarma dura -30%. Días flojos: 14/07 (3 ses.), 16/07 (2 ses.).",
-    "2026-08-01: Entre el 18/07 y el 01/08 NO hubo corridas del agente; el dueño hizo commits directos al repo: sacó por completo la Picada Mundialista y todo el contenido 'Argentina vs España', y agregó un juego 'Atrapá la Picada' (/juego/, 'Jugá y Ganá $2000') que reemplazó al formulario de $2000. El catálogo quedó en 4 productos coherentes con el catálogo autoritativo del prompt. estado.json se re-sincronizó con este estado real.",
-    "Resultado FINAL Mundial 2026 (verificado 2026-08-01 por búsqueda web): 19/07 España 1-0 Argentina (gol de Ferran Torres en el alargue; Enzo Fernández expulsado). Argentina NO campeón. Se ejecutó la rama 'si Argentina pierde' del plan condicional: NO se activó MODO_CAMPEON y se revirtió el tema Argentina.",
-    "Reversión post-Mundial ejecutada (2026-08-01): quitados los 6 acentos celestes (rgba(108,172,228)) del header/CTA/game-cta y eliminada la maquinaria muerta de MODO_CAMPEON (flag + CSS .campeon-bar + script de inyección). Vuelta total a paleta marrón/crema/dorado. Verificado jsdom 0 errores, JSON-LD x2 válidos, MODO_VACACIONES intacto. Commit 74f8c88.",
-    "Mejora del día (2026-08-01): FIX de enlace roto. El banner del juego y el enlace del aviso de vacaciones usaban /juego/ (root-absoluto): OK en Vercel pero 404 en el espejo GitHub Pages (servido bajo /productosoatagonicos/). Cambiados a juego/ (relativo) -> funciona en ambos deploys. Restablece el funnel de leads (juego->cupón) desde Pages. Commit 74f8c88.",
-    "sitemap lastmod = 2026-08-01.",
-    "BLOQUEO Métricas (2026-08-01): el conector Supermetrics reporta trial expirado el 2026-07-25 ('free trial on team Team lorenzoengraf10 has expired'). No se pudieron traer GA4/FB/IG esta corrida. GA4 sigue autenticado y recolectando; caducó el plan de Supermetrics (puente de consulta). Requiere renovar/contratar Supermetrics o mirar GA4 directo.",
-    "Auditoría en vivo 2026-08-01: Vercel canónico y espejo GitHub Pages coherentes y al día (4 picadas, juego 'Jugá y Ganá $2000', banner vacaciones 2/8, GA4 G-42YBW61Q1Q, canonical/OG/Twitter -> tradicional.jpeg). Sin errores técnicos nuevos (salvo el enlace del juego, ya corregido).",
-    "Mejora del día (2026-08-05): se corrigió la FECHA VENCIDA del modo vacaciones. El banner decía 'Estamos de vacaciones hasta el 2/8' y los botones 'Volvemos el 2/8' (VAC_REGRESO='2/8'), pero hoy es 05/08 -> fecha pasada visible en vivo. Se pasó a copy sin fecha: banner 'Estamos de vacaciones y volvemos muy pronto', VAC_REGRESO='muy pronto', botones 'Volvemos muy pronto' (prefijo ajustado de 'Volvemos el ' a 'Volvemos '). MODO_VACACIONES sigue true (no se reabre/toman pedidos sin aviso del dueño). Verificado: 5/5 scripts JS OK, 2/2 JSON-LD válidos, jsdom sin errores (4 botones repuntados, 0 apariciones de '2/8'). Auto-aprobado (pasó los 3 filtros).",
-    "sitemap lastmod = 2026-08-05.",
-    "Auditoría en vivo 2026-08-05: Vercel canónico coherente (4 picadas, juego 'Jugá y Ganá $2000', banner vacaciones, GA4 G-42YBW61Q1Q, canonical/OG/Twitter -> tradicional.jpeg). Sin commits del dueño desde 01/08 (último 6165f88). Sin errores técnicos nuevos.",
-    "Regreso del dueño (2026-08-05): el regreso estaba previsto para el 2/8 y aún NO lo confirmó. Se mantiene MODO_VACACIONES=true; cuando avise que volvió -> poner MODO_VACACIONES=false (reabre pedidos) y revisar mails/WhatsApp acumulados. Hoy sólo se quitó la fecha vencida del copy.",
-    "Reapertura 2026-08-05 (2ª corrida, pedido del dueño): volvió del viaje -> MODO_VACACIONES=false. Botones de pedido vuelven a WhatsApp, botón del modal a 'Encargar', banner de vacaciones oculto (display:none en HTML + gated por flag). Maquinaria de vacaciones intacta/reversible. Verificado jsdom (banner oculto, 4 botones WhatsApp, 0 'Volvemos') + Vercel deploy bf7e3aa READY en producción. Commits ae01a7e + bf7e3aa. Pendiente del dueño: revisar y contactar los leads (mail/WhatsApp) juntados con el juego durante el viaje.",
-    "2026-08-05 (3ª corrida): el dueño pidió discontinuar las métricas automáticas por Supermetrics — va a mandar capturas mensuales en su lugar. Se cerró el punto de métricas en memoria (igual que MailerLite): no se vuelve a intentar Supermetrics ni se reporta el bloqueo del trial vencido en las próximas corridas.",
-    "2026-08-05 (4ª corrida, pedido directo del dueño en el chat): se agregó 'Picada Criolla' (ex-Mundialista) al catálogo — $12.000/800g, pican 7 y comen 4, mismos 6 componentes e imágenes que la Mundialista. Marcada como LA MÁS VENDIDA: primera tarjeta del catálogo, #1 del ranking 'Top de picadas', badge dorado '🔥 MÁS VENDIDA' en tarjeta y modal, y pasó a ser la imagen del hero/LCP (preload+eager) y de og:image/twitter:image/FoodEstablishment.image (antes tradicional.jpeg). La Odisea subió de $22.000 a $25.000 en tarjeta, modal, ranking, meta description y ambos JSON-LD. productos.json ahora tiene 5 productos (criolla, tradicional, odisea, simple, embutidos), todos InStock. Verificado con jsdom (5/5 tarjetas, ranking 4 filas, modal Criolla con sus 6 componentes y precio correctos) y 2/2 JSON-LD válidos.",
-    "2026-08-05 (5ª corrida, pedido del dueño): badge rojo 'TOCÁ ACÁ PARA LA INFO' agregado a Tradicional, Odisea y Simple (antes solo Embutidos lo tenía). En Criolla se combinó con el badge dorado: 'MÁS VENDIDA · TOCÁ ACÁ PARA LA INFO'. Ahora las 5/5 tarjetas tienen badge visible.",
-    "Mejora del día (2026-08-05, 5ª): botón flotante de WhatsApp (verde #25D366, mismo color que .btn-order) fijo abajo a la derecha, visible en todo el sitio, para pedir/consultar sin volver a subir. Excluido del repunte de MODO_VACACIONES (queda siempre activo para consultas). Tracking propio en GA4 (clic_whatsapp/generate_lead, fuente='flotante'). Verificado con jsdom: render, click, eventos, sin errores.",
-    "Ajuste de copy (2026-08-05, 5ª): la descripción de Picada Tradicional decía 'mas popular', lo cual contradecía el nuevo badge 'MÁS VENDIDA' de Picada Criolla. Cambiada a 'nuestra picada original, la que lo empezó todo'. og:description/twitter:description ahora mencionan a la Picada Criolla como la más vendida.",
-    "Mejora del día (2026-08-06): dos señales del <head> que faltaban. (1) preconnect a https://www.googletagmanager.com + dns-prefetch a googletagmanager.com y region1.google-analytics.com — el <script async> de GA calienta la conexión en paralelo al parseo en vez de pagar DNS+TLS al ejecutarse (no compite con el hero: la imagen LCP ya va con preload+fetchpriority=high). (2) og:site_name='Productos Patagónicos' — muestra el nombre del sitio en la previsualización al compartir el enlace (WhatsApp es el canal principal). Cambios aditivos de metadatos, sin efecto visual. Verificado: 2/2 JSON-LD válidos, HTML balanceado, jsdom sin errores. Auto-aprobado (pasó los 3 filtros).",
-    "Revisión TOTAL de código 2026-08-06: index.html (2.201 líneas) + productos.json + 2 JSON-LD + 8 <script> releídos de punta a punta tras las incorporaciones del 05/08 (Criolla, badges, botón flotante, nuevo hero/imagen social). HTML balanceado (9/9 <picture>, 10/10 img con alt, 8/8 <script>), JSON-LD válidos y coherentes con el catálogo (5 InStock), FoodEstablishment enriquecido, accesibilidad del modal/botón flotante OK, ancla #jugar presente, listeners sanos, sin datos sensibles. Sin bugs nuevos.",
-    "Auditoría en vivo 2026-08-06: Vercel canónico coherente (5 picadas — Criolla más vendida $12.000, Tradicional $16.000, Odisea $25.000, Simple $13.000, Embutidos $3.000; og/twitter/FoodEstablishment.image → mundialista.jpeg/Criolla; GA4 G-42YBW61Q1Q; canonical OK; MODO_VACACIONES=false con botones Encargar→WhatsApp). Sin commits del dueño desde 01/08 en el catálogo base (último a5af158 del 05/08). Sin errores técnicos nuevos.",
-    "sitemap lastmod = 2026-08-06.",
-    "2026-08-06: video real del pedido grande agregado (provisto por el dueño). Comprimido de 964KB a 926KB (540x960, H.264 CRF28 + faststart, AAC 96k), orientación vertical horneada en los pixeles (el original traía metadato rotate=90). Poster JPG (65KB) generado de un fotograma propio. Bloque insertado debajo del ranking 'Top de picadas más elegidas' (antes de '¿Buscás algo distinto?'). Se agregó bajada dorada 'Los más elegidos de la comarca' ARRIBA del título del ranking, sin reemplazarlo (pedido explícito del dueño). Tracking GA4 nuevo: evento 'reproduce_video' al primer play. Verificado con jsdom sin errores."
-  ],
-  "propuestas_pendientes_aprobacion": [],
-  "pendientes_tecnicos": [
-    {
-      "id": "render-dinamico-productos",
-      "descripcion": "Opcional: hacer que el HTML renderice las tarjetas desde productos.json. Se pospuso para no arriesgar la conversión (si falla el JS no se ven productos). El JSON-LD ya se genera desde productos.json; el HTML sigue estático como fallback confiable."
-    }
-  ],
-  "mundial_2026": {
-    "estado": "finalizado",
-    "ultimo_verificado": "2026-08-01",
-    "detalle": "FINAL 19/07/2026: España 1-0 Argentina (Ferran Torres en el alargue; Enzo Fernández expulsado). España campeón (2ª estrella). Argentina subcampeón. El Mundial terminó.",
-    "resultado": "argentina_perdio",
-    "accion_ejecutada": "2026-08-01: rama 'si Argentina pierde' del plan condicional. NO se activó MODO_CAMPEON. Reversión ejecutada: acentos celestes y maquinaria .campeon-bar/MODO_CAMPEON removidos; paleta marrón/crema/dorado. La Picada Mundialista y el contenido Argentina-vs-España ya los había sacado el dueño por commits directos entre el 18/07 y hoy.",
-    "cerrado": true
-  },
-  "bloqueos_avisados": [
-    "GitHub Pages (espejo): sirviendo la version actual identica a Vercel. Bloqueo cerrado.",
-    "Métricas automáticas (Supermetrics) DISCONTINUADAS por decisión del dueño (2026-08-05): manda capturas mensuales en su lugar. No volver a mencionar el bloqueo del trial."
-  ],
-  "tracking": {
-    "ga4": "G-42YBW61Q1Q",
-    "eventos": [
-      "clic_whatsapp",
-      "generate_lead",
-      "registro_descuento",
-      "scroll_profundidad",
-      "clic_producto",
-      "tiempo_en_pagina",
-      "utm_capture"
-    ],
-    "verificado": "presente en index.html en vivo (Vercel), verificado 2026-07-12"
-  },
-  "mailerlite": {
-    "estado": "CERRADO por el dueño (2026-07-15): 'el mailer esta hecho, no me digas mas'. No reportar ni recordar mas sobre MailerLite."
-  },
-  "decisiones_dueno": [
-    "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07.",
-    "2026-07-12: Reemplazar la Picada Mundialista por la nueva composición ($12.000, 750 g) y lanzarla como 'Gran Promoción Mundialista'; marcar el resto de las picadas (Tradicional, Odisea, Simple, Simple EV) como agotadas; darle al sitio un aura Mundial/Argentina.",
-    "2026-07-12: Corregir la foto de la Picada Mundialista (la anterior no correspondía a la composición real) y sacar la Picada Simple EV del catálogo por innecesaria y ocupar espacio.",
-    "2026-07-12: Sacar la Bondiola EV del catálogo, agregar cartelito 'tocá acá para la info' en Embutidos y corregir el recorte de foto en los modales.",
-    "2026-07-12: Actualizar el peso de la Picada Mundialista de 750 g a 800 g.",
-    "2026-07-12: IGNORAR simple.html de forma PERMANENTE. No auditarla, no proponer cambios sobre ella ni volver a mencionarla en reportes. Ya está noindex+canonical a la home; queda congelada.",
-    "2026-07-13: Agregar límite de pedidos para la Picada Mundialista: hasta el martes 14/7, 16:00 hs (antes de la semifinal del miércoles).",
-    "2026-07-15: Volver TODAS las picadas a su funcionamiento normal (reactivar Tradicional, La Odisea y Picada Simple a InStock).",
-    "2026-07-15: Avisar en el sitio que no se elaboran picadas a partir del jueves 16/07 por un compromiso personal.",
-    "2026-07-15: MailerLite ya esta hecho — no volver a mencionarlo ni recordar pasos pendientes.",
-    "2026-08-05: Dejar de traer métricas automáticas (GA4/FB/IG vía Supermetrics) en cada corrida. El dueño va a mandar capturas de pantalla mensualmente para analizar. No volver a intentar Supermetrics ni reportar el bloqueo del trial vencido."
-  ],
-  "metricas_ultima": {
-    "ga4_7d_2026-07-12": {
-      "sesiones": 54,
-      "usuarios": 38,
-      "nuevos": 38,
-      "vistas": 84,
-      "scroll_profundidad": 163,
-      "clic_producto": 43,
-      "generate_lead": 13,
-      "clic_whatsapp": 11,
-      "registro_descuento": 2
-    },
-    "ga4_7d_2026-07-12_reverif": {
-      "rango": "2026-07-05 a 2026-07-11",
-      "clic_producto": 43,
-      "generate_lead": 13,
-      "clic_whatsapp": 11,
-      "registro_descuento": 2,
-      "nota": "Idéntico al snapshot previo; sin caída anómala. Cuello de botella: completar el registro del cupón."
-    },
-    "ga4_7d_2026-07-13": {
-      "rango": "2026-07-06 a 2026-07-12",
-      "sesiones": 68,
-      "usuarios": 43,
-      "nuevos": 39,
-      "vistas": 101,
-      "scroll_profundidad": 180,
-      "clic_producto": 52,
-      "generate_lead": 17,
-      "clic_whatsapp": 15,
-      "registro_descuento": 2,
-      "instagram_seguidores": 806,
-      "nota": "Crecimiento WoW (sesiones +26%, clic_whatsapp 11->15, generate_lead 13->17). Cuello de botella sigue en registro de cupon (2)."
-    },
-    "ga4_7d_2026-07-14": {
-      "rango": "2026-07-07 a 2026-07-13",
-      "sesiones": 78,
-      "usuarios": 47,
-      "nuevos": 45,
-      "vistas": 111,
-      "scroll_profundidad": 188,
-      "clic_producto": 52,
-      "generate_lead": 16,
-      "clic_whatsapp": 14,
-      "registro_descuento": 2,
-      "nota": "WoW vs 06-12/07: sesiones +15%, vistas +10%; clic_whatsapp 15->14 y generate_lead 17->16 estables; registro_descuento 2->2 (cuello de botella). FB/IG no consultados (no autorizados esta corrida)."
-    },
-    "ga4_7d_2026-07-15": {
-      "rango": "2026-07-08 a 2026-07-14",
-      "sesiones": 79,
-      "usuarios": 47,
-      "nuevos": 46,
-      "vistas": 113,
-      "scroll_profundidad": 187,
-      "clic_producto": 47,
-      "generate_lead": 18,
-      "clic_whatsapp": 15,
-      "registro_descuento": 3,
-      "clic_cta_hero": 24,
-      "instagram_seguidores": 805,
-      "facebook_seguidores": 11003,
-      "nota": "WoW vs 07-13/07: sesiones 78->79, vistas 111->113 (estable-al-alza); clic_whatsapp 14->15, generate_lead 16->18, registro_descuento 2->3 (primer movimiento del cuello de botella). IG 805 (vs 806). FB 11.003 legible esta corrida. Sin caidas en el funnel."
-    },
-    "ga4_parcial_2026-07-15": {
-      "rango": "2026-07-15 (parcial, dia en curso ~22:00)",
-      "page_view": 4,
-      "session_start": 4,
-      "clic_producto": 3,
-      "clic_cta_hero": 2,
-      "clic_whatsapp": 1,
-      "generate_lead": 1,
-      "scroll_profundidad": 5,
-      "registro_descuento": 0,
-      "nota": "Dia de la semifinal; datos aun procesandose. Total 7d 08-14/07 identico al de la mañana (79 sesiones/113 vistas). Sin alarma de funnel."
-    },
-    "ga4_7d_2026-07-16": {
-      "rango": "2026-07-09 a 2026-07-15",
-      "sesiones": 80,
-      "usuarios": 46,
-      "nuevos": 44,
-      "vistas": 118,
-      "scroll_profundidad": 179,
-      "clic_producto": 45,
-      "clic_cta_hero": 21,
-      "generate_lead": 12,
-      "clic_whatsapp": 10,
-      "registro_descuento": 2,
-      "instagram_seguidores": 807,
-      "facebook_page_followers": 1595,
-      "nota": "Trafico estable (sesiones 79->80, vistas 113->118 vs 08-14/07). A vigilar: clic_whatsapp 15->10 y generate_lead 18->12 en ventanas solapadas (incluye 15/07, dia de la semifinal); volumenes chicos. registro_descuento cuello de botella en 2. FB 1.595 (page_followers) no coincide con 11.003 del 15/07 -> otra metrica ese dia; no se compara WoW."
-    },
-    "ga4_7d_2026-07-17": {
-      "rango": "2026-07-10 a 2026-07-16",
-      "sesiones": 73,
-      "usuarios": 39,
-      "nuevos": 37,
-      "vistas": 110,
-      "scroll_profundidad": 156,
-      "clic_producto": 36,
-      "clic_cta_hero": 14,
-      "generate_lead": 10,
-      "clic_whatsapp": 9,
-      "registro_descuento": 1,
-      "instagram_seguidores": 807,
-      "facebook_page_followers": 1600,
-      "nota": "Enfriamiento post-semifinal: la ventana solto el pico del 15/07 -> baja leve WoW vs 09-15/07 (sesiones 80->73 -9%, vistas 118->110 -7%, clic_whatsapp 10->9 -10%, generate_lead 12->10, clic_cta_hero 21->14, clic_producto 45->36). Sin alarma dura -30% en clic_whatsapp. registro_descuento cuello de botella en 1. IG 807 estable, FB 1.600 (+5)."
-    },
-    "ga4_7d_2026-07-18": {
-      "rango": "2026-07-11 a 2026-07-17",
-      "sesiones": 62,
-      "usuarios": 31,
-      "nuevos": 29,
-      "vistas": 98,
-      "scroll_profundidad": 137,
-      "clic_producto": 31,
-      "clic_cta_hero": 13,
-      "generate_lead": 10,
-      "clic_whatsapp": 9,
-      "registro_descuento": 1,
-      "instagram_seguidores": 805,
-      "facebook_page_followers": 1604,
-      "nota": "Enfriamiento sostenido (mundial + modo vacaciones). WoW vs 10-16/07: sesiones 73->62 (-15%), vistas 110->98 (-11%), clic_whatsapp 9->9 (0%), generate_lead 10->10, registro_descuento 1->1. Sin alarma -30% en clic_whatsapp. Días flojos 14/07 (3) y 16/07 (2). IG 805 (-2), FB 1.604 (+4)."
-    },
-    "ga4_7d_2026-08-01": {
-      "rango": "2026-07-25 a 2026-07-31",
-      "estado": "SIN DATOS",
-      "nota": "No se pudo consultar: Supermetrics trial expirado el 2026-07-25. GA4 sigue recolectando; renovar Supermetrics o mirar GA4 directo."
-    },
-    "ga4_7d_2026-08-05": {
-      "rango": "2026-07-29 a 2026-08-04",
-      "estado": "SIN DATOS",
-      "nota": "Supermetrics trial sigue expirado (2026-07-25). GAWA figura AUTHENTICATED (Google OAuth OK) y GA4 sigue recolectando, pero data_query devuelve 'free trial expired'. Bloqueo ya avisado el 01/08; no se repite como alarma. Renovar Supermetrics o mirar GA4 directo."
-    }
-  },
-  "catalogo_override_dueno": {
-    "actualizado": "2026-08-05",
-    "nota": "2026-08-05: el dueño pidió reincorporar la ex-Picada Mundialista con el nombre 'Picada Criolla', manteniendo todas sus estadísticas ($12.000, 800 g, pican 7 y comen 4, mismos 6 componentes e imágenes), y marcarla como LA MÁS VENDIDA (primera tarjeta, #1 del ranking, badge dorado, imagen del hero/LCP y de redes sociales). Además subió La Odisea de $22.000 a $25.000. Este catálogo (5 productos, todos InStock) reemplaza cualquier catálogo autoritativo anterior del prompt en lo que respecta a Picada Criolla y La Odisea — es un override explícito y directo del dueño en el chat, no de la corrida programada.",
-    "picada_mundialista": {
-      "precio": "$12.000",
-      "porcion": "800 g",
-      "rinde": "pican 7 comen 4",
-      "promo": "Gran Promoción Mundialista",
-      "componentes": [
-        "Chorizo seco",
-        "Mortadela",
-        "Morcilla blanca",
-        "Morcilla negra",
-        "Queso criollo",
-        "Queso de cerdo"
-      ]
-    },
-    "agotadas": [],
-    "eliminadas_del_catalogo": [
-      "Picada Simple EV",
-      "Bondiola EV"
-    ],
-    "sin_cambios": [
-      "Embutidos EV $3.000 (ahora con modal)"
-    ],
-    "reactivadas_2026-07-15": [
-      "Picada Tradicional",
-      "La Odisea",
-      "Picada Simple"
-    ],
-    "pausa_produccion": "No se elaboran picadas a partir del jueves 16/07 (compromiso personal del dueño).",
-    "picada_criolla": {
-      "precio": "$12.000",
-      "porcion": "800 g",
-      "rinde": "pican 7 y comen 4",
-      "estado": "LA MÁS VENDIDA (badge 🔥 en tarjeta y modal, #1 del ranking, imagen del hero/LCP y de redes)",
-      "componentes": [
-        "Chorizo seco",
-        "Mortadela",
-        "Morcilla blanca",
-        "Morcilla negra",
-        "Queso criollo",
-        "Queso de cerdo"
-      ],
-      "imagen": "mundialista.jpeg / mundialista.webp / mundialista.avif (reutilizadas)"
-    },
-    "la_odisea_precio": "$25.000 (subido desde $22.000 el 2026-08-05, pedido del dueño)"
-  },
-  "directiva_mejora_continua": "El dueño pidió (2026-07-12) que CADA corrida busque activamente cosas para mejorar y ejecute/proponga al menos una. Mantener y priorizar el backlog 'ideas_mejora'. NUNCA tocar ni mencionar simple.html.",
-  "ideas_mejora": [
-    {
-      "area": "SEO local",
-      "idea": "Preparar y publicar el perfil de Google Business Profile (nombre, categoría 'Charcutería', zona Carmen de Patagones/Viedma, fotos de picadas, link al sitio, WhatsApp).",
-      "impacto": "Alto: aparecer en Google Maps y en el pack local es la mayor fuente de clientes cercanos.",
-      "estado": "EN PAUSA hasta el regreso del dueño (2/8): paquete de alta ya entregado como docx el 2026-07-17; falta que el dueño cree/verifique la ficha (paso personal)."
-    },
-    {
-      "area": "Conversión / prueba social",
-      "idea": "Sección de testimonios reales (capturas de WhatsApp anonimizadas) + galería de picadas entregadas. Es cambio de diseño → proponer con vista previa.",
-      "impacto": "Alto: la confianza es el principal freno para el primer pedido.",
-      "estado": "pendiente"
-    },
-    {
-      "area": "Analítica",
-      "idea": "Marcar generate_lead, registro_descuento y clic_whatsapp como 'key events' (conversiones) en GA4 para poder medir el embudo y la tasa de cierre real.",
-      "impacto": "Medio-alto: hoy no se puede ver el % de conversión de forma nativa.",
-      "estado": "pendiente"
-    },
-    {
-      "area": "Performance / CLS",
-      "idea": "Agregar width/height explícitos a las <img> y considerar AVIF además de WebP; auditar LCP del hero en móvil (<2,5s).",
-      "impacto": "Medio: mejora Core Web Vitals y ranking móvil.",
-      "estado": "parcial: width/height (07-13), Google Fonts no bloqueante (07-13), AVIF (07-14), preload imagen LCP hero (07-15) y og/twitter image alt (07-15) hechos. Pendiente: medir LCP real en movil (<2,5s) con datos de campo. 2026-07-18: rel=noopener agregado a los 7 enlaces _blank faltantes (Best Practices)."
-    },
-    {
-      "area": "Conversión / urgencia",
-      "idea": "En la Picada Mundialista, reforzar escasez/temporada (contador hacia la semifinal 15/07, 'edición limitada Mundial'). Proponer con vista previa.",
-      "impacto": "Medio-alto: urgencia sobre el producto que hoy concentra la demanda.",
-      "estado": "pendiente"
-    },
-    {
-      "area": "Email / MailerLite",
-      "idea": "Una vez activa la bienvenida, montar una campaña recurrente con la picada que más convierte (según clics de WhatsApp por producto).",
-      "impacto": "Medio: reactiva base de 29+ suscriptores.",
-      "estado": "pendiente"
-    },
-    {
-      "area": "Estacional / post-Mundial",
-      "idea": "Plan de reversion post-19/07 (final Argentina vs Espana el 19/07): volver a paleta marron/crema, quitar tema Argentina y detectar la proxima fecha relevante (Dia del Amigo 20/07, invierno). NOTA: las picadas ya fueron reactivadas por el dueño el 15/07 (no hay que reactivarlas en la reversion).",
-      "impacto": "Medio: mantener el sitio vigente cuando termine el Mundial.",
-      "estado": "pendiente"
-    },
-    {
-      "area": "Conversión / formulario",
-      "idea": "Evaluar pedir nombre + WhatsApp (opcional) en el registro del cupón para poder recontactar, cuidando no sumar fricción. Requiere aprobación (cambio de conversión).",
-      "impacto": "Medio: hoy sólo se captura email; con WhatsApp se puede cerrar la venta.",
-      "estado": "HECHO 2026-07-18: campo WhatsApp opcional agregado (aprobado por el dueño). El número llega por la notificación de Formspree."
-    },
-    {
-      "area": "Schema / SEO",
-      "idea": "Cuando haya reseñas, agregar aggregateRating al FoodEstablishment; sumar priceRange y openingHours si el dueño los confirma.",
-      "impacto": "Medio: rich snippets y mejor CTR en buscadores.",
-      "estado": "parcial: geo (GeoCoordinates), areaServed y sameAs (IG+FB) agregados al FoodEstablishment el 2026-07-16. Pendiente: aggregateRating cuando haya reseñas, y priceRange ya presente; openingHours si el dueño los confirma."
-    },
-    {
-      "area": "Conversión / prueba social",
-      "idea": "Ver arriba: sección de testimonios/galería sigue pendiente de fotos del dueño.",
-      "impacto": "Alto",
-      "estado": "pendiente (ya registrada antes)"
-    },
-    {
-      "area": "Conversión / urgencia",
-      "idea": "Franja 'pedí con tiempo' para días de mayor demanda (si el dueño confirma cuáles), o packs/combos con descuento por cantidad.",
-      "impacto": "Medio",
-      "estado": "propuesto 2026-08-05, pendiente de aprobación del dueño"
-    },
-    {
-      "area": "Conversión / prueba social",
-      "idea": "Video del pedido grande agregado (2026-08-06) debajo del ranking de más pedidos.",
-      "impacto": "Alto",
-      "estado": "HECHO 2026-08-06 (video provisto por el dueño)"
-    }
-  ],
-  "modo_vacaciones": {
-    "activo": false,
-    "desde": "2026-07-17",
-    "regreso_dueno": "2026-08-02",
-    "regla": "El dueño está de viaje y NO puede tomar decisiones ni pedidos hasta el 2/8. Implementado en index.html: flag window.MODO_VACACIONES=true. Banner de vacaciones con fecha de regreso (2/8); los botones de pedido (btn-order, hero 'Consulta Directa', 'a medida' y el botón del modal) repuntan al formulario de mail (#descuento) en vez de abrir WhatsApp de pedido; el formulario del cupón ($2000) sigue ACTIVO para juntar mails. El grupo de comunidad de WhatsApp queda intacto.",
-    "reapertura": "Cuando el dueño vuelva (2/8) y avise, poner window.MODO_VACACIONES=false (revierte banner y botones a normal) y revisar el mail acumulado de suscriptores.",
-    "no_tomar_pedidos": true,
-    "capturar_mails": true,
-    "nota_regreso": "Hoy es 05/08; el regreso estaba previsto para el 02/08 y el dueño AÚN NO confirmó que volvió. Se mantiene MODO_VACACIONES=true. Se quitó la fecha vencida del copy (banner y botones ya no dicen '2/8'; ahora 'volvemos muy pronto'). Cuando confirme el regreso: poner window.MODO_VACACIONES=false (revierte banner/botones y reabre pedidos) y revisar los mails/WhatsApp acumulados.",
-    "reabierto": "2026-08-05: el dueño confirmó el regreso y se puso MODO_VACACIONES=false (pedidos por WhatsApp reactivados; banner de vacaciones oculto). Maquinaria de vacaciones intacta y reversible para el próximo viaje (flag=true)."
-  },
-  "plan_post_mundial_condicional": {
-    "decidido": "2026-07-17 (pedido explícito del dueño, PRE-APROBADO para ejecutar sin esperar aprobación)",
-    "final": "Argentina vs España, domingo 19/07/2026 16:00 ARG, MetLife Stadium.",
-    "ejecutar_en": "corrida del 20/07 (o la primera tras conocerse el resultado real; verificar por búsqueda web, nunca inventar).",
-    "si_argentina_gana": "Activar MODO CAMPEÓN: poner window.MODO_CAMPEON=true en index.html (ya está pre-construido: inyecta una barra de celebración celeste/blanca '¡ARGENTINA CAMPEÓN DEL MUNDO!' al tope del contenido, con CSS .campeon-bar ya presente). Mantener la simbología/colores argentinos festivos durante ~1 MES (hasta ~19/08). Registrar fecha de activación y fecha de apagado (~19/08). Pasado el mes, poner MODO_CAMPEON=false y revertir la paleta a la normal (marrón/crema/dorado).",
-    "si_argentina_pierde": "NO activar MODO_CAMPEON. Revertir directo a la normalidad: paleta original marrón/crema/dorado, quitar el tema/aura Argentina y el estilo Mundial de la tarjeta Mundialista (quitar flag-esp/matchup, dejar la tarjeta normal). La Picada Mundialista queda como una picada más del catálogo salvo que el dueño decida otra cosa.",
-    "nota_hero": "El destacado actual es la Picada Mundialista ('Gran Promoción Mundialista'). Al terminar el Mundial pierde temporada; si no hay MODO_CAMPEON, evaluar volver el hero a la Tradicional (más popular). Como el dueño no está, mantener el catálogo estable y NO tomar decisiones de rediseño mayores fuera de este plan; sólo ejecutar la reversión/celebración descrita.",
-    "flags_index": "window.MODO_CAMPEON (default false) + window.CAMPEON_HASTA='19/8'. Barra pre-construida y probada (jsdom): off→sin barra, on→barra con celebración, sin errores JS.",
-    "ejecutado": "2026-08-01: Argentina PERDIÓ la final 1-0 vs España. Ejecutada la rama 'si_argentina_pierde': NO se activó MODO_CAMPEON; se revirtió el tema/aura Argentina (celestes + maquinaria campeón). Capítulo cerrado."
-  },
-  "bitacora_excel": {
-    "estado": "ABANDONADO por el dueño (2026-07-18). Dejar de actualizar 'vitacora de SEO PP.xlsx' (queda congelado como histórico). NO volver a tocarlo ni reportarlo.",
-    "reemplazo": "La bitácora diaria es únicamente seo-log/bitacora.md. Es también la ventana del dueño desde el celular vía GitHub (github.com/lorenzoengraf10-dot/productosoatagonicos/blob/main/seo-log/bitacora.md). Mantenerla siempre al día y clara, con lo logrado y lo pendiente/a futuro de cada corrida."
-  },
-  "margen_viaje_dueno": {
-    "definido": "2026-07-17",
-    "vigencia": "Durante el viaje del dueño (hasta el 2/8).",
-    "permitido_sin_pedir": "Mejoras técnicas/SEO/performance/accesibilidad/tracking (ya pre-aprobadas) + ajustes MENORES de copy o textos de CTA si hay una mejora clara. Más lo ya pactado: Mundial (plan condicional) y modo vacaciones.",
-    "NO_permitido": "Rediseños, cambios de layout/paleta/tipografía, nueva sección de diseño (ej: testimonios), o cambios de conversión estructurales (formulario, orden del catálogo). Esas ideas se ANOTAN en la bitácora para decidir cuando el dueño vuelva.",
-    "nota": "El dueño eligió 'Técnico + ajustes menores de copy' el 2026-07-17."
-  },
-  "criterio_autoaprobacion": {
-    "definido": "2026-07-18 (pedido del dueño, aplica también durante el viaje hasta el 2/8 y en adelante).",
-    "regla": "Ante una posible implementación o arreglo de error, evaluar los 3 campos. Solo si los 3 dan SÍ, aprobarla y ejecutarla sin consultar. Si alguno da NO, NO ejecutarla: dejarla anotada como propuesta en la bitácora para cuando el dueño vuelva.",
-    "campos": [
-      "1) ¿Es necesaria AHORA? = algo que se puede hacer ya y que mejora un aspecto necesario del sitio, o que es el arreglo de un error real.",
-      "2) ¿La puedo hacer YO sin ningún problema? = no depende del dueño (no requiere logins/OAuth, ni fotos/textos/decisiones suyas), es de bajo riesgo y reversible.",
-      "3) ¿Su futuro es POSITIVO? = el resultado neto es una mejora clara, sin efectos negativos ni arrepentimiento probable."
-    ],
-    "relacion_con_margen_viaje": "Amplía el margen anterior ('técnico + ajustes menores de copy'): ahora también se pueden hacer implementaciones o fixes mayores SIEMPRE que pasen los 3 campos. Lo que no pase los 3 (ej: rediseños que dependen de assets del dueño, o cambios opinables) sigue como propuesta para el regreso.",
-    "registro": "Toda auto-aprobación se documenta en bitacora.md dejando claro que pasó los 3 campos y por qué."
-  },
-  "artefacto_panel": {
-    "id": "panel-productos-patagonicos",
-    "creado": "2026-07-18",
-    "que_es": "Dashboard en Cowork (artefacto HTML) para que el dueño vea de un vistazo: estado del sitio (vacaciones/Mundial), métricas GA4/IG/FB 7 días, calendario de hitos, actividad reciente (bitácora) y pendientes.",
-    "regla": "En cada corrida, ADEMÁS de bitacora.md, actualizar este artefacto con update_artifact (id 'panel-productos-patagonicos'): refrescar la constante DATA del HTML (metricas, sesiones_trend, timeline, actividad [últimas ~12], pendiente y campo 'actualizado'). El artefacto NO tiene red salvo los CDN permitidos (Chart.js/Grid.js/Mermaid), así que los datos van EMBEBIDOS en el HTML; no intentar fetch a GitHub ni a otras URLs.",
-    "nota": "Diseñado para light mode (fondo claro). Datos reales, nunca inventar."
-  },
-  "metricas": {
-    "estado": "CERRADO por el dueño (2026-08-05): ya no se consultan métricas automáticas (GA4/Facebook/Instagram vía Supermetrics) en cada corrida. El dueño va a mandar capturas mensualmente. NO volver a intentar Supermetrics, NO reportar el bloqueo del trial vencido, NO pedir ni recordar métricas en el reporte diario salvo que el dueño mande capturas para analizar."
+ "ultima_corrida": "2026-08-09",
+ "ultima_revision_total_codigo": "2026-08-06",
+ "resumen_revision_codigo": "Revisión total completa 2026-07-11 (sin bugs). 2026-07-13 (corrida diaria): auditoría puntual OK — GA4/eventos presentes, 9/9 img de producto con alt, JSON-LD válido, catálogo consistente con override del dueño (Mundialista $12.000/800g InStock; Tradicional/Odisea/Simple Agotado; Embutidos EV InStock). Se detectó y corrigió la falta de width/height en las <img> (mejora del día, CLS/Lighthouse). Sin bugs nuevos. 2026-07-13 (2ª corrida): auditoría en vivo OK, catálogo/JSON-LD/og consistentes (800 g, mundialista.jpeg). Mejora del día: carga de Google Fonts pasada a NO bloqueante (preload as=style + media=print/onload + noscript) para mejorar FCP/LCP del titular H1 en móvil. Sin bugs nuevos. 2026-07-14 (corrida diaria): revisión puntual OK — 9/9 <picture> bien anidados tras sumar AVIF, catálogo/JSON-LD consistentes con el override del dueño, sin listeners rotos ni datos sensibles. Mejora del día: se agregó AVIF (5 imágenes del catálogo) como primer <source> de cada <picture> con fallback WebP/JPEG; peso de imágenes 540KB→336KB (−38%), Mundialista 66→34KB (−50%). Próxima revisión total ≈2026-07-18. 2026-07-16 (corrida diaria): revisión puntual OK — index.html/productos.json coherentes con el override del dueño (5 picadas InStock), tarjeta Mundialista = Final vs España, aviso-pausa 16/07 presente, sin listeners rotos ni datos sensibles; ambos JSON-LD válidos tras enriquecer el FoodEstablishment. Sin bugs nuevos. Revisión TOTAL pendiente ≈2026-07-18. 2026-07-17 (corrida diaria): revisión puntual OK — index.html/productos.json coherentes con el override del dueño (5 picadas InStock), tarjeta Mundialista = Final vs España, aviso-pausa 16/07 presente, <head> intacto tras sumar favicon/manifest, sin listeners rotos ni datos sensibles; ambos JSON-LD válidos. Sin bugs nuevos. Mejora del día: favicon + web app manifest + apple-touch-icon (branding/PWA, antes inexistentes). Revisión TOTAL pendiente ≈2026-07-18. 2026-07-18 (2ª, corrida programada 8am): REVISIÓN TOTAL hecha (vencía ≈18/07). Relectura completa index.html (2.420 líneas) + productos.json + 2 JSON-LD + 4 <script>: HTML balanceado (9/9 <picture>), 10/10 img con alt, ambos JSON-LD válidos, catálogo JSON=HTML=JSON-LD coherente con override del dueño (5 InStock), flags MODO_VACACIONES=true/MODO_CAMPEON=false OK, listeners sanos, sin CSS/JS muerto ni datos sensibles (endpoint MailerLite público sin API key; token GitHub NO en repo). Sin bugs. Observación menor (no bug): en vacaciones los botones repuntados a #descuento siguen emitiendo clic_whatsapp (ruido de métrica). Mejora del día: rel=\"noopener\" agregado a los 7 enlaces target=_blank que faltaban (hero + 5 Encargar + modal) -> 11/11 con rel; cierra reverse-tabnabbing y sube Best Practices, sin cambio visual. Próxima revisión total ≈2026-07-25. 2026-08-01 (corrida tras ~2 semanas sin corridas; entre el 18/07 y hoy el DUEÑO hizo commits directos que sacaron la Picada Mundialista y el contenido Argentina-vs-España, y agregaron el juego 'Atrapá la Picada' /juego/): REVISIÓN TOTAL hecha (vencía ≈25/07). Relectura completa index.html (2.142 líneas) + productos.json + 2 JSON-LD + scripts. Catálogo COHERENTE entre tarjetas/ranking/productos.json/JSON-LD y alineado con el catálogo AUTORITATIVO del prompt (4 productos: Tradicional $16.000/700g, Odisea $22.000/900g, Simple $13.000/500g, Embutidos EV $3.000; Mundialista removida). HTML balanceado (7/7 <picture>, 8/8 img con alt, 8/8 <script>), ambos JSON-LD válidos, MODO_VACACIONES=true correcto, listeners sanos, sin datos sensibles (token GitHub NO en repo). Mejora del día: fix del enlace roto /juego/ (root-absoluto, 404 en el espejo GitHub Pages bajo /productosoatagonicos/) -> juego/ (relativo, funciona en Vercel y Pages); afectaba todo el funnel de leads en modo vacaciones. Además se completó la reversión post-Mundial (Argentina perdió la final): quitados los acentos celestes y la maquinaria muerta MODO_CAMPEON. Deuda técnica menor anotada (no bug): el JS del viejo formulario $2000 quedó inerte pero protegido por if(btnSubmit). Próxima revisión total ≈2026-08-08. 2026-08-05 (corrida diaria): revisión PUNTUAL (la total no vence hasta ≈08-08; sin commits del dueño desde 01/08, último 6165f88). Catálogo coherente y alineado con el autoritativo (4 productos), HTML balanceado (7/7 <picture>, 8/8 img con alt), ambos JSON-LD válidos, GA4/eventos presentes, MODO_VACACIONES=true correcto, sin datos sensibles. Sin bugs nuevos. Mejora del día: se quitó la fecha VENCIDA del modo vacaciones (banner 'hasta el 2/8' y botones 'Volvemos el 2/8' con hoy=05/08) -> copy sin fecha ('volvemos muy pronto' / 'Volvemos muy pronto', VAC_REGRESO='muy pronto'); modo vacaciones sigue activo (no se reabre sin aviso del dueño). Verificado jsdom (banner + 4 botones OK, 0 '2/8'), JSON-LD x2 válidos, sintaxis JS OK. Próxima revisión total ≈2026-08-08. 2026-08-06 (corrida diaria): REVISIÓN TOTAL hecha (motivada por los cambios sustanciales del 05/08: alta de Picada Criolla, badges en las 5 tarjetas, botón flotante de WhatsApp, cambio de hero/imagen social). Relectura completa index.html (2.201 líneas) + productos.json + 2 JSON-LD + 8 <script>. HTML balanceado (9/9 <picture>, 10/10 img con alt, 8/8 <script>); ambos JSON-LD válidos; ItemList (5 Product/Offer con brand/priceCurrency ARS/availability/url/seller) coherente con productos.json y con el override del dueño (Criolla $12.000 más vendida, Tradicional $16.000, Odisea $25.000, Simple $13.000, Embutidos $3.000, todos InStock); FoodEstablishment con geo/areaServed/sameAs y priceRange $3.000-$25.000; modal con role=dialog/aria-modal/aria-labelledby, botón flotante con aria-label, ancla #jugar existe (id en el CTA del juego); listeners sanos, sin CSS/JS muerto ni datos sensibles (token GitHub NO en repo). Sin bugs. Mejora del día: preconnect+dns-prefetch a Google Analytics/Tag Manager (perf: la carga async de GA no paga DNS/TLS en el momento) + og:site_name (faltaba; mejora la previsualización al compartir por WhatsApp). Aditivos de <head>, sin efecto visual; verificado jsdom (0 errores, 5/5 tarjetas, WhatsApp activo, og:site_name presente) y 2/2 JSON-LD válidos. Auto-aprobado (3 filtros). Próxima revisión total ≈2026-08-13. 2026-08-09 (corrida diaria): auditoría puntual OK — index.html sano, catálogo consistente (Criolla 700 g), JSON-LD válido, Vercel==GitHub Pages. Revisión de /juego/index.html: no tenía GA4 -> se instaló GA4 + 4 eventos de embudo (mejora del día); sintaxis JS validada con node --check. Próxima revisión total completa ≈2026-08-13.",
+ "hallazgos_confirmados": [
+  "productos.json creado como fuente autoritativa del catálogo (2026-07-11)",
+  "JSON-LD Product/Offer agregado para 7 picadas (2026-07-11)",
+  "Imágenes en WebP + <picture> fallback JPEG, ahorro ~25% (2026-07-11)",
+  "Mundialista con loading=eager + fetchpriority=high (2026-07-11)",
+  "SEO local: geo tags + keywords + title/description enriquecidos (2026-07-11)",
+  "aria-label agregado al input de email del form (2026-07-11)",
+  "sitemap lastmod = 2026-07-11",
+  "Sección 'Prueba social' (Top picadas + franja de confianza + comunidad WhatsApp) integrada al index.html entre catálogo y formulario, aprobada por el dueño (2026-07-11)",
+  "simple.html marcado noindex,follow + canonical a la home para evitar canibalización SEO (2026-07-12)",
+  "Tarjeta Mundialista actualizada a Semifinal vs Inglaterra 15/07 + estilo bandera flag-eng (2026-07-12)",
+  "Copy de la oferta unificado a '$2000 de reintegro' en todo el funnel (asunto Formspree + label GA), aprobado por el dueño (2026-07-12)",
+  "Supermetrics autorizado (GA4/FB/IG) 2026-07-12; GA4 7 días: 54 sesiones, 38 usuarios, 84 vistas; clic_whatsapp 11, generate_lead 13, registro_descuento 2",
+  "Picada Mundialista reemplazada por pedido del dueño (2026-07-12): $12.000, 750 g, pican 7 personas comen 4, componentes Chorizo seco/Mortadela/Morcilla blanca/Morcilla negra/Queso criollo/Queso de cerdo; badge 'Gran Promoción Mundialista'",
+  "Picada Tradicional, La Odisea, Picada Simple y Picada Simple EV marcadas Agotado (tarjeta, modal, ranking Prueba social, productos.json y JSON-LD OutOfStock) por pedido del dueño (2026-07-12)",
+  "Aura Mundial/Argentina aplicada a todo el sitio (2026-07-12): franja superior celeste-blanco-celeste, acentos celestes en header/CTA/fondo, eyebrow y footer con bandera argentina",
+  "Bug corregido (2026-07-12): el signo '$' desaparecía del precio en el modal de detalle de producto (doble .replace erróneo)",
+  "Deploy corregido (2026-07-12): push a main no disparó build de producción en Vercel (dedup por SHA con preview de rama); commit vacío forzó el build y la promoción a producción",
+  "Foto de Picada Mundialista reemplazada por la real (provista por el dueño) en mundialista.jpeg/webp (2026-07-12)",
+  "Picada Simple EV eliminada del catálogo por pedido del dueño (2026-07-12): sacada de productos.json, tarjeta, JSON-LD y ranking Prueba social; simple-ev.jpeg/webp se conservan porque simple.html las sigue usando",
+  "Bondiola EV eliminada del catálogo por pedido del dueño (2026-07-12): sacada de productos.json, tarjeta y JSON-LD; bondiola.jpeg/webp se conservan porque simple.html las sigue usando",
+  "Embutidos EV ahora tiene modal + badge 'TOCÁ ACÁ PARA LA INFO' (2026-07-12), era la única tarjeta sin modal tras sacar Bondiola",
+  "Fix (2026-07-12): la foto se veía recortada en el modal de detalle de producto (object-fit: cover); cambiado a contain + más brillo + alto 340px/280px mobile en las 5 picadas con modal",
+  "Vercel (canónico) y GitHub Pages sirviendo la versión actual (Mundialista $12.000/750g, resto agotado, Inglaterra-Semifinal). Deploy prod READY commit 236a81d, verificado 2026-07-12",
+  "Campaña MailerLite 'Gran Promoción Mundialista' (id 192816257600325030) ENVIADA a 29 suscriptores activos el 2026-07-12, desde lorenzoengraf10@gmail.com",
+  "Revisión completa mobile (2026-07-12): bug CRÍTICO corregido — el modal no tenía max-height ni scroll interno, el botón Encargar quedaba inalcanzable en pantallas chicas (confirmado con captura real de un iPhone); ahora .product-modal es flex-column con max-height y .modal-body scrollea internamente, con la foto achicándose más en @media(max-height:700px/560px)",
+  "Fix (2026-07-12): la franja fija Mundial/Argentina tapaba el inicio de #picadas y #descuento al saltar por ancla; scroll-padding-top dinámico vía JS (alto real de la franja + 12px)",
+  "Fix (2026-07-12): la fila de 'Top de picadas' se amontonaba en pantallas angostas (nombre/precio superpuestos); el precio pasa a su propia línea en max-width:480px",
+  "Mejoras mobile (2026-07-12): botón de cerrar modal de 36px a 44px (tap target), autocomplete=email + inputmode=email en el form de descuento",
+  "Fix SEO/compartidos (2026-07-12): og:image/twitter:image/FoodEstablishment.image apuntaban a tradicional.jpeg (agotada); actualizados a mundialista.jpeg. Title y meta description actualizados para no promocionar productos agotados",
+  "Foto de Picada Mundialista actualizada a formato horizontal (2026-07-12, provista por el dueño, 1142x804), se ve mejor en tarjeta y modal",
+  "Hallazgo sin corregir (2026-07-12): simple.html tiene precios desactualizados (Tradicional $15.000 vs $16.000, Simple $12.500 vs $13.000) y ofrece '10% OFF' en vez de '$2.000 de reintegro'; requiere decisión del dueño",
+  "Picada Mundialista: peso actualizado a 800 g por pedido del dueño (2026-07-12), antes 750 g. Actualizado en productos.json, tarjeta, modal, JSON-LD, meta description, og/twitter y ranking Prueba social",
+  "Formulario del sitio CABLEADO a MailerLite (2026-07-12, aprobado): form embebido id 192832966699779088 (cuenta 2414901) atado al grupo 191653302006449649; fetch fire-and-forget (no-cors, try/catch) al endpoint público JSONP en el submit del form, sin API key expuesta. Formspree sigue controlando la pantalla de éxito y el aviso al dueño. NOTA: el form MailerLite tiene double opt-in activado (el suscriptor confirma por email antes de entrar al grupo).",
+  "Hallazgo (2026-07-12): el espejo GitHub Pages servía contenido viejo (Mundialista 750g, title/og/meta antiguos apuntando a tradicional.jpeg) mientras Vercel estaba al día. El canonical del espejo apunta correctamente a Vercel (SEO protegido). El push de hoy debería regenerar Pages; re-verificar en la próxima corrida.",
+  "Mejora del día (2026-07-13): se agregaron width/height reales a las 9 <img> de producto/ranking en index.html (mundialista 1142x804, tradicional/simple/embutidos 1080x1350, odisea 1024x1280) para cerrar el aviso 'unsized-images' de Lighthouse y reducir CLS; el CSS object-fit:cover mantiene la maqueta intacta.",
+  "GA4 7 días 2026-07-13 (06-12/07): 68 sesiones (+26%), 43 usuarios, 39 nuevos, 101 vistas. Eventos: scroll_profundidad 180, clic_producto 52, generate_lead 17, clic_whatsapp 15, registro_descuento 2. IG 806 seguidores. Facebook no legible con campos estándar esta corrida.",
+  "sitemap lastmod = 2026-07-13.",
+  "GitHub Pages seguía stale al 2026-07-13 (Mundialista 750g, og viejo) pese a que el repo ya tiene 800g; canonical del espejo -> Vercel protege el SEO. Re-verificar propagación en próxima corrida.",
+  "Mejora del día (2026-07-13, 2ª corrida): fuentes de Google (Playfair/Barlow/Lora) cargadas de forma NO bloqueante — <link rel=preload as=style> + <link media=print onload=this.media='all'> + <noscript> de respaldo. El LCP móvil es el H1 en Playfair; con display=swap el texto pinta al instante en fuente de sistema y cambia al llegar Playfair. Reduce render-blocking del <head>, sin CLS (tamaños ya fijados).",
+  "Re-verificado 2026-07-13 (2ª corrida): GitHub Pages SIGUE stale (Mundialista 750 g, og:image tradicional.jpeg, title/desc viejos) pese a que el repo tiene 800 g/mundialista.jpeg; es caché/propagación de Pages, NO del repo. Canonical del espejo -> Vercel protege el SEO. Persiste 2 días: posible causa la config de source/branch de Pages en Settings del repo (no accesible por git).",
+  "Límite de pedidos agregado a la Picada Mundialista (2026-07-13, pedido del dueño): '⏰ Pedidos hasta el martes 14/7, 16:00 hs' en tarjeta y modal (nuevo data-modal-deadline, sólo en ese producto) y en el campo nota de productos.json.",
+  "Mejora del día (2026-07-14): AVIF agregado para las 5 imágenes del catálogo (mundialista/tradicional/odisea/simple/embutidos) como primer <source> de cada <picture> (9), con fallback WebP y luego JPEG. Ahorro navegadores modernos: 540KB→336KB (−38%); Mundialista eager/fetchpriority 66→34KB (−50%). Sin cambios visuales.",
+  "RESUELTO 2026-07-14: GitHub Pages (espejo) ya sirve la versión actual, idéntica a Vercel (Mundialista $12.000/800g, og:image mundialista.jpeg, Inglaterra-Semifinal, deadline martes 14/7). El bloqueo de 'Pages stale' avisado 12 y 13/07 quedó cerrado.",
+  "sitemap lastmod = 2026-07-14.",
+  "GA4 7 días 2026-07-14 (07-13/07): 78 sesiones, 47 usuarios, 45 nuevos, 111 vistas. Eventos: scroll_profundidad 188, clic_producto 52, generate_lead 16, clic_whatsapp 14, registro_descuento 2. WoW: sesiones 68->78 (+15%), vistas 101->111 (+10%); clic_whatsapp/generate_lead estables; registro_descuento sigue en 2 (cuello de botella). FB/IG no consultados (conectores no autorizados esta corrida).",
+  "Deadline vencido retirado (2026-07-15): el aviso 'Pedidos hasta el martes 14/7, 16:00 hs' de la Picada Mundialista quedó vencido; se retiró de la tarjeta, del data-modal-deadline del modal y del campo nota de productos.json. La promo Mundialista sigue vigente durante el Mundial (final 19/07). Fijar un nuevo corte queda como decisión del dueño.",
+  "Mejora del día (2026-07-15): preload de la imagen LCP del hero. Se agregó <link rel=preload as=image href=mundialista.avif type=image/avif fetchpriority=high> tras los preconnect del <head>; el type hace el preload condicional (navegadores sin AVIF lo ignoran y siguen con <picture>). Adelanta la descarga de la imagen LCP en movil sin doble fetch. Cumple la tarea #2 (preload a la imagen del hero).",
+  "sitemap lastmod = 2026-07-15.",
+  "GA4 7 dias 2026-07-15 (08-14/07): 79 sesiones, 47 usuarios, 46 nuevos, 113 vistas. Eventos: scroll_profundidad 187, clic_producto 47, generate_lead 18, clic_whatsapp 15, registro_descuento 3, clic_cta_hero 24. WoW vs 07-13/07: sesiones 78->79, vistas 111->113 (estable-al-alza); clic_whatsapp 14->15, generate_lead 16->18, registro_descuento 2->3 (primer movimiento del cuello de botella). IG 805 seguidores (vs 806 el 13/07). FB 11.003 seguidores de pagina (legible esta corrida; FB re-autenticado). Sin caidas en el funnel (regla -30% no se dispara).",
+  "Auditoria en vivo 2026-07-15: Vercel y GitHub Pages coherentes y al dia (Mundialista $12.000/800g, semifinal Inglaterra 15/7, og mundialista.jpeg). GitHub Pages sigue sincronizado (bloqueo stale cerrado). JSON-LD (2 bloques) valido, 5 Product/Offer coherentes con el override del dueño. Sin errores tecnicos nuevos.",
+  "Resultado semifinal Mundial 2026 (2026-07-15): Argentina 2-1 Inglaterra (Enzo Fernandez y Lautaro Martinez); AVANZA A LA FINAL. Final: Argentina vs Espana, domingo 19/07 16:00 ARG, MetLife Stadium. Tarjeta Mundialista actualizada de 'Semifinal Inglaterra' a 'Final Domingo 19/7' con nueva clase CSS .flag-esp (bandera de Espana), rival Espana en tarjeta y modal.",
+  "Reactivacion total del catalogo (2026-07-15, pedido del dueno): Picada Tradicional, La Odisea y Picada Simple vueltas a InStock (se quito product-card--soldout, badge AGOTADO y boton deshabilitado; restaurado boton Encargar/WhatsApp; ranking sin badge Agotado; productos.json y JSON-LD en InStock). Ahora 5/5 productos InStock.",
+  "Aviso de pausa de produccion (2026-07-15, pedido del dueno): banner '.aviso-pausa' al inicio de #picadas — 'por un compromiso personal, no se elaboran picadas a partir del jueves 16/07. Encargá antes para asegurar la tuya'.",
+  "Mejora del dia (2026-07-15, 2ª corrida): se agregaron og:image:alt y twitter:image:alt (texto alternativo de la imagen social) — antes ausentes. Mejora accesibilidad y render de la tarjeta al compartir.",
+  "Auditoria en vivo 2026-07-15 (2ª corrida, con cache-buster): Vercel y GitHub Pages coherentes y al dia con la nueva version (pausa 16/07, Final vs Espana, 4 picadas con Encargar, ranking sin agotados, og/twitter image alt). Primera lectura de Vercel fue cache de CDN vieja; con ?v= forzado sirve la version nueva. GA4/metadatos intactos.",
+  "GA4 parcial hoy 15/07 (dia de la semifinal, ~22:00, aun procesandose): page_view 4, session_start 4, clic_producto 3, clic_cta_hero 2, clic_whatsapp 1, generate_lead 1, scroll_profundidad 5, registro_descuento 0. Total 7d (08-14/07) identico al de la mañana (79 sesiones/113 vistas). Tracking OK; sin alarma de -30% (dato parcial de dia en curso).",
+  "MailerLite: DADO POR CERRADO por el dueño (2026-07-15) — 'el mailer esta hecho, no me digas mas'. No volver a reportar ni recordar pasos de MailerLite.",
+  "Mejora del día (2026-07-16): se enriqueció el JSON-LD FoodEstablishment con geo (GeoCoordinates -40.7969/-62.9856), areaServed (Carmen de Patagones, Viedma) y sameAs (Instagram @productos.patagonicos_ + Facebook). Antes no tenía ninguna de las tres. Refuerza SEO local / entidad para el Knowledge Panel. Ambos bloques JSON-LD validados.",
+  "sitemap lastmod = 2026-07-16.",
+  "Auditoria en vivo 2026-07-16: Vercel y GitHub Pages coherentes; GA4/eventos OK; 10/10 img con alt; 5 Product/Offer InStock coherentes con productos.json; aviso-pausa (jueves 16/07) vigente hoy. Sin errores tecnicos nuevos.",
+  "Mundial 2026 (2026-07-16): sin partido nuevo desde el 15/07. Final domingo 19/07 16:00 ARG vs España (MetLife). Tarjeta ya en 'Final Domingo 19/7 vs España' (flag-esp). Sin cambios. Revertir paleta Mundial tras el 19/07.",
+  "GA4 7d 2026-07-16 (09-15/07): 80 sesiones, 46 usuarios, 44 nuevos, 118 vistas. Eventos: scroll_profundidad 179, clic_producto 45, clic_cta_hero 21, generate_lead 12, clic_whatsapp 10, registro_descuento 2. IG 807 seguidores (snapshot 17/07). FB page_followers 1.595 (única métrica Insights disponible; NO coincide con 11.003 del 15/07 -> probablemente otra métrica ese día, no se compara WoW). A vigilar: clic_whatsapp 15->10 y generate_lead 18->12 en ventanas solapadas (incluye 15/07, día de semifinal); volúmenes chicos, sin alarma dura. Cuello de botella registro_descuento sigue en 2.",
+  "Mejora del día (2026-07-17): se agregó favicon + iconos de app + web app manifest (antes INEXISTENTES pese a las metaetiquetas PWA). Ícono de marca original: monograma 'PP' dorado sobre fondo marrón degradé con borde dorado. Archivos: favicon.svg (vectorial), favicon.ico (16/32), apple-touch-icon.png (180), icon-192.png, icon-512.png y manifest.webmanifest. Enlazados en el <head> (rel=icon svg+ico, apple-touch-icon, manifest). Completa branding en pestañas/marcadores/resultados Google móvil y el setup 'agregar a inicio'. Sin cambio de diseño visible.",
+  "sitemap lastmod = 2026-07-17.",
+  "Auditoria en vivo 2026-07-17: Vercel y GitHub Pages coherentes y al dia; GA4/6 eventos presentes; 10/10 img con alt; 5 Product/Offer InStock coherentes con productos.json; aviso-pausa (jueves 16/07) vigente; tarjeta Mundialista = Final 19/7 vs España. Sin errores tecnicos nuevos.",
+  "Mundial 2026 (2026-07-17): sin partido nuevo desde el 15/07. Final domingo 19/07 16:00 ARG vs España (MetLife). Tarjeta ya en 'Final Domingo 19/7 vs España' (flag-esp). Sin cambios. Revertir paleta Mundial tras el 19/07.",
+  "GA4 7d 2026-07-17 (10-16/07): 73 sesiones, 39 usuarios, 37 nuevos, 110 vistas. Eventos: scroll_profundidad 156, clic_producto 36, clic_cta_hero 14, generate_lead 10, clic_whatsapp 9, registro_descuento 1. IG 807 seguidores (snapshot 17/07, estable vs 807 del 16/07). FB page_followers 1.600 (+5 vs 1.595 del 16/07). Enfriamiento post-semifinal: baja leve WoW (sesiones 80->73 -9%, vistas 118->110 -7%, clic_whatsapp 10->9 -10%) al soltar el pico del 15/07 de la ventana; sin alarma dura -30% en la metrica nucleo. registro_descuento cuello de botella en 1.",
+  "Modo vacaciones activado (2026-07-17, pedido del dueño): está de viaje y no toma pedidos hasta el 2/8. index.html con flag window.MODO_VACACIONES=true — banner 'Estamos de vacaciones hasta el 2/8', botones de pedido (5 tarjetas + hero Consulta Directa + 'a medida' + botón del modal) repuntados al formulario de mail (#descuento); cupón $2000 sigue activo para juntar mails; grupo de comunidad WhatsApp intacto. Verificado con jsdom: 0 errores JS, botones OK, modal OK.",
+  "Plan post-Mundial condicional PRE-APROBADO (2026-07-17): si Argentina gana la final del 19/07 → activar MODO CAMPEÓN (barra celebración celeste/blanca, simbología argentina) por ~1 mes; si pierde → revertir todo a la normalidad (marrón/crema/dorado). Barra campeón pre-construida tras flag window.MODO_CAMPEON=false y probada (jsdom off/on sin errores). La corrida del 20/07 lo ejecuta según el resultado real.",
+  "Documento entregado (2026-07-17): 'Alta Google Business Profile - Productos Patagonicos.docx' con campos listos para copiar/pegar, descripción optimizada (597 car.), fotos, paso a paso y verificación. GBP queda EN PAUSA hasta que el dueño vuelva del viaje (2/8) — no avanzar hasta entonces.",
+  "Pedido del dueño (2026-07-17): mantener también una bitácora diaria en EXCEL (seo-log/vitacora de SEO PP.xlsx) con lo logrado cada día y lo pendiente a futuro, además de bitacora.md.",
+  "Campo WhatsApp OPCIONAL agregado al formulario del cupón (2026-07-18, aprobado por el dueño): input tel opcional; si se completa, el número viaja en la notificación de Formspree (donde el dueño ve cada registro), para poder cerrar la venta por WhatsApp al volver del viaje. La integración de mail existente quedó intacta (email). Verificado con jsdom: campo opcional, envío OK con email+whatsapp, sin errores.",
+  "Mejora del día (2026-07-18, 2ª corrida): se agregó rel=\"noopener\" a los 7 enlaces target=_blank que no lo tenían (CTA WhatsApp del hero, los 5 botones Encargar de las tarjetas y el botón del modal). Antes 4/11 con rel; ahora 11/11. Cierra reverse-tabnabbing (window.opener) y el aviso de Lighthouse Best Practices. Cambio de atributo puro, sin efecto visual/UX; verificado con diff quirúrgico y jsdom (0 errores, 11/11 con rel). Auto-aprobado (pasó los 3 filtros).",
+  "Revisión TOTAL de código 2026-07-18 (2ª): index.html (2.420 líneas) + productos.json + 2 JSON-LD + 4 <script> releídos de punta a punta. HTML balanceado (9/9 <picture>), 10/10 img con alt, JSON-LD válidos (FoodEstablishment + ItemList), catálogo coherente (5 InStock: Mundialista $12.000/800g, Tradicional $16.000/700g, Odisea $22.000/900g, Simple $13.000/500g, Embutidos EV $3.000), flags de vacaciones/campeón correctos, sin listeners rotos ni datos sensibles. Sin bugs nuevos.",
+  "Auditoría en vivo 2026-07-18 (2ª): Vercel canónico verificado por fetch (Mundialista $12.000/800g, Final vs España 19/7, banner vacaciones 2/8, GA4, canonical/OG/Twitter completos). GitHub Pages sin cambios respecto de lo publicado (bloqueo stale cerrado). Sin errores técnicos nuevos.",
+  "Mundial 2026 (2026-07-18): sin partido de Argentina desde el 15/07. FINAL MAÑANA domingo 19/07 16:00 ARG vs España (MetLife); España venció 2-0 a Francia en semis. Tarjeta ya en 'Final Domingo 19/7 vs España' (flag-esp). Sin cambios hoy; la corrida del 20/07 ejecuta el plan condicional (MODO_CAMPEON si gana / reversión si pierde).",
+  "GA4 7d 2026-07-18 (11-17/07): 62 sesiones, 31 usuarios, 29 nuevos, 98 vistas. Eventos: scroll_profundidad 137, clic_producto 31, clic_cta_hero 13, generate_lead 10, clic_whatsapp 9, registro_descuento 1. IG 805 (snapshot 18/07, vs 807 el 17/07). FB page_followers 1.604 (vs 1.600 el 17/07, +4). Enfriamiento sostenido (mundial + modo vacaciones, sitio sin tomar pedidos): WoW vs 10-16/07 sesiones 73->62 (-15%), vistas 110->98 (-11%), clic_whatsapp 9->9 (0%), generate_lead 10->10, registro_descuento 1->1. Sin alarma dura -30%. Días flojos: 14/07 (3 ses.), 16/07 (2 ses.).",
+  "2026-08-01: Entre el 18/07 y el 01/08 NO hubo corridas del agente; el dueño hizo commits directos al repo: sacó por completo la Picada Mundialista y todo el contenido 'Argentina vs España', y agregó un juego 'Atrapá la Picada' (/juego/, 'Jugá y Ganá $2000') que reemplazó al formulario de $2000. El catálogo quedó en 4 productos coherentes con el catálogo autoritativo del prompt. estado.json se re-sincronizó con este estado real.",
+  "Resultado FINAL Mundial 2026 (verificado 2026-08-01 por búsqueda web): 19/07 España 1-0 Argentina (gol de Ferran Torres en el alargue; Enzo Fernández expulsado). Argentina NO campeón. Se ejecutó la rama 'si Argentina pierde' del plan condicional: NO se activó MODO_CAMPEON y se revirtió el tema Argentina.",
+  "Reversión post-Mundial ejecutada (2026-08-01): quitados los 6 acentos celestes (rgba(108,172,228)) del header/CTA/game-cta y eliminada la maquinaria muerta de MODO_CAMPEON (flag + CSS .campeon-bar + script de inyección). Vuelta total a paleta marrón/crema/dorado. Verificado jsdom 0 errores, JSON-LD x2 válidos, MODO_VACACIONES intacto. Commit 74f8c88.",
+  "Mejora del día (2026-08-01): FIX de enlace roto. El banner del juego y el enlace del aviso de vacaciones usaban /juego/ (root-absoluto): OK en Vercel pero 404 en el espejo GitHub Pages (servido bajo /productosoatagonicos/). Cambiados a juego/ (relativo) -> funciona en ambos deploys. Restablece el funnel de leads (juego->cupón) desde Pages. Commit 74f8c88.",
+  "sitemap lastmod = 2026-08-01.",
+  "BLOQUEO Métricas (2026-08-01): el conector Supermetrics reporta trial expirado el 2026-07-25 ('free trial on team Team lorenzoengraf10 has expired'). No se pudieron traer GA4/FB/IG esta corrida. GA4 sigue autenticado y recolectando; caducó el plan de Supermetrics (puente de consulta). Requiere renovar/contratar Supermetrics o mirar GA4 directo.",
+  "Auditoría en vivo 2026-08-01: Vercel canónico y espejo GitHub Pages coherentes y al día (4 picadas, juego 'Jugá y Ganá $2000', banner vacaciones 2/8, GA4 G-42YBW61Q1Q, canonical/OG/Twitter -> tradicional.jpeg). Sin errores técnicos nuevos (salvo el enlace del juego, ya corregido).",
+  "Mejora del día (2026-08-05): se corrigió la FECHA VENCIDA del modo vacaciones. El banner decía 'Estamos de vacaciones hasta el 2/8' y los botones 'Volvemos el 2/8' (VAC_REGRESO='2/8'), pero hoy es 05/08 -> fecha pasada visible en vivo. Se pasó a copy sin fecha: banner 'Estamos de vacaciones y volvemos muy pronto', VAC_REGRESO='muy pronto', botones 'Volvemos muy pronto' (prefijo ajustado de 'Volvemos el ' a 'Volvemos '). MODO_VACACIONES sigue true (no se reabre/toman pedidos sin aviso del dueño). Verificado: 5/5 scripts JS OK, 2/2 JSON-LD válidos, jsdom sin errores (4 botones repuntados, 0 apariciones de '2/8'). Auto-aprobado (pasó los 3 filtros).",
+  "sitemap lastmod = 2026-08-05.",
+  "Auditoría en vivo 2026-08-05: Vercel canónico coherente (4 picadas, juego 'Jugá y Ganá $2000', banner vacaciones, GA4 G-42YBW61Q1Q, canonical/OG/Twitter -> tradicional.jpeg). Sin commits del dueño desde 01/08 (último 6165f88). Sin errores técnicos nuevos.",
+  "Regreso del dueño (2026-08-05): el regreso estaba previsto para el 2/8 y aún NO lo confirmó. Se mantiene MODO_VACACIONES=true; cuando avise que volvió -> poner MODO_VACACIONES=false (reabre pedidos) y revisar mails/WhatsApp acumulados. Hoy sólo se quitó la fecha vencida del copy.",
+  "Reapertura 2026-08-05 (2ª corrida, pedido del dueño): volvió del viaje -> MODO_VACACIONES=false. Botones de pedido vuelven a WhatsApp, botón del modal a 'Encargar', banner de vacaciones oculto (display:none en HTML + gated por flag). Maquinaria de vacaciones intacta/reversible. Verificado jsdom (banner oculto, 4 botones WhatsApp, 0 'Volvemos') + Vercel deploy bf7e3aa READY en producción. Commits ae01a7e + bf7e3aa. Pendiente del dueño: revisar y contactar los leads (mail/WhatsApp) juntados con el juego durante el viaje.",
+  "2026-08-05 (3ª corrida): el dueño pidió discontinuar las métricas automáticas por Supermetrics — va a mandar capturas mensuales en su lugar. Se cerró el punto de métricas en memoria (igual que MailerLite): no se vuelve a intentar Supermetrics ni se reporta el bloqueo del trial vencido en las próximas corridas.",
+  "2026-08-05 (4ª corrida, pedido directo del dueño en el chat): se agregó 'Picada Criolla' (ex-Mundialista) al catálogo — $12.000/800g, pican 7 y comen 4, mismos 6 componentes e imágenes que la Mundialista. Marcada como LA MÁS VENDIDA: primera tarjeta del catálogo, #1 del ranking 'Top de picadas', badge dorado '🔥 MÁS VENDIDA' en tarjeta y modal, y pasó a ser la imagen del hero/LCP (preload+eager) y de og:image/twitter:image/FoodEstablishment.image (antes tradicional.jpeg). La Odisea subió de $22.000 a $25.000 en tarjeta, modal, ranking, meta description y ambos JSON-LD. productos.json ahora tiene 5 productos (criolla, tradicional, odisea, simple, embutidos), todos InStock. Verificado con jsdom (5/5 tarjetas, ranking 4 filas, modal Criolla con sus 6 componentes y precio correctos) y 2/2 JSON-LD válidos.",
+  "2026-08-05 (5ª corrida, pedido del dueño): badge rojo 'TOCÁ ACÁ PARA LA INFO' agregado a Tradicional, Odisea y Simple (antes solo Embutidos lo tenía). En Criolla se combinó con el badge dorado: 'MÁS VENDIDA · TOCÁ ACÁ PARA LA INFO'. Ahora las 5/5 tarjetas tienen badge visible.",
+  "Mejora del día (2026-08-05, 5ª): botón flotante de WhatsApp (verde #25D366, mismo color que .btn-order) fijo abajo a la derecha, visible en todo el sitio, para pedir/consultar sin volver a subir. Excluido del repunte de MODO_VACACIONES (queda siempre activo para consultas). Tracking propio en GA4 (clic_whatsapp/generate_lead, fuente='flotante'). Verificado con jsdom: render, click, eventos, sin errores.",
+  "Ajuste de copy (2026-08-05, 5ª): la descripción de Picada Tradicional decía 'mas popular', lo cual contradecía el nuevo badge 'MÁS VENDIDA' de Picada Criolla. Cambiada a 'nuestra picada original, la que lo empezó todo'. og:description/twitter:description ahora mencionan a la Picada Criolla como la más vendida.",
+  "Mejora del día (2026-08-06): dos señales del <head> que faltaban. (1) preconnect a https://www.googletagmanager.com + dns-prefetch a googletagmanager.com y region1.google-analytics.com — el <script async> de GA calienta la conexión en paralelo al parseo en vez de pagar DNS+TLS al ejecutarse (no compite con el hero: la imagen LCP ya va con preload+fetchpriority=high). (2) og:site_name='Productos Patagónicos' — muestra el nombre del sitio en la previsualización al compartir el enlace (WhatsApp es el canal principal). Cambios aditivos de metadatos, sin efecto visual. Verificado: 2/2 JSON-LD válidos, HTML balanceado, jsdom sin errores. Auto-aprobado (pasó los 3 filtros).",
+  "Revisión TOTAL de código 2026-08-06: index.html (2.201 líneas) + productos.json + 2 JSON-LD + 8 <script> releídos de punta a punta tras las incorporaciones del 05/08 (Criolla, badges, botón flotante, nuevo hero/imagen social). HTML balanceado (9/9 <picture>, 10/10 img con alt, 8/8 <script>), JSON-LD válidos y coherentes con el catálogo (5 InStock), FoodEstablishment enriquecido, accesibilidad del modal/botón flotante OK, ancla #jugar presente, listeners sanos, sin datos sensibles. Sin bugs nuevos.",
+  "Auditoría en vivo 2026-08-06: Vercel canónico coherente (5 picadas — Criolla más vendida $12.000, Tradicional $16.000, Odisea $25.000, Simple $13.000, Embutidos $3.000; og/twitter/FoodEstablishment.image → mundialista.jpeg/Criolla; GA4 G-42YBW61Q1Q; canonical OK; MODO_VACACIONES=false con botones Encargar→WhatsApp). Sin commits del dueño desde 01/08 en el catálogo base (último a5af158 del 05/08). Sin errores técnicos nuevos.",
+  "sitemap lastmod = 2026-08-06.",
+  "2026-08-06: video real del pedido grande agregado (provisto por el dueño). Comprimido de 964KB a 926KB (540x960, H.264 CRF28 + faststart, AAC 96k), orientación vertical horneada en los pixeles (el original traía metadato rotate=90). Poster JPG (65KB) generado de un fotograma propio. Bloque insertado debajo del ranking 'Top de picadas más elegidas' (antes de '¿Buscás algo distinto?'). Se agregó bajada dorada 'Los más elegidos de la comarca' ARRIBA del título del ranking, sin reemplazarlo (pedido explícito del dueño). Tracking GA4 nuevo: evento 'reproduce_video' al primer play. Verificado con jsdom sin errores."
+ ],
+ "propuestas_pendientes_aprobacion": [],
+ "pendientes_tecnicos": [
+  {
+   "id": "render-dinamico-productos",
+   "descripcion": "Opcional: hacer que el HTML renderice las tarjetas desde productos.json. Se pospuso para no arriesgar la conversión (si falla el JS no se ven productos). El JSON-LD ya se genera desde productos.json; el HTML sigue estático como fallback confiable."
   }
+ ],
+ "mundial_2026": {
+  "estado": "finalizado",
+  "ultimo_verificado": "2026-08-01",
+  "detalle": "FINAL 19/07/2026: España 1-0 Argentina (Ferran Torres en el alargue; Enzo Fernández expulsado). España campeón (2ª estrella). Argentina subcampeón. El Mundial terminó.",
+  "resultado": "argentina_perdio",
+  "accion_ejecutada": "2026-08-01: rama 'si Argentina pierde' del plan condicional. NO se activó MODO_CAMPEON. Reversión ejecutada: acentos celestes y maquinaria .campeon-bar/MODO_CAMPEON removidos; paleta marrón/crema/dorado. La Picada Mundialista y el contenido Argentina-vs-España ya los había sacado el dueño por commits directos entre el 18/07 y hoy.",
+  "cerrado": true
+ },
+ "bloqueos_avisados": [
+  "GitHub Pages (espejo): sirviendo la version actual identica a Vercel. Bloqueo cerrado.",
+  "Métricas automáticas (Supermetrics) DISCONTINUADAS por decisión del dueño (2026-08-05): manda capturas mensuales en su lugar. No volver a mencionar el bloqueo del trial."
+ ],
+ "tracking": {
+  "ga4": "G-42YBW61Q1Q",
+  "eventos": [
+   "clic_whatsapp",
+   "generate_lead",
+   "registro_descuento",
+   "scroll_profundidad",
+   "clic_producto",
+   "tiempo_en_pagina",
+   "utm_capture"
+  ],
+  "verificado": "presente en index.html en vivo (Vercel), verificado 2026-07-12"
+ },
+ "mailerlite": {
+  "estado": "CERRADO por el dueño (2026-07-15): 'el mailer esta hecho, no me digas mas'. No reportar ni recordar mas sobre MailerLite."
+ },
+ "decisiones_dueno": [
+  "2026-07-12: NO avanzar aún con la tarjeta de Día del Amigo (sólo era consulta de opinión). Cablear formulario↔MailerLite en la corrida del 13/07.",
+  "2026-07-12: Reemplazar la Picada Mundialista por la nueva composición ($12.000, 750 g) y lanzarla como 'Gran Promoción Mundialista'; marcar el resto de las picadas (Tradicional, Odisea, Simple, Simple EV) como agotadas; darle al sitio un aura Mundial/Argentina.",
+  "2026-07-12: Corregir la foto de la Picada Mundialista (la anterior no correspondía a la composición real) y sacar la Picada Simple EV del catálogo por innecesaria y ocupar espacio.",
+  "2026-07-12: Sacar la Bondiola EV del catálogo, agregar cartelito 'tocá acá para la info' en Embutidos y corregir el recorte de foto en los modales.",
+  "2026-07-12: Actualizar el peso de la Picada Mundialista de 750 g a 800 g.",
+  "2026-07-12: IGNORAR simple.html de forma PERMANENTE. No auditarla, no proponer cambios sobre ella ni volver a mencionarla en reportes. Ya está noindex+canonical a la home; queda congelada.",
+  "2026-07-13: Agregar límite de pedidos para la Picada Mundialista: hasta el martes 14/7, 16:00 hs (antes de la semifinal del miércoles).",
+  "2026-07-15: Volver TODAS las picadas a su funcionamiento normal (reactivar Tradicional, La Odisea y Picada Simple a InStock).",
+  "2026-07-15: Avisar en el sitio que no se elaboran picadas a partir del jueves 16/07 por un compromiso personal.",
+  "2026-07-15: MailerLite ya esta hecho — no volver a mencionarlo ni recordar pasos pendientes.",
+  "2026-08-05: Dejar de traer métricas automáticas (GA4/FB/IG vía Supermetrics) en cada corrida. El dueño va a mandar capturas de pantalla mensualmente para analizar. No volver a intentar Supermetrics ni reportar el bloqueo del trial vencido."
+ ],
+ "metricas_ultima": {
+  "ga4_7d_2026-07-12": {
+   "sesiones": 54,
+   "usuarios": 38,
+   "nuevos": 38,
+   "vistas": 84,
+   "scroll_profundidad": 163,
+   "clic_producto": 43,
+   "generate_lead": 13,
+   "clic_whatsapp": 11,
+   "registro_descuento": 2
+  },
+  "ga4_7d_2026-07-12_reverif": {
+   "rango": "2026-07-05 a 2026-07-11",
+   "clic_producto": 43,
+   "generate_lead": 13,
+   "clic_whatsapp": 11,
+   "registro_descuento": 2,
+   "nota": "Idéntico al snapshot previo; sin caída anómala. Cuello de botella: completar el registro del cupón."
+  },
+  "ga4_7d_2026-07-13": {
+   "rango": "2026-07-06 a 2026-07-12",
+   "sesiones": 68,
+   "usuarios": 43,
+   "nuevos": 39,
+   "vistas": 101,
+   "scroll_profundidad": 180,
+   "clic_producto": 52,
+   "generate_lead": 17,
+   "clic_whatsapp": 15,
+   "registro_descuento": 2,
+   "instagram_seguidores": 806,
+   "nota": "Crecimiento WoW (sesiones +26%, clic_whatsapp 11->15, generate_lead 13->17). Cuello de botella sigue en registro de cupon (2)."
+  },
+  "ga4_7d_2026-07-14": {
+   "rango": "2026-07-07 a 2026-07-13",
+   "sesiones": 78,
+   "usuarios": 47,
+   "nuevos": 45,
+   "vistas": 111,
+   "scroll_profundidad": 188,
+   "clic_producto": 52,
+   "generate_lead": 16,
+   "clic_whatsapp": 14,
+   "registro_descuento": 2,
+   "nota": "WoW vs 06-12/07: sesiones +15%, vistas +10%; clic_whatsapp 15->14 y generate_lead 17->16 estables; registro_descuento 2->2 (cuello de botella). FB/IG no consultados (no autorizados esta corrida)."
+  },
+  "ga4_7d_2026-07-15": {
+   "rango": "2026-07-08 a 2026-07-14",
+   "sesiones": 79,
+   "usuarios": 47,
+   "nuevos": 46,
+   "vistas": 113,
+   "scroll_profundidad": 187,
+   "clic_producto": 47,
+   "generate_lead": 18,
+   "clic_whatsapp": 15,
+   "registro_descuento": 3,
+   "clic_cta_hero": 24,
+   "instagram_seguidores": 805,
+   "facebook_seguidores": 11003,
+   "nota": "WoW vs 07-13/07: sesiones 78->79, vistas 111->113 (estable-al-alza); clic_whatsapp 14->15, generate_lead 16->18, registro_descuento 2->3 (primer movimiento del cuello de botella). IG 805 (vs 806). FB 11.003 legible esta corrida. Sin caidas en el funnel."
+  },
+  "ga4_parcial_2026-07-15": {
+   "rango": "2026-07-15 (parcial, dia en curso ~22:00)",
+   "page_view": 4,
+   "session_start": 4,
+   "clic_producto": 3,
+   "clic_cta_hero": 2,
+   "clic_whatsapp": 1,
+   "generate_lead": 1,
+   "scroll_profundidad": 5,
+   "registro_descuento": 0,
+   "nota": "Dia de la semifinal; datos aun procesandose. Total 7d 08-14/07 identico al de la mañana (79 sesiones/113 vistas). Sin alarma de funnel."
+  },
+  "ga4_7d_2026-07-16": {
+   "rango": "2026-07-09 a 2026-07-15",
+   "sesiones": 80,
+   "usuarios": 46,
+   "nuevos": 44,
+   "vistas": 118,
+   "scroll_profundidad": 179,
+   "clic_producto": 45,
+   "clic_cta_hero": 21,
+   "generate_lead": 12,
+   "clic_whatsapp": 10,
+   "registro_descuento": 2,
+   "instagram_seguidores": 807,
+   "facebook_page_followers": 1595,
+   "nota": "Trafico estable (sesiones 79->80, vistas 113->118 vs 08-14/07). A vigilar: clic_whatsapp 15->10 y generate_lead 18->12 en ventanas solapadas (incluye 15/07, dia de la semifinal); volumenes chicos. registro_descuento cuello de botella en 2. FB 1.595 (page_followers) no coincide con 11.003 del 15/07 -> otra metrica ese dia; no se compara WoW."
+  },
+  "ga4_7d_2026-07-17": {
+   "rango": "2026-07-10 a 2026-07-16",
+   "sesiones": 73,
+   "usuarios": 39,
+   "nuevos": 37,
+   "vistas": 110,
+   "scroll_profundidad": 156,
+   "clic_producto": 36,
+   "clic_cta_hero": 14,
+   "generate_lead": 10,
+   "clic_whatsapp": 9,
+   "registro_descuento": 1,
+   "instagram_seguidores": 807,
+   "facebook_page_followers": 1600,
+   "nota": "Enfriamiento post-semifinal: la ventana solto el pico del 15/07 -> baja leve WoW vs 09-15/07 (sesiones 80->73 -9%, vistas 118->110 -7%, clic_whatsapp 10->9 -10%, generate_lead 12->10, clic_cta_hero 21->14, clic_producto 45->36). Sin alarma dura -30% en clic_whatsapp. registro_descuento cuello de botella en 1. IG 807 estable, FB 1.600 (+5)."
+  },
+  "ga4_7d_2026-07-18": {
+   "rango": "2026-07-11 a 2026-07-17",
+   "sesiones": 62,
+   "usuarios": 31,
+   "nuevos": 29,
+   "vistas": 98,
+   "scroll_profundidad": 137,
+   "clic_producto": 31,
+   "clic_cta_hero": 13,
+   "generate_lead": 10,
+   "clic_whatsapp": 9,
+   "registro_descuento": 1,
+   "instagram_seguidores": 805,
+   "facebook_page_followers": 1604,
+   "nota": "Enfriamiento sostenido (mundial + modo vacaciones). WoW vs 10-16/07: sesiones 73->62 (-15%), vistas 110->98 (-11%), clic_whatsapp 9->9 (0%), generate_lead 10->10, registro_descuento 1->1. Sin alarma -30% en clic_whatsapp. Días flojos 14/07 (3) y 16/07 (2). IG 805 (-2), FB 1.604 (+4)."
+  },
+  "ga4_7d_2026-08-01": {
+   "rango": "2026-07-25 a 2026-07-31",
+   "estado": "SIN DATOS",
+   "nota": "No se pudo consultar: Supermetrics trial expirado el 2026-07-25. GA4 sigue recolectando; renovar Supermetrics o mirar GA4 directo."
+  },
+  "ga4_7d_2026-08-05": {
+   "rango": "2026-07-29 a 2026-08-04",
+   "estado": "SIN DATOS",
+   "nota": "Supermetrics trial sigue expirado (2026-07-25). GAWA figura AUTHENTICATED (Google OAuth OK) y GA4 sigue recolectando, pero data_query devuelve 'free trial expired'. Bloqueo ya avisado el 01/08; no se repite como alarma. Renovar Supermetrics o mirar GA4 directo."
+  }
+ },
+ "catalogo_override_dueno": {
+  "actualizado": "2026-08-05",
+  "nota": "2026-08-05: el dueño pidió reincorporar la ex-Picada Mundialista con el nombre 'Picada Criolla', manteniendo todas sus estadísticas ($12.000, 800 g, pican 7 y comen 4, mismos 6 componentes e imágenes), y marcarla como LA MÁS VENDIDA (primera tarjeta, #1 del ranking, badge dorado, imagen del hero/LCP y de redes sociales). Además subió La Odisea de $22.000 a $25.000. Este catálogo (5 productos, todos InStock) reemplaza cualquier catálogo autoritativo anterior del prompt en lo que respecta a Picada Criolla y La Odisea — es un override explícito y directo del dueño en el chat, no de la corrida programada.",
+  "picada_mundialista": {
+   "precio": "$12.000",
+   "porcion": "800 g",
+   "rinde": "pican 7 comen 4",
+   "promo": "Gran Promoción Mundialista",
+   "componentes": [
+    "Chorizo seco",
+    "Mortadela",
+    "Morcilla blanca",
+    "Morcilla negra",
+    "Queso criollo",
+    "Queso de cerdo"
+   ]
+  },
+  "agotadas": [],
+  "eliminadas_del_catalogo": [
+   "Picada Simple EV",
+   "Bondiola EV"
+  ],
+  "sin_cambios": [
+   "Embutidos EV $3.000 (ahora con modal)"
+  ],
+  "reactivadas_2026-07-15": [
+   "Picada Tradicional",
+   "La Odisea",
+   "Picada Simple"
+  ],
+  "pausa_produccion": "No se elaboran picadas a partir del jueves 16/07 (compromiso personal del dueño).",
+  "picada_criolla": {
+   "precio": "$12.000",
+   "porcion": "700 g",
+   "rinde": "pican 6 y comen 3",
+   "estado": "LA MÁS VENDIDA (badge 🔥, #1 del ranking, imagen del hero/LCP y de redes)",
+   "componentes": [
+    "Chorizo seco",
+    "Mortadela",
+    "Morcilla blanca",
+    "Morcilla negra",
+    "Queso criollo",
+    "Queso de cerdo"
+   ],
+   "imagen": "mundialista.jpeg / mundialista.webp / mundialista.avif (reutilizadas)",
+   "nota": "2026-08-06 el dueño la bajó de 800 g a 700 g (pican 6 comen 3), commit ce45bce."
+  },
+  "la_odisea_precio": "$25.000 (subido desde $22.000 el 2026-08-05, pedido del dueño)"
+ },
+ "directiva_mejora_continua": "El dueño pidió (2026-07-12) que CADA corrida busque activamente cosas para mejorar y ejecute/proponga al menos una. Mantener y priorizar el backlog 'ideas_mejora'. NUNCA tocar ni mencionar simple.html.",
+ "ideas_mejora": [
+  {
+   "area": "SEO local",
+   "idea": "Preparar y publicar el perfil de Google Business Profile (nombre, categoría 'Charcutería', zona Carmen de Patagones/Viedma, fotos de picadas, link al sitio, WhatsApp).",
+   "impacto": "Alto: aparecer en Google Maps y en el pack local es la mayor fuente de clientes cercanos.",
+   "estado": "EN PAUSA hasta el regreso del dueño (2/8): paquete de alta ya entregado como docx el 2026-07-17; falta que el dueño cree/verifique la ficha (paso personal)."
+  },
+  {
+   "area": "Conversión / prueba social",
+   "idea": "Sección de testimonios reales (capturas de WhatsApp anonimizadas) + galería de picadas entregadas. Es cambio de diseño → proponer con vista previa.",
+   "impacto": "Alto: la confianza es el principal freno para el primer pedido.",
+   "estado": "pendiente"
+  },
+  {
+   "area": "Analítica",
+   "idea": "Marcar generate_lead, registro_descuento y clic_whatsapp como 'key events' (conversiones) en GA4 para poder medir el embudo y la tasa de cierre real.",
+   "impacto": "Medio-alto: hoy no se puede ver el % de conversión de forma nativa.",
+   "estado": "pendiente 2026-08-09: se instaló GA4 + eventos (juego_iniciado, registro_descuento, generate_lead, clic_whatsapp) en /juego/, que antes no medía nada. Pendiente aún: marcar generate_lead/registro_descuento/clic_whatsapp como key events en GA4 (paso del dueño en la consola)."
+  },
+  {
+   "area": "Performance / CLS",
+   "idea": "Agregar width/height explícitos a las <img> y considerar AVIF además de WebP; auditar LCP del hero en móvil (<2,5s).",
+   "impacto": "Medio: mejora Core Web Vitals y ranking móvil.",
+   "estado": "parcial: width/height (07-13), Google Fonts no bloqueante (07-13), AVIF (07-14), preload imagen LCP hero (07-15) y og/twitter image alt (07-15) hechos. Pendiente: medir LCP real en movil (<2,5s) con datos de campo. 2026-07-18: rel=noopener agregado a los 7 enlaces _blank faltantes (Best Practices)."
+  },
+  {
+   "area": "Conversión / urgencia",
+   "idea": "En la Picada Mundialista, reforzar escasez/temporada (contador hacia la semifinal 15/07, 'edición limitada Mundial'). Proponer con vista previa.",
+   "impacto": "Medio-alto: urgencia sobre el producto que hoy concentra la demanda.",
+   "estado": "pendiente"
+  },
+  {
+   "area": "Email / MailerLite",
+   "idea": "Una vez activa la bienvenida, montar una campaña recurrente con la picada que más convierte (según clics de WhatsApp por producto).",
+   "impacto": "Medio: reactiva base de 29+ suscriptores.",
+   "estado": "pendiente"
+  },
+  {
+   "area": "Estacional / post-Mundial",
+   "idea": "Plan de reversion post-19/07 (final Argentina vs Espana el 19/07): volver a paleta marron/crema, quitar tema Argentina y detectar la proxima fecha relevante (Dia del Amigo 20/07, invierno). NOTA: las picadas ya fueron reactivadas por el dueño el 15/07 (no hay que reactivarlas en la reversion).",
+   "impacto": "Medio: mantener el sitio vigente cuando termine el Mundial.",
+   "estado": "pendiente"
+  },
+  {
+   "area": "Conversión / formulario",
+   "idea": "Evaluar pedir nombre + WhatsApp (opcional) en el registro del cupón para poder recontactar, cuidando no sumar fricción. Requiere aprobación (cambio de conversión).",
+   "impacto": "Medio: hoy sólo se captura email; con WhatsApp se puede cerrar la venta.",
+   "estado": "HECHO 2026-07-18: campo WhatsApp opcional agregado (aprobado por el dueño). El número llega por la notificación de Formspree."
+  },
+  {
+   "area": "Schema / SEO",
+   "idea": "Cuando haya reseñas, agregar aggregateRating al FoodEstablishment; sumar priceRange y openingHours si el dueño los confirma.",
+   "impacto": "Medio: rich snippets y mejor CTR en buscadores.",
+   "estado": "parcial: geo (GeoCoordinates), areaServed y sameAs (IG+FB) agregados al FoodEstablishment el 2026-07-16. Pendiente: aggregateRating cuando haya reseñas, y priceRange ya presente; openingHours si el dueño los confirma."
+  },
+  {
+   "area": "Conversión / prueba social",
+   "idea": "Ver arriba: sección de testimonios/galería sigue pendiente de fotos del dueño.",
+   "impacto": "Alto",
+   "estado": "pendiente (ya registrada antes)"
+  },
+  {
+   "area": "Conversión / urgencia",
+   "idea": "Franja 'pedí con tiempo' para días de mayor demanda (si el dueño confirma cuáles), o packs/combos con descuento por cantidad.",
+   "impacto": "Medio",
+   "estado": "propuesto 2026-08-05, pendiente de aprobación del dueño"
+  },
+  {
+   "area": "Conversión / prueba social",
+   "idea": "Video del pedido grande agregado (2026-08-06) debajo del ranking de más pedidos.",
+   "impacto": "Alto",
+   "estado": "HECHO 2026-08-06 (video provisto por el dueño)"
+  }
+ ],
+ "modo_vacaciones": {
+  "activo": false,
+  "desde": "2026-07-17",
+  "regreso_dueno": "2026-08-02",
+  "regla": "El dueño está de viaje y NO puede tomar decisiones ni pedidos hasta el 2/8. Implementado en index.html: flag window.MODO_VACACIONES=true. Banner de vacaciones con fecha de regreso (2/8); los botones de pedido (btn-order, hero 'Consulta Directa', 'a medida' y el botón del modal) repuntan al formulario de mail (#descuento) en vez de abrir WhatsApp de pedido; el formulario del cupón ($2000) sigue ACTIVO para juntar mails. El grupo de comunidad de WhatsApp queda intacto.",
+  "reapertura": "Cuando el dueño vuelva (2/8) y avise, poner window.MODO_VACACIONES=false (revierte banner y botones a normal) y revisar el mail acumulado de suscriptores.",
+  "no_tomar_pedidos": true,
+  "capturar_mails": true,
+  "nota_regreso": "Hoy es 05/08; el regreso estaba previsto para el 02/08 y el dueño AÚN NO confirmó que volvió. Se mantiene MODO_VACACIONES=true. Se quitó la fecha vencida del copy (banner y botones ya no dicen '2/8'; ahora 'volvemos muy pronto'). Cuando confirme el regreso: poner window.MODO_VACACIONES=false (revierte banner/botones y reabre pedidos) y revisar los mails/WhatsApp acumulados.",
+  "reabierto": "2026-08-05: el dueño confirmó el regreso y se puso MODO_VACACIONES=false (pedidos por WhatsApp reactivados; banner de vacaciones oculto). Maquinaria de vacaciones intacta y reversible para el próximo viaje (flag=true)."
+ },
+ "plan_post_mundial_condicional": {
+  "decidido": "2026-07-17 (pedido explícito del dueño, PRE-APROBADO para ejecutar sin esperar aprobación)",
+  "final": "Argentina vs España, domingo 19/07/2026 16:00 ARG, MetLife Stadium.",
+  "ejecutar_en": "corrida del 20/07 (o la primera tras conocerse el resultado real; verificar por búsqueda web, nunca inventar).",
+  "si_argentina_gana": "Activar MODO CAMPEÓN: poner window.MODO_CAMPEON=true en index.html (ya está pre-construido: inyecta una barra de celebración celeste/blanca '¡ARGENTINA CAMPEÓN DEL MUNDO!' al tope del contenido, con CSS .campeon-bar ya presente). Mantener la simbología/colores argentinos festivos durante ~1 MES (hasta ~19/08). Registrar fecha de activación y fecha de apagado (~19/08). Pasado el mes, poner MODO_CAMPEON=false y revertir la paleta a la normal (marrón/crema/dorado).",
+  "si_argentina_pierde": "NO activar MODO_CAMPEON. Revertir directo a la normalidad: paleta original marrón/crema/dorado, quitar el tema/aura Argentina y el estilo Mundial de la tarjeta Mundialista (quitar flag-esp/matchup, dejar la tarjeta normal). La Picada Mundialista queda como una picada más del catálogo salvo que el dueño decida otra cosa.",
+  "nota_hero": "El destacado actual es la Picada Mundialista ('Gran Promoción Mundialista'). Al terminar el Mundial pierde temporada; si no hay MODO_CAMPEON, evaluar volver el hero a la Tradicional (más popular). Como el dueño no está, mantener el catálogo estable y NO tomar decisiones de rediseño mayores fuera de este plan; sólo ejecutar la reversión/celebración descrita.",
+  "flags_index": "window.MODO_CAMPEON (default false) + window.CAMPEON_HASTA='19/8'. Barra pre-construida y probada (jsdom): off→sin barra, on→barra con celebración, sin errores JS.",
+  "ejecutado": "2026-08-01: Argentina PERDIÓ la final 1-0 vs España. Ejecutada la rama 'si_argentina_pierde': NO se activó MODO_CAMPEON; se revirtió el tema/aura Argentina (celestes + maquinaria campeón). Capítulo cerrado."
+ },
+ "bitacora_excel": {
+  "estado": "ABANDONADO por el dueño (2026-07-18). Dejar de actualizar 'vitacora de SEO PP.xlsx' (queda congelado como histórico). NO volver a tocarlo ni reportarlo.",
+  "reemplazo": "La bitácora diaria es únicamente seo-log/bitacora.md. Es también la ventana del dueño desde el celular vía GitHub (github.com/lorenzoengraf10-dot/productosoatagonicos/blob/main/seo-log/bitacora.md). Mantenerla siempre al día y clara, con lo logrado y lo pendiente/a futuro de cada corrida."
+ },
+ "margen_viaje_dueno": {
+  "definido": "2026-07-17",
+  "vigencia": "Durante el viaje del dueño (hasta el 2/8).",
+  "permitido_sin_pedir": "Mejoras técnicas/SEO/performance/accesibilidad/tracking (ya pre-aprobadas) + ajustes MENORES de copy o textos de CTA si hay una mejora clara. Más lo ya pactado: Mundial (plan condicional) y modo vacaciones.",
+  "NO_permitido": "Rediseños, cambios de layout/paleta/tipografía, nueva sección de diseño (ej: testimonios), o cambios de conversión estructurales (formulario, orden del catálogo). Esas ideas se ANOTAN en la bitácora para decidir cuando el dueño vuelva.",
+  "nota": "El dueño eligió 'Técnico + ajustes menores de copy' el 2026-07-17."
+ },
+ "criterio_autoaprobacion": {
+  "definido": "2026-07-18 (pedido del dueño, aplica también durante el viaje hasta el 2/8 y en adelante).",
+  "regla": "Ante una posible implementación o arreglo de error, evaluar los 3 campos. Solo si los 3 dan SÍ, aprobarla y ejecutarla sin consultar. Si alguno da NO, NO ejecutarla: dejarla anotada como propuesta en la bitácora para cuando el dueño vuelva.",
+  "campos": [
+   "1) ¿Es necesaria AHORA? = algo que se puede hacer ya y que mejora un aspecto necesario del sitio, o que es el arreglo de un error real.",
+   "2) ¿La puedo hacer YO sin ningún problema? = no depende del dueño (no requiere logins/OAuth, ni fotos/textos/decisiones suyas), es de bajo riesgo y reversible.",
+   "3) ¿Su futuro es POSITIVO? = el resultado neto es una mejora clara, sin efectos negativos ni arrepentimiento probable."
+  ],
+  "relacion_con_margen_viaje": "Amplía el margen anterior ('técnico + ajustes menores de copy'): ahora también se pueden hacer implementaciones o fixes mayores SIEMPRE que pasen los 3 campos. Lo que no pase los 3 (ej: rediseños que dependen de assets del dueño, o cambios opinables) sigue como propuesta para el regreso.",
+  "registro": "Toda auto-aprobación se documenta en bitacora.md dejando claro que pasó los 3 campos y por qué."
+ },
+ "artefacto_panel": {
+  "id": "panel-productos-patagonicos",
+  "creado": "2026-07-18",
+  "que_es": "Dashboard en Cowork (artefacto HTML) para que el dueño vea de un vistazo: estado del sitio (vacaciones/Mundial), métricas GA4/IG/FB 7 días, calendario de hitos, actividad reciente (bitácora) y pendientes.",
+  "regla": "En cada corrida, ADEMÁS de bitacora.md, actualizar este artefacto con update_artifact (id 'panel-productos-patagonicos'): refrescar la constante DATA del HTML (metricas, sesiones_trend, timeline, actividad [últimas ~12], pendiente y campo 'actualizado'). El artefacto NO tiene red salvo los CDN permitidos (Chart.js/Grid.js/Mermaid), así que los datos van EMBEBIDOS en el HTML; no intentar fetch a GitHub ni a otras URLs.",
+  "nota": "Diseñado para light mode (fondo claro). Datos reales, nunca inventar."
+ },
+ "metricas": {
+  "estado": "CERRADO por el dueño (2026-08-05): ya no se consultan métricas automáticas (GA4/Facebook/Instagram vía Supermetrics) en cada corrida. El dueño va a mandar capturas mensualmente. NO volver a intentar Supermetrics, NO reportar el bloqueo del trial vencido, NO pedir ni recordar métricas en el reporte diario salvo que el dueño mande capturas para analizar."
+ },
+ "mejoras_del_dia": [
+  {
+   "fecha": "2026-08-09",
+   "mejora": "GA4 + 4 eventos de embudo instalados en /juego/ (antes sin tracking) + /juego/ en sitemap y con canonical/description."
+  }
+ ]
 }

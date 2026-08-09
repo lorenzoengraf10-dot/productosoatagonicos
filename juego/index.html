@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>Atrapá la Picada — Productos Patagónicos</title>
+<meta name="description" content="Jugá a Atrapá la Picada de Productos Patagónicos y ganá un cupón de $2000 para tu próxima picada artesanal en Carmen de Patagones y Viedma.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://productosoatagonicos.vercel.app/juego/">
+<!-- Google Analytics 4 (mismo stream que el sitio) para medir el embudo del juego -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-42YBW61Q1Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-42YBW61Q1Q');
+</script>
 <style>
   :root{
     --bg:#20281f; --panel:rgba(34,44,32,.96); --wood:#8a5a2b; --wood2:#5f3c1a;
@@ -411,6 +423,7 @@ function startGame(){
   hide('startScreen'); hide('endScreen');
   document.getElementById('hud').classList.add('show');
   document.getElementById('brandFooter').style.display='none';
+  if(window.gtag) gtag('event','juego_iniciado');
 }
 
 function endGame(){
@@ -445,6 +458,8 @@ function showCoupon(already){
     + CONFIG.couponCode + ' (' + CONFIG.couponCondition + '). Quiero usarlo en mi pedido 🧀🍷';
   document.getElementById('waBtn').href =
     'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg);
+  var _wa=document.getElementById('waBtn');
+  if(_wa && !_wa._ppTracked){ _wa._ppTracked=true; _wa.addEventListener('click',function(){ if(window.gtag) gtag('event','clic_whatsapp',{origen:'juego_cupon'}); }); }
   show('stepCoupon');
 }
 
@@ -484,6 +499,7 @@ document.getElementById('unlockBtn').addEventListener('click', async ()=>{
   }catch(e){}
   // suscripción a MailerLite en segundo plano: el cupón se muestra al instante
   subscribeMailerLite(email, name);
+  if(window.gtag){ gtag('event','registro_descuento',{score:score}); gtag('event','generate_lead',{currency:'ARS',value:2000}); }
   showCoupon(false);
 });
 
