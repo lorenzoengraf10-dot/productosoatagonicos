@@ -173,7 +173,7 @@ const CONFIG = {
   couponCondition: '$2000 de descuento en tu compra',
   whatsapp: '542920347453',   // número con código de país (54) y sin signos
   gameSeconds: 60,
-  winScore: 0                // 0 = todos ganan el cupón (juego = enganche, no filtro)
+  winScore: 700               // puntaje mínimo para ganar el cupón
 };
 
 /* ============================================================
@@ -397,11 +397,16 @@ function endGame(){
   document.getElementById('hud').classList.remove('show');
   document.getElementById('brandFooter').style.display='';
   document.getElementById('finalScore').textContent = score;
-  document.getElementById('resultMsg').textContent =
-    score>=250 ? '¡Sos un crack de la picada! 🧀🏆' :
-    score>=120 ? '¡Muy bien! Ganaste tu descuento 🎉' :
-                 '¡Listo! Igual te llevás tu descuento 🎉';
-  showCoupon();
+  const won = score >= CONFIG.winScore;
+  document.getElementById('resultMsg').textContent = won
+    ? '¡Sos un crack de la picada! Ganaste tu descuento 🎉🏆'
+    : 'Te faltaron ' + (CONFIG.winScore - score) + ' puntos para el cupón. ¡Probá de nuevo! 💪';
+  if(won){
+    showCoupon();
+  } else {
+    hide('stepCoupon');
+    show('stepResult');
+  }
   show('endScreen');
 }
 
