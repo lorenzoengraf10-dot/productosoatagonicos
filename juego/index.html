@@ -88,7 +88,7 @@
   .gate-sub{color:#d6e0cc;font-size:13px;line-height:1.5;margin:0;}
   .field{display:flex;flex-direction:column;gap:6px;text-align:left;}
   .field label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);}
-  .field input[type=email],.field input[type=text]{font-family:inherit;font-size:16px;padding:13px 14px;border-radius:10px;
+  .field input[type=email],.field input[type=text],.field input[type=tel]{font-family:inherit;font-size:16px;padding:13px 14px;border-radius:10px;
     border:1.5px solid #3c4a2c;background:#1a2213;color:var(--cream);outline:none;transition:.12s;}
   .field input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(143,211,176,.18);}
   .consent{display:flex;gap:9px;align-items:flex-start;text-align:left;font-size:11px;color:var(--dim);line-height:1.45;cursor:pointer;}
@@ -147,7 +147,7 @@
     <!-- email gate -->
     <div id="stepGate" class="hidden" style="display:flex;flex-direction:column;gap:14px;">
       <h2 class="gate-h">🎁 Desbloqueá tus <span style="color:var(--gold)">$2000</span></h2>
-      <p class="gate-sub">Dejanos tu Gmail y te enviamos el cupón. Lo vas a ver también acá al toque.</p>
+      <p class="gate-sub">Dejanos tu Gmail y tu WhatsApp y te enviamos el cupón. Lo vas a ver también acá al toque.</p>
       <div class="field">
         <label for="nameInput">Tu nombre (opcional)</label>
         <input type="text" id="nameInput" autocomplete="given-name" placeholder="Nombre">
@@ -156,9 +156,13 @@
         <label for="emailInput">Tu Gmail</label>
         <input type="email" id="emailInput" autocomplete="email" inputmode="email" placeholder="tunombre@gmail.com">
       </div>
+      <div class="field">
+        <label for="phoneInput">Tu WhatsApp</label>
+        <input type="tel" id="phoneInput" autocomplete="tel" inputmode="tel" placeholder="2920 34-7453">
+      </div>
       <label class="consent">
         <input type="checkbox" id="consentInput">
-        <span>Quiero recibir el cupón y novedades de Productos Patagónicos por email.</span>
+        <span>Quiero recibir el cupón y novedades de Productos Patagónicos por email y WhatsApp.</span>
       </label>
       <p class="err" id="gateErr"></p>
       <button class="btn play" id="unlockBtn">Desbloquear cupón</button>
@@ -467,14 +471,16 @@ function showCoupon(already){
    Email gate → MailerLite
    ============================================================ */
 function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+function validPhone(v){ return v.replace(/\D/g,'').length >= 8; }
 
-async function subscribeMailerLite(email, name){
+async function subscribeMailerLite(email, name, phone){
   const m = CONFIG.mailerlite;
   if(!m.enabled) return;
   const url = `https://assets.mailerlite.com/jsonp/${m.accountId}/forms/${m.formId}/subscribe`;
   const body = new URLSearchParams();
   body.append('fields[email]', email);
   if(name) body.append('fields[name]', name);
+  if(phone) body.append('fields[phone]', phone);
   body.append('ml-submit', '1');
   body.append('anticsrf', 'true');
   try{
@@ -485,20 +491,22 @@ async function subscribeMailerLite(email, name){
 document.getElementById('unlockBtn').addEventListener('click', async ()=>{
   const email = document.getElementById('emailInput').value.trim();
   const name  = document.getElementById('nameInput').value.trim();
+  const phone = document.getElementById('phoneInput').value.trim();
   const consent = document.getElementById('consentInput').checked;
   const err = document.getElementById('gateErr');
   if(!validEmail(email)){ err.textContent='Poné un email válido (ej: nombre@gmail.com).'; return; }
+  if(!validPhone(phone)){ err.textContent='Poné un WhatsApp válido (ej: 2920 34-7453).'; return; }
   if(!consent){ err.textContent='Marcá la casilla para recibir tu cupón.'; return; }
   err.textContent='';
   // guardado local (fuente de verdad + evita re-pedir)
   try{
     localStorage.setItem('pp_lead_email', email);
     const leads = JSON.parse(localStorage.getItem('pp_leads')||'[]');
-    leads.push({email, name, score, date:new Date().toISOString()});
+    leads.push({email, name, phone, score, date:new Date().toISOString()});
     localStorage.setItem('pp_leads', JSON.stringify(leads));
   }catch(e){}
   // suscripción a MailerLite en segundo plano: el cupón se muestra al instante
-  subscribeMailerLite(email, name);
+  subscribeMailerLite(email, name, phone);
   if(window.gtag){ gtag('event','registro_descuento',{score:score}); gtag('event','generate_lead',{currency:'ARS',value:2000}); }
   showCoupon(false);
 });
