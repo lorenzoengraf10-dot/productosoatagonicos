@@ -91,7 +91,7 @@
 
         /* Objetivos táctiles cómodos para el dedo (mín. ~44px de Apple/Google) */
         .cta-btn, .btn-order, .btn-submit, .modal-close, .header-scroll,
-        .btn-cart-add, .btn-send-order, .floating-cart, .qty-btn, .cart-line-remove {
+        .btn-cart-add, .btn-send-order, .floating-cart, .qty-btn, .cart-line-remove, .btn-quick-order {
             min-height: 44px;
             touch-action: manipulation;   /* elimina el retardo de 300ms al tocar */
         }
@@ -661,6 +661,30 @@
         .btn-cart-add:hover { background: var(--brand-gold-light); transform: translateY(-2px); }
 
         .btn-cart-add.is-added { background: #25D366; color: #ffffff; }
+
+        /* Botón chico "Pedir por WhatsApp": pide solo ese producto directo, sin pasar
+           por el carrito. Pensado para quien quiere algo mas rapido/sencillo. */
+        .btn-quick-order {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-top: 0.7rem;
+            background: rgba(37,211,102,0.12);
+            color: #25D366;
+            border: 1px solid rgba(37,211,102,0.45);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-radius: 3px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .btn-quick-order:hover { background: rgba(37,211,102,0.22); transform: translateY(-1px); }
 
         /* Botón "enviar pedido por WhatsApp" del carrito: mismo look que .btn-order */
         .btn-send-order {
@@ -1749,6 +1773,7 @@
                         <div class="card-price"><sup>$</sup>12.000</div>
                         <button type="button" class="btn-cart-add" data-product-id="criolla">🛒 Agregar</button>
                     </div>
+                    <a href="https://wa.me/542920667796?text=Hola!%20Quiero%20encargar%20la%20Picada%20criolla." target="_blank" rel="noopener" class="btn-quick-order">📲 Pedir por WhatsApp</a>
                 </div>
             </div>
 
@@ -1772,6 +1797,7 @@
                         <div class="card-price"><sup>$</sup>16.000</div>
                         <button type="button" class="btn-cart-add" data-product-id="tradicional">🛒 Agregar</button>
                     </div>
+                    <a href="https://wa.me/542920667796?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional." target="_blank" rel="noopener" class="btn-quick-order">📲 Pedir por WhatsApp</a>
                 </div>
             </div>
 
@@ -1795,6 +1821,7 @@
                         <div class="card-price"><sup>$</sup>25.000</div>
                         <button type="button" class="btn-cart-add" data-product-id="odisea">🛒 Agregar</button>
                     </div>
+                    <a href="https://wa.me/542920667796?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea." target="_blank" rel="noopener" class="btn-quick-order">📲 Pedir por WhatsApp</a>
                 </div>
             </div>
 
@@ -1818,6 +1845,7 @@
                         <div class="card-price"><sup>$</sup>13.000</div>
                         <button type="button" class="btn-cart-add" data-product-id="simple">🛒 Agregar</button>
                     </div>
+                    <a href="https://wa.me/542920667796?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple." target="_blank" rel="noopener" class="btn-quick-order">📲 Pedir por WhatsApp</a>
                 </div>
             </div>
 
@@ -1840,6 +1868,7 @@
                         <div class="card-price"><sup>$</sup>3.000</div>
                         <button type="button" class="btn-cart-add" data-product-id="embutidos">🛒 Agregar</button>
                     </div>
+                    <a href="https://wa.me/542920667796?text=Hola!%20Quiero%20encargar%20los%20embutidos%20envasados%20al%20vacio." target="_blank" rel="noopener" class="btn-quick-order">📲 Pedir por WhatsApp</a>
                 </div>
             </div>
 
@@ -1960,6 +1989,7 @@
                 <div class="modal-price" id="modalPrice"></div>
                 <a href="#" id="modalWaBtn" target="_blank" rel="noopener">📲 Encargar</a>
             </div>
+            <a href="#" id="modalQuickOrderBtn" target="_blank" rel="noopener" class="btn-quick-order" style="display:none">📲 Pedir por WhatsApp</a>
         </div>
     </div>
 </div>
@@ -2186,6 +2216,15 @@
     var overlay  = document.getElementById('productModal');
     var closeBtn = document.getElementById('modalCloseBtn');
 
+    /* Mensajes del botón rápido "Pedir por WhatsApp" (pide solo ese producto, sin pasar por el carrito) */
+    var QUICK_MESSAGES = {
+        criolla:     'https://wa.me/542920667796?text=Hola!%20Quiero%20encargar%20la%20Picada%20criolla.',
+        tradicional: 'https://wa.me/542920667796?text=Hola!%20Quiero%20encargar%20la%20Picada%20tradicional.',
+        odisea:      'https://wa.me/542920667796?text=Hola!%20Quiero%20encargar%20la%20Picada%20LA%20odisea.',
+        simple:      'https://wa.me/542920667796?text=Hola!%20Quiero%20encargar%20la%20Picada%20simple.',
+        embutidos:   'https://wa.me/542920667796?text=Hola!%20Quiero%20encargar%20los%20embutidos%20envasados%20al%20vacio.'
+    };
+
     function openModal(card) {
         var name        = card.dataset.modalName        || '';
         var desc        = card.dataset.modalDescription || '';
@@ -2235,6 +2274,7 @@
         }
 
         var waBtn = document.getElementById('modalWaBtn');
+        var quickBtn = document.getElementById('modalQuickOrderBtn');
         var soldOut = badge === 'Agotado';
         waBtn.classList.remove('btn-order', 'btn-order-soldout', 'btn-cart-add');
         if (soldOut) {
@@ -2242,17 +2282,25 @@
             delete waBtn.dataset.productId;
             waBtn.classList.add('btn-order-soldout');
             waBtn.textContent = 'Agotado';
+            quickBtn.style.display = 'none';
         } else if (window.MODO_VACACIONES) {
             waBtn.href = '#jugar';
             delete waBtn.dataset.productId;
             waBtn.classList.add('btn-order');
             waBtn.textContent = '🔔 Volvemos ' + (window.VAC_REGRESO || 'pronto');
             waBtn.addEventListener('click', closeModal, { once: true });
+            quickBtn.style.display = 'none';
         } else {
             waBtn.removeAttribute('href');
             waBtn.dataset.productId = productId;
             waBtn.classList.add('btn-cart-add');
             waBtn.textContent = '🛒 Agregar al carrito';
+            if (QUICK_MESSAGES[productId]) {
+                quickBtn.href = QUICK_MESSAGES[productId];
+                quickBtn.style.display = '';
+            } else {
+                quickBtn.style.display = 'none';
+            }
         }
 
         overlay.classList.add('is-open');
@@ -2459,6 +2507,29 @@
                 currency: 'ARS',
                 value: CART_PRODUCTS[id].price,
                 items: [{ item_id: id, item_name: CART_PRODUCTS[id].name, quantity: 1 }]
+            });
+        }
+    });
+
+    /* Analytics del boton rapido "Pedir por WhatsApp" (tarjetas y modal) */
+    document.addEventListener('click', function (e) {
+        var btn = e.target.closest('.btn-quick-order');
+        if (!btn || !btn.getAttribute('href')) return;
+        var card = btn.closest('.product-card');
+        var producto = card ? (card.dataset.modalName || '') : (document.getElementById('modalProductName') || {}).textContent || '';
+        if (typeof gtag === 'function') {
+            gtag('event', 'clic_whatsapp', {
+                event_category: 'Conversion',
+                event_label: producto,
+                producto: producto,
+                fuente: 'pedido-rapido',
+                destino: btn.href
+            });
+            gtag('event', 'generate_lead', {
+                currency: 'ARS',
+                value: 1,
+                event_category: 'WhatsApp',
+                event_label: producto
             });
         }
     });
