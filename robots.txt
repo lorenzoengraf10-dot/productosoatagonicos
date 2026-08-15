@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://productosoatagonicos.vercel.app/sitemap.xml
+Sitemap: https://productospatagonicos.vercel.app/sitemap.xml
