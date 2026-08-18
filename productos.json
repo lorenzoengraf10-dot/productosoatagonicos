@@ -14,7 +14,7 @@
     {
       "id": "criolla",
       "nombre": "Picada Criolla",
-      "precio": 12000,
+      "precio": 14000,
       "porcion": "700 g",
       "porciones_texto": "pican 6 y comen 3",
       "componentes": [
@@ -70,7 +70,7 @@
     {
       "id": "simple",
       "nombre": "Picada Simple",
-      "precio": 13000,
+      "precio": 12500,
       "porcion": "500 g",
       "porciones_texto": "pican 4 comen 2",
       "componentes": [
